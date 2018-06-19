@@ -1,5 +1,3 @@
-package com.company;
-
 import java.util.*;
 
 public class Recipe {
@@ -7,27 +5,32 @@ public class Recipe {
     private String name;
     private Enum category;
     private String description;
-    List<Ingredient> list;
+    private Map<String,Ingredient> ingredientsMap;
 
 
     public Recipe(String name, Enum category, String description) {
         this.name = name;
         this.category = category;
         this.description = description;
-        list = new LinkedList<>();
+        ingredientsMap = new HashMap<>();
 
     }
 
 
-    public void addIngredient(Ingredient in) {
+    public void addIngredient(String name, Ingredient in) {
 
-        list.add(in);
+        ingredientsMap.put(name,in);
 
     }
 
 
-    public List<Ingredient> showList() {
-        return list;
+    public Map<String,Ingredient> showList() {
+
+        for(Ingredient i:ingredientsMap.values()){
+            System.out.println(i);
+        }
+
+        return ingredientsMap;
     }
 
     @Override
@@ -39,7 +42,7 @@ public class Recipe {
         sb.append("\n============\n");
         sb.append("What you need:");
         sb.append("\n");
-        for (Ingredient i : list) {
+        for (Ingredient i : ingredientsMap.values()) {
             sb.append(i.toString());
             sb.append("\n");
         }
@@ -61,14 +64,14 @@ public class Recipe {
         return Objects.equals(name, recipe.name) &&
                 Objects.equals(category, recipe.category) &&
                 Objects.equals(description, recipe.description) &&
-                Objects.equals(list, recipe.list);
+                Objects.equals(ingredientsMap, recipe.ingredientsMap);
     }
 
     @Override
 
     public int hashCode() {
 
-        return Objects.hash(name, category, description, list);
+        return Objects.hash(name, category, description, ingredientsMap);
     }
 
     public String getName() {
@@ -95,11 +98,11 @@ public class Recipe {
         this.description = description;
     }
 
-    public List<Ingredient> getList() {
-        return list;
+    public Map<String,Ingredient> getList() {
+        return ingredientsMap;
     }
 
-    public void setList(List<Ingredient> list) {
-        this.list = list;
+    public void setMap(Map<String,Ingredient> ingredientsMap) {
+        this.ingredientsMap = ingredientsMap;
     }
 }

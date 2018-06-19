@@ -1,5 +1,3 @@
-package com.company;
-
 import java.util.Objects;
 
 public class Ingredient {
@@ -33,22 +31,7 @@ public class Ingredient {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ingredient that = (Ingredient) o;
-        return Double.compare(that.number, number) == 0 &&
-                Double.compare(that.value, value) == 0 &&
-                Objects.equals(name, that.name) &&
-                unit == that.unit;
-    }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(number, name, value, unit);
-    }
 
     @Override
     public String toString() {
@@ -85,6 +68,23 @@ public class Ingredient {
         return sb.toString();
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingredient that = (Ingredient) o;
+        return Double.compare(that.number, number) == 0 &&
+                Double.compare(that.value, value) == 0 &&
+                Objects.equals(name, that.name) &&
+                unit == that.unit;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(number, name, value, unit);
+    }
 
     public double getNumber() {
         return number;

@@ -1,11 +1,14 @@
-package com.company;
-
 public enum Unit {
 
     KILOGRAMS("kg"),
     GRAMS("g"),
     LITERS("l"),
-    MILILITERS("ml");
+    MILILITERS("ml"),
+    CUP("cup"),
+    CLOVES("cloves"),
+    CENTIMETER("cm"),
+    UNIT("unit");
+
 
     private String description;
 
