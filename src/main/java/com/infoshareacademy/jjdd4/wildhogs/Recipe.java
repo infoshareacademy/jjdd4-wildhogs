@@ -4,10 +4,10 @@ import java.util.*;
 
 public class Recipe {
 
-    private String name;
-    private Category category;
-    private String description;
-    private Map<String, Ingredient> ingredientsMap;
+    final private String name;
+    final private Category category;
+    final private String description;
+    final private Map<String, Ingredient> ingredientsMap;
 
 
     public Recipe(String name, Category category, String description) {
@@ -45,7 +45,6 @@ public class Recipe {
             sb.append(i.toString());
             sb.append("\n");
         }
-
         sb.append("============\n");
         sb.append(description);
         sb.append("\n============\n");
@@ -65,7 +64,6 @@ public class Recipe {
     }
 
     @Override
-
     public int hashCode() {
 
         return Objects.hash(name, category, description, ingredientsMap);
@@ -75,31 +73,19 @@ public class Recipe {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public Map<String, Ingredient> getList() {
         return ingredientsMap;
     }
 
-    public void setMap(Map<String, Ingredient> ingredientsMap) {
-        this.ingredientsMap = ingredientsMap;
-    }
 }

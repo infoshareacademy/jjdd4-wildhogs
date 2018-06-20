@@ -5,13 +5,11 @@ public enum Unit {
     KILOGRAMS("kg"),
     GRAMS("g"),
     LITERS("l"),
-    MILILITERS("ml"),
+    MILILLITERS("ml"),
     CUP("cup"),
     CLOVES("cloves"),
-    CENTIMETER("cm"),
+    CENTIMETERS("cm"),
     UNIT("unit");
-
-
     private String description;
 
     Unit(String desc) {

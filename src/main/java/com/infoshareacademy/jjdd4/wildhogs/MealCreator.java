@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class MealCreator {
 
-
     private Map<String, Recipe> mapOfMeals;
 
     public MealCreator() {
@@ -20,6 +19,4 @@ public class MealCreator {
     public void setMapOfMeals(Map<String, Recipe> mapOfMeals) {
         this.mapOfMeals = mapOfMeals;
     }
-
-
 }
