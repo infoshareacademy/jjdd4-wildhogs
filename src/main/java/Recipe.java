@@ -3,12 +3,12 @@ import java.util.*;
 public class Recipe {
 
     private String name;
-    private Enum category;
+    private Category category;
     private String description;
     private Map<String,Ingredient> ingredientsMap;
 
 
-    public Recipe(String name, Enum category, String description) {
+    public Recipe(String name, Category category, String description) {
         this.name = name;
         this.category = category;
         this.description = description;
@@ -82,11 +82,11 @@ public class Recipe {
         this.name = name;
     }
 
-    public Enum getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Enum category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
