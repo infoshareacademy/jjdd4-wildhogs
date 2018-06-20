@@ -1,3 +1,5 @@
+package com.infoshareacademy.jjdd4.wildhogs;
+
 import java.util.*;
 
 public class Recipe {

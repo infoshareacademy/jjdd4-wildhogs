@@ -1,3 +1,5 @@
+package com.infoshareacademy.jjdd4.wildhogs;
+
 public enum Unit {
 
     KILOGRAMS("kg"),
