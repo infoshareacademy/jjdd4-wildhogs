@@ -1,5 +1,4 @@
 package com.infoshareacademy.jjdd4.wildhogs;
-
 import java.util.Objects;
 
 public class Ingredient {
