@@ -14,8 +14,8 @@ public enum Unit {
 
     private String description;
 
-    Unit (String desc){
-        description=desc;
+    Unit(String desc) {
+        description = desc;
     }
 
     public String getDescription() {

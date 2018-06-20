@@ -10,7 +10,7 @@ public class MealCreator {
 
     public MealCreator() {
 
-        mapOfMeals= new LinkedHashMap<>();
+        mapOfMeals = new LinkedHashMap<>();
     }
 
     public Map<String, Recipe> getMapOfMeals() {
@@ -20,10 +20,6 @@ public class MealCreator {
     public void setMapOfMeals(Map<String, Recipe> mapOfMeals) {
         this.mapOfMeals = mapOfMeals;
     }
-
-
-
-
 
 
 }

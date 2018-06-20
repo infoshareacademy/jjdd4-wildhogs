@@ -34,7 +34,6 @@ public class Ingredient {
     }
 
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

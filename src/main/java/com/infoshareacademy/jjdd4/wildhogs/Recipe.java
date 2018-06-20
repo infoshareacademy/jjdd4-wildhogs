@@ -7,7 +7,7 @@ public class Recipe {
     private String name;
     private Category category;
     private String description;
-    private Map<String,Ingredient> ingredientsMap;
+    private Map<String, Ingredient> ingredientsMap;
 
 
     public Recipe(String name, Category category, String description) {
@@ -15,23 +15,20 @@ public class Recipe {
         this.category = category;
         this.description = description;
         ingredientsMap = new HashMap<>();
-
     }
 
 
     public void addIngredient(String name, Ingredient in) {
 
-        ingredientsMap.put(name,in);
-
+        ingredientsMap.put(name, in);
     }
 
 
-    public Map<String,Ingredient> showList() {
+    public Map<String, Ingredient> showList() {
 
-        for(Ingredient i:ingredientsMap.values()){
+        for (Ingredient i : ingredientsMap.values()) {
             System.out.println(i);
         }
-
         return ingredientsMap;
     }
 
@@ -49,11 +46,9 @@ public class Recipe {
             sb.append("\n");
         }
 
-
         sb.append("============\n");
         sb.append(description);
         sb.append("\n============\n");
-
 
         return sb.toString();
     }
@@ -100,11 +95,11 @@ public class Recipe {
         this.description = description;
     }
 
-    public Map<String,Ingredient> getList() {
+    public Map<String, Ingredient> getList() {
         return ingredientsMap;
     }
 
-    public void setMap(Map<String,Ingredient> ingredientsMap) {
+    public void setMap(Map<String, Ingredient> ingredientsMap) {
         this.ingredientsMap = ingredientsMap;
     }
 }
