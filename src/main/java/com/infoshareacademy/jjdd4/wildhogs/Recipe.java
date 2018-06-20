@@ -1,14 +1,15 @@
 package com.infoshareacademy.jjdd4.wildhogs;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Recipe {
 
-    final private String name;
-    final private Category category;
-    final private String description;
-    final private Map<String, Ingredient> ingredientsMap;
-
+    private final String name;
+    private final Category category;
+    private final String description;
+    private final Map<String, Ingredient> ingredientsMap;
 
     public Recipe(String name, Category category, String description) {
         this.name = name;
@@ -17,12 +18,10 @@ public class Recipe {
         ingredientsMap = new HashMap<>();
     }
 
-
     public void addIngredient(String name, Ingredient in) {
 
         ingredientsMap.put(name, in);
     }
-
 
     public Map<String, Ingredient> showList() {
 
@@ -34,22 +33,12 @@ public class Recipe {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("============\n");
-        sb.append(name);
-        sb.append("\n============\n");
-        sb.append("What you need:");
-        sb.append("\n");
-        for (Ingredient i : ingredientsMap.values()) {
-            sb.append(i.toString());
-            sb.append("\n");
-        }
-        sb.append("============\n");
-        sb.append(description);
-        sb.append("\n============\n");
-
-        return sb.toString();
+        return "Recipe{" +
+                "name='" + name + '\'' +
+                ", category=" + category +
+                ", description='" + description + '\'' +
+                ", ingredientsMap=" + ingredientsMap +
+                '}';
     }
 
     @Override
@@ -65,7 +54,6 @@ public class Recipe {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(name, category, description, ingredientsMap);
     }
 
@@ -73,16 +61,13 @@ public class Recipe {
         return name;
     }
 
-
     public Category getCategory() {
         return category;
     }
 
-
     public String getDescription() {
         return description;
     }
-
 
     public Map<String, Ingredient> getList() {
         return ingredientsMap;

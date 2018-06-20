@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Ingredient {
 
-    final private String name;
-    final private double amount;
-    final private Unit unit;
+    private final String name;
+    private final double amount;
+    private final Unit unit;
 
     public Ingredient(String name, double amount, Unit unit) {
         this.name = name;
@@ -14,22 +14,14 @@ public class Ingredient {
         this.unit = unit;
     }
 
-
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(name);
-        sb.append(" ");
-        sb.append(amount);
-        sb.append(" ");
-        sb.append(unit);
-        sb.append(" ");
-
-
-        return sb.toString();
+        return "Ingredient{" +
+                "name='" + name + '\'' +
+                ", amount=" + amount +
+                ", unit=" + unit +
+                '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -43,7 +35,6 @@ public class Ingredient {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(name, amount, unit);
     }
 }
