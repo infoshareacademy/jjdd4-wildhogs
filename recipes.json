@@ -1,0 +1,114 @@
+{
+	"recipes": [
+	{
+	  "name": "Grilled Mexican Street Corn",
+	  "category": "lunch",
+	  "description": "Remove the husks of the corn leaving the core attached. Grill the corn turning once on a hot grill or cast iron pan until it starts to get slightly charred.In a small bowl mix the mayonnaise, sour cream and cilantro. Remove the corn from the grill and slather with the mayonnaise mix. Squeeze the lime juice over the corn and heavily season with parmesan. Sprinkle with chili powder.",
+	  "ingridients": [
+		{
+		  "name": "mayonnaise",
+		  "amount": "0.5",
+		  "unit": "cup"
+		},
+		{
+		  "name": "sour cream",
+		  "amount": "0.5",
+		  "unit": "cup"
+		},
+		{
+		  "name": "chopped cilantro",
+		  "amount": "0.25",
+		  "unit": "cup"
+		},
+		{
+		  "name": "parmesan",
+		  "amount": "1",
+		  "unit": "cup"
+		},
+		{
+		  "name": "lime",
+		  "amount": "1",
+		  "unit": "unit"
+		},
+		{
+		  "name": "red chile powder",
+		  "amount": "1",
+		  "unit": "unit"
+		}
+	  ]
+	},
+	{
+	  "name": "Grilled Mexican Street Corn",
+	  "category": "lunch",
+	  "description": "Remove the husks of the corn leaving the core attached. Grill the corn turning once on a hot grill or cast iron pan until it starts to get slightly charred.In a small bowl mix the mayonnaise, sour cream and cilantro. Remove the corn from the grill and slather with the mayonnaise mix. Squeeze the lime juice over the corn and heavily season with parmesan. Sprinkle with chili powder.",
+	  "ingridients": [
+		{
+		  "name": "mayonnaise",
+		  "amount": "0.5",
+		  "unit": "cup"
+		},
+		{
+		  "name": "sour cream",
+		  "amount": "0.5",
+		  "unit": "cup"
+		},
+		{
+		  "name": "chopped cilantro",
+		  "amount": "0.25",
+		  "unit": "cup"
+		},
+		{
+		  "name": "parmesan",
+		  "amount": "1",
+		  "unit": "cup"
+		},
+		{
+		  "name": "lime",
+		  "amount": "1",
+		  "unit": "unit"
+		},
+		{
+		  "name": "red chile powder",
+		  "amount": "1",
+		  "unit": "unit"
+		}
+	  ]
+	},
+	{
+	  "name": "Grilled Mexican Street Corn",
+	  "category": "lunch",
+	  "description": "Remove the husks of the corn leaving the core attached. Grill the corn turning once on a hot grill or cast iron pan until it starts to get slightly charred.In a small bowl mix the mayonnaise, sour cream and cilantro. Remove the corn from the grill and slather with the mayonnaise mix. Squeeze the lime juice over the corn and heavily season with parmesan. Sprinkle with chili powder.",
+	  "ingridients": [
+		{
+		  "name": "mayonnaise",
+		  "amount": "0.5",
+		  "unit": "cup"
+		},
+		{
+		  "name": "sour cream",
+		  "amount": "0.5",
+		  "unit": "cup"
+		},
+		{
+		  "name": "chopped cilantro",
+		  "amount": "0.25",
+		  "unit": "cup"
+		},
+		{
+		  "name": "parmesan",
+		  "amount": "1",
+		  "unit": "cup"
+		},
+		{
+		  "name": "lime",
+		  "amount": "1",
+		  "unit": "unit"
+		},
+		{
+		  "name": "red chile powder",
+		  "amount": "1",
+		  "unit": "unit"
+		}
+	  ]
+	}]
+}

@@ -1,22 +1,27 @@
 package com.infoshareacademy.jjdd4.wildhogs;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 public class Main {
 
     public static void main(String[] args) {
 
-//        MealCreator ml = new MealCreator();
-//        ml.getMapOfMeals().put("gaspacio", new Recipe("Gazpaccio", Category.DINNER, "tutaj leci przepis"));
-//        ml.getMapOfMeals().get("gaspacio").addIngredient("chicken", new Ingredient("chicken breast", 400, Unit.GRAMS));
-//        ml.getMapOfMeals().get("gaspacio").addIngredient("pasta", new Ingredient("pasta pene", 0.4, Unit.KILOGRAMS));
-//        ml.getMapOfMeals().get("gaspacio").addIngredient("apple", new Ingredient("apple", 2, Unit.UNIT));
-//
-//        System.out.println(ml.getMapOfMeals().get("gaspacio").toString());
 
-        Source source2 = new Source();
-        ReadRecipe reaa = new ReadRecipe();
-        reaa.read(source2);
+        Source source = new Source();
+        JSONObject jsonObject = ReadRecipeFromJSON.read(source);
+        JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
+        for (Object recipe : recipesArray) {
+            Recipe recipeCreated = CreateRecipesFromJSON.creator((JSONObject) recipe);
+            if (recipeCreated != null) {
+
+                System.out.println(recipeCreated.getName());
+                recipeCreated.showList();
+                System.out.println("-----------------");
+            }
 
 
+        }
 
     }
 }

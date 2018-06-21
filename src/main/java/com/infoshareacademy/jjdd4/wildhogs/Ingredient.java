@@ -36,5 +36,19 @@ public class Ingredient {
     public int hashCode() {
         return Objects.hash(name, amount, unit);
     }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public Unit getUnit() {
+        return unit;
+    }
+
 }
 
