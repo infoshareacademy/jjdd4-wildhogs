@@ -9,7 +9,11 @@ public enum Unit {
     CUP("cup"),
     CLOVES("cloves"),
     CENTIMETERS("cm"),
-    UNIT("unit");
+    UNIT("unit"),
+    TEASPOON("ts") {
+
+    };
+
     private String description;
 
     Unit(String desc) {
