@@ -27,7 +27,5 @@ public class LoadProperties {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
     }
 }
