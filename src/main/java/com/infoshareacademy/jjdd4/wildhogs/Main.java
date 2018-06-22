@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+
         MealCreator mealCreator = new MealCreator();
 
         for (String key: mealCreator.getMapOfMeals().keySet()) {
@@ -12,5 +13,11 @@ public class Main {
 
 
         }
+
+
+        new Configuration();
+
+
+
 
     }
