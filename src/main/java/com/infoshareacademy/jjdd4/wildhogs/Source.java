@@ -1,9 +1,9 @@
 package com.infoshareacademy.jjdd4.wildhogs;
 
 public class Source {
-    private String source = "plik.txt";
+    private final String sourcePlikJSON = "recipes.json";
 
     public String getSource() {
-        return source;
+        return sourcePlikJSON;
     }
 }
