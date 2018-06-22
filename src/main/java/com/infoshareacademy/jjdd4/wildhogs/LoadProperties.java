@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class LoadProperties {
 
-    public static final String resourcesPath = "/home/mateuszmazur/jjdd4-wildhogs/src/main/Resources/config.properties";
+    public static final String resourcesPath = "src/main/Resources/config.properties";
 
     public static void getSettings() {
 
@@ -17,10 +17,11 @@ public class LoadProperties {
             prop.load(new FileInputStream(resourcesPath));
             Enumeration<?> enumeration = prop.propertyNames();
 
-            System.out.println("Setting:\n");
+            System.out.println("SETTINGS");
+            System.out.println("========");
             while (enumeration.hasMoreElements()) {
                 String propertyName = enumeration.nextElement().toString();
-                System.out.println(propertyName + " ==> " + prop.get(propertyName));
+                System.out.println(propertyName + ": " + prop.get(propertyName));
             }
             System.out.println();
 
