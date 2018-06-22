@@ -1,21 +1,20 @@
 package com.infoshareacademy.jjdd4.wildhogs;
 
-        import java.io.File;
-        import java.io.FileInputStream;
-        import java.io.IOException;
-        import java.util.Enumeration;
-        import java.util.Properties;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Properties;
 
 public class LoadProperties {
 
-    private static final String RESOURCES_PATH = "config.properties";
 
     public LoadProperties() {
 
         Properties prop = new Properties();
 
         try {
-            prop.load(new FileInputStream(RESOURCES_PATH));
+            prop.load(new FileInputStream(getResourcesPath()));
             Enumeration<?> enumeration = prop.propertyNames();
 
             System.out.println("SETTINGS");
@@ -31,6 +30,6 @@ public class LoadProperties {
     }
 
     public String getResourcesPath() {
-        return new File(RESOURCES_PATH).getAbsolutePath();
+        return new File("config.properties").getAbsolutePath();
     }
 }
