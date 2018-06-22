@@ -26,7 +26,7 @@ public class LoadProperties {
             System.out.println();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("nie wczytano pliku konfiguracyjnego");
         }
     }
 }
