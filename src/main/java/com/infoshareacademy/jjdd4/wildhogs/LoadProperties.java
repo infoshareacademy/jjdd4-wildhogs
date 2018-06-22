@@ -7,14 +7,14 @@ import java.util.Properties;
 
 public class LoadProperties {
 
-    public static final String resourcesPath = "src/main/Resources/config.properties";
+    private static final String RESOURCES_PATH = "config.properties";
 
-    public static void getSettings() {
+    public static void printSettings() {
 
         Properties prop = new Properties();
 
         try {
-            prop.load(new FileInputStream(resourcesPath));
+            prop.load(new FileInputStream(RESOURCES_PATH));
             Enumeration<?> enumeration = prop.propertyNames();
 
             System.out.println("SETTINGS");
