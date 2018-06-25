@@ -1,4 +1,4 @@
-package com.infoshareacademy.jjdd4.wildhogs;
+package com.infoshareacademy.jjdd4.wildhogs.data;
 
 import java.util.HashMap;
 import java.util.Map;
