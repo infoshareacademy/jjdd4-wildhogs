@@ -8,7 +8,6 @@ import java.util.Properties;
 public class Configuration {
 
     private static final String CONFIG_PATH = "config.properties";
-
     private final Properties properties;
 
     public Configuration() {
@@ -37,4 +36,3 @@ public class Configuration {
         return properties.getProperty("jsonPath", "SOME DEFAULT VALUE");
     }
 }
-

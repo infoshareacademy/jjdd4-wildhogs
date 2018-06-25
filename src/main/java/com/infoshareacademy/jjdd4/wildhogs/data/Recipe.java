@@ -72,5 +72,4 @@ public class Recipe {
     public Map<String, Ingredient> getList() {
         return ingredientsMap;
     }
-
 }
