@@ -1,0 +1,219 @@
+{
+	"recipes": [
+		{
+			"name": "Grilled Mexican Street Corn",
+			"category": "lunch",
+			"description": "Remove the husks of the corn leaving the core attached. Grill the corn turning once on a hot grill or cast iron pan until it starts to get slightly charred.In a small bowl mix the mayonnaise, sour cream and cilantro. Remove the corn from the grill and slather with the mayonnaise mix. Squeeze the lime juice over the corn and heavily season with parmesan. Sprinkle with chili powder.",
+			"ingredients": [
+				{
+					"name": "mayonnaise",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "sour cream",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "chopped cilantro",
+					"amount": "0.25",
+					"unit": "cup"
+				},
+				{
+					"name": "parmesan",
+					"amount": "1",
+					"unit": "cup"
+				},
+				{
+					"name": "lime",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "red chile powder",
+					"amount": "1",
+					"unit": "unit"
+				}
+			]
+		},
+		{
+			"name": "Mustard Potato Salad",
+			"category": "lunch",
+			"description": "So let’s start with the basics. Grab several large russet potatoes – I ended up using four large potatoes. Peel the skin from the potatoes using a potato peeler, then wash any dirt from the peeled potatoes. Once the potatoes have been peeled and rinsed, dice them into large chunks. Place all of the chunks of potato into a two quart or larger slow cooker OR place into a large sauce pan on the stove. Whether you choose to slow cook these potatoes or cook them on the stove top, be sure to cover the potatoes with water. If you’re slow cooking the potatoes, place the lid on the slow cooker and cook on high four hours or low six hours. If you’re cooking the potatoes on the stove top, turn the heat to medium high heat and bring to a boil. Boil the potatoes for about ten minutes or until the potatoes are tender when pierced with a fork. Once the cooking time is complete, remove the potatoes from the heat and pour off all of the water using a colander. Place the potatoes into a large mixing bowl and start mashing them with a potato masher. You don’t have to just pulverize the potatoes but you need to make sure there are no large chunks. Now it’s time to add the good stuff. Add in half of a cup of mayonnaise and half of a cup of mustard. Once the mayonnaise and mustard has been added to the potatoes, stir well until all ingredients are well combined.  Add in half of a teaspoon of ground black pepper one fourth of a teaspoon of salt, and then one teaspoon of granulated white sugar. Lastly, add in half of a cup of sweet pickle relish. This sweet pickle relish is what gives this Mustard Potato Salad such a good flavor!  Stir the sweet pickle relish into the Mustard Potato Salad and ensure that all ingredients are well combined. Once you’ve stirred in the sweet pickle relish, this Mustard Potato Salad is ready to serve! So just like that, you have easy, delicious, Mustard Potato Salad. Such a great addition to the dinner table!",
+			"ingredients": [
+				{
+					"name": "russet potatoes",
+					"amount": "4",
+					"unit": "unit"
+				},
+				{
+					"name": "mayonnaise",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "mustard",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "sweet pickle relish",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "ground black pepper",
+					"amount": "1",
+					"unit": "grams"
+				},
+				{
+					"name": "salt",
+					"amount": "1.5",
+					"unit": "grams"
+				},
+				{
+					"name": "granulated white sugar",
+					"amount": "5",
+					"unit": "grams"
+				}
+			]
+		},
+		{
+			"name": "Crispy Garlic Chicken with Asparagus",
+			"category": "dinner",
+			"description": "In a large skillet over medium heat melt 2 Tablespoons butter. To make the chicken: Melt remaining 4 tablespoons of butter in a shallow dish. In another shallow dish combine bread crumbs, parmesan cheese, garlic powder, and flour. Dip the chicken in the butter and then coat in the bread crumb mixture and place in skillet. Cook on each side for about 3-4 minutes until the outside is crispy and the chicken is cooked throughout. Set aside on plate. Add 2 Tablespoons of butter back to the skillet and saute the minced garlic for a minute. Add the asparagus to the skillet and saute until tender. Salt and pepper to taste and add some 1 Tablespoon parmesan. Add the chicken back to the skillet and heat for a minute or so. Serve immediately.",
+			"ingredients": [
+				{
+					"name": "chicken breasts",
+					"amount": "2",
+					"unit": "unit"
+				},
+				{
+					"name": "butter",
+					"amount": "30",
+					"unit": "grams"
+				},
+				{
+					"name": "italian style breadcrumbs",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "grated parmesan cheese",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "garlic powder",
+					"amount": "5",
+					"unit": "grams"
+				},
+				{
+					"name": "flour",
+					"amount": "0.25",
+					"unit": "cup"
+				},
+				{
+					"name": "asparagus",
+					"amount": "80",
+					"unit": "grams"
+				},
+				{
+					"name": "garlic",
+					"amount": "2",
+					"unit": "cloves"
+				}
+			]
+		},
+		{
+			"name": "Savory Garlic Butter Shrimp Scampi",
+			"category": "supper",
+			"description": "Finely mince 3 large (or 4 medium) cloves of garlic and set aside, the finer the mince the better. Finely chop a few sprigs of fresh parsley set aside. De-vein, de-shell all raw shrimp and place on a plate with a layer of paper towels underneath and pat dry the top with another paper towel to remove all excess moisture. Season shrimp with a little salt and pepper (sea salt and fresh cracked multi colored pepper corns is my favorite) Cooking: Add 1 quarter of a stick of butter and a splash of olive oil (about a table spoon) to a large sauté pan (you should be able to add all of the shrimp at once without having any shrimp on top another). Turn heat up high and let butter melt (its important to bring the heat up fast and high but WITHOUT reaching the olive oils smoking point) and add shrimp to pan, cook on medium high heat for 2 minutes before disturbing the shrimp to get a nice sear. Once shrimp has gone from the grayish color to mostly pink flip the shrimp and sauté the other side for 2 minutes. Remove shrimp and place into a dish with low sides to contain the butter garlic sauce (a small casserole dish works well). Add 3 quarters of a stick of butter and finely minced garlic to sauté pan with heat on medium (the one you cooked the shrimp in). Allow the butter to melt completely and poor over shrimp, sprinkle fresh chopped parsley and a splash of lemon juice over the shrimp and serve. If you are adding to pasta, Remove the tails when de-shelling, and add in a little heavy cream and fresh grated parmesian cheese during the last step (making the sauce in the pan after removing the shrimp) for a creamy garlic butter sauce, goes great with angel hair pasta or linguini.",
+			"ingredients": [
+				{
+					"name": "shrimps",
+					"amount": "0.5",
+					"unit": "kilograms"
+				},
+				{
+					"name": "large garlic",
+					"amount": "3",
+					"unit": "cloves"
+				},
+				{
+					"name": "butter",
+					"amount": "5",
+					"unit": "grams"
+				},
+				{
+					"name": "olive oil",
+					"amount": "5",
+					"unit": "milliliters"
+				},
+				{
+					"name": "fresh parsley",
+					"amount": "20",
+					"unit": "grams"
+				},
+				{
+					"name": "lemon juice",
+					"amount": "5",
+					"unit": "milliliters"
+				}
+			]
+		},
+		{
+			"name": "Red Velvet Pancakes",
+			"category": "breakfast",
+			"description": "Make the pancakes: In a large bowl, whisk the cake mix with the butter, egg and milk to combine. Work out any lumps with the whisk to make sure the batter is smooth. Heat a medium nonstick skillet over high heat. When the skillet is hot, spritz it with nonstick spray and reduce the heat to low (to prevent the pancakes from becoming too dark). Working in batches, ladle the batter into the skillet and cook until bubbles begin to rise from the center of the pancakes, 2 to 3 minutes. Flip the pancakes and continue cooking 1 to 2 minutes more. Remove the pancakes to a plate and cover with a towel to keep warm. Make the icing: Using a whisk or hand mixer, combine the cream cheese with the sugar, cream and vanilla. To serve, pile the pancakes onto plates and top generously with icing.",
+			"ingredients": [
+				{
+					"name": "red velvet cake mix",
+					"amount": "2",
+					"unit": "cup"
+				},
+				{
+					"name": "egg",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "spray for cooking",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "melted butter",
+					"amount": "20",
+					"unit": "grams"
+				},
+				{
+					"name": "whole milk",
+					"amount": "1",
+					"unit": "cup"
+				},
+				{
+					"name": "whipped cream cheese",
+					"amount": "25",
+					"unit": "grams"
+				},
+				{
+					"name": "heavy cream",
+					"amount": "20",
+					"unit": "grams"
+				},
+				{
+					"name": "confectioners' sugar",
+					"amount": "15",
+					"unit": "grams"
+				},
+				{
+					"name": "vanilla extract",
+					"amount": "1",
+					"unit": "grams"
+				}
+			]
+		}
+	]
+}
