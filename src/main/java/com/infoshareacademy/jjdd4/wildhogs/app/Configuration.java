@@ -33,6 +33,6 @@ public class Configuration {
     }
 
     public String getJsonPath() {
-        return properties.getProperty("jsonPath", "SOME DEFAULT VALUE");
+        return properties.getProperty("jsonPath", "recipes.json");
     }
 }
