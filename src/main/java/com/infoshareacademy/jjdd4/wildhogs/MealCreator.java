@@ -15,10 +15,10 @@ public class MealCreator {
         mapOfMeals = new LinkedHashMap<>();
 
         Source source = new Source();
-        JSONObject jsonObject = ReadRecipeFromJSON.read(source);
+        JSONObject jsonObject = JSONProvider.read(source);
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
         for (Object recipe : recipesArray) {
-            Recipe recipeCreated = CreateRecipesFromJSON.creator((JSONObject) recipe);
+            Recipe recipeCreated = RecipesProviderFromJSON.creator((JSONObject) recipe);
 
             if (recipeCreated != null) {
                 mapOfMeals.put(recipeCreated.getName(), recipeCreated);

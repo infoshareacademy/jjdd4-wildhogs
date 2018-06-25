@@ -10,14 +10,6 @@ public class Main {
         for (String key: mealCreator.getMapOfMeals().keySet()) {
             System.out.println(key);
         }
-
-
-        }
-
-
         new Configuration();
-
-
-
-
     }
+}

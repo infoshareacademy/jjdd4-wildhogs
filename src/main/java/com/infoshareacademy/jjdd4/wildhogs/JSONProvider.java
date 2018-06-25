@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ReadRecipeFromJSON {
+public class JSONProvider {
 
     public static JSONObject read(Source source) {
         JSONParser parser = new JSONParser();

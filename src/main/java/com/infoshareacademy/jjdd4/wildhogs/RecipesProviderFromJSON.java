@@ -3,7 +3,7 @@ package com.infoshareacademy.jjdd4.wildhogs;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class CreateRecipesFromJSON {
+public class RecipesProviderFromJSON {
 
 public static Recipe creator(JSONObject jsonObject) {
         Recipe recipe = null;
