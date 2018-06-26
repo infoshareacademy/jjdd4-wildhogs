@@ -9,11 +9,14 @@ public class ViewRecipesByCategory {
     private final List<String> searchingByCategory;
     private final Category category;
     Scanner sc = new Scanner(System.in);
+    MealCreator ml ;
 
     // This method uses MealCreator class. It provides recipes names of the input category.
 
     public ViewRecipesByCategory(Category category, MealCreator mealCreator) {
         this.category = category;
+
+        ml=mealCreator;
 
         searchingByCategory = mealCreator.getMapOfMeals().entrySet().stream()
                 .map(r -> r.getValue())
@@ -39,6 +42,17 @@ public class ViewRecipesByCategory {
 
         System.out.print("choose your destiny(pick a number): ");
         Integer pick = sc.nextInt();
+
+
+        for (int i = 0; i <searchingByCategory.size() ; i++) {
+
+            if (pick==i+1)
+                System.out.println("wybrano");
+                System.out.println(searchingByCategory.get(i));
+
+
+
+        }
 
     }
 }
