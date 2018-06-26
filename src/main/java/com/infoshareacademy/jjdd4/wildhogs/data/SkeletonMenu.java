@@ -20,17 +20,24 @@ public class SkeletonMenu {
 
 
         MealCreator mealCreator = new MealCreator();
-        for (String key: mealCreator.getMapOfMeals().keySet()) {
-            System.out.println(key);
-        }
-        List<String> nazwy = Arrays.asList("Red Velvet Pancakes", "Savory Garlic Butter Shrimp Scampi");
+//        for (String key: mealCreator.getMapOfMeals().keySet()) {
+//            System.out.println(key);
+//        }
+        List<String> nazwy = Arrays.asList("Red Velvet Pancakes", "Savory Garlic Butter Shrimp Scampi", "Grilled Mexican Street Corn", "Mustard Potato Salad", "Crispy Garlic Chicken with Asparagus");
         ShoppingList shoppingList = new ShoppingList(mealCreator, nazwy);
-        System.out.println(shoppingList.getShoppingList().toString());
+//        System.out.println(shoppingList.getShoppingList().toString());
+//        System.out.println(mealCreator.getMapOfMeals().entrySet().stream()
+//        .filter(r -> r.getKey().equals("Savory Garlic Butter Shrimp Scampi"))
+//        .findAny());
+//        System.out.println(mealCreator.getMapOfMeals().entrySet().stream()
+//                .filter(r -> r.getKey().equals("Red Velvet Pancakes"))
+//                .findAny());
 
+        shoppingList.print();
     }
 
     public void printSkeletonMenu() {
-        System.out.println(this.menu + "\n" + this.home + "\n" + this.weeklist + "\n" + this.kitchenBook);
+//        System.out.println(this.menu + "\n" + this.home + "\n" + this.weeklist + "\n" + this.kitchenBook);
     }
 
     public String getMenu() {
