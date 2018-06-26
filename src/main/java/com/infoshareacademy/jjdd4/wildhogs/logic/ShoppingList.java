@@ -1,4 +1,6 @@
-package com.infoshareacademy.jjdd4.wildhogs;
+package com.infoshareacademy.jjdd4.wildhogs.logic;
+
+import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 
 import java.util.ArrayList;
 import java.util.Arrays;

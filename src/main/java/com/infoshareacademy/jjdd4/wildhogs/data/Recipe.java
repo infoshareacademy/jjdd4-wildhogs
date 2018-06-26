@@ -1,4 +1,4 @@
-package com.infoshareacademy.jjdd4.wildhogs;
+package com.infoshareacademy.jjdd4.wildhogs.data;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -72,5 +72,4 @@ public class Recipe {
     public Map<String, Ingredient> getList() {
         return ingredientsMap;
     }
-
 }
