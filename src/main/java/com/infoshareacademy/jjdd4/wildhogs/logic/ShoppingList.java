@@ -2,22 +2,30 @@ package com.infoshareacademy.jjdd4.wildhogs.logic;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class ShoppingList {
 
 
-    private final List<String> nameOfRecipes;
+
     private final List<Ingredient> shoppingList;
 
+    public ShoppingList(MealCreator mealCreator, List<String> nameOfRecipes) {
 
-    public ShoppingList(String... namsOfRecipes) {
-        nameOfRecipes = Arrays.asList(namsOfRecipes);
-        shoppingList = new ArrayList<>();
+        List<Ingredient> temp = mealCreator.getMapOfMeals().entrySet().stream()
+                .filter(e -> nameOfRecipes.contains(e.getKey()))
+                .map(e -> e.getValue())
+                .flatMap(r -> r.getMap().values().stream())
+                .collect(toList());
+
+        shoppingList = temp;
     }
 
+    public List<Ingredient> getShoppingList() {
+        return shoppingList;
+    }
 
     public void save(){
 
@@ -26,7 +34,5 @@ public class ShoppingList {
 
     }
 
-    public List<String> getNameOfRecipes() {
-        return nameOfRecipes;
-    }
+
 }

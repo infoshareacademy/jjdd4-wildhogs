@@ -23,14 +23,6 @@ public class Recipe {
         ingredientsMap.put(name, in);
     }
 
-    public Map<String, Ingredient> showList() {
-
-        for (Ingredient i : ingredientsMap.values()) {
-            System.out.println(i);
-        }
-        return ingredientsMap;
-    }
-
     @Override
     public String toString() {
         return "Recipe{" +
@@ -69,7 +61,7 @@ public class Recipe {
         return description;
     }
 
-    public Map<String, Ingredient> getList() {
+    public Map<String, Ingredient> getMap() {
         return ingredientsMap;
     }
 }
