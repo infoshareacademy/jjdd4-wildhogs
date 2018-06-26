@@ -9,14 +9,14 @@ public class ViewRecipesByCategory {
     private final List<String> searchingByCategory;
     private final Category category;
     Scanner sc = new Scanner(System.in);
-    MealCreator ml ;
+    MealCreator mealViewer;
 
     // This method uses MealCreator class. It provides recipes names of the input category.
 
     public ViewRecipesByCategory(Category category, MealCreator mealCreator) {
         this.category = category;
 
-        ml=mealCreator;
+        mealViewer = mealCreator;
 
         searchingByCategory = mealCreator.getMapOfMeals().entrySet().stream()
                 .map(r -> r.getValue())
@@ -40,18 +40,20 @@ public class ViewRecipesByCategory {
 
         }
 
-        System.out.print("choose your destiny(pick a number): ");
+        System.out.print("Pick a meal number: ");
         Integer pick = sc.nextInt();
 
 
-        for (int i = 0; i <searchingByCategory.size() ; i++) {
+        for (int i = 0; i <searchingByCategory.size(); i++) {
 
-            if (pick==i+1)
-                System.out.println("wybrano");
+            if (pick == i + 1) {
+                System.out.println("Succes");
                 System.out.println(searchingByCategory.get(i));
+                Recipe recipe = mealViewer.getMapOfMeals().entrySet().stream()
+                        .filter (r -> r.getKey().equals(searchingByCategory(i)))
+                        .anyMatch();
 
-
-
+            }
         }
 
     }
