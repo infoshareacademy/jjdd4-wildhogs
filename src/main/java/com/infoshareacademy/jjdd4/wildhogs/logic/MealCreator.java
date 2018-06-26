@@ -4,7 +4,6 @@ import com.infoshareacademy.jjdd4.wildhogs.app.Configuration;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
