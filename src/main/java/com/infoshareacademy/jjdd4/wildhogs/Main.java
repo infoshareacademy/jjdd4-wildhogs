@@ -7,9 +7,14 @@ public class Main {
 
         MealCreator mealCreator = new MealCreator();
 
-        for (String key: mealCreator.getMapOfMeals().keySet()) {
-            System.out.println(key);
-        }
-        new Configuration();
+        // For ViewRecipesByCategory testing.
+
+        ViewRecipesByCategory viewRecipesByCategory = new ViewRecipesByCategory(Category.LUNCH, mealCreator);
+        viewRecipesByCategory.printResultByCategory();
+
+//        for (String key: mealCreator.getMapOfMeals().keySet()) {
+//            System.out.println(key);
+//        }
+//        new Configuration();
     }
 }
