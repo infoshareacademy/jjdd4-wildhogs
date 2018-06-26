@@ -1,4 +1,4 @@
-package com.infoshareacademy.jjdd4.wildhogs.app;
+package com.infoshareacademy.jjdd4.wildhogs;
 
 import java.io.FileInputStream;
 import java.io.IOException;
