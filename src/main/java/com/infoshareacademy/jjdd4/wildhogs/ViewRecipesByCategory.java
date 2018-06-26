@@ -1,12 +1,14 @@
 package com.infoshareacademy.jjdd4.wildhogs;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class ViewRecipesByCategory {
 
     private final List<String> searchingByCategory;
     private final Category category;
+    Scanner sc = new Scanner(System.in);
 
     // This method uses MealCreator class. It provides recipes names of the input category.
 
@@ -28,7 +30,15 @@ public class ViewRecipesByCategory {
         } else {
             System.out.println("You chose " + category + " category. Here are all the recipes:" + System.lineSeparator());
         }
-        searchingByCategory.stream()
-                .forEach(System.out::println);
+
+        for (int i = 0; i <searchingByCategory.size() ; i++) {
+
+            System.out.println(i+1+". "+searchingByCategory.get(i));
+
+        }
+
+        System.out.print("choose your destiny(pick a number): ");
+        Integer pick = sc.nextInt();
+
     }
 }
