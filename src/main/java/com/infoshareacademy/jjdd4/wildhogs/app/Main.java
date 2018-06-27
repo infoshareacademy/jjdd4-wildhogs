@@ -8,13 +8,13 @@ public class Main {
     public static void main(String[] args) {
         new Configuration();
 
-        MealCreator mealCreator = new MealCreator();
 
-        for (String key: mealCreator.getMapOfMeals().keySet()) {
-            System.out.println(key);
-        }
+//        for (String key: mealCreator.getMapOfMeals().keySet()) {
+//            System.out.println(key);
+//        }
 
-        SkeletonMenu menu = new SkeletonMenu("Menu", "Home", "Weeklist", "KitchenBook");
-        menu.printSkeletonMenu();
+        SkeletonMenu menu = new SkeletonMenu();
+        menu.printMenu();
+        menu.optionPicker();
     }
 }
