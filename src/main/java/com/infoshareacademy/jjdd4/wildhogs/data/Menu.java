@@ -36,18 +36,3 @@ public class Menu {
         }
     }
 }
-
-//    private String menu;
-//    private String home;
-//    private String weeklist;
-//    private String kitchenBook;
-//
-//    public SkeletonMenu(String menu, String home, String weeklist, String kitchenBook) {
-//        this.menu = menu;
-//        this.home = home;
-//        this.weeklist = weeklist;
-//        this.kitchenBook = kitchenBook;
-////    }
-//public void printSkeletonMenu() {
-//    System.out.println(this.menu + "\n" + this.home + "\n" + this.weeklist + "\n" + this.kitchenBook);
-//}
