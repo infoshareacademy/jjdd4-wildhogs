@@ -7,7 +7,8 @@ enum Option{
     SHOW_RECIPES("1"),
     SHOW_CHOSEN_RECIPES("2"),
     SHOW_SHOPPING_LIST("3"),
-    UNKNOWN("4");
+    SAVE_SHOPPING_LIST("4"),
+    UNKNOWN("5");
 
     private String optionNumber;
 

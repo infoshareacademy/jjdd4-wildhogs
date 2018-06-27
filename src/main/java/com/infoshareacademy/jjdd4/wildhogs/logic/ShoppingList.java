@@ -2,6 +2,10 @@ package com.infoshareacademy.jjdd4.wildhogs.logic;
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Unit;
 
+import java.io.BufferedWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
@@ -63,20 +67,27 @@ public class ShoppingList {
         }
     }
 
-    public List<Ingredient> getShoppingList() {
-        return shoppingList;
-    }
-
     public void save(){
-
+        Path path = Paths.get("ShoppingList.txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(listToString());
+        }catch (Exception e) {
+            System.out.println("Shopping list can't be write!");
+        }
     }
 
     public void print() {
-        System.out.println("Choosen recipes: " + nameOfRecipes + "\n");
+        System.out.println(listToString());
+    }
+
+    private String listToString() {
+        String result = "Chosen recipes: " + nameOfRecipes + "\r\n\r\n";
         for(Ingredient ingredient : shoppingList) {
-            System.out.println(ingredient.getName() + " "
+            result += ingredient.getName() + " "
                     + ingredient.getAmount() + " "
-                    +ingredient.getUnit().getDescription());
+                    +ingredient.getUnit().getDescription()
+                    +"\r\n";
         }
+        return result;
     }
 }
