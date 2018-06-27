@@ -20,7 +20,7 @@ class RecipesProviderFromJSONTest {
     // - zła gramatura (300 amount) - > ad amount in recipes file in: " + recipe.getName
     // - zła jednostka (gram ) -> Bad unit in recipes file: " + recipe.getName(
     // - czy jak wszystko jest ok zwraca przepis  -> return recipe;
-    
+
     @Test
     void readsRecipesProviderAsNull() {
 
@@ -28,7 +28,9 @@ class RecipesProviderFromJSONTest {
         JSONProvider json = new JSONProvider();
         Recipe recipe = new Recipe(readsRecipesProviderAsNull());
         JSONObject jsonObject = new JSONObject();
-        assertThat( jsonObject.get( "Bad category in recipes file:" +  jsonObject.get("name").toString()).isNull.isInstanceOf( JSONArray.class );
+        assertThat( jsonObject.get( "Bad category in recipes file:" +  jsonObject.get("name").toString());
+
+
     }
 }
 
