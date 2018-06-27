@@ -7,11 +7,6 @@ public class Main {
     public static void main(String[] args) {
         new Configuration();
 
-
-//        for (String key: mealCreator.getMapOfMeals().keySet()) {
-//            System.out.println(key);
-//        }
-
         Menu menu = new Menu();
         menu.printMenu();
         menu.optionPicker();
