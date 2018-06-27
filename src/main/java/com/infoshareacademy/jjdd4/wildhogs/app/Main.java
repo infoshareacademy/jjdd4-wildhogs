@@ -1,6 +1,6 @@
 package com.infoshareacademy.jjdd4.wildhogs.app;
 
-import com.infoshareacademy.jjdd4.wildhogs.data.SkeletonMenu;
+import com.infoshareacademy.jjdd4.wildhogs.data.Menu;
 
 public class Main {
 
@@ -8,17 +8,12 @@ public class Main {
         new Configuration();
 
 
-
-
-
-        SkeletonMenu menu = new SkeletonMenu("Menu", "Home", "Weeklist", "KitchenBook");
-        menu.printSkeletonMenu();
 //        for (String key: mealCreator.getMapOfMeals().keySet()) {
 //            System.out.println(key);
 //        }
 
-//        ShoppingList myList = new ShoppingList("Grilled Mexican Street Corn", "Mustard Potato Salad");
-//
-//        System.out.println(myList.getNameOfRecipes().toString());
+        Menu menu = new Menu();
+        menu.printMenu();
+        menu.optionPicker();
     }
 }
