@@ -72,7 +72,7 @@ public class ShoppingList {
     }
 
     public void print() {
-        System.out.println("Choosen recipes: " + nameOfRecipes);
+        System.out.println("Choosen recipes: " + nameOfRecipes + "\n");
         for(Ingredient ingredient : shoppingList) {
             System.out.println(ingredient.getName() + " "
                     + ingredient.getAmount() + " "

@@ -1,12 +1,14 @@
 package com.infoshareacademy.jjdd4.wildhogs.data;
 
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
+
 import java.util.Scanner;
 
 public class Menu {
 
     Scanner sc = new Scanner(System.in);
     MealCreator mealCreator = new MealCreator();
+
 
     public void printMenu() {
 
