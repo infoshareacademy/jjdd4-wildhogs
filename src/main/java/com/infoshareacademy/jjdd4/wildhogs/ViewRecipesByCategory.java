@@ -1,6 +1,7 @@
 package com.infoshareacademy.jjdd4.wildhogs;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -31,30 +32,33 @@ public class ViewRecipesByCategory {
         if (searchingByCategory.isEmpty()) {
             System.out.println("Sorry, we ran out of recipes. Your list is empty.");
         } else {
-            System.out.println("You chose " + category + " category. Here are all the recipes:" + System.lineSeparator());
+            System.out.println("You picked " + category + " category. Here are all the recipes:" + System.lineSeparator());
         }
 
-        for (int i = 0; i <searchingByCategory.size() ; i++) {
+        for (int i = 0; i < searchingByCategory.size() ; i++) {
 
             System.out.println(i+1+". "+searchingByCategory.get(i));
 
         }
 
         System.out.print("Pick a meal number: ");
-        Integer pick = sc.nextInt();
+        Integer pick = Integer.valueOf(sc.nextLine());
 
 
-        for (int i = 0; i <searchingByCategory.size(); i++) {
+        for (int i = 0; i < searchingByCategory.size(); i++) {
 
+            final int k = i;
             if (pick == i + 1) {
-                System.out.println("Succes");
+                System.out.println("Success");
                 System.out.println(searchingByCategory.get(i));
                 Recipe recipe = mealViewer.getMapOfMeals().entrySet().stream()
-                        .filter (r -> r.getKey().equals(searchingByCategory(i)))
-                        .anyMatch();
+                        .filter (r -> r.getKey().equals(searchingByCategory.get(k)))
+                        .map(r -> r.getValue())
+                        .findFirst().get();
+
+                System.out.println(recipe);
 
             }
         }
-
     }
 }
