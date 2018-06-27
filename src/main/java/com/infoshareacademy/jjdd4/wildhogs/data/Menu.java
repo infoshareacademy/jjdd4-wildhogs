@@ -1,42 +1,12 @@
 package com.infoshareacademy.jjdd4.wildhogs.data;
 
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
-enum Option
-
-{
-    EXIT("0"),
-    SHOW_RECIPES("1"),
-    SHOW_CHOSEN_RECIPES("2"),
-    SHOW_SHOPPING_LIST("3"),
-    UNKNOWN("4");
-
-    private String optionNumber;
-
-    Option(String opt) {
-
-        optionNumber = opt;
-
-    }
-
-    public static Option fromNumber(String optionNumber) {
-        return Arrays.stream(values())
-                .filter(o -> o.optionNumber.equals(optionNumber))
-                .findFirst()
-                .orElse(UNKNOWN);
-
-
-    }
-}
-public class SkeletonMenu {
+public class Menu {
 
     Scanner sc = new Scanner(System.in);
     MealCreator mealCreator = new MealCreator();
-
-
 
     public void printMenu() {
 
@@ -63,10 +33,8 @@ public class SkeletonMenu {
             case SHOW_SHOPPING_LIST:
                 System.out.println("gas");
                 break;
-
         }
     }
-
 }
 
 //    private String menu;
