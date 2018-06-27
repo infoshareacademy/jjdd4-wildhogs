@@ -1,7 +1,6 @@
 package com.infoshareacademy.jjdd4.wildhogs.app;
 
-import com.infoshareacademy.jjdd4.wildhogs.data.SkeletonMenu;
-import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
+import com.infoshareacademy.jjdd4.wildhogs.data.Menu;
 
 import javax.security.auth.login.AppConfigurationEntry;
 import javax.security.auth.login.Configuration;
@@ -17,13 +16,8 @@ public class Main {
             }
         };
 
-        MealCreator mealCreator = new MealCreator();
-
-        for (String key: mealCreator.getMapOfMeals().keySet()) {
-            System.out.println(key);
-        }
-
-        SkeletonMenu menu = new SkeletonMenu("Menu", "Home", "Weeklist", "KitchenBook");
-        menu.printSkeletonMenu();
+        Menu menu = new Menu();
+        menu.printMenu();
+        menu.optionPicker();
     }
 }
