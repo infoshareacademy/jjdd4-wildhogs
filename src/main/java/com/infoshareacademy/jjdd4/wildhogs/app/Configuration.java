@@ -3,11 +3,17 @@ package com.infoshareacademy.jjdd4.wildhogs.app;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.ConcurrentNavigableMap;
 
-public class Configuration {
+public class Configuration extends Properties {
 
-    private static final String CONFIG_PATH = "config.properties";
+    public static final String CONFIG_PATH = "config.properties";
     private final Properties properties;
+
+    public Configuration(Properties properties ){
+
+        this.properties = properties;
+    }
 
     public Configuration() {
 

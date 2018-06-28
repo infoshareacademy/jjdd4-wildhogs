@@ -2,7 +2,6 @@ package com.infoshareacademy.jjdd4.wildhogs.data;
 
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
