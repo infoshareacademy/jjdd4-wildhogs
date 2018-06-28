@@ -1,5 +1,6 @@
 package com.infoshareacademy.jjdd4.wildhogs.data;
 
+import com.infoshareacademy.jjdd4.wildhogs.logic.ViewRecipesByCategory;
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
 
@@ -38,10 +39,9 @@ public class Menu {
                     printMenu();
                     break;
                 case SHOW_RECIPES:
+                    ViewRecipesByCategory viewRecipesByCategory = new ViewRecipesByCategory(Category.LUNCH, mealCreator);
+                    viewRecipesByCategory.printResultByCategory();
                     System.out.println("pokaze przepisy po kategorii");
-                    break;
-                case SHOW_CHOSEN_RECIPES:
-                    System.out.println("pokazalo wybrane");
                     break;
                 case SHOW_SHOPPING_LIST:
                     System.out.println("shopping list");
