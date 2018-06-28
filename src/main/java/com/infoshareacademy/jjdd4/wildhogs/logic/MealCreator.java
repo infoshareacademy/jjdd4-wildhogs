@@ -1,8 +1,9 @@
-package com.infoshareacademy.jjdd4.wildhogs;
+package com.infoshareacademy.jjdd4.wildhogs.logic;
 
+import com.infoshareacademy.jjdd4.wildhogs.app.Configuration;
+import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -14,8 +15,8 @@ public class MealCreator {
 
         mapOfMeals = new LinkedHashMap<>();
 
-        Source source = new Source();
-        JSONObject jsonObject = JSONProvider.read(source);
+        Configuration configuration = new Configuration();
+        JSONObject jsonObject = JSONProvider.read(configuration);
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
         for (Object recipe : recipesArray) {
             Recipe recipeCreated = RecipesProviderFromJSON.creator((JSONObject) recipe);
@@ -25,8 +26,6 @@ public class MealCreator {
             }
         }
     }
-
-
 
     public Map<String, Recipe> getMapOfMeals() {
         return mapOfMeals;

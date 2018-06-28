@@ -1,4 +1,5 @@
-package com.infoshareacademy.jjdd4.wildhogs;
+package com.infoshareacademy.jjdd4.wildhogs.data;
+
 import java.util.Objects;
 
 public class Ingredient {
@@ -29,7 +30,7 @@ public class Ingredient {
     }
 
     @Override
-    public int hashCode() {
+     public int hashCode() {
         return Objects.hash(name, amount, unit);
     }
 
@@ -47,4 +48,3 @@ public class Ingredient {
     }
 
 }
-
