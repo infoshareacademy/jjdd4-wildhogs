@@ -3,7 +3,6 @@ package com.infoshareacademy.jjdd4.wildhogs.data;
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -18,14 +17,16 @@ public class Menu {
     public void printMenu() {
         System.out.println("=======MENU=======");
         System.out.println("0. wyjscie");
-        System.out.println("1. wyswietl wszystkie  przepisy");
-        System.out.println("2. wystwietl wybrane przepisy");
-        System.out.println("3. wyswietl liste zakupow");
-        System.out.println("4. zapisz liste zakupow");
-        System.out.println("Chose Your destiny: ");
+        System.out.println("1. MENU");
+        System.out.println("2. wyswietl wszystkie  przepisy");
+        System.out.println("3. wystwietl wybrane przepisy");
+        System.out.println("4. YOUR SHOPPING LIST - VIEW");
+        System.out.println("5. SAVE YOUR SHOPPING LIST");
+        System.out.println("Chose what do You want to do now: ");
     }
 
     public void optionPicker (){
+        printMenu();
         Option option;
         do {
             option = Option.fromNumber(sc.nextLine());
@@ -33,6 +34,9 @@ public class Menu {
 
                 case EXIT:
                     System.out.println("wyjscie");
+                    break;
+                case MENU:
+                    printMenu();
                     break;
                 case SHOW_RECIPES:
                     System.out.println("pokaze przepisy po kategori");
@@ -53,23 +57,11 @@ public class Menu {
                         System.out.println("Empty List! Nothing to write.");
                     }
                     break;
+                case UNKNOWN:
+                    System.out.println("Wrong value");
+                    break;
             }
-            printMenu();
+            System.out.println("\r\n Chose what next, or press 1 to see MENU: ");
         }while (!option.equals(Option.EXIT));
     }
 }
-
-//    private String menu;
-//    private String home;
-//    private String weeklist;
-//    private String kitchenBook;
-//
-//    public SkeletonMenu(String menu, String home, String weeklist, String kitchenBook) {
-//        this.menu = menu;
-//        this.home = home;
-//        this.weeklist = weeklist;
-//        this.kitchenBook = kitchenBook;
-////    }
-//public void printSkeletonMenu() {
-//    System.out.println(this.menu + "\n" + this.home + "\n" + this.weeklist + "\n" + this.kitchenBook);
-//}

@@ -35,8 +35,6 @@ public class Ingredient {
         if (!(o instanceof Ingredient)) return false;
         Ingredient that = (Ingredient) o;
         return Objects.equals(name, that.name);
-//                && that.amount, amount) == 0 &&
-//                unit == that.unit;
     }
 
     @Override
