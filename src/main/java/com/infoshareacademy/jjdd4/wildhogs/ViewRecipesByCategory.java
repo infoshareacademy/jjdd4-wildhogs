@@ -4,6 +4,7 @@ import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ import java.util.stream.Collectors;
 public class ViewRecipesByCategory {
 
     private final List<String> searchingByCategory;
-    private List<String> pickedRecipe;
+    private List<String> pickedRecipe = new ArrayList<>();
     private final Category category;
     Scanner sc = new Scanner(System.in);
     MealCreator mealViewer;
@@ -63,14 +64,12 @@ public class ViewRecipesByCategory {
 
 
                 if (pick2 == 1) {
-                    System.out.println(recipe.getName());
-                    System.out.println(recipe);
-
 
                     pickedRecipe.add(recipe.getName());
+                    System.out.println("Succes");
                     break;
 
-                } else if (pick2 == 2){
+                } else if (pick2 == 2) {
 
                     break;
                 }
