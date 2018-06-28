@@ -1,6 +1,6 @@
 package com.infoshareacademy.jjdd4.wildhogs.data;
 
-import com.infoshareacademy.jjdd4.wildhogs.ViewRecipesByCategory;
+import com.infoshareacademy.jjdd4.wildhogs.logic.ViewRecipesByCategory;
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
 
