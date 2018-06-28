@@ -81,7 +81,7 @@ public class ShoppingList {
     }
 
     private String listToString() {
-        String result = "Chosen recipes: " + nameOfRecipes + "\r\n\r\n";
+        String result = "Picked recipes: " + nameOfRecipes + "\r\n\r\n";
         for(Ingredient ingredient : shoppingList) {
             result += ingredient.getName() + " "
                     + ingredient.getAmount() + " "
