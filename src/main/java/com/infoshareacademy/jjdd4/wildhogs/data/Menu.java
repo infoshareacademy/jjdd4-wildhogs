@@ -3,6 +3,7 @@ package com.infoshareacademy.jjdd4.wildhogs.data;
 import com.infoshareacademy.jjdd4.wildhogs.ViewRecipesByCategory;
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -16,24 +17,23 @@ public class Menu {
 
     public void printMenu() {
         System.out.println("=======MENU=======");
-        System.out.println("0. wyjscie");
+        System.out.println("0. EXIT");
         System.out.println("1. MENU");
-        System.out.println("2. wyswietl wszystkie  przepisy");
-        System.out.println("3. wystwietl wybrane przepisy");
+        System.out.println("2. SHOW RECIPES BY THE CATEGORY");
+        System.out.println("3. SHOW PICKED RECIPES");
         System.out.println("4. YOUR SHOPPING LIST - VIEW");
         System.out.println("5. SAVE YOUR SHOPPING LIST");
-        System.out.println("Chose what do You want to do now: ");
+        System.out.print("Choose what do You want to do now: ");
     }
 
-    public void optionPicker (){
+    public void optionPicker() {
         printMenu();
         Option option;
         do {
             option = Option.fromNumber(sc.nextLine());
             switch (option) {
-
                 case EXIT:
-                    System.out.println("wyjscie");
+                    System.out.println("ENDING SESSION");
                     break;
                 case MENU:
                     printMenu();
@@ -41,9 +41,7 @@ public class Menu {
                 case SHOW_RECIPES:
                     ViewRecipesByCategory viewRecipesByCategory = new ViewRecipesByCategory(Category.LUNCH, mealCreator);
                     viewRecipesByCategory.printResultByCategory();
-                    break;
-                case SHOW_CHOSEN_RECIPES:
-                    System.out.println("pokazalo wybrane");
+                    System.out.println("pokaze przepisy po kategorii");
                     break;
                 case SHOW_SHOPPING_LIST:
                     System.out.println("shopping list");
@@ -53,16 +51,16 @@ public class Menu {
                 case SAVE_SHOPPING_LIST:
                     if (shoppingList != null) {
                         shoppingList.save();
-                        System.out.println("Your List is write to file.");
+                        System.out.println("Your list was saved to file.");
                     } else {
-                        System.out.println("Empty List! Nothing to write.");
+                        System.out.println("Empty list! Nothing to print.");
                     }
                     break;
                 case UNKNOWN:
                     System.out.println("Wrong value");
                     break;
             }
-            System.out.println("\r\n Chose what next, or press 1 to see MENU: ");
-        }while (!option.equals(Option.EXIT));
+            System.out.println("\r\nChoose another option from MAIN MENU, press 1 to see MENU ");
+        } while (!option.equals(Option.EXIT));
     }
 }
