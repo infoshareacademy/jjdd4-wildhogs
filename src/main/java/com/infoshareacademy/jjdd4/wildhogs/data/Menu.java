@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class Menu {
 
-    Scanner sc = new Scanner(System.in);
-    MealCreator mealCreator = new MealCreator();
-    List<String> list = Arrays.asList("Grilled Mexican Street Corn", "Mustard Potato Salad");
-    ShoppingList shoppingList = null;
+    private Scanner sc = new Scanner(System.in);
+    private MealCreator mealCreator = new MealCreator();
+    private ShoppingList shoppingList;
+    private ViewRecipesByCategory viewRecipesByCategory;
 
     public void printMenu() {
         System.out.println("=======MENU=======");
@@ -38,15 +38,24 @@ public class Menu {
                 case MENU:
                     printMenu();
                     break;
-                case SHOW_RECIPES:
-                    ViewRecipesByCategory viewRecipesByCategory = new ViewRecipesByCategory(Category.LUNCH, mealCreator);
+                case SHOW_RECIPES_BY_CATEGORY:
+                    viewRecipesByCategory = new ViewRecipesByCategory(Category.LUNCH, mealCreator);
                     viewRecipesByCategory.printResultByCategory();
-                    System.out.println("pokaze przepisy po kategorii");
+                    break;
+                case SHOW_CHOSEN_RECIPES:
+                    if (viewRecipesByCategory.getPickedRecipe() != null) {
+                        System.out.println(viewRecipesByCategory.getPickedRecipe());
+                    } else {
+                        System.out.println("You picked nothing!");
+                    }
                     break;
                 case SHOW_SHOPPING_LIST:
-                    System.out.println("shopping list");
-                    shoppingList = new ShoppingList(mealCreator, list);
-                    shoppingList.print();
+                    if(viewRecipesByCategory.getPickedRecipe() != null) {
+                        shoppingList = new ShoppingList(mealCreator, viewRecipesByCategory.getPickedRecipe());
+                        shoppingList.print();
+                    } else {
+                        System.out.println("Your shopping list is empty!");
+                    }
                     break;
                 case SAVE_SHOPPING_LIST:
                     if (shoppingList != null) {

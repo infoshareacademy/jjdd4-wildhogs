@@ -76,4 +76,8 @@ public class ViewRecipesByCategory {
             }
         }
     }
+
+    public List<String> getPickedRecipe() {
+        return pickedRecipe;
+    }
 }
