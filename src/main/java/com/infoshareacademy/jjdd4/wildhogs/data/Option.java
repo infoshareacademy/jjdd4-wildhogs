@@ -2,7 +2,7 @@ package com.infoshareacademy.jjdd4.wildhogs.data;
 
 import java.util.Arrays;
 
-enum Option{
+public enum Option {
     EXIT("0"),
     MENU("1"),
     SHOW_RECIPES_BY_CATEGORY("2"),

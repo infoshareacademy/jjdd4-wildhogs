@@ -1,11 +1,9 @@
-package com.infoshareacademy.jjdd4.wildhogs.data;
+package com.infoshareacademy.jjdd4.wildhogs.logic;
 
-import com.infoshareacademy.jjdd4.wildhogs.logic.ViewRecipesByCategory;
-import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
-import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
+import com.infoshareacademy.jjdd4.wildhogs.app.Configuration;
+import com.infoshareacademy.jjdd4.wildhogs.data.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,6 +14,7 @@ public class Menu {
     private ShoppingList shoppingList;
     private ViewRecipesByCategory viewRecipesByCategory;
     private List<String> pickedRecipe = new ArrayList<>();
+    private Configuration config = new Configuration();
 
     public void printMenu() {
         System.out.println("=======MENU=======");
@@ -27,6 +26,17 @@ public class Menu {
         System.out.println("5. SAVE YOUR SHOPPING LIST");
         System.out.print("Choose what do You want to do now: ");
     }
+
+    public void printCategory() {
+        System.out.println("=======CATEGORIES=======");
+        System.out.println("1. BREAKFAST");
+        System.out.println("2. LUNCH");
+        System.out.println("3. DINNER");
+        System.out.println("4. SUPPER");
+        System.out.println("5. BACK");
+        System.out.print("Pick a category by number: ");
+    }
+
 
     public void optionPicker() {
         printMenu();
@@ -41,19 +51,27 @@ public class Menu {
                     printMenu();
                     break;
                 case SHOW_RECIPES_BY_CATEGORY:
-                    viewRecipesByCategory = new ViewRecipesByCategory(Category.LUNCH, mealCreator);
+
+
+
+                    printCategory();
+                    Category category=Category.fromNumber(sc.nextLine());
+
+
+
+                    viewRecipesByCategory = new ViewRecipesByCategory(category, mealCreator);
                     viewRecipesByCategory.printResultByCategory();
                     pickedRecipe.add(viewRecipesByCategory.getNamePicked());
                     break;
                 case SHOW_CHOSEN_RECIPES:
-                    if (pickedRecipe != null) {
+                    if (!pickedRecipe.isEmpty()) {
                         System.out.println(pickedRecipe);
                     } else {
                         System.out.println("You picked nothing!");
                     }
                     break;
                 case SHOW_SHOPPING_LIST:
-                    if(pickedRecipe != null) {
+                    if (!pickedRecipe.isEmpty()) {
                         shoppingList = new ShoppingList(mealCreator, pickedRecipe);
                         shoppingList.print();
                     } else {
@@ -63,9 +81,9 @@ public class Menu {
                 case SAVE_SHOPPING_LIST:
                     if (shoppingList != null) {
                         shoppingList.save();
-                        System.out.println("Your list was saved to file.");
+                        System.out.println("Your list was saved to file " + config.getSavedRecipesFilePath() + ".");
                     } else {
-                        System.out.println("Empty list! Nothing to print.");
+                        System.out.println("Empty list. Nothing to save.");
                     }
                     break;
                 case UNKNOWN:

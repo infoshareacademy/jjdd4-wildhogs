@@ -19,7 +19,6 @@ public class Recipe {
     }
 
     public void addIngredient(String name, Ingredient in) {
-
         ingredientsMap.put(name, in);
     }
 
@@ -48,6 +47,7 @@ public class Recipe {
     public int hashCode() {
         return Objects.hash(name, category, description, ingredientsMap);
     }
+
 
     public String getName() {
         return name;
