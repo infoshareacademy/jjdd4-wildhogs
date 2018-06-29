@@ -4,6 +4,7 @@ import com.infoshareacademy.jjdd4.wildhogs.logic.ViewRecipesByCategory;
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class Menu {
     private MealCreator mealCreator = new MealCreator();
     private ShoppingList shoppingList;
     private ViewRecipesByCategory viewRecipesByCategory;
+    private List<String> pickedRecipe = new ArrayList<>();
 
     public void printMenu() {
         System.out.println("=======MENU=======");
@@ -41,17 +43,18 @@ public class Menu {
                 case SHOW_RECIPES_BY_CATEGORY:
                     viewRecipesByCategory = new ViewRecipesByCategory(Category.LUNCH, mealCreator);
                     viewRecipesByCategory.printResultByCategory();
+                    pickedRecipe.add(viewRecipesByCategory.getNamePicked());
                     break;
                 case SHOW_CHOSEN_RECIPES:
-                    if (viewRecipesByCategory.getPickedRecipe() != null) {
-                        System.out.println(viewRecipesByCategory.getPickedRecipe());
+                    if (pickedRecipe != null) {
+                        System.out.println(pickedRecipe);
                     } else {
                         System.out.println("You picked nothing!");
                     }
                     break;
                 case SHOW_SHOPPING_LIST:
-                    if(viewRecipesByCategory.getPickedRecipe() != null) {
-                        shoppingList = new ShoppingList(mealCreator, viewRecipesByCategory.getPickedRecipe());
+                    if(pickedRecipe != null) {
+                        shoppingList = new ShoppingList(mealCreator, pickedRecipe);
                         shoppingList.print();
                     } else {
                         System.out.println("Your shopping list is empty!");
