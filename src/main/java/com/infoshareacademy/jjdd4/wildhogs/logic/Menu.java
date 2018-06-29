@@ -17,17 +17,18 @@ public class Menu {
     private Configuration config = new Configuration();
 
     public void printMenu() {
+        System.out.println();
         System.out.println("=======MENU=======");
         System.out.println("0. EXIT");
-        System.out.println("1. MENU");
-        System.out.println("2. SHOW RECIPES BY THE CATEGORY");
-        System.out.println("3. SHOW PICKED RECIPES");
-        System.out.println("4. YOUR SHOPPING LIST - VIEW");
-        System.out.println("5. SAVE YOUR SHOPPING LIST");
+        System.out.println("1. SHOW RECIPES BY THE CATEGORY");
+        System.out.println("2. SHOW PICKED RECIPES");
+        System.out.println("3. YOUR SHOPPING LIST - VIEW");
+        System.out.println("4. SAVE YOUR SHOPPING LIST");
         System.out.print("Choose what do You want to do now: ");
     }
 
     public void printCategory() {
+        System.out.println();
         System.out.println("=======CATEGORIES=======");
         System.out.println("1. BREAKFAST");
         System.out.println("2. LUNCH");
@@ -37,31 +38,26 @@ public class Menu {
         System.out.print("Pick a category by number: ");
     }
 
-
     public void optionPicker() {
-        printMenu();
         Option option;
         do {
+            printMenu();
             option = Option.fromNumber(sc.nextLine());
             switch (option) {
                 case EXIT:
                     System.out.println("ENDING SESSION");
                     break;
-                case MENU:
-                    printMenu();
-                    break;
                 case SHOW_RECIPES_BY_CATEGORY:
-
-
-
                     printCategory();
-                    Category category=Category.fromNumber(sc.nextLine());
-
-
+                    Category category = Category.fromNumber(sc.nextLine());
 
                     viewRecipesByCategory = new ViewRecipesByCategory(category, mealCreator);
                     viewRecipesByCategory.printResultByCategory();
                     pickedRecipe.add(viewRecipesByCategory.getNamePicked());
+
+                    if (!pickedRecipe.isEmpty()) {
+                        shoppingList = new ShoppingList(mealCreator, pickedRecipe);
+                    }
                     break;
                 case SHOW_CHOSEN_RECIPES:
                     if (!pickedRecipe.isEmpty()) {
@@ -72,7 +68,6 @@ public class Menu {
                     break;
                 case SHOW_SHOPPING_LIST:
                     if (!pickedRecipe.isEmpty()) {
-                        shoppingList = new ShoppingList(mealCreator, pickedRecipe);
                         shoppingList.print();
                     } else {
                         System.out.println("Your shopping list is empty!");
@@ -90,7 +85,6 @@ public class Menu {
                     System.out.println("Wrong value");
                     break;
             }
-            System.out.println("\r\nChoose another option from MAIN MENU, press 1 to see MENU ");
         } while (!option.equals(Option.EXIT));
     }
 }

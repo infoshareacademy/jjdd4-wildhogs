@@ -20,22 +20,20 @@ public class ViewRecipesByCategory {
         mealViewer = mealCreator;
         searchingByCategory = new ArrayList<>();
 
-
         searchingByCategory = mealCreator.getMapOfMeals().entrySet().stream()
                 .map(Map.Entry::getValue)
                 .filter(r -> (Category.valueOf(category.toString()).equals(r.getCategory())))
                 .map(Recipe::getName)
                 .collect(Collectors.toList());
-
     }
 
     public void printResultByCategory() {
 
         if (!category.equals(Category.BACK)) {
             if (searchingByCategory.isEmpty() && !category.equals(Category.BACK)) {
-                System.out.println(" \n Sorry, we ran out of recipes. Your list is empty.");
+                System.out.println(" \nSorry, we ran out of recipes. Your list is empty.");
             } else {
-                System.out.println("\n You picked " + category + " category. Here are all the recipes: \n");
+                System.out.println("\nYou picked " + category + " category. Here are all the recipes: \n");
             }
 
             for (int i = 0; i < searchingByCategory.size(); i++) {
@@ -43,7 +41,7 @@ public class ViewRecipesByCategory {
                 System.out.println(i + 1 + ". " + searchingByCategory.get(i));
             }
 
-            System.out.print("\n Pick a meal number: ");
+            System.out.print("\nPick a meal number: ");
             Integer pick = Integer.valueOf(sc.nextLine());
 
             for (int i = 0; i < searchingByCategory.size(); i++) {
@@ -59,7 +57,7 @@ public class ViewRecipesByCategory {
                     System.out.println("\n" + recipe.getName() + "\n");
                     System.out.println(recipe.getDescription() + "\n");
                     recipe.getMap().entrySet().stream().map(r -> r.getValue()).forEach(System.out::println);
-                    System.out.println("\n Do you want do add the recipe to shopping list? \n 1. - Yes \n 2. - No & go back");
+                    System.out.println("\nDo you want do add the recipe to shopping list? \n 1. - Yes \n 2. - No & go back");
                     Integer pick2 = Integer.valueOf(sc.nextLine());
 
                     if (pick2 == 1) {
@@ -76,7 +74,6 @@ public class ViewRecipesByCategory {
             }
         }
     }
-
     public String getNamePicked() {
         return namePicked;
     }
