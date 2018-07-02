@@ -27,7 +27,7 @@ public class ViewRecipesByCategory {
                 .collect(Collectors.toList());
     }
 
-    public void pickYourMealLogic(){
+    public void pickYourMealLogic() {
         printResultByCategory();
         pickAMealByTheNumber();
     }
@@ -45,6 +45,7 @@ public class ViewRecipesByCategory {
                 System.out.println("\nYou picked " + category + " category. Here are all the recipes: \n");
             }
 
+            System.out.println("0. Back");
             for (int i = 0; i < searchingByCategory.size(); i++) {
 
                 System.out.println(i + 1 + ". " + searchingByCategory.get(i));
@@ -54,15 +55,20 @@ public class ViewRecipesByCategory {
 
     private void pickAMealByTheNumber() {
         System.out.print("\nPick a meal number: ");
-        Integer pick = Integer.valueOf(sc.nextLine());
+        Integer pick = 0;
+        try {
+            pick = Integer.valueOf(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("That's not a proper input. Please try again.");
+        }
 
         for (int i = 0; i < searchingByCategory.size(); i++) {
 
-            final int k = i;
+            final int temp = i;
             if (pick == i + 1) {
                 System.out.println("Success");
                 Recipe recipe = mealViewer.getMapOfMeals().entrySet().stream()
-                        .filter(r -> r.getKey().equals(searchingByCategory.get(k)))
+                        .filter(r -> r.getKey().equals(searchingByCategory.get(temp)))
                         .map(r -> r.getValue())
                         .findFirst().get();
 
