@@ -16,8 +16,7 @@ public class MealCreator {
 
         mapOfMeals = new LinkedHashMap<>();
 
-        Configuration configuration = new Configuration();
-        JSONObject jsonObject = JSONProvider.read(configuration);
+        JSONObject jsonObject = JSONProvider.read(new Configuration());
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
 
         for (Object recipe : recipesArray) {

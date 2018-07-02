@@ -22,14 +22,14 @@ public static Recipe creator(JSONObject jsonObject) {
             return null;
         }
         try {
-            JSONArray ingridientsArray = (JSONArray) jsonObject.get("ingredients");
-            for (Object ingridientJSON : ingridientsArray) {
+            JSONArray indgredientJSON = (JSONArray) jsonObject.get("ingredients");
+            for (Object ingredients : indgredientJSON) {
 
-                String nameI = ((JSONObject) ingridientJSON).get("name").toString();
-                Double amount = Double.valueOf(((JSONObject) ingridientJSON).get("amount").toString());
-                Unit unit = Unit.valueOf(((JSONObject) ingridientJSON).get("unit").toString().toUpperCase());
+                String ingredientName = ((JSONObject) ingredients).get("name").toString();
+                Double amount = Double.valueOf(((JSONObject) ingredients).get("amount").toString());
+                Unit unit = Unit.valueOf(((JSONObject) ingredients).get("unit").toString().toUpperCase());
 
-                Ingredient ingredient = new Ingredient(nameI, amount, unit);
+                Ingredient ingredient = new Ingredient(ingredientName, amount, unit);
                 recipe.addIngredient(ingredient.getName(), ingredient);
             }
             } catch (NumberFormatException e) {

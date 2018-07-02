@@ -27,7 +27,16 @@ public class ViewRecipesByCategory {
                 .collect(Collectors.toList());
     }
 
-    public void printResultByCategory() {
+    public void pickYourMealLogic(){
+        printResultByCategory();
+        pickAMealByTheNumber();
+    }
+
+    public String getNamePicked() {
+        return namePicked;
+    }
+
+    private void printResultByCategory() {
 
         if (!category.equals(Category.BACK)) {
             if (searchingByCategory.isEmpty() && !category.equals(Category.BACK)) {
@@ -40,41 +49,40 @@ public class ViewRecipesByCategory {
 
                 System.out.println(i + 1 + ". " + searchingByCategory.get(i));
             }
+        }
+    }
 
-            System.out.print("\nPick a meal number: ");
-            Integer pick = Integer.valueOf(sc.nextLine());
+    private void pickAMealByTheNumber() {
+        System.out.print("\nPick a meal number: ");
+        Integer pick = Integer.valueOf(sc.nextLine());
 
-            for (int i = 0; i < searchingByCategory.size(); i++) {
+        for (int i = 0; i < searchingByCategory.size(); i++) {
 
-                final int k = i;
-                if (pick == i + 1) {
+            final int k = i;
+            if (pick == i + 1) {
+                System.out.println("Success");
+                Recipe recipe = mealViewer.getMapOfMeals().entrySet().stream()
+                        .filter(r -> r.getKey().equals(searchingByCategory.get(k)))
+                        .map(r -> r.getValue())
+                        .findFirst().get();
+
+                System.out.println("\n" + recipe.getName() + "\n");
+                System.out.println(recipe.getDescription() + "\n");
+                recipe.getMap().entrySet().stream().map(r -> r.getValue()).forEach(System.out::println);
+                System.out.println("\nDo you want do add the recipe to shopping list? \n 1. - Yes \n 2. - No & go back");
+                Integer pick2 = Integer.valueOf(sc.nextLine());
+
+                if (pick2 == 1) {
+                    namePicked = recipe.getName();
                     System.out.println("Success");
-                    Recipe recipe = mealViewer.getMapOfMeals().entrySet().stream()
-                            .filter(r -> r.getKey().equals(searchingByCategory.get(k)))
-                            .map(r -> r.getValue())
-                            .findFirst().get();
+                    break;
 
-                    System.out.println("\n" + recipe.getName() + "\n");
-                    System.out.println(recipe.getDescription() + "\n");
-                    recipe.getMap().entrySet().stream().map(r -> r.getValue()).forEach(System.out::println);
-                    System.out.println("\nDo you want do add the recipe to shopping list? \n 1. - Yes \n 2. - No & go back");
-                    Integer pick2 = Integer.valueOf(sc.nextLine());
-
-                    if (pick2 == 1) {
-
-                        namePicked = recipe.getName();
-                        System.out.println("Success");
-                        break;
-
-                    } else if (pick2 == 2) {
-
-                        break;
-                    }
+                } else if (pick2 == 2) {
+                    break;
                 }
             }
         }
     }
-    public String getNamePicked() {
-        return namePicked;
-    }
+
+
 }
