@@ -34,18 +34,9 @@ public class Ingredient {
     }
 
     @Override
-     public int hashCode() {
+    public int hashCode() {
         return Objects.hash(name, amount, unit);
     }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
-
 
     public String getName() {
         return name;
@@ -55,14 +46,23 @@ public class Ingredient {
         return amount;
     }
 
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
     public Unit getUnit() {
         return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
     }
 
     public void multiplyAmount(int multi) {
         amount *= multi;
     }
-     public void addToAmount(double adder) {
+
+    public void addToAmount(double adder) {
         amount += adder;
-     }
+    }
 }

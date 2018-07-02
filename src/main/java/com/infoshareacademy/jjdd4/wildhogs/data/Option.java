@@ -2,14 +2,13 @@ package com.infoshareacademy.jjdd4.wildhogs.data;
 
 import java.util.Arrays;
 
-enum Option{
+public enum Option {
     EXIT("0"),
-    MENU("1"),
-    SHOW_RECIPES_BY_CATEGORY("2"),
-    SHOW_CHOSEN_RECIPES("3"),
-    SHOW_SHOPPING_LIST("4"),
-    SAVE_SHOPPING_LIST("5"),
-    UNKNOWN("6");
+    SHOW_RECIPES_BY_CATEGORY("1"),
+    SHOW_CHOSEN_RECIPES("2"),
+    SHOW_SHOPPING_LIST("3"),
+    SAVE_SHOPPING_LIST("4"),
+    UNKNOWN("5");
 
     private String optionNumber;
 
