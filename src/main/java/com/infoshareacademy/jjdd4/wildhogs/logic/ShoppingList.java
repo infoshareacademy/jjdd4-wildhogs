@@ -18,11 +18,16 @@ public class ShoppingList {
     public ShoppingList(MealCreator mealCreator, List<String> nameOfRecipes) {
 
         this.nameOfRecipes = nameOfRecipes;
-        List<Ingredient> temp = mealCreator.getMapOfMeals().entrySet().stream()
-                .filter(e -> nameOfRecipes.contains(e.getKey()))
-                .map(e -> e.getValue())
-                .flatMap(r -> r.getMap().values().stream())
-                .collect(toList());
+        List<Ingredient> temp = new ArrayList<>();
+
+        for (String name : nameOfRecipes) {
+            List<Ingredient> temp2 = mealCreator.getMapOfMeals().entrySet().stream()
+                    .filter(e -> name.contains(e.getKey()))
+                    .map(e -> e.getValue())
+                    .flatMap(r -> r.getMap().values().stream())
+                    .collect(toList());
+            temp.addAll(temp2);
+        }
 
         shoppingList = new ArrayList<>();
 

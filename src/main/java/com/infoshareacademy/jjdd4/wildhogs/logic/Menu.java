@@ -45,7 +45,6 @@ public class Menu {
 
     private void ifNotEmptyShowsShoppingList() {
         if (!pickedRecipe.isEmpty()) {
-            shoppingList = new ShoppingList(mealCreator, pickedRecipe);
             shoppingList.print();
         } else {
             System.out.println("Your shopping list is empty!");
