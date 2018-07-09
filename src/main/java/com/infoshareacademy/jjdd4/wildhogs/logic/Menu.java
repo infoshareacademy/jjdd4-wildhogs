@@ -70,14 +70,16 @@ public class Menu {
 
     private void picksAMealByTheNumberAndAddsToShoppingList() {
         Category category = Category.fromNumber(sc.nextLine());
-        if (category!=Category.BACK){
-        ViewRecipesByCategory viewRecipesByCategory = new ViewRecipesByCategory(category, mealCreator);
-        viewRecipesByCategory.pickYourMealLogic();
-        pickedRecipe.add(viewRecipesByCategory.getNamePicked());
-
-        if (!pickedRecipe.isEmpty()) {
-            shoppingList = new ShoppingList(mealCreator, pickedRecipe);
-        }}
+        if (category != Category.BACK) {
+            ViewRecipesByCategory viewRecipesByCategory = new ViewRecipesByCategory(category, mealCreator);
+            viewRecipesByCategory.pickYourMealLogic();
+            if (!viewRecipesByCategory.getNamePicked().equals("")) {
+                pickedRecipe.add(viewRecipesByCategory.getNamePicked());
+            }
+            if (!pickedRecipe.isEmpty()) {
+                shoppingList = new ShoppingList(mealCreator, pickedRecipe);
+            }
+        }
     }
 
     private void printMenu() {
