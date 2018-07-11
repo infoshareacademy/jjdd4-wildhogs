@@ -18,57 +18,47 @@ public class ShoppingList {
     public ShoppingList(MealCreator mealCreator, List<String> nameOfRecipes) {
 
         this.nameOfRecipes = nameOfRecipes;
-        List<Ingredient> temp = new ArrayList<>();
+        List<Ingredient> allIngredients = new ArrayList<>();
 
         for (String name : nameOfRecipes) {
-            List<Ingredient> temp2 = mealCreator.getMapOfMeals().entrySet().stream()
+            List<Ingredient> ingredientsInRecipe = mealCreator.getMapOfMeals().entrySet().stream()
                     .filter(e -> name.contains(e.getKey()))
                     .map(e -> e.getValue())
                     .flatMap(r -> r.getMap().values().stream())
                     .collect(toList());
-            temp.addAll(temp2);
+            allIngredients.addAll(ingredientsInRecipe);
         }
 
         shoppingList = new ArrayList<>();
 
-        for (Ingredient ingredient: temp) {
+        for (Ingredient ingredient : allIngredients) {
             if (shoppingList.contains(ingredient)) {
-
-                if (shoppingList.get(shoppingList.indexOf(ingredient)).getUnit().equals(ingredient.getUnit())) {
-                    shoppingList.get(shoppingList.indexOf(ingredient)).addToAmount(ingredient.getAmount());
-                } else {
-                    int index = shoppingList.indexOf(ingredient);
-                    switch (shoppingList.get(index).getUnit()) {
-                        case KILOGRAMS:
-                            shoppingList.get(index).setUnit(Unit.GRAMS);
-                            shoppingList.get(index).multiplyAmount(1000);
-                            break;
-                        case LITERS:
-                            shoppingList.get(index).setUnit(Unit.MILLILITERS);
-                            shoppingList.get(index).multiplyAmount(1000);
-                            break;
-                        case CUP:
-                            shoppingList.get(index).setUnit(Unit.MILLILITERS);
-                            shoppingList.get(index).multiplyAmount(250);
-                            break;
-                    }
-                    switch (ingredient.getUnit()) {
-                        case KILOGRAMS:
-                            shoppingList.get(index).addToAmount(ingredient.getAmount()*1000);
-                            break;
-                        case LITERS:
-                            shoppingList.get(index).addToAmount(ingredient.getAmount()*1000);
-                            break;
-                        case CUP:
-                            shoppingList.get(index).addToAmount(ingredient.getAmount()*250);
-                            break;
-                        default:
-                            shoppingList.get(index).addToAmount(ingredient.getAmount());
-                    }
+                Ingredient ingredientAlreadyInList = shoppingList.get(shoppingList.indexOf(ingredient));
+                if (!ingredientAlreadyInList.getUnit().equals(ingredient.getUnit())) {
+                    unifyUnit(ingredientAlreadyInList);
+                    unifyUnit(ingredient);
                 }
+                ingredientAlreadyInList.addToAmount(ingredient.getAmount());
             } else {
                 shoppingList.add(new Ingredient(ingredient));
             }
+        }
+    }
+
+    private void unifyUnit(Ingredient ingredient) {
+        switch (ingredient.getUnit()) {
+            case KILOGRAMS:
+                ingredient.setUnit(Unit.GRAMS);
+                ingredient.multiplyAmount(1000);
+                break;
+            case LITERS:
+                ingredient.setUnit(Unit.MILLILITERS);
+                ingredient.multiplyAmount(1000);
+                break;
+            case CUP:
+                ingredient.setUnit(Unit.MILLILITERS);
+                ingredient.multiplyAmount(250);
+                break;
         }
     }
 
@@ -88,7 +78,7 @@ public class ShoppingList {
     private String listToString() {
         String result = "Picked recipes: " + nameOfRecipes + "\r\n\r\n";
         for(Ingredient ingredient : shoppingList) {
-            result += ingredient.getName() + " "
+            result += ingredient.getName() + " - "
                     + ingredient.getAmount() + " "
                     +ingredient.getUnit().getDescription()
                     +"\r\n";
