@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class Configuration extends Properties {
 
-    private static final String CONFIG_PATH = "config.properties";
+    private static final String CONFIG_PATH = "YummyTimeApp/config.properties";
     private final Properties properties;
 
     public Configuration(Properties properties) {
@@ -25,7 +25,7 @@ public class Configuration extends Properties {
     }
 
     public String getJsonPath() {
-        return properties.getProperty("jsonPath", "recipes.json");
+        return properties.getProperty("YummyTimeApp/jsonPath", "YummyTimeApp/recipes.json");
     }
 
     public String getSavedRecipesFilePath() {
