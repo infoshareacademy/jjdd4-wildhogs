@@ -7,6 +7,7 @@ import java.util.Objects;
 public class Recipe {
 
     private final String name;
+    private final String pathToPicture = "";
     private final Category category;
     private final String description;
     private final Map<String, Ingredient> ingredientsMap;
