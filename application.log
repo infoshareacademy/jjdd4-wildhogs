@@ -1,0 +1,9 @@
+2018-07-12 19:45:09,518 330  [main] INFO  c.i.jjdd4.wildhogs.app.Main - starting app
+2018-07-12 19:45:13,230 4042 [main] INFO  c.i.jjdd4.wildhogs.app.Main - ending app
+2018-07-12 19:45:13,231 4043 [main] ERROR c.i.jjdd4.wildhogs.app.Main - test
+2018-07-12 19:47:01,510 402  [main] INFO  c.i.jjdd4.wildhogs.app.Main - starting app
+2018-07-12 19:47:25,806 24698 [main] INFO  c.i.jjdd4.wildhogs.app.Main - ending app
+2018-07-12 19:47:25,807 24699 [main] ERROR c.i.jjdd4.wildhogs.app.Main - test
+2018-07-12 19:50:44,554 380  [main] INFO  c.i.jjdd4.wildhogs.app.Main - starting app
+2018-07-12 19:50:47,774 3600 [main] INFO  c.i.jjdd4.wildhogs.app.Main - ending app
+2018-07-12 19:50:47,775 3601 [main] ERROR c.i.jjdd4.wildhogs.app.Main - test

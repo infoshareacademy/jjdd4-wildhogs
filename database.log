@@ -1,0 +1,3 @@
+20:45:58.948 305  INFO  c.i.jjdd4.wildhogs.app.Main - starting app
+20:46:16.578 17935 INFO  c.i.jjdd4.wildhogs.app.Main - ending app
+20:46:16.578 17935 ERROR c.i.jjdd4.wildhogs.app.Main - test
