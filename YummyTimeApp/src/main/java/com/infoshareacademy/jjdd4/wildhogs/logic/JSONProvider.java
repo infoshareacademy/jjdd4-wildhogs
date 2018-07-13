@@ -1,7 +1,6 @@
 package com.infoshareacademy.jjdd4.wildhogs.logic;
 
 import com.infoshareacademy.jjdd4.wildhogs.app.Configuration;
-import com.infoshareacademy.jjdd4.wildhogs.app.Main;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
