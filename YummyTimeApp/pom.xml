@@ -34,7 +34,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.infoshareacademy.jjdd4.wildhogs.app.Main</mainClass>
+                            <mainClass>infoshareacademy.jjdd4.wildhogs.app.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

@@ -2,13 +2,15 @@ package com.infoshareacademy.jjdd4.wildhogs.logic;
 
 import com.infoshareacademy.jjdd4.wildhogs.app.Configuration;
 import com.infoshareacademy.jjdd4.wildhogs.data.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
+    private static Logger logger = LoggerFactory.getLogger(Menu.class);
     private Scanner sc = new Scanner(System.in);
     private MealCreator mealCreator = new MealCreator();
     private ShoppingList shoppingList;
@@ -21,6 +23,7 @@ public class Menu {
             option = Option.fromNumber(sc.nextLine());
             switch (option) {
                 case EXIT:
+                    logger.debug("Exit");
                     System.out.println("ENDING SESSION");
                     break;
                 case SHOW_RECIPES_BY_CATEGORY:
@@ -28,15 +31,18 @@ public class Menu {
                     picksAMealByTheNumberAndAddsToShoppingList();
                     break;
                 case SHOW_CHOSEN_RECIPES:
+                    logger.debug("Showing picked recipes");
                     ifNotEmptyShowsPickedRecipes();
                     break;
                 case SHOW_SHOPPING_LIST:
+                    logger.debug("Showing shopping list");
                     ifNotEmptyShowsShoppingList();
                     break;
                 case SAVE_SHOPPING_LIST:
                     ifShoppingListNotNullSavesToFile();
                     break;
                 case UNKNOWN:
+                    logger.debug("Wrong value given");
                     System.out.println("Wrong value");
                     break;
             }
@@ -48,6 +54,7 @@ public class Menu {
             shoppingList.print();
         } else {
             System.out.println("Your shopping list is empty!");
+            logger.warn("Returning empty list");
         }
     }
 
@@ -56,6 +63,7 @@ public class Menu {
             System.out.println(pickedRecipe);
         } else {
             System.out.println("You picked nothing!");
+            logger.warn("Tried to read empty recipe list without success");
         }
     }
 
@@ -63,8 +71,10 @@ public class Menu {
         if (shoppingList != null) {
             shoppingList.save();
             System.out.println("\nYour list was saved to file " + new Configuration().getSavedRecipesFilePath() + ".");
+            logger.info("Saved list to " + new Configuration().getSavedRecipesFilePath() + ".");
         } else {
             System.out.println("\nEmpty list. Nothing to save.");
+            logger.warn("Tried to save empty list without success");
         }
     }
 
@@ -83,6 +93,7 @@ public class Menu {
     }
 
     private void printMenu() {
+        logger.debug("Showing menu");
         System.out.println();
         System.out.println("=======MENU=======");
         System.out.println("0. EXIT");
@@ -94,6 +105,7 @@ public class Menu {
     }
 
     private void printCategory() {
+        logger.debug("Showing categories");
         System.out.println();
         System.out.println("=======CATEGORIES=======");
         System.out.println("1. BREAKFAST");

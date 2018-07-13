@@ -1,7 +1,8 @@
 package com.infoshareacademy.jjdd4.wildhogs.logic;
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Unit;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +13,7 @@ import static java.util.stream.Collectors.toList;
 
 public class ShoppingList {
 
+    private static Logger logger = LoggerFactory.getLogger(ShoppingList.class);
     private final List<Ingredient> shoppingList;
     public final List<String> nameOfRecipes;
 
@@ -28,7 +30,6 @@ public class ShoppingList {
                     .collect(toList());
             allIngredients.addAll(ingredientsInRecipe);
         }
-
         shoppingList = new ArrayList<>();
 
         for (Ingredient ingredient : allIngredients) {
@@ -67,7 +68,7 @@ public class ShoppingList {
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             writer.write(listToString());
         }catch (Exception e) {
-            System.out.println("Shopping list can't be write!");
+            System.out.println("Shopping list can't saved!");
         }
     }
 
