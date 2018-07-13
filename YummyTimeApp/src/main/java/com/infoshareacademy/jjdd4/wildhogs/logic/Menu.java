@@ -4,6 +4,7 @@ import com.infoshareacademy.jjdd4.wildhogs.app.Configuration;
 import com.infoshareacademy.jjdd4.wildhogs.data.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,7 +28,6 @@ public class Menu {
                     System.out.println("ENDING SESSION");
                     break;
                 case SHOW_RECIPES_BY_CATEGORY:
-                    printCategory();
                     picksAMealByTheNumberAndAddsToShoppingList();
                     break;
                 case SHOW_CHOSEN_RECIPES:
@@ -43,7 +43,7 @@ public class Menu {
                     break;
                 case UNKNOWN:
                     logger.debug("Wrong value given");
-                    System.out.println("Wrong value");
+                    System.out.println("Wrong input. Try again");
                     break;
             }
         } while (!option.equals(Option.EXIT));
@@ -79,15 +79,23 @@ public class Menu {
     }
 
     private void picksAMealByTheNumberAndAddsToShoppingList() {
-        Category category = Category.fromNumber(sc.nextLine());
-        if (category != Category.BACK) {
-            ViewRecipesByCategory viewRecipesByCategory = new ViewRecipesByCategory(category, mealCreator);
-            viewRecipesByCategory.pickYourMealLogic();
-            if (!viewRecipesByCategory.getNamePicked().equals("")) {
-                pickedRecipe.add(viewRecipesByCategory.getNamePicked());
-            }
-            if (!pickedRecipe.isEmpty()) {
-                shoppingList = new ShoppingList(mealCreator, pickedRecipe);
+
+        Category category = Category.WRONG_VALUE;
+        while (category == Category.WRONG_VALUE) {
+            printCategory();
+            category = Category.fromNumber(sc.nextLine());
+            if (category == Category.BREAKFAST || category == Category.LUNCH || category == Category.DINNER || category == Category.SUPPER) {
+                ViewRecipesByCategory viewRecipesByCategory = new ViewRecipesByCategory(category, mealCreator);
+                viewRecipesByCategory.pickYourMealLogic();
+                if (!viewRecipesByCategory.getNamePicked().equals("")) {
+                    pickedRecipe.add(viewRecipesByCategory.getNamePicked());
+                }
+                if (!pickedRecipe.isEmpty()) {
+                    shoppingList = new ShoppingList(mealCreator, pickedRecipe);
+                }
+            } else {
+                System.out.println("You chose wrong value. Try again or go back");
+                logger.warn("Wrong value was selected");
             }
         }
     }
@@ -96,11 +104,11 @@ public class Menu {
         logger.debug("Showing menu");
         System.out.println();
         System.out.println("=======MENU=======");
-        System.out.println("0. EXIT");
         System.out.println("1. SHOW RECIPES BY THE CATEGORY");
         System.out.println("2. SHOW PICKED RECIPES");
         System.out.println("3. YOUR SHOPPING LIST - VIEW");
         System.out.println("4. SAVE YOUR SHOPPING LIST");
+        System.out.println("5. EXIT");
         System.out.print("Choose what do You want to do now: ");
     }
 

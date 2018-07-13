@@ -39,8 +39,8 @@ public class ViewRecipesByCategory {
 
     private void printResultByCategory() {
 
-        if (!category.equals(Category.BACK)) {
-            if (searchingByCategory.isEmpty() && !category.equals(Category.BACK)) {
+        if (!category.equals(Category.WRONG_VALUE)) {
+            if (searchingByCategory.isEmpty() && !category.equals(Category.WRONG_VALUE)) {
                 System.out.println(" \nSorry, we ran out of recipes. Your list is empty.");
                 logger.warn("Application ran out of recipes");
             } else {
@@ -72,7 +72,6 @@ public class ViewRecipesByCategory {
 
             final int temp = i;
             if (pick == i + 1) {
-                System.out.println("Success");
                 Recipe recipe = mealViewer.getMapOfMeals().entrySet().stream()
                         .filter(r -> r.getKey().equals(searchingByCategory.get(temp)))
                         .map(r -> r.getValue())
