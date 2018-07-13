@@ -1,9 +1,11 @@
-2018-07-12 19:45:09,518 330  [main] INFO  c.i.jjdd4.wildhogs.app.Main - starting app
-2018-07-12 19:45:13,230 4042 [main] INFO  c.i.jjdd4.wildhogs.app.Main - ending app
-2018-07-12 19:45:13,231 4043 [main] ERROR c.i.jjdd4.wildhogs.app.Main - test
-2018-07-12 19:47:01,510 402  [main] INFO  c.i.jjdd4.wildhogs.app.Main - starting app
-2018-07-12 19:47:25,806 24698 [main] INFO  c.i.jjdd4.wildhogs.app.Main - ending app
-2018-07-12 19:47:25,807 24699 [main] ERROR c.i.jjdd4.wildhogs.app.Main - test
-2018-07-12 19:50:44,554 380  [main] INFO  c.i.jjdd4.wildhogs.app.Main - starting app
-2018-07-12 19:50:47,774 3600 [main] INFO  c.i.jjdd4.wildhogs.app.Main - ending app
-2018-07-12 19:50:47,775 3601 [main] ERROR c.i.jjdd4.wildhogs.app.Main - test
+16:51:18.841 297  INFO  c.i.jjdd4.wildhogs.app.Main - STARTING SESSION
+16:51:18.847 303  DEBUG c.i.j.wildhogs.logic.MealCreator - Running MealCreator class
+16:51:18.848 304  INFO  c.i.j.wildhogs.app.Configuration - Loaded config file
+16:51:18.854 310  INFO  c.i.j.wildhogs.logic.JSONProvider - Looking for JSON path in config file
+16:51:18.858 314  INFO  c.i.j.wildhogs.logic.JSONProvider - JSON file was loaded
+16:51:18.861 317  TRACE c.i.j.w.l.RecipesProviderFromJSON - Loading recipe : Grilled Mexican Street Corn
+16:51:18.864 320  TRACE c.i.j.w.l.RecipesProviderFromJSON - Loading recipe : Mustard Potato Salad
+16:51:18.864 320  TRACE c.i.j.w.l.RecipesProviderFromJSON - Loading recipe : Crispy Garlic Chicken with Asparagus
+16:51:18.864 320  TRACE c.i.j.w.l.RecipesProviderFromJSON - Loading recipe : Savory Garlic Butter Shrimp Scampi
+16:51:18.864 320  TRACE c.i.j.w.l.RecipesProviderFromJSON - Loading recipe : Red Velvet Pancakes
+16:51:18.865 321  DEBUG c.i.jjdd4.wildhogs.logic.Menu - Showing menu

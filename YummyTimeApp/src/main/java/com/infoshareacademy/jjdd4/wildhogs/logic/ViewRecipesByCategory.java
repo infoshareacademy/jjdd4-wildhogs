@@ -3,11 +3,14 @@ package com.infoshareacademy.jjdd4.wildhogs.logic;
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class ViewRecipesByCategory {
+    private static Logger logger = LoggerFactory.getLogger(ViewRecipesByCategory.class.getName());
 
     private final Category category;
     private Scanner sc = new Scanner(System.in);
@@ -41,8 +44,10 @@ public class ViewRecipesByCategory {
         if (!category.equals(Category.BACK)) {
             if (searchingByCategory.isEmpty() && !category.equals(Category.BACK)) {
                 System.out.println(" \nSorry, we ran out of recipes. Your list is empty.");
+                logger.warn("Application ran out of recipes");
             } else {
                 System.out.println("\nYou picked " + category + " category. Here are all the recipes: \n");
+                logger.info("Showing all recipes from "+ category  + " category");
             }
 
             System.out.println("0. Back");
@@ -55,11 +60,16 @@ public class ViewRecipesByCategory {
 
     private void pickAMealByTheNumber() {
         System.out.print("\nPick a meal number: ");
+        String input="";
         Integer pick = 0;
         try {
-            pick = Integer.valueOf(sc.nextLine());
+            input = sc.nextLine();
+            pick = Integer.valueOf(input);
+            logger.info("Picked number " + pick);
         } catch (NumberFormatException e) {
             System.out.println("That's not a proper input. Please try again.");
+            logger.warn("Improper value in the input : " + input);
+
         }
 
         for (int i = 0; i < searchingByCategory.size(); i++) {
@@ -75,15 +85,17 @@ public class ViewRecipesByCategory {
                 System.out.println("\n" + recipe.getName() + "\n");
                 System.out.println(recipe.getDescription() + "\n");
                 recipe.getMap().entrySet().stream().map(r -> r.getValue()).forEach(System.out::println);
-                System.out.println("\nDo you want do add the recipe to shopping list? \n 1. - Yes \n 2. - No & go back");
+                System.out.println("\nDo you want to add the recipe into your shopping list? \n 1. - Yes \n 2. - No. Let's go back");
                 Integer pick2 = Integer.valueOf(sc.nextLine());
 
                 if (pick2 == 1) {
                     namePicked = recipe.getName();
-                    System.out.println("Success");
+                    System.out.println("Added recipe to the list");
+                    logger.info("Added recipe to the list : " + recipe.getName());
                     break;
 
                 } else if (pick2 == 2) {
+                    logger.info("Didn't add the recipe to the list : " + recipe.getName());
                     break;
                 }
             }
