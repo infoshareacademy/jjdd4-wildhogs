@@ -7,8 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Configuration extends Properties {
-    private static Logger logger = LoggerFactory.getLogger(Configuration.class.getName());
-
+    private static Logger logger = LoggerFactory.getLogger(Configuration.class);
     private static final String CONFIG_PATH = "YummyTimeApp/config.properties";
     private final Properties properties;
 
@@ -19,7 +18,6 @@ public class Configuration extends Properties {
     public Configuration() {
 
         properties = new Properties();
-
         try {
             properties.load(new FileInputStream(CONFIG_PATH));
             logger.info("Loaded config file");
@@ -32,9 +30,7 @@ public class Configuration extends Properties {
 
     public String getJsonPath() {
         return properties.getProperty("YummyTimeApp/jsonPath", "YummyTimeApp/recipes.json");
-
     }
-
     public String getSavedRecipesFilePath() {
         return properties.getProperty("savedRecipesFilePath", "ShoppingList.txt");
     }

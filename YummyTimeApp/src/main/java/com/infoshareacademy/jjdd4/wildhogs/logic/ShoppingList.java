@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.toList;
 
 public class ShoppingList {
 
-    private static Logger logger = LoggerFactory.getLogger(ShoppingList.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(ShoppingList.class);
     private final List<Ingredient> shoppingList;
     public final List<String> nameOfRecipes;
 
@@ -30,7 +30,6 @@ public class ShoppingList {
                     .collect(toList());
             allIngredients.addAll(ingredientsInRecipe);
         }
-
         shoppingList = new ArrayList<>();
 
         for (Ingredient ingredient : allIngredients) {

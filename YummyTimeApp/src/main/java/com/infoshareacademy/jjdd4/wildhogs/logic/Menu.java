@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private static Logger logger = LoggerFactory.getLogger(Menu.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(Menu.class);
     private Scanner sc = new Scanner(System.in);
     private MealCreator mealCreator = new MealCreator();
     private ShoppingList shoppingList;

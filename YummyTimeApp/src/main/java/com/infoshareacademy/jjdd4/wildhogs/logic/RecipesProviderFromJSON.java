@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class RecipesProviderFromJSON {
 
-    private static Logger logger = LoggerFactory.getLogger(RecipesProviderFromJSON.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(RecipesProviderFromJSON.class);
 
     public static Recipe creator(JSONObject jsonObject) {
         Recipe recipe = null;
@@ -47,7 +47,6 @@ public class RecipesProviderFromJSON {
             System.out.println("Bad unit in recipes file: " + recipe.getName());
             logger.warn("Bad unit in recipes file: " + recipe.getName());
             return null;
-
         }
         return recipe;
     }

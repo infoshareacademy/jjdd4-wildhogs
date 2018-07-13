@@ -10,7 +10,7 @@ import java.io.FileReader;
 
 public class JSONProvider {
 
-    private static Logger logger = LoggerFactory.getLogger(JSONProvider.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(JSONProvider.class);
 
     public static JSONObject read(Configuration configuration) {
 
