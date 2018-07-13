@@ -22,4 +22,4 @@ out/
 # Shopping List
 ShoppingList.txt
 
-.log
+*.log
