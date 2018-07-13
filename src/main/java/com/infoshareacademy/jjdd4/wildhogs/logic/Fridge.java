@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Fridge {
 
-    private List<String> ingridientsThatWeHave = Arrays.asList("cream", "sugar", "flour");
+    private List<String> ingridientsThatWeHave = Arrays.asList("chicken", "bbq chicken", "kfc chicken");
     private MealCreator mealCreator = new MealCreator();
 
     public void showFilterRecipe() {
@@ -18,13 +18,6 @@ public class Fridge {
                 new RecipeMatchQuality(recipe, recipeMatchQuality(recipe, ingridientsThatWeHave)))
                 .sorted((r1, r2) -> r1.matchQuality > r2.matchQuality ? -1 : 1)
                 .collect(Collectors.toList());
-
-
-//        Test wyświetlania na wersję konsolową
-
-//        for (RecipeMatchQuality recipe : recipesWithMatchQuality) {
-//            System.out.println(recipe.recipe.getName() + " " + recipe.matchQuality);
-//        }
     }
 
 
