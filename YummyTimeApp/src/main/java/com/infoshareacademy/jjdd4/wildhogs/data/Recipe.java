@@ -19,9 +19,9 @@ public class Recipe {
         ingredientsMap = new HashMap<>();
     }
 
-    public Recipe(void aVoid) {
-        this.getDescription(); //FOR RecipesProviderFromJSONTest
-    }
+//    public Recipe(void aVoid) {
+//        this.getDescription(); //FOR RecipesProviderFromJSONTest
+//    }
 
     public void addIngredient(String name, Ingredient in) {
         ingredientsMap.put(name, in);

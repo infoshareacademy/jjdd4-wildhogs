@@ -1,5 +1,6 @@
 package servlet;
 
+import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import dao.RecipeBean;
 import dao.TemplateProvider;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @WebServlet("/servlet.view-recipe")
