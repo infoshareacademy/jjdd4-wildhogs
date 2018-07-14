@@ -1,7 +1,10 @@
+package servlet;
+
+import dao.RecipeBean;
+import dao.TemplateProvider;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,34 +16,32 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/view-recipe")
+@WebServlet("/servlet.view-recipe")
 public class ViewRecipeServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
 
     @Inject
-    private GetRecipeBean getRecipeBean;
+    private RecipeBean recipeBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        String recipeNameParam = req.getParameter("name");
+        String recipeNameParam = req.getParameter("name");
 
-//        if (recipeNameParam == null || recipeNameParam.isEmpty()) {
-//            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-//            return;
-//        }
+        if (recipeNameParam == null || recipeNameParam.isEmpty()) {
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
         Template template = templateProvider.getTemplate(getServletContext(), "view-recipe.ftlh");
         Map<String, Object> model = new HashMap<>();
 
         PrintWriter writer = resp.getWriter();
 
-        Recipe recipe = getRecipeBean.getRecipeForWeb("Grilled Mexican Street Corn");
+        Recipe recipe = recipeBean.getRecipeForWeb("Grilled Mexican Street Corn");
 
-        model.put("name", recipe.getName());
-        model.put("category", recipe.getCategory());
-        model.put("description", recipe.getDescription());
+        model.put("recipe", recipe);
 
 
 

@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Recipe {
 
     private final String name;
-    private final String pathToPicture = "";
+    private String pathToPicture = "";
     private final Category category;
     private final String description;
     private final Map<String, Ingredient> ingredientsMap;
@@ -62,7 +62,15 @@ public class Recipe {
         return description;
     }
 
-    public Map<String, Ingredient> getMap() {
+    public Map<String, Ingredient> getIngredientsMap() {
         return ingredientsMap;
+    }
+
+    public String getPathToPicture() {
+        return pathToPicture;
+    }
+
+    public void setPathToPicture(String pathToPicture) {
+        this.pathToPicture = pathToPicture;
     }
 }

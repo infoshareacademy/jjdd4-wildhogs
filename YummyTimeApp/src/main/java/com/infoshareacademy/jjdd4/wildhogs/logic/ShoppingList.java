@@ -24,7 +24,7 @@ public class ShoppingList {
             List<Ingredient> ingredientsInRecipe = mealCreator.getMapOfMeals().entrySet().stream()
                     .filter(e -> name.contains(e.getKey()))
                     .map(e -> e.getValue())
-                    .flatMap(r -> r.getMap().values().stream())
+                    .flatMap(r -> r.getIngredientsMap().values().stream())
                     .collect(toList());
             allIngredients.addAll(ingredientsInRecipe);
         }

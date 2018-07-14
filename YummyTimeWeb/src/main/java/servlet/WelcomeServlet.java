@@ -1,3 +1,5 @@
+package servlet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
 
-@WebServlet("/WelcomeServlet")
+@WebServlet("/servlet.WelcomeServlet")
 public class WelcomeServlet extends HttpServlet {
 
     @Override

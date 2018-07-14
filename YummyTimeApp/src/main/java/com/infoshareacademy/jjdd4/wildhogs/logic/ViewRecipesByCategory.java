@@ -2,7 +2,6 @@ package com.infoshareacademy.jjdd4.wildhogs.logic;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
-import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -74,7 +73,7 @@ public class ViewRecipesByCategory {
 
                 System.out.println("\n" + recipe.getName() + "\n");
                 System.out.println(recipe.getDescription() + "\n");
-                recipe.getMap().entrySet().stream().map(r -> r.getValue()).forEach(System.out::println);
+                recipe.getIngredientsMap().entrySet().stream().map(r -> r.getValue()).forEach(System.out::println);
                 System.out.println("\nDo you want do add the recipe to shopping list? \n 1. - Yes \n 2. - No & go back");
                 Integer pick2 = Integer.valueOf(sc.nextLine());
 
