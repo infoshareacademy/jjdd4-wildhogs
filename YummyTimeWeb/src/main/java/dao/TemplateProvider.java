@@ -3,7 +3,6 @@ package dao;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.servlet.ServletContext;
 import java.io.IOException;

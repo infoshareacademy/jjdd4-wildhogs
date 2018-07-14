@@ -1,11 +1,11 @@
 package servlet;
 
-import com.infoshareacademy.jjdd4.wildhogs.data.Category;
-import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
+import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import dao.RecipesRepositoryDaoBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,8 +17,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/welcome")
-public class WelcomeServlet extends HttpServlet {
+@WebServlet("/shopping-list")
+public class ShoppingListServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
@@ -29,19 +29,13 @@ public class WelcomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "startWeb.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "shoppingListWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        Category defaultCategory = Category.BREAKFAST;
-        model.put("defaultCategory", defaultCategory.toString());
-        List<Recipe> recipesForDefaultCategory = recipesRepositoryDaoBean.getRecipesFromCategory(defaultCategory, 3);
-        if(recipesForDefaultCategory != null && !recipesForDefaultCategory.isEmpty()) {
-            model.put("recipesForDefaultCategory", recipesForDefaultCategory);
-        }
+        List<Ingredient> shoppingList = recipesRepositoryDaoBean.getShoppingList();
 
-        List<Recipe> favouriteList = recipesRepositoryDaoBean.getFavouriteList();
-        if(favouriteList != null && !favouriteList.isEmpty()) {
-            model.put("favouriteList", favouriteList);
+        if(shoppingList != null || !shoppingList.isEmpty()) {
+            model.put("shoppingList", shoppingList);
         }
 
         try {

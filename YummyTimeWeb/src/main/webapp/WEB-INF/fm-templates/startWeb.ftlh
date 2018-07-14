@@ -1,14 +1,10 @@
-<#include "*/header.html">
+<#include "*/common/header.html">
 
 <div>
 
-    <#if errorMessage1??>
-            <span>${errorMessage1}</span><br/><br/>
-    </#if>
-
     <#--zawsze tylko 3-->
-    <#if timeCategory??>
-    <#list timeCategory as recipe>
+    <#if recipesForDefaultCategory??>
+    <#list recipesForDefaultCategory as recipe>
 
         <div>
             <a href="view-recipe?name=${recipe.name}">
@@ -18,17 +14,15 @@
         </div>
 
     </#list>
+    <#else>
+        <span>There is nothing for ${defaultCategory} for now</span><br/><br/>
     </#if>
 
     <div>
-        <h1>Fridge</h1>
+        <h1>Your fridge contents:</h1>
         <textarea rows="1" cols="60"></textarea>
     </div>
 
-
-    <#if errorMessage2??>
-            <span>${errorMessage2}</span><br/><br/>
-    </#if>
     <#--zawsze tylko 3-->
     <#if favouriteList??>
         <#list favouriteList as recipe>
@@ -41,8 +35,10 @@
         </div>
 
         </#list>
+    <#else>
+        <span>Your favourites list is empty</span><br/><br/>
     </#if>
 
 </div>
 
-<#include "*/footer.html">
+<#include "*/common/footer.html">
