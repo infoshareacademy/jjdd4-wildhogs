@@ -6,10 +6,14 @@ import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.data.Unit;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RecipesProviderFromJSON {
 
-public static Recipe creator(JSONObject jsonObject) {
+    private static Logger logger = LoggerFactory.getLogger(RecipesProviderFromJSON.class);
+
+    public static Recipe creator(JSONObject jsonObject) {
         Recipe recipe = null;
         try {
             String name = jsonObject.get("name").toString();
@@ -17,8 +21,10 @@ public static Recipe creator(JSONObject jsonObject) {
             String description = jsonObject.get("description").toString();
 
             recipe = new Recipe(name, category, description);
+            logger.trace("Loading recipe : " + name);
         } catch (IllegalArgumentException e) {
             System.out.println("Bad category in recipes file: " + jsonObject.get("name").toString());
+            logger.warn("Bad category in recipes file: " + jsonObject.get("name").toString());
             return null;
         }
         try {
@@ -32,13 +38,16 @@ public static Recipe creator(JSONObject jsonObject) {
                 Ingredient ingredient = new Ingredient(ingredientName, amount, unit);
                 recipe.addIngredient(ingredient.getName(), ingredient);
             }
-            } catch (NumberFormatException e) {
-                System.out.println("Bad amount in recipes file in: " + recipe.getName());
-                return null;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Bad unit in recipes file: " + recipe.getName());
-                return null;
-            }
+        } catch (NumberFormatException e) {
+            System.out.println("Bad amount in recipes file in: " + recipe.getName());
+            logger.warn("Bad amount in recipes file in: " + recipe.getName());
+
+            return null;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Bad unit in recipes file: " + recipe.getName());
+            logger.warn("Bad unit in recipes file: " + recipe.getName());
+            return null;
+        }
         return recipe;
     }
 }
