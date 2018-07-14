@@ -1,7 +1,7 @@
 <div>
 
     <#if errorMessage??>
-        <span style="color: #ff0000;">${errorMessage}</span><br/><br/>
+        <span>${errorMessage}</span><br/><br/>
     </#if>
 
     <#if recipe??>
@@ -17,4 +17,6 @@
 
         <p>${recipe.description}</p>
     </#if>
+    <button>Add to shopping list!</button>
+    <button>Add to favorite!</button>
 </div>

@@ -14,11 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/servlet.view-recipe")
+@WebServlet("/view-recipe")
 public class ViewRecipeServlet extends HttpServlet {
 
     @Inject
@@ -39,13 +40,14 @@ public class ViewRecipeServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "view-recipe.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        PrintWriter writer = resp.getWriter();
+        Recipe recipe = recipeBean.getRecipeForWeb(recipeNameParam);
 
-        Recipe recipe = recipeBean.getRecipeForWeb("Grilled Mexican Street Corn");
-
-        model.put("recipe", recipe);
-
-
+        if(recipe != null) {
+            model.put("recipe", recipe);
+        }else {
+            String errorMessage = "Recipe not found";
+            model.put("errorMessage", errorMessage);
+        }
 
         try {
             template.process(model, resp.getWriter());
