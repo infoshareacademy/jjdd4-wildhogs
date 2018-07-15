@@ -31,7 +31,7 @@ public class SearchRecipesServlet extends HttpServlet {
         String fridgeParam = req.getParameter("fridge");
 
         if ( (parameterIsNotEmpty(categoryParam) && parameterIsNotEmpty(fridgeParam))
-                || (!parameterIsNotEmpty(categoryParam) && !parameterIsNotEmpty(fridgeParam)) ) {
+                || (!parameterIsNotEmpty(categoryParam) && fridgeParam == null) ) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
@@ -54,8 +54,10 @@ public class SearchRecipesServlet extends HttpServlet {
             }
         }
 
-        if(parameterIsNotEmpty(fridgeParam)) {
-            List<String> fridgeList = Arrays.asList(fridgeParam.split(","));
+        if(fridgeParam != null) {
+            String fridge = fridgeParam.replace("%2C", ",")
+                    .replace("+", ",").replace(",*", ",");
+            List<String> fridgeList = Arrays.asList(fridge.split(","));
             List<Recipe> recipesList = recipesRepositoryDaoBean.getRecipesForProducts(fridgeList);
             model.put("recipesList", recipesList);
             model.put("parameter", fridgeParam);

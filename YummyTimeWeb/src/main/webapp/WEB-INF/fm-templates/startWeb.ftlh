@@ -20,7 +20,10 @@
 
     <div>
         <h1>Your fridge contents:</h1>
-        <textarea rows="1" cols="60"></textarea>
+        <form action="/search-recipe?fridge" method="get">
+        <textarea type="text" name="fridge" rows="1" cols="60"></textarea>
+        <button>Search</button>
+        </form>
     </div>
 
     <#--zawsze tylko 3-->
