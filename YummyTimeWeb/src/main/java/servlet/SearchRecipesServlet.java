@@ -2,6 +2,7 @@ package servlet;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
+import dao.BlockRecipe;
 import dao.RecipesRepositoryDaoBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
@@ -41,7 +42,7 @@ public class SearchRecipesServlet extends HttpServlet {
 
         if(parameterIsNotEmpty(categoryParam)) {
             try{
-                List<Recipe> recipesList = recipesRepositoryDaoBean.getRecipesFromCategory(Category.valueOf(categoryParam.toUpperCase()));
+                List<BlockRecipe> recipesList = recipesRepositoryDaoBean.getRecipesFromCategory(Category.valueOf(categoryParam.toUpperCase()));
                 model.put("recipesList", recipesList);
                 model.put("parameter", categoryParam);
                 if(recipesList.isEmpty()) {
@@ -58,7 +59,7 @@ public class SearchRecipesServlet extends HttpServlet {
             String fridge = fridgeParam.replace("%2C", ",")
                     .replace("+", ",").replace(",*", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
-            List<Recipe> recipesList = recipesRepositoryDaoBean.getRecipesForProducts(fridgeList);
+            List<BlockRecipe> recipesList = recipesRepositoryDaoBean.getRecipesForProducts(fridgeList);
             model.put("recipesList", recipesList);
             model.put("parameter", fridgeParam);
         }

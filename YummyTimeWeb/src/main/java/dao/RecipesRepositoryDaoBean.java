@@ -18,27 +18,33 @@ public class RecipesRepositoryDaoBean {
     private DataBaseForNow dataBaseForNow;
 
     public Recipe getRecipe(String nameRecipe){
-        Optional<Recipe> recipe = dataBaseForNow.getRecipesList().stream().filter(r -> r.getName().equals(nameRecipe)).findFirst();
+        Optional<Recipe> recipe = dataBaseForNow.getRecipesList().stream()
+                .filter(r -> r.getName().equals(nameRecipe)).findFirst();
         return recipe.isPresent() ? recipe.get() : null;
     }
 
-    public List<Recipe> getFavouriteList() {
-        List<Recipe> recipes = dataBaseForNow.getRecipesList().stream().limit(3).collect(Collectors.toList());
+    public List<BlockRecipe> getFavouriteList() {
+        List<BlockRecipe> recipes = dataBaseForNow.getRecipesList().stream()
+                .map(r -> new BlockRecipe(r.getName(), r.getPathToPicture())).limit(3)
+                .collect(Collectors.toList());
         return recipes;
     }
 
-    public List<Recipe> getRecipesFromCategory(Category category, long limit) {
-        List<Recipe> recipes = dataBaseForNow.getRecipesList().stream().filter(r -> r.getCategory()==(category))
-                .limit(limit).collect(Collectors.toList());
+    public List<BlockRecipe> getRecipesFromCategory(Category category, long limit) {
+        List<BlockRecipe> recipes = dataBaseForNow.getRecipesList().stream()
+                .filter(r -> r.getCategory()==(category)).map(r -> new BlockRecipe(r.getName(),
+                        r.getPathToPicture())).limit(limit).collect(Collectors.toList());
         return recipes;
     }
 
-    public List<Recipe> getRecipesFromCategory(Category category) {
+    public List<BlockRecipe> getRecipesFromCategory(Category category) {
         return getRecipesFromCategory(category, Long.MAX_VALUE);
     }
 
-    public List<Recipe> getRecipesForProducts(List<String> products) {
-        List<Recipe> recipes = dataBaseForNow.getRecipesList().stream().limit(3).collect(Collectors.toList());
+    public List<BlockRecipe> getRecipesForProducts(List<String> products) {
+        List<BlockRecipe> recipes = dataBaseForNow.getRecipesList().stream()
+                .map(r -> new BlockRecipe(r.getName(), r.getPathToPicture()))
+                .limit(3).collect(Collectors.toList());
         return recipes;
     }
 
