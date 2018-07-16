@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div style="background-color: beige">
+	<span style="color: white">
+    <meta charset="UTF-8">
+    <title>Yummy-Time Your Recipe</title>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+     Custom fonts for this template
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1><b><div align="center"><span style="color: black; ">YummyTime </span></div></b></h1>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a href=""><div align="center">
+            <pre><a href="/home">The website about Kitchen.</pre>
+        </a>
+
+        <!--MENU-->
+
+
+        <form name="doublecombo">
+    <h1><a title="Yummy Time" href="yummytime">
+        <a href="#">  <div align="center">
+            <img src="../pictures/logos.png" alt="">
+        </a></h1> </div>
+
+    <p><select size="1">
+        <option value="/yummytime">Home</option> </select>
+
+        <select name="example" size="1" onChange="redirect(this.options.selectedIndex)">
+                <option>Category</option>
+                <option value="/category/breakfast"><a href="search-recipe?category=breakfast">Breakfast</option></a>
+                <option value="/category/lunch"><a href="search-recipe?category=lunch">Lunch</option></a>
+                <option value="/category/dinner"><a href="search-recipe?category=dinner">Dinner</option></a>
+                <option value="/category/supper"><a href="search-recipe?category=supper">Supper</option></a>
+                <option value="/category/sweets"><a href="search-recipe?category=sweets">Sweets</option></a>
+            </select>
+        <select name="example" size="1" onChange="redirect(this.options.selectedIndex)">
+            <option value="/yummytime"> <a href="shopping-list">Shopping List</option></select><a></select>
+        <select size="1">
+            <option value="/yummytime">OurTeam</option> </select>
+        <select size="1">
+            <option value="/yummytime">Contact</option> </select>
+    </p>
+    <div align="center">
+    <form action="http://yummytime/search" method="get">
+        <input type="text" name="q" />
+        <input type="hidden" name="ie" value="iso-8859-2" />
+        <input type="hidden" name="sitesearch" value="domena" />
+        <pre><input type="submit" value="Search something special!"/></pre>
+    </div>
+    </span>
+    <script>
+
+        var groups=document.doublecombo.example.options.length
+        var group=new Array(groups)
+        for (i=0; i<groups; i++)
+            group[i]=new Array()
+
+        group[0][0]=new Option("Home","http://yummytime")
+
+
+        group[1][0]=new Option("Category","/category")
+        group[1][1]=new Option("Breakfast","http://yummytime/category/breakfast")
+        group[1][2]=new Option("Lunch","http://yummytime/category/lunch")
+        group[1][3]=new Option("Dinner","http://yummytime/category/dinner")
+        group[1][4]=new Option("Supper","http://yummytime/category/supper")
+        group[1][5]=new Option("Sweets","http://yummytime/category/sweets")
+
+
+        group[2][0]=new Option("Shopping List","http://yummytime/shopping_list")
+
+        group[3][0]=new Option("Our Team","http://yummytime/our_team")
+
+        group[4][0]=new Option("Contact","http://yummytime/contact")
+
+        var temp=document.doublecombo.stage2
+
+        function redirect(x){
+            for (m=temp.options.length-1;m>0;m--)
+                temp.options[m]=null
+            for (i=0;i<group[x].length;i++){
+                temp.options[i]=new Option(group[x][i].text,group[x][i].value)
+            }
+            temp.options[0].selected=true
+        }
+        function go(){
+            location=temp.options[temp.selectedIndex].value
+        }
+    </script>
+    </form></form>
+
+    </div>
+</nav>
+<!-- Page Header -->
+</header>
+
+
