@@ -22,7 +22,7 @@ public class Ingredient {
 
     @Override
     public String toString() {
-        return name + ": " + amount + " " + unit.getDescription();
+        return name + " - " + amount + " " + unit.getDescription();
     }
 
     @Override

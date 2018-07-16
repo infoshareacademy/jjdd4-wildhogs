@@ -1,25 +1,28 @@
 package com.infoshareacademy.jjdd4.wildhogs.data;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Recipe {
 
     private final String name;
+    private String pathToPicture = "";
     private final Category category;
     private final String description;
-    private final Map<String, Ingredient> ingredientsMap;
+    private final List<Ingredient> ingredientsList;
 
     public Recipe(String name, Category category, String description) {
         this.name = name;
         this.category = category;
         this.description = description;
-        ingredientsMap = new HashMap<>();
+        ingredientsList = new ArrayList<>();
     }
 
-    public void addIngredient(String name, Ingredient in) {
-        ingredientsMap.put(name, in);
+//    public Recipe(void aVoid) {
+//        this.getDescription(); //FOR RecipesProviderFromJSONTest
+//    }
+
+    public void addIngredient(Ingredient ingredient) {
+        ingredientsList.add(ingredient);
     }
 
     @Override
@@ -28,7 +31,7 @@ public class Recipe {
                 "name='" + name + '\'' +
                 ", category=" + category +
                 ", description='" + description + '\'' +
-                ", ingredientsMap=" + ingredientsMap +
+                ", ingredientsList=" + ingredientsList +
                 '}';
     }
 
@@ -40,12 +43,12 @@ public class Recipe {
         return Objects.equals(name, recipe.name) &&
                 Objects.equals(category, recipe.category) &&
                 Objects.equals(description, recipe.description) &&
-                Objects.equals(ingredientsMap, recipe.ingredientsMap);
+                Objects.equals(ingredientsList, recipe.ingredientsList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, category, description, ingredientsMap);
+        return Objects.hash(name, category, description, ingredientsList);
     }
 
 
@@ -61,7 +64,15 @@ public class Recipe {
         return description;
     }
 
-    public Map<String, Ingredient> getMap() {
-        return ingredientsMap;
+    public List<Ingredient> getIngredientsList() {
+        return ingredientsList;
+    }
+
+    public String getPathToPicture() {
+        return pathToPicture;
+    }
+
+    public void setPathToPicture(String pathToPicture) {
+        this.pathToPicture = pathToPicture;
     }
 }

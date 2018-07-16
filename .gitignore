@@ -21,3 +21,5 @@ out/
 
 # Shopping List
 ShoppingList.txt
+
+*.log

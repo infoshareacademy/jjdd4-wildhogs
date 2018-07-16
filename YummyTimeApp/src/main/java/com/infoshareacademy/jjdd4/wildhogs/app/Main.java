@@ -1,15 +1,19 @@
 package com.infoshareacademy.jjdd4.wildhogs.app;
 
-import com.infoshareacademy.jjdd4.wildhogs.logic.Fridge;
 import com.infoshareacademy.jjdd4.wildhogs.logic.Menu;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
 
-    public static void main(String[] args) {
+    private static Logger logger = LoggerFactory.getLogger(Main.class);
 
-//        Menu menu = new Menu();
-//        menu.optionPicker();
-        Fridge fridge = new Fridge();
-        fridge.showFilterRecipe();
+    public static void main(String[] args) {
+        logger.info("STARTING SESSION");
+
+        Menu menu = new Menu();
+        menu.optionPicker();
+
+        logger.info("ENDING SESSION");
     }
 }
