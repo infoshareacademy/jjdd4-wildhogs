@@ -79,7 +79,7 @@ public class ViewRecipesByCategory {
 
                 System.out.println("\n" + recipe.getName() + "\n");
                 System.out.println(recipe.getDescription() + "\n");
-                recipe.getIngredientsMap().entrySet().stream().map(r -> r.getValue()).forEach(System.out::println);
+                recipe.getIngredientsList().forEach(System.out::println);
                 System.out.println("\nDo you want do add the recipe to shopping list? \n 1. - Yes \n 2. - No & go back");
                 Integer pick2 = Integer.valueOf(sc.nextLine());
 

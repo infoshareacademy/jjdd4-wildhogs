@@ -6,8 +6,8 @@
         <p>${recipe.category}</p>
         <img src="${recipe.pathToPicture}" alt="picture of Your recipe" height="500">
         <ul>
-        <#list recipe.ingredientsMap as key, value>
-            <li>${key} ${value.amount} ${value.unit.description}</li>
+        <#list recipe.ingredientsList as value>
+            <li>${value.name} ${value.amount} ${value.unit.description}</li>
         </#list>
         </ul>
         <p>${recipe.description}</p>
