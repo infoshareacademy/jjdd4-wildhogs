@@ -1,12 +1,35 @@
 package com.infoshareacademy.jjdd4.wildhogs.data;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
+import java.util.Set;
 
+@Entity
+@Table(name = "INGREDIENTS")
 public class Ingredient {
 
-    private final String name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private Long id;
+    @Column(name="name")
+    @NotNull
+    private String name;
+    @Column(name="amount")
+    @NotNull
     private double amount;
+    @Column(name="unit")
+    @NotNull
     private Unit unit;
+    @ManyToOne
+    @JoinColumn(name = "recipe_id")
+    private Recipe recipe;
+
+
+    public Ingredient() {
+    }
 
     public Ingredient(String name, double amount, Unit unit) {
         this.name = name;
@@ -14,11 +37,13 @@ public class Ingredient {
         this.unit = unit;
     }
 
+
     public Ingredient(Ingredient ingredient) {
         this.name = ingredient.name;
         this.amount = ingredient.amount;
         this.unit = ingredient.unit;
     }
+
 
     @Override
     public String toString() {
@@ -65,4 +90,25 @@ public class Ingredient {
     public void addToAmount(double adder) {
         amount += adder;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
 }

@@ -29,9 +29,12 @@ public class Configuration extends Properties {
     }
 
     public String getJsonPath() {
-        return properties.getProperty("YummyTimeApp/jsonPath", "YummyTimeApp/recipes.json");
+        return properties.getProperty("jsonPath", "YummyTimeApp/recipes.json");
     }
+
+
     public String getSavedRecipesFilePath() {
         return properties.getProperty("savedRecipesFilePath", "ShoppingList.txt");
     }
+
 }
