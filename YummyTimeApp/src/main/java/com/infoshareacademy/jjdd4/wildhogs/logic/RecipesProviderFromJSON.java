@@ -36,7 +36,7 @@ public class RecipesProviderFromJSON {
                 Unit unit = Unit.valueOf(((JSONObject) ingredients).get("unit").toString().toUpperCase());
 
                 Ingredient ingredient = new Ingredient(ingredientName, amount, unit);
-                recipe.addIngredient(ingredient.getName(), ingredient);
+                recipe.addIngredient(ingredient);
             }
         } catch (NumberFormatException e) {
             System.out.println("Bad amount in recipes file in: " + recipe.getName());
