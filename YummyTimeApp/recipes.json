@@ -2,6 +2,7 @@
 	"recipes": [
 		{
 			"name": "Grilled Mexican Street Corn",
+			"url": "https://www.seriouseats.com/recipes/images/2013/06/20130621-mexican-street-corn-10.jpg",
 			"category": "lunch",
 			"description": "Remove the husks of the corn leaving the core attached. Grill the corn turning once on a hot grill or cast iron pan until it starts to get slightly charred.In a small bowl mix the mayonnaise, sour cream and cilantro. Remove the corn from the grill and slather with the mayonnaise mix. Squeeze the lime juice over the corn and heavily season with parmesan. Sprinkle with chili powder.",
 			"ingredients": [
@@ -12,13 +13,13 @@
 				},
 				{
 					"name": "sour cream",
-					"amount": "0.5",
-					"unit": "cup"
+					"amount": "170",
+					"unit": "grams"
 				},
 				{
 					"name": "chopped cilantro",
-					"amount": "0.25",
-					"unit": "cup"
+					"amount": "60",
+					"unit": "grams"
 				},
 				{
 					"name": "parmesan",
@@ -39,6 +40,7 @@
 		},
 		{
 			"name": "Mustard Potato Salad",
+			"url": "https://www.itsyummi.com/wp-content/uploads/2015/06/mustard-potato-salad-feat.jpg",
 			"category": "lunch",
 			"description": "So let’s start with the basics. Grab several large russet potatoes – I ended up using four large potatoes. Peel the skin from the potatoes using a potato peeler, then wash any dirt from the peeled potatoes. Once the potatoes have been peeled and rinsed, dice them into large chunks. Place all of the chunks of potato into a two quart or larger slow cooker OR place into a large sauce pan on the stove. Whether you choose to slow cook these potatoes or cook them on the stove top, be sure to cover the potatoes with water. If you’re slow cooking the potatoes, place the lid on the slow cooker and cook on high four hours or low six hours. If you’re cooking the potatoes on the stove top, turn the heat to medium high heat and bring to a boil. Boil the potatoes for about ten minutes or until the potatoes are tender when pierced with a fork. Once the cooking time is complete, remove the potatoes from the heat and pour off all of the water using a colander. Place the potatoes into a large mixing bowl and start mashing them with a potato masher. You don’t have to just pulverize the potatoes but you need to make sure there are no large chunks. Now it’s time to add the good stuff. Add in half of a cup of mayonnaise and half of a cup of mustard. Once the mayonnaise and mustard has been added to the potatoes, stir well until all ingredients are well combined.  Add in half of a teaspoon of ground black pepper one fourth of a teaspoon of salt, and then one teaspoon of granulated white sugar. Lastly, add in half of a cup of sweet pickle relish. This sweet pickle relish is what gives this Mustard Potato Salad such a good flavor!  Stir the sweet pickle relish into the Mustard Potato Salad and ensure that all ingredients are well combined. Once you’ve stirred in the sweet pickle relish, this Mustard Potato Salad is ready to serve! So just like that, you have easy, delicious, Mustard Potato Salad. Such a great addition to the dinner table!",
 			"ingredients": [
@@ -81,6 +83,7 @@
 		},
 		{
 			"name": "Crispy Garlic Chicken with Asparagus",
+			"url": "https://www.eatwell101.com/wp-content/uploads/2017/03/baked-Garlic-Butter-Chicken-recipe.jpg",
 			"category": "dinner",
 			"description": "In a large skillet over medium heat melt 2 Tablespoons butter. To make the chicken: Melt remaining 4 tablespoons of butter in a shallow dish. In another shallow dish combine bread crumbs, parmesan cheese, garlic powder, and flour. Dip the chicken in the butter and then coat in the bread crumb mixture and place in skillet. Cook on each side for about 3-4 minutes until the outside is crispy and the chicken is cooked throughout. Set aside on plate. Add 2 Tablespoons of butter back to the skillet and saute the minced garlic for a minute. Add the asparagus to the skillet and saute until tender. Salt and pepper to taste and add some 1 Tablespoon parmesan. Add the chicken back to the skillet and heat for a minute or so. Serve immediately.",
 			"ingredients": [
@@ -128,6 +131,7 @@
 		},
 		{
 			"name": "Savory Garlic Butter Shrimp Scampi",
+			"url": "https://img.sndimg.com/food/image/upload/w_896,h_504,c_fill,fl_progressive,q_80/v1/img/recipes/39/35/23/SOy32g6KTZe1BrOnd606_SS%206%20-%20final_3.jpg",
 			"category": "supper",
 			"description": "Finely mince 3 large (or 4 medium) cloves of garlic and set aside, the finer the mince the better. Finely chop a few sprigs of fresh parsley set aside. De-vein, de-shell all raw shrimp and place on a plate with a layer of paper towels underneath and pat dry the top with another paper towel to remove all excess moisture. Season shrimp with a little salt and pepper (sea salt and fresh cracked multi colored pepper corns is my favorite) Cooking: Add 1 quarter of a stick of butter and a splash of olive oil (about a table spoon) to a large sauté pan (you should be able to add all of the shrimp at once without having any shrimp on top another). Turn heat up high and let butter melt (its important to bring the heat up fast and high but WITHOUT reaching the olive oils smoking point) and add shrimp to pan, cook on medium high heat for 2 minutes before disturbing the shrimp to get a nice sear. Once shrimp has gone from the grayish color to mostly pink flip the shrimp and sauté the other side for 2 minutes. Remove shrimp and place into a dish with low sides to contain the butter garlic sauce (a small casserole dish works well). Add 3 quarters of a stick of butter and finely minced garlic to sauté pan with heat on medium (the one you cooked the shrimp in). Allow the butter to melt completely and poor over shrimp, sprinkle fresh chopped parsley and a splash of lemon juice over the shrimp and serve. If you are adding to pasta, Remove the tails when de-shelling, and add in a little heavy cream and fresh grated parmesian cheese during the last step (making the sauce in the pan after removing the shrimp) for a creamy garlic butter sauce, goes great with angel hair pasta or linguini.",
 			"ingredients": [
@@ -165,6 +169,7 @@
 		},
 		{
 			"name": "Red Velvet Pancakes",
+			"url": "https://images-gmi-pmc.edge-generalmills.com/89aa5703-df4e-4358-ae1f-91023b7e7ac9.jpg",
 			"category": "breakfast",
 			"description": "Make the pancakes: In a large bowl, whisk the cake mix with the butter, egg and milk to combine. Work out any lumps with the whisk to make sure the batter is smooth. Heat a medium nonstick skillet over high heat. When the skillet is hot, spritz it with nonstick spray and reduce the heat to low (to prevent the pancakes from becoming too dark). Working in batches, ladle the batter into the skillet and cook until bubbles begin to rise from the center of the pancakes, 2 to 3 minutes. Flip the pancakes and continue cooking 1 to 2 minutes more. Remove the pancakes to a plate and cover with a towel to keep warm. Make the icing: Using a whisk or hand mixer, combine the cream cheese with the sugar, cream and vanilla. To serve, pile the pancakes onto plates and top generously with icing.",
 			"ingredients": [
@@ -210,10 +215,728 @@
 				},
 				{
 					"name": "vanilla extract",
+					"amount": "3",
+					"unit": "milliliters"
+				}
+			]
+		},
+		{
+			"name": "Grape, Walnut, Banana Breakfast Bowl",
+			"url": "https://www.eatwell101.com/wp-content/uploads/2014/09/Healthy-banana-breakfast-recipes.jpg",
+			"category": "breakfast",
+			"description": "Peach Caprese Salad is a wonderful summer side dish, appetizer or even a meal! Mozzarella cheese, tomatoes, peaches and basil makes a fresh and satisfying dish. On a large plate, arrange peaches, tomatoes and mozzarella cheese. Can make them into sandwiches or just throw them together. Top with fresh basil leaves. Drizzle with olive oil and balsamic vinegar or glaze. Sprinkle with salt and pepper, and eat!",
+			"ingredients": [
+				{
+					"name": "bananas",
+					"amount": "2",
+					"unit": "unit"
+				},
+				{
+					"name": "grape",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "walnuts",
+					"amount": "0.66",
+					"unit": "cup"
+				},
+				{
+					"name": "butter",
+					"amount": "5",
+					"unit": "grams"
+				},
+				{
+					"name": "honey",
+					"amount": "5",
+					"unit": "grams"
+				},
+				{
+					"name": "cinnamon",
+					"amount": "0.5",
+					"unit": "grams"
+				}
+			
+				
+			]
+
+	
+	},
+	{
+			"name": "Grandma's Garlic Burgers",
+			"url": "https://cdn2.tmbi.com/TOH/Images/articles/BarbecuedBurgers__750x420.jpg",
+			"category": "dinner",
+			"description": "Back in 60's there was always something special about burgers at Grandma's house! We loved'em! Pour hot water over spices, stir, and then mix with ground meat. Shape into patties, and cook as usual. We like our burgers grilled! ",
+			"ingredients": [
+				{
+					"name": "ground beef",
+					"amount": "0.5",
+					"unit": "kilograms"
+				},
+				{
+					"name": "salt",
+					"amount": "1.5",
+					"unit": "grams"
+				},
+				{
+					"name": "garlic powder",
+					"amount": "0.5",
+					"unit": "grams"
+				},
+				{
+					"name": "celery salt",
+					"amount": "0.2",
+					"unit": "grams"
+				},
+				{
+					"name": "paprika",
+					"amount": "2",
+					"unit": "grams"
+				},
+				{
+					"name": "black pepper",
+					"amount": "0.2",
+					"unit": "grams"
+				},
+				{
+					"name": "hot water",
+					"amount": "10",
+					"unit": "milliliters"
+				}
+			
+				
+			]
+
+	
+	},
+	{
+			"name": "Cucumber Tomato Salad",
+			"url": "https://www.cearaskitchen.com/wp-content/uploads/2015/05/IMG_1463-600x902.jpg",
+			"category": "lunch",
+			"description": "This refreshing cucumber and tomato salad is perfect for a casual dinner or for feeding a crowd at a potluck party. Fresh cucumbers, juicy tomatoes, and basil are drizzled with a balsamic and oil dressing for a flavorful ",
+			"ingredients": [
+				{
+					"name": "tomatoes",
+					"amount": "0.7",
+					"unit": "kilograms"
+				},
+				{
+					"name": "cucumber",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "basil leavs",
+					"amount": "5",
+					"unit": "unit"
+				},
+				{
+					"name": "olive oil",
+					"amount": "5",
+					"unit": "milliliters"
+				},
+				{
+					"name": "balsamic vinegar",
+					"amount": "12",
+					"unit": "milliliters"
+				},
+				{
+					"name": "honey",
+					"amount": "10",
+					"unit": "milliliters"
+				},
+				{
+					"name": "salt",
+					"amount": "3",
+					"unit": "grams"
+				},
+				{
+					"name": "pepper",
 					"amount": "1",
 					"unit": "grams"
 				}
+			
+				
 			]
-		}
+
+	
+	},
+	{
+			"name": "Shakshuka",
+			"url": "https://assets.bonappetit.com/photos/59ef54473b712f2957b88c64/3:2/w_2560,c_limit/one-skillet-shakshuka-with-shawarma-spices.jpg",
+			"category": "dinner",
+			"description": "Shakshuka is a North African dish that is now made throughout the Middle East; it is especially popular in Israel, where it is often eaten for breakfast. I usually find myself serving it with a side salad as a light evening meal. It’s super easy and versatile. When my hubby was in the Israeli army, he and the other soldiers would sneak into the barracks kitchen late at night and cook shakshuka using whatever they could find in the pantries. It’s a vegetarian one-skillet meal that is easy to make, very healthy, and totally addicting. Heat a deep, large skillet or sauté pan on medium. Slowly warm olive oil in the pan. Add chopped onion, sauté for a few minutes until the onion begins to soften. Add garlic and continue to sauté till mixture is fragrant. Add the diced bell pepper, sauté for 5-7 minutes over medium until softened. Add tomatoes and tomato paste to pan, stir until blended. Add spices and sugar, stir, and allow mixture to simmer over medium heat for 5-7 minutes until it starts to reduce. At this point, you can taste the mixture and spice it according to your preferences. Add salt and pepper to taste, more sugar for a sweeter sauce, or more cayenne pepper for a spicier shakshuka (be careful with the cayenne... it is extremely spicy!). Crack the eggs, one at a time, directly over the tomato mixture, making sure to space them evenly over the sauce. I usually place 5 eggs around the outer edge and 1 in the center. The eggs will cook over easy style on top of the tomato sauce. Cover the pan. Allow mixture to simmer for 10-15 minutes, or until the eggs are cooked and the sauce has slightly reduced. Keep an eye on the skillet to make sure that the sauce doesn't reduce too much, which can lead to burning. Some people prefer their shakshuka eggs more runny. If this is your preference, let the sauce reduce for a few minutes before cracking the eggs on top-- then, cover the pan and cook the eggs to taste. Garnish with the chopped parsley, if desired. Shakshuka can be eaten for breakfast, lunch, or dinner. For breakfast, serve with warm crusty bread or pita that can be dipped into the sauce (if you are gluten-intolerant or celebrating Passover, skip the bread). For dinner, serve with a green side salad for a light, easy meal.",
+			"ingredients": [
+				{
+					"name": "extra virgin olive oil",
+					"amount": "5",
+					"unit": "milliliters"
+				},
+				{
+					"name": "onion",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "red beli pepper",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "diced tomatoes",
+					"amount": "0.8",
+					"unit": "kilograms"
+				},
+				{
+					"name": "tomato paste",
+					"amount": "10",
+					"unit": "milliliters"
+				},
+				{
+					"name": "chili powder",
+					"amount": "1",
+					"unit": "teaspoon"
+				},
+				{
+					"name": "cumin",
+					"amount": "1",
+					"unit": "teaspoon"
+				},
+				{
+					"name": "paprika",
+					"amount": "2",
+					"unit": "grams"
+				},
+				{
+					"name": "cayenne pepper",
+					"amount": "2",
+					"unit": "grams"
+				},
+				{
+					"name": "sugar",
+					"amount": "2",
+					"unit": "grams"
+				}
+			
+				
+			]
+
+	
+	},
+	{
+			"name": "Soft Frosted Sugar Cookies",
+			"url": "http://flippindelicious.com/wp-content/uploads/2015/10/gluten-free-soft-frosted-sugar-cookies-1.jpg",
+			"category": "lunch",
+			"description": "Pillowy soft sugar cookies topped with buttercream and colorful sprinkles, just like the ones from the grocery store bakery, but made even better in your own kitchen. Place the softened butter and granulated sugar into a large bowl. Using a hand mixer or stand mixer fitted with a whisk attachment, cream together the butter and sugar on medium speed for 1 minute, or until pale and fluffy. Turn the mixer to low, and add the flour, baking soda, baking powder, and salt to the bowl. Beat the mixture for about 1 minute, until all ingredients are combined. Shape the cookie dough into three portions. Flatten into rough circles approximately 1” thick and wrap each in plastic wrap. Refrigerate the cookie dough for 30 minutes to 1 hour. Line two baking sheets with silicone baking mats or parchment paper. Set aside. Preheat the oven to 150° C. Remove the chilled cookie dough from the refrigerator. Generously dust a clean work surface with flour. Unwrap one portion of cookie dough. Using a rolling pin, roll the dough to ½ thickness. Using a 3” round cookie cutter, cut the cookie dough into circles, and transfer onto the prepared baking sheets. Repeat the rolling and cutting process with the remaining 2 portions of cookie dough. Transfer the baking sheets to the preheated oven. Bake the cookies for 11-12 minutes, until puffy and slightly golden brown at the edges. Remove the baking sheets from the oven. Allow the cookies to cool for 5 minutes on the sheets, then transfer them to cooling racks to cool completely before frosting and decorating. While the cookies cool, make the frosting. Using either a hand mixer or a stand mixer fitted with a whisk attachment, cream together the butter and cream cheese until smooth. With the mixer on the lowest speed, add half of the powdered sugar. Mix until combined, then add the remaining powdered sugar, vanilla, heavy cream, salt, and desired food coloring to the bowl. Beat on high speed for 2-3 minutes, until the frosting is light and fluffy. Once the cookies are completely cool, spread each with 1-2 Tbs. of buttercream. Top with sprinkles, if desired. Store cookies in the refrigerator. For best flavor and texture, allow the cookies to sit at room temperature for 10-15 minutes before eating.",
+			"ingredients": [
+				{
+					"name": "unsalted butter",
+					"amount": "300",
+					"unit": "grams"
+				},
+				{
+					"name": "sugar",
+					"amount": "250",
+					"unit": "grams"
+				},
+				{
+					"name": "egg",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "sour cream",
+					"amount": "170",
+					"unit": "grams"
+				},
+				{
+					"name": "vanilla extract",
+					"amount": "6",
+					"unit": "milliliters"
+				},
+				{
+					"name": "almond extract",
+					"amount": "3",
+					"unit": "milliliters"
+				},
+				{
+					"name": "flour",
+					"amount": "3",
+					"unit": "cup"
+				},
+				{
+					"name": "baking soda",
+					"amount": "0.5",
+					"unit": "teaspoon"
+				},
+				{
+					"name": "baking powder",
+					"amount": "0.5",
+					"unit": "teaspoon"
+				},
+				{
+					"name": "salt",
+					"amount": "1",
+					"unit": "grams"
+				},
+				{
+					"name": "heavy cream",
+					"amount": "20",
+					"unit": "grams"
+				},
+				{
+					"name": "powdered sugar",
+					"amount": "250",
+					"unit": "grams"
+				},
+				{
+					"name": "cream cheese",
+					"amount": "0.5",
+					"unit": "kilograms"
+				}
+			
+			
+			
+			
+				
+			]
+
+	
+	},	
+	{
+			"name": "Banana Oat Pancakes",
+			"url": "http://makingthymeforhealth.com/wp-content/uploads/2015/09/Banana-Oatmeal-Blender-Pancakes-3_thumb.jpg",
+			"category": "lunch",
+			"description": "These pancakes came out beautifully puffed and full of flavor. I used my cast iron skillet to cook them and they were browned evenly without me having to butter the pan after every single batch. Hopefully, I can keep up with healthy breakfasts for this year. My only problem now is just waking up for it. Take the three ingredients and blend in blender. Heat a skillet on medium high and drop in enough butter to coat the pan. Once it is hot, take an ice cream scoop and drop in scoops of batter. Once bubbles begin to appear on the batter surface, flip and cook for 30 seconds to 1 minute. Transfer onto a place and serve with honey.",
+			"ingredients": [
+				{
+					"name": "banana",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "egg",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "rolled oats",
+					"amount": "0.25",
+					"unit": "cup"
+				},
+				{
+					"name": "unsalted butter",
+					"amount": "6",
+					"unit": "grams"
+				}
+				
+			]
+	
+	},
+	{
+			"name": "KFC Original Fried Chicken",
+			"url": "https://webknox.com/recipeImages/685308-556x370.jpg",
+			"category": "dinner",
+			"description": "Fill the pressure fryer with the oil and heat it to about 400 degrees. Cut each chicken in 6 pieces. Beat the egg in a bowl and add the milk. In another bowl mix the flour, black pepper, salt and Accent Flavor Enhancer. Dip each piece of chicken into the egg and milk mixture and moist well. Then toss each chicken in the flour mixture until well coated. Before frying the chicken make sure the oil is at 200 degrees.  Carefully dip 4 pieces of chicken into the pressure fryer and quickly close the lid. Cook for about 10 minutes. When the meat is thoroughly cooked release the pressure according to manufacturer’s instructions and using utensils take out the chicken. To drain the excess oil place them on paper towels or metal rack. Do the same with the rest of the chicken.",
+			"ingredients": [
+				{
+					"name": "chickens",
+					"amount": "2",
+					"unit": "unit"
+				},
+				{
+					"name": "egg",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "flour",
+					"amount": "2",
+					"unit": "cup"
+				},
+				{
+					"name": "accent flavor enhancer",
+					"amount": "1.5",
+					"unit": "teaspoon"
+				},
+				{
+					"name": "black pepper",
+					"amount": "5",
+					"unit": "grams"
+				},
+				{
+					"name": "salt",
+					"amount": "8",
+					"unit": "grams"
+				},
+				{
+					"name": "cooking oil",
+					"amount": "6",
+					"unit": "cup"
+				},
+				{
+					"name": "milk",
+					"amount": "2",
+					"unit": "cup"
+				}
+				
+			]
+	
+	},	
+	{
+			"name": "Rosemary Sweet Potato Fries",
+			"url": "https://media3.s-nbcnews.com/j/newscms/2017_09/1199093/sweet_potato_wedges_01_b13b37468c7252ceca79324d6506aab2.today-inline-large.jpg",
+			"category": "supper",
+			"description": "Preheat the oven to 240° C. Line a large baking sheet with parchment paper. With a sharp knife, cut the sweet potatoes into wedges approximately 3/4” thick. Place the sweet potatoes in a large mixing bowl. Drizzle with olive oil. Sprinkle evenly with salt and black pepper, to taste. Use a rubber spatula to toss the sweet potatoes until they are evenly coated in the oil. Arrange the sweet potatoes on the baking sheet, spreading them out as much as possible. Transfer the baking sheet to the middle rack of the preheated oven. Roast for 12 minutes. Remove the leaves from the rosemary and discard the stems. Finely mince the leaves. Open the oven door. Flip the sweet potatoes. Sprinkle evenly with the minced rosemary. Continue roasting for 10-14 minutes longer, until the sweet potatoes are tender and slightly charred at the edges. Remove the sweet potatoes from the oven, and serve immediately.",
+			"ingredients": [
+				{
+					"name": "sweet potatoes",
+					"amount": "0.5",
+					"unit": "kilograms"
+				},
+				{
+					"name": "olive oil",
+					"amount": "5",
+					"unit": "milliliters"
+				},
+				{
+					"name": "salt",
+					"amount": "2",
+					"unit": "grams"
+				},
+				{
+					"name": "black pepper",
+					"amount": "2",
+					"unit": "grams"
+				},
+				{
+					"name": "fresh rosemary leaves",
+					"amount": "2",
+					"unit": "unit"
+				}
+				
+				
+			]
+	
+	},
+	{
+			"name": "Cheese Naan Pizzas",
+			"url": "https://i.pinimg.com/736x/5a/4b/f9/5a4bf9af45be0335c094af20e22343e4--lasagna-cups-lasagna-recipes.jpg",
+			"category": "lunch",
+			"description": "Preheat the oven to 240° C. Line a baking sheet with parchment paper. Arrange the naan breads onto the baking sheet. Drizzle ½ tsp. of olive oil over each naan bread. Using the back of a spoon or clean hands, rub the oil over the surface of each bread. Spoon a generous 2 Tablespoons of pizza sauce onto the center of each naan bread. Use the back of a spoon to spread it into an even layer, leaving a ½” border around the sauce. Sprinkle an equal amount of cheese over each naan bread. Sprinkle the dried oregano over the naan breads. Transfer the baking sheet to the oven. Bake for 12-14 minutes, until the cheese is melted and golden and the naan is crisp. Remove the baking sheet from the oven. Allow the naan pizzas to cool on the baking sheet for 2-3 minutes. Slice and serve.",
+			"ingredients": [
+				{
+					"name": "naan",
+					"amount": "4",
+					"unit": "unit"
+				},
+				{
+					"name": "olive oil",
+					"amount": "5",
+					"unit": "milliliters"
+				},
+				{
+					"name": "pizza sauce",
+					"amount": "0.66",
+					"unit": "cup"
+				},
+				{
+					"name": "mozarella cheese",
+					"amount": "1.5",
+					"unit": "cup"
+				},
+				{
+					"name": "dried oregano",
+					"amount": "0.5",
+					"unit": "teaspoon"
+				}
+				
+				
+			]
+	
+	},
+	{
+			"name": "Spicy BBQ Ranch Grilled Chicken",
+			"url": "https://www.staysnatched.com/wp-content/uploads/2017/08/bbq-ranch-chicken-3-edited-1024x670-1160x665.jpg",
+			"category": "dinner",
+			"description": "Fire up the grill ASAP for this yummy Spicy BBQ Ranch Grilled Chicken! Chicken marinated in BBQ sauce, Ranch dressing, chili powder and red pepper flakes. Seriously delicious!! Like most of our chicken marinades, you can marinate this for as little as an hour or up to overnight. We almost always marinate our chicken overnight. It is just easier to prep for our meals at night before we go to bed. Whisk together BBQ sauce, Ranch dressing, chili powder and red pepper flakes. Pour over chicken and refrigerate 1 hour to overnight. Remove chicken from marinade and grill for 12 to 15 minutes, until no longer pink.",
+			"ingredients": [
+				{
+					"name": "bbq sauce",
+					"amount": "0.75",
+					"unit": "cup"
+				},
+				{
+					"name": "ranch dressing",
+					"amount": "0.75",
+					"unit": "cup"
+				},
+				{
+					"name": "chili powder",
+					"amount": "3",
+					"unit": "grams"
+				},
+				{
+					"name": "red pepper flakes",
+					"amount": "8",
+					"unit": "grams"
+				},
+				{
+					"name": "boneless skinless chicken breast",
+					"amount": "6",
+					"unit": "unit"
+				}
+				
+				
+			]
+	
+	},
+	{
+			"name": "Lemon Garlic Herb Shrimp in Foil Packets",
+			"url": "https://www.eatwell101.com/wp-content/uploads/2017/06/shrimp-in-foil-recipe.jpg",
+			"category": "supper",
+			"description": "Preheat your oven to 210°C. Place shrimp in a large bowl; add oil, garlic, lemon, honey, chili pepper flakes, mustard and cilantro. Add tomatoes and zucchini, toss to coat well and let rest for about 15 to 30 minutes. Tear off four 16-inch sheets of foil and place over a rimmed baking sheet, one foil at a time. Using a spoon, arrange 1/4 of the shrimp and veggies mixture in the middle of the foil. Top with a tablespoon of the marinade in the bottom of the bowl and place a pat of butter. Seal the foil packet by folding over one end to meet the corners of the other; continue to tightly fold the open edge to form a seal. Repeat the process with remaining foil packets. Arrange on the baking sheet and bake for 15-20 minutes. Remove from oven and let rest 5 minutes before opening the packets. Be careful of the hot steam! Serve over pasta, rice, or as is with a slice of bread. Enjoy!",
+			"ingredients": [
+				{
+					"name": "shrimp",
+					"amount": "1",
+					"unit": "kilograms"
+				},
+				{
+					"name": "extra virgin oil",
+					"amount": "4",
+					"unit": "milliliters"
+				},
+				{
+					"name": "garlic",
+					"amount": "4",
+					"unit": "cloves"
+				},
+				{
+					"name": "lemon",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "dijon mustard",
+					"amount": "0.2",
+					"unit": "cup"
+				},
+				{
+					"name": "honey",
+					"amount": "5",
+					"unit": "grams"
+				},
+				{
+					"name": "chopped fresh cilantro",
+					"amount": "6",
+					"unit": "grams"
+				},
+				{
+					"name": "zucchinis",
+					"amount": "2",
+					"unit": "unit"
+				},
+				{
+					"name": "tomatoes",
+					"amount": "2",
+					"unit": "unit"
+				},
+				{
+					"name": "unsalted butter",
+					"amount": "10",
+					"unit": "grams"
+				}
+				
+				
+			]
+	
+	},
+	{
+			"name": "Slow Cooker Korean Beef",
+			"url": "https://therecipecritic.com/wp-content/uploads/2015/10/slowcookerkoreanbeef5.jpg",
+			"category": "dinner",
+			"description": "Cut flank steak into thin strips. In a ziplock bag add flank steak pieces and cornstarch. Shake to coat. Add sesame oil, minced garlic, soy sauce, beef broth, brown sugar, onion, and red pepper flakes to the slow cooker. Stir ingredients. Add coated flank steak and stir again until coated in the sauce. Cook for high 2-3 hours or on low 4-5 hours until cooked throughout and tender. Can serve over rice and garnish with green onions.",
+			"ingredients": [
+				{
+					"name": "beef broth",
+					"amount": "1",
+					"unit": "cup"
+				},
+				{
+					"name": "reduced sodium soy sauce",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "brown sugar",
+					"amount": "170",
+					"unit": "grams"
+				},
+				{
+					"name": "sesame oil",
+					"amount": "5",
+					"unit": "milliliters"
+				},
+				{
+					"name": "rice wine vinegar",
+					"amount": "5",
+					"unit": "milliliters"
+				},
+				{
+					"name": "ginger",
+					"amount": "5",
+					"unit": "grams"
+				},
+				{
+					"name": "Sriracha",
+					"amount": "1",
+					"unit": "teaspoon"
+				},
+				{
+					"name": "onion powder",
+					"amount": "0.5",
+					"unit": "teaspoon"
+				},
+				{
+					"name": "white pepper",
+					"amount": "2",
+					"unit": "grams"
+				},
+				{
+					"name": "boneless beef chuck roast",
+					"amount": "1.5",
+					"unit": "kilograms"
+				},
+				{
+					"name": "cornstarch",
+					"amount": "10",
+					"unit": "grams"
+				},
+				{
+					"name": "sesame seeds",
+					"amount": "1",
+					"unit": "teaspoon"
+				},
+				{
+					"name": "green onions",
+					"amount": "2",
+					"unit": "unit"
+				}
+				
+				
+			]
+	
+	},
+	{
+			"name": "Vanilla Frozen Yogurt",
+			"url": "http://images.honestcooking.com/wp-content/uploads/2015/06/Screen-Shot-2015-06-02-at-1.40.47-PM.png",
+			"category": "lunch",
+			"description": "Mix together the yogurt, sugar, and vanilla (if using). Stir until the sugar is completely dissolved. Refrigerate 1 hour. Freeze in your ice cream maker according to the manufacturer's instructions. To make 1 cup (240g) of strained yogurt, line a mesh strainer with a few layers of cheese cloth. then scrape 16 ounces or 2 cups (480g) of plain whole-milk yogurt into the cheesecloth. Gather the ends and fold them over the yogurt, then refrigerate for at least 6 hours. So, for the above recipe start with and strain 6 cups of yogurt.",
+			"ingredients": [
+				{
+					"name": "strained yogurt",
+					"amount": "3",
+					"unit": "cup"
+				},
+				{
+					"name": "sugar",
+					"amount": "255",
+					"unit": "grams"
+				},
+				{
+					"name": "vanilla extract",
+					"amount": "4",
+					"unit": "milliliters"
+				}			
+				
+			]
+	
+	},
+	{
+			"name": "Grilled Chicken With Cilantro Marinade",
+			"url": "https://therecipecritic.com/wp-content/uploads/2016/05/grilledhoneylimecilantrochicken2.jpg",
+			"category": "dinner",
+			"description": "In a large measuring cup mix the sugar, mustard, jalapeno, cilantro, salt and pepper together. Place chicken drumsticks in a resealable bag and pour marinade over the top. Seal bag; turn to completely coat chicken. Remove air from bag; seal tightly. Place in refrigerator for a least one hour; overnight is best. Grill over low heat to medium heat depending on your grill, turning occasionally to achieve doneness and beautiful grill marks. Cooking over very low heat will take about 1 hour or more to completely cook meat. Another option, instead of standing over the grill, is to place chicken on grill over medium heat and turn to achieve grill marks. Place semi-cooked chicken in 13 x 9 pan, cover with foil and place in a 250 oven for about 30 to 45 minutes to complete cooking. You will have wonderfully moist chicken either way. Do not overcook or your chicken will be dry.",
+			"ingredients": [
+				{
+					"name": "chicken drumsticks",
+					"amount": "12",
+					"unit": "unit"
+				},
+				{
+					"name": "brown sugar",
+					"amount": "255",
+					"unit": "grams"
+				},
+				{
+					"name": "dijon mustard",
+					"amount": "0.5",
+					"unit": "cup"
+				},
+				{
+					"name": "jalapeno chilies",
+					"amount": "1",
+					"unit": "unit"
+				},
+				{
+					"name": "cilantro",
+					"amount": "170",
+					"unit": "grams"
+				},
+				{
+					"name": "coriander",
+					"amount": "8",
+					"unit": "grams"
+				},
+				{
+					"name": "salt",
+					"amount": "4",
+					"unit": "grams"
+				}			
+				
+			]
+	
+	},	
+	{
+			"name": "Garlic Butter Pasta with Spinach and Parmesan",
+			"url": "https://32lxcujgg9-flywheel.netdna-ssl.com/wp-content/uploads/2012/12/IMG_0500-450x675.jpg",
+			"category": "supper",
+			"description": "In a sauce pan, heat butter over medium-low. Mince garlic and add to pan. Saute for 1, add thyme, and cook for 1 more minute. Add spinach to butter mixture and cook until spinach is wilted. Bring a pot of water to a boil. Add pasta and cook until tender. Drain and add pasta to spinach mixture. Sprinkle parmesan on top and mix everything together. Serve with an extra sprinkle of parmesan and thyme.",
+			"ingredients": [
+				{
+					"name": "butter",
+					"amount": "120",
+					"unit": "grams"
+				},
+				{
+					"name": "garlic",
+					"amount": "2",
+					"unit": "cloves"
+				},
+				{
+					"name": "springs thyme",
+					"amount": "2",
+					"unit": "unit"
+				},
+				{
+					"name": "baby spinach",
+					"amount": "3",
+					"unit": "unit"
+				},
+				{
+					"name": "pasta",
+					"amount": "250",
+					"unit": "grams"
+				},
+				{
+					"name": "shredded parmesan",
+					"amount": "0.5",
+					"unit": "cup"
+				}			
+				
+			]
+	
+	},			
 	]
 }
