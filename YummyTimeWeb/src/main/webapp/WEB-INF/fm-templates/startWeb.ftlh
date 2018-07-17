@@ -6,13 +6,17 @@
     <#if recipesForDefaultCategory??>
     <#list recipesForDefaultCategory as recipe>
 
-    <div><text></text>
+
+
+    <article><h1>
+    <div>
             <a href="view-recipe?name=${recipe.name}">
             <img src="${recipe.pathToPicture}" alt="picture of Your recipe" height="200">
             <h1>${recipe.name}</h1>
             </a>
         </div>
-
+</h1>
+    </article>
     </#list>
     <#else>
         <span>There is nothing for ${defaultCategory} for now</span><br/><br/>
