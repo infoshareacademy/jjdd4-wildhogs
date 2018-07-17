@@ -17,6 +17,11 @@
     </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -34,7 +39,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.infoshareacademy.jjdd4.wildhogs.app.Main</mainClass>
+                            <mainClass>infoshareacademy.jjdd4.wildhogs.app.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

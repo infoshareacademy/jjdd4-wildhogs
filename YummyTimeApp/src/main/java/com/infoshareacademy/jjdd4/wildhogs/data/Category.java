@@ -8,7 +8,8 @@ public enum Category {
     LUNCH("2"),
     DINNER("3"),
     SUPPER("4"),
-    BACK("5");
+    BACK("5"),
+    WRONG_VALUE("6");
 
     private String categoryNumber;
 
@@ -21,6 +22,6 @@ public enum Category {
                 .stream(values())
                 .filter(p->p.categoryNumber.equals(categoryNumber))
                 .findFirst()
-                .orElse(Category.BACK);
+                .orElse(Category.WRONG_VALUE);
     }
 }

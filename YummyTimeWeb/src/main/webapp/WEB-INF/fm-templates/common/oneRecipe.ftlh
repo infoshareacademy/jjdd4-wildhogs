@@ -22,7 +22,7 @@
 
                 <a href="#">
                     <img src=/home/catterine/Downloads/lunch.jpg" alt="No IMG"
-                    height="" width="42">
+                         height="" width="42">
                 </a>
                 <p> TEXT</p>
             </div>
