@@ -14,15 +14,19 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
+
     @Column(name="name")
     @NotNull
     private String name;
+
     @Column(name="amount")
     @NotNull
     private double amount;
+
     @Column(name="unit")
     @NotNull
     private Unit unit;
+
     @ManyToOne
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
