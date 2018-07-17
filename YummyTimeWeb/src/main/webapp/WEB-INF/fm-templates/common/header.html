@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<body bgcolor="#f5f5dc" text="black">
+<html lang="en" xmlns="http://java.sun.com/jsf/html">
+<body bgcolor="white" text="black">
 <head>
     <meta charset="UTF-8">
     <title>YummyTime</title>
@@ -32,10 +32,11 @@
 
         <select name="example" size="1" onchange="redirect(this.options.selectedIndex)">
                 <option>Category</option>
-                <option value="/category/breakfast">Breakfast</option>
-                <option value="/category/lunch">Lunch</option>
-                <option value="/category/dinner">Dinner</option>
-                <option value="/category/supper">Supper</option>
+
+            <link><a href="category/breakfast"><option value="">Breakfast</option></link>
+            <a href="/category/lunch"> <option value="/category/lunch">Lunch</option></a>
+                <a href="/category/dinner"> <option value="/category/dinner">Dinner</option></a>
+                    <a href="/category/super"><option value="/category/supper">Supper</option></a>
             </select>
         <select name="example" size="1" onchange="redirect(this.options.selectedIndex)">
             <option value="/yummytime">MyList</option>

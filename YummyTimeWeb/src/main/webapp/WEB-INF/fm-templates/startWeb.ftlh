@@ -6,7 +6,7 @@
     <#if recipesForDefaultCategory??>
     <#list recipesForDefaultCategory as recipe>
 
-        <div>
+    <div><text></text>
             <a href="view-recipe?name=${recipe.name}">
             <img src="${recipe.pathToPicture}" alt="picture of Your recipe" height="200">
             <h1>${recipe.name}</h1>
