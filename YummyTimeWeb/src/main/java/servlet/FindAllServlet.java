@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@WebServlet("/test")
+@WebServlet("/upload")
 public class FindAllServlet extends HttpServlet {
 
     @Inject
@@ -33,7 +33,6 @@ public class FindAllServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
-
     }
 
     @Override
@@ -46,6 +45,7 @@ public class FindAllServlet extends HttpServlet {
             return;
         }
 
+
         if (action.equals("findAll")) {
             findAll(req, resp);
         } else if (action.equals("upload")) {
@@ -57,14 +57,12 @@ public class FindAllServlet extends HttpServlet {
         }
     }
 
-
     private void uploadDatabase(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
 
         PrintWriter writer = resp.getWriter();
         LoadJSONBean loadJSON = new LoadJSONBean();
         Map<String, Recipe> recipes = loadJSON.getMapOfMeals();
-
 
         for (Recipe r : recipes.values()) {
 
