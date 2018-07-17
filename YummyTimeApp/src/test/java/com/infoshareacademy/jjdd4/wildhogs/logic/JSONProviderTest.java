@@ -5,15 +5,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.util.Properties;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Properties;
-import java.util.concurrent.ConcurrentNavigableMap;
-
-import static com.infoshareacademy.jjdd4.wildhogs.app.Configuration.CONFIG_PATH;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class JSONProviderTest {

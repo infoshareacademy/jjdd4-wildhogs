@@ -51,4 +51,14 @@ public class RecipesRepositoryDaoBean {
     public List<Ingredient> getShoppingList() {
         return dataBaseForNow.getIngredientsList();
     }
+
+    public boolean addRecipeToFavorites(String name) {
+        // add to favorite
+        return true;
+    }
+
+    public boolean addRecipeToShoppingList(String name) {
+        // add to shopping list
+        return true;
+    }
 }

@@ -1,6 +1,9 @@
 <#include "*/common/header.html">
 
 <div>
+    <#if message??>
+        <span>${message}</span>
+    </#if>
     <#if recipe??>
         <h1>${recipe.name}</h1>
         <p>${recipe.category}</p>
@@ -13,7 +16,9 @@
         <p>${recipe.description}</p>
 
         <button>Add to shopping list!</button>
+        <form method="post" action="/to-favorite?name=${recipe.name}">
         <button>Add to favorites!</button>
+        </form>
     <#else>
         <span>Recipe not found!</span><br/><br/>
     </#if>
