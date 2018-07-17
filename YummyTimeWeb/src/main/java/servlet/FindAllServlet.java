@@ -2,11 +2,9 @@ package servlet;
 
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
-import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import dao.IngredientDao;
 import dao.LoadJSONBean;
 import dao.RecipeDao;
-
 import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
