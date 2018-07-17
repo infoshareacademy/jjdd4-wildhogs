@@ -13,17 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
-
 
 @WebServlet("/upload")
 public class FindAllServlet extends HttpServlet {
 
     @Inject
     private RecipeDao recipeDao;
-
 
     @Inject
     private IngredientDao ingredientDao;
@@ -44,7 +41,6 @@ public class FindAllServlet extends HttpServlet {
             return;
         }
 
-
         if (action.equals("findAll")) {
             findAll(req, resp);
         } else if (action.equals("upload")) {
@@ -59,7 +55,6 @@ public class FindAllServlet extends HttpServlet {
     private void uploadDatabase(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
 
-        PrintWriter writer = resp.getWriter();
         LoadJSONBean loadJSON = new LoadJSONBean();
         Map<String, Recipe> recipes = loadJSON.getMapOfMeals();
 
@@ -73,23 +68,18 @@ public class FindAllServlet extends HttpServlet {
             recipe.setIngredientsList(r.getIngredientsList());
             recipeDao.save(recipe);
         }
-        // Return all persisted objects
         findAll(req, resp);
     }
 
     private void deleteRecipe(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         final Long id = Long.parseLong(req.getParameter("id"));
-        // LOG.info("Removing Recipe with id = {}", id);
 
         recipeDao.delete(id);
-
-        // Return all persisted objects
         findAll(req, resp);
     }
 
     private void findAll(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         final List<Recipe> result = recipeDao.findAll();
-        //LOG.info("Found {} objects", result.size());
         for (Recipe p : result) {
             resp.getWriter().write(p.toString() + "\n");
         }
