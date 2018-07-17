@@ -1,20 +1,48 @@
 package com.infoshareacademy.jjdd4.wildhogs.data;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
+@Entity
+@Table(name = "RECIPES")
 public class Recipe {
 
-    private final String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="likes")
+    @NotNull
+    private int likes;
+
+    @Column(name="name")
+    @NotNull
+    private String name;
+
+    @Column(name="path_to_picture")
     private String pathToPicture = "";
-    private final Category category;
-    private final String description;
-    private final List<Ingredient> ingredientsList;
+
+    @Column(name="category")
+    @NotNull
+    private Category category;
+
+    @Column(name="description", length=20000)
+    @NotNull
+    private String description;
+
+    @OneToMany(mappedBy = "recipe", fetch = FetchType.EAGER)
+    private List<Ingredient> ingredientsList;
+
+    public Recipe() {
+    }
 
     public Recipe(String name, Category category, String description) {
         this.name = name;
         this.category = category;
         this.description = description;
         ingredientsList = new ArrayList<>();
+        likes=0;
     }
 
 //    public Recipe(void aVoid) {
@@ -32,6 +60,7 @@ public class Recipe {
                 ", category=" + category +
                 ", description='" + description + '\'' +
                 ", ingredientsList=" + ingredientsList +
+                ", likes= "+likes+
                 '}';
     }
 
@@ -74,5 +103,37 @@ public class Recipe {
 
     public void setPathToPicture(String pathToPicture) {
         this.pathToPicture = pathToPicture;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setIngredientsList(List<Ingredient> ingredientsList) {
+        this.ingredientsList = ingredientsList;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 }

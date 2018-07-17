@@ -2,11 +2,9 @@ package dao;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
