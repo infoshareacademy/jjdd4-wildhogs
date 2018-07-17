@@ -12,6 +12,10 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="likes")
+    @NotNull
+    private int likes;
+
     @Column(name="name")
     @NotNull
     private String name;
@@ -23,7 +27,7 @@ public class Recipe {
     @NotNull
     private Category category;
 
-    @Column(name="description")
+    @Column(name="description", length=20000)
     @NotNull
     private String description;
 
@@ -38,6 +42,7 @@ public class Recipe {
         this.category = category;
         this.description = description;
         ingredientsList = new ArrayList<>();
+        likes=0;
     }
 
 //    public Recipe(void aVoid) {
@@ -55,6 +60,7 @@ public class Recipe {
                 ", category=" + category +
                 ", description='" + description + '\'' +
                 ", ingredientsList=" + ingredientsList +
+                ", likes= "+likes+
                 '}';
     }
 
@@ -121,5 +127,13 @@ public class Recipe {
 
     public void setIngredientsList(List<Ingredient> ingredientsList) {
         this.ingredientsList = ingredientsList;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 }

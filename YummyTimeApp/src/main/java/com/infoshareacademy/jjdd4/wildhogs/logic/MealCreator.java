@@ -6,6 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,19 +19,20 @@ public class MealCreator {
         logger.debug("Running MealCreator class");
 
         mapOfMeals = new LinkedHashMap<>();
-        JSONObject jsonObject = JSONProvider.read(new Configuration());
+        JSONObject jsonObject = JSONProvider.read(null);
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
-      if  (recipesArray != null){
-        for (Object recipe : recipesArray) {
+        if (recipesArray != null) {
+            for (Object recipe : recipesArray) {
 
-            Recipe recipeCreated = RecipesProviderFromJSON.creator((JSONObject) recipe);
+                Recipe recipeCreated = RecipesProviderFromJSON.creator((JSONObject) recipe);
 
-            if (recipeCreated != null) {
-                mapOfMeals.put(recipeCreated.getName(), recipeCreated);
+                if (recipeCreated != null) {
+                    mapOfMeals.put(recipeCreated.getName(), recipeCreated);
+                }
             }
         }
-      }
     }
+
     public Map<String, Recipe> getMapOfMeals() {
         logger.debug("Returning map of meals");
         return mapOfMeals;

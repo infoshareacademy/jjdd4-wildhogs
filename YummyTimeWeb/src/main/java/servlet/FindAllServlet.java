@@ -1,13 +1,11 @@
 package servlet;
 
 
-import com.infoshareacademy.jjdd4.wildhogs.data.Category;
-import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import dao.IngredientDao;
+import dao.LoadJSONBean;
 import dao.RecipeDao;
-
 import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -17,9 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -67,8 +62,8 @@ public class FindAllServlet extends HttpServlet {
             throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        MealCreator creator = new MealCreator();
-        Map<String, Recipe> recipes = creator.getMapOfMeals();
+        LoadJSONBean loadJSON = new LoadJSONBean();
+        Map<String, Recipe> recipes = loadJSON.getMapOfMeals();
 
 
         for (Recipe r : recipes.values()) {
@@ -82,17 +77,10 @@ public class FindAllServlet extends HttpServlet {
 
             recipeDao.save(recipe);
 
-
         }
-
         // Return all persisted objects
         findAll(req, resp);
     }
-
-
-
-
-
 
     private void deleteRecipe(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         final Long id = Long.parseLong(req.getParameter("id"));
