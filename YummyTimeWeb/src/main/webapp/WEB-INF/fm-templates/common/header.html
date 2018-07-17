@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<body bgcolor="#f5f5dc" text="black">
 <head>
     <meta charset="UTF-8">
-    <title>Yummy-Time Your Recipe</title>
+    <title>YummyTime</title>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -15,63 +16,96 @@
     <link href="css/min.css" rel="stylesheet">
 </head>
 <body>
+    <meta charset="UTF-8">
+    <div style="text-align: center;">
 
-<h1>YummyTime</h1>
+        <a href="/welcome"><img src="../../../Images/logo.png" height="204" width="784" alt="YummyTime" /></a>
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-            <a class="navbar-brand" href="index.html">Do it Better!</a>
+<form name="doublecombo">
+    <h1><a title="Yummy Time" href="yummytime">
+    </a><a href="#">  </a><div align=
+"center"><a href="#">
+    </a></div></h1>
 
-        </button>
-        <select onchange="self.location.href = this.value">
-            <option VALUE="/home.html">Home</option>
-            <option VALUE="/Category.html">Category</option>
-            <option VALUE="/listrecipes.html">ListRecipes</option>
-            <option VALUE="/ourteam.html">OurTeam</option>
-            <option VALUE="/contact.html">Contact</option>
+    <p><select size="1">
+        <option value="/yummytime">Home</option> </select>
 
-        </select>
+        <select name="example" size="1" onchange="redirect(this.options.selectedIndex)">
+                <option>Category</option>
+                <option value="/category/breakfast">Breakfast</option>
+                <option value="/category/lunch">Lunch</option>
+                <option value="/category/dinner">Dinner</option>
+                <option value="/category/supper">Supper</option>
+            </select>
+        <select name="example" size="1" onchange="redirect(this.options.selectedIndex)">
+            <option value="/yummytime">MyList</option>
+                <option value="/category/list_recipes">ListRecipes</option></select>
+        <select size="1">
+            <option value="/yummytime">OurTeam</option> </select>
+        <select size="1">
+            <option value="/yummytime">Contact</option> </select>
+    </p>
+    <p></p><div align="center">
+    <text>It's time for...! :) </text>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="welcome">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="category.html">Category</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="listrecipes.html">ListRecipes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Team.html">OurTeam</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
-<!-- Page Header -->
-<header class="masthead" style="background-image: url('img/post-bg.jpg')">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="post-heading">
-                    <h1></h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">Posted by
-                <a href="#">Wild Hogs</a>
-                on July, 2018</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+     <!--<text>Search something special!</text>-->
+<!--<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">-->
+    <!--<div class="container">-->
+        <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+            <!--Menu-->
+            <!--<i class="fa fa-bars"></i>-->
+        <!--</button>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
 
-<body bgcolor="kolor tła" text="kolor tekstu">
-Tu jest właściwa treść strony
+     <!--SEARCH DEMO-->
+<!--</nav> <div style="text-align: center;">-->
+        <!--<input name="q" type="text">-->
+        <!--<input name="ie" value="iso-8859-2" type="hidden">-->
+        <!--<input name="sitesearch" value="domena" type="hidden">-->
+        <!--<input value="Search" type="submit"></div>-->
+    <!--</div>-->
+        <!--<script>-->
+
+            <!--var groups=document.doublecombo.example.options.length-->
+            <!--var group=new Array(groups)-->
+            <!--for (i=0; i<groups; i++)-->
+                <!--group[i]=new Array()-->
+
+            <!--group[0][0]=new Option("Website Abstraction","http://wsabstract.com")-->
+            <!--group[0][1]=new Option("News.com","http://www.news.com")-->
+            <!--group[0][2]=new Option("Wired News","http://www.wired.com")-->
+
+            <!--group[1][0]=new Option("CNN","http://www.cnn.com")-->
+            <!--group[1][1]=new Option("ABC News","http://www.abcnews.com")-->
+
+            <!--group[2][0]=new Option("Hotbot","http://www.hotbot.com")-->
+            <!--group[2][1]=new Option("Infoseek","http://www.infoseek.com")-->
+            <!--group[2][2]=new Option("Excite","http://www.excite.com")-->
+            <!--group[2][3]=new Option("Lycos","http://www.lycos.com")-->
+
+            <!--var temp=document.doublecombo.stage2-->
+
+            <!--function redirect(x){-->
+                <!--for (m=temp.options.length-1;m>0;m&#45;&#45;)-->
+                    <!--temp.options[m]=null-->
+                <!--for (i=0;i<group[x].length;i++){-->
+                    <!--temp.options[i]=new Option(group[x][i].text,group[x][i].value)-->
+                <!--}-->
+                <!--temp.options[0].selected=true-->
+            <!--}-->
+            <!--function go(){-->
+                <!--location=temp.options[temp.selectedIndex].value-->
+            <!--}-->
+        <!--</script>-->
+
+    </form>
+</html>
+<div #include="oneRecipe.html"></div>
+<div #include="footer.html"></div></body>
+
 </body>
+
