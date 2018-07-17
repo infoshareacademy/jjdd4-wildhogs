@@ -6,6 +6,7 @@ import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import dao.IngredientDao;
 import dao.LoadJSONBean;
 import dao.RecipeDao;
+
 import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -50,9 +51,9 @@ public class FindAllServlet extends HttpServlet {
             findAll(req, resp);
         } else if (action.equals("upload")) {
             uploadDatabase(req, resp);
-        }else if(action.equals("delete")){
+        } else if (action.equals("delete")) {
             deleteRecipe(req, resp);
-        }else {
+        } else {
             resp.getWriter().write("Unknown action.");
         }
     }
@@ -72,9 +73,7 @@ public class FindAllServlet extends HttpServlet {
             recipe.setCategory(r.getCategory());
             recipe.setDescription(r.getDescription());
             recipe.setIngredientsList(r.getIngredientsList());
-
             recipeDao.save(recipe);
-
         }
         // Return all persisted objects
         findAll(req, resp);

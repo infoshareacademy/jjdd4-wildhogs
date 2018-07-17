@@ -5,6 +5,7 @@ import com.infoshareacademy.jjdd4.wildhogs.logic.JSONProvider;
 import com.infoshareacademy.jjdd4.wildhogs.logic.RecipesProviderFromJSON;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -30,9 +31,7 @@ public class LoadJSONBean {
 
         Map<String, Recipe> mapOfMeals = new LinkedHashMap<>();
         JSONObject jsonObject = null;
-        try {
-            System.out.println(getJSONPath()+ "  ================");
-            jsonObject = JSONProvider.read("/home/mateuszmazur/jjdd4-wildhogs/YummyTimeWeb/src/main/resources/recipes.json");
+        jsonObject = JSONProvider.read("/home/mateuszmazur/jjdd4-wildhogs/YummyTimeWeb/src/main/resources/recipes.json");
 
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
         if (recipesArray != null) {
@@ -43,9 +42,6 @@ public class LoadJSONBean {
                     mapOfMeals.put(recipeCreated.getName(), recipeCreated);
                 }
             }
-        }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return mapOfMeals;
     }
