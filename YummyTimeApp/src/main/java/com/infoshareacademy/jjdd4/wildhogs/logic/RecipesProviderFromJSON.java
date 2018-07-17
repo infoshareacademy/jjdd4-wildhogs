@@ -19,8 +19,10 @@ public class RecipesProviderFromJSON {
             String name = jsonObject.get("name").toString();
             Category category = Category.valueOf(jsonObject.get("category").toString().toUpperCase());
             String description = jsonObject.get("description").toString();
+            String pathToPicture = jsonObject.get("url").toString();
 
             recipe = new Recipe(name, category, description);
+            recipe.setPathToPicture(pathToPicture);
             logger.trace("Loading recipe : " + name);
         } catch (IllegalArgumentException e) {
             System.out.println("Bad category in recipes file: " + jsonObject.get("name").toString());
