@@ -1,6 +1,5 @@
 package servlet;
 
-
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import dao.IngredientDao;
 import dao.LoadJSONBean;
