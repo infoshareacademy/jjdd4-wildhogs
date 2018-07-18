@@ -26,22 +26,5 @@ public class LoadJSONBean {
         return settings.getProperty("jsonPath", "recipes.json");
     }
 
-    public Map<String, Recipe> getMapOfMeals() {
 
-        Map<String, Recipe> mapOfMeals = new LinkedHashMap<>();
-        JSONObject jsonObject = null;
-        jsonObject = JSONProvider.read("/home/mateuszmazur/jjdd4-wildhogs/YummyTimeWeb/src/main/resources/recipes.json");
-
-        JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
-        if (recipesArray != null) {
-            for (Object recipe : recipesArray) {
-
-                Recipe recipeCreated = RecipesProviderFromJSON.creator((JSONObject) recipe);
-                if (recipeCreated != null) {
-                    mapOfMeals.put(recipeCreated.getName(), recipeCreated);
-                }
-            }
-        }
-        return mapOfMeals;
-    }
 }
