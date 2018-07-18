@@ -1,5 +1,6 @@
 package com.infoshareacademy.jjdd4.wildhogs.logic;
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
+import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.data.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,15 +18,14 @@ public class ShoppingList {
     private final List<Ingredient> shoppingList;
     public final List<String> nameOfRecipes;
 
-    public ShoppingList(MealCreator mealCreator, List<String> nameOfRecipes) {
+    public ShoppingList(List<Recipe> allRecipes, List<String> nameOfRecipes) {
 
         this.nameOfRecipes = nameOfRecipes;
         List<Ingredient> allIngredients = new ArrayList<>();
 
         for (String name : nameOfRecipes) {
-            List<Ingredient> ingredientsInRecipe = mealCreator.getMapOfMeals().entrySet().stream()
-                    .filter(e -> name.contains(e.getKey()))
-                    .map(e -> e.getValue())
+            List<Ingredient> ingredientsInRecipe = allRecipes.stream()
+                    .filter(e -> name.contains(e.getName()))
                     .flatMap(r -> r.getIngredientsList().stream())
                     .collect(toList());
             allIngredients.addAll(ingredientsInRecipe);

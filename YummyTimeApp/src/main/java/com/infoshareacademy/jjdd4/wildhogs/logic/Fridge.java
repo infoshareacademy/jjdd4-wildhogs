@@ -9,10 +9,9 @@ public class Fridge {
     private List<String> ingridientsThatWeHave = Arrays.asList("chicken", "bbq chicken", "kfc chicken");
     private MealCreator mealCreator = new MealCreator();
 
-    public void showFilterRecipe() {
+    public void showFilterRecipe(List<Recipe> allRecipes) {
 
-        List<Recipe> recipes = mealCreator.getMapOfMeals().entrySet().stream().map(Map.Entry::getValue)
-                .collect(Collectors.toList());
+        List<Recipe> recipes = allRecipes;
 
         List<RecipeMatchQuality> recipesWithMatchQuality = recipes.stream().map(recipe ->
                 new RecipeMatchQuality(recipe, recipeMatchQuality(recipe, ingridientsThatWeHave)))
