@@ -52,6 +52,12 @@ public class RecipesRepositoryDaoBean {
         return dataBaseForNow.getIngredientsList();
     }
 
+    public List<BlockRecipe> getRecipeinShoppingList() {
+        return dataBaseForNow.getRecipesList().stream()
+                .map(r -> new BlockRecipe(r.getName(), r.getPathToPicture()))
+                .limit(3).collect(Collectors.toList());
+    }
+
     public boolean addRecipeToFavorites(String name) {
         // add to favorite
         return true;

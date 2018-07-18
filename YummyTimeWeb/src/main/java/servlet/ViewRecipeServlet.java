@@ -45,8 +45,15 @@ public class ViewRecipeServlet extends HttpServlet {
 
         try {
             String favorite = req.getParameter("favorite");
-            if(favorite.equals("ok")) {
+            if(favorite.equals("yes")) {
                 model.put("message", "Your recipe has been added to favorite!");
+            }
+        }catch (Exception e){}
+
+        try {
+            String favorite = req.getParameter("shoppingList");
+            if(favorite.equals("yes")) {
+                model.put("message", "Your recipe has been added to shopping list!");
             }
         }catch (Exception e){}
 

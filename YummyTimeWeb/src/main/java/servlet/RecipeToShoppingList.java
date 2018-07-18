@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/to-favorite")
-public class RecipeToFavoriteServlet extends HttpServlet{
+@WebServlet("/to-shoppingList")
+public class RecipeToShoppingList extends HttpServlet{
 
     @Inject
     private RecipesRepositoryDaoBean recipesRepositoryDaoBean;
@@ -26,11 +26,11 @@ public class RecipeToFavoriteServlet extends HttpServlet{
             return;
         }
 
-        Boolean recipeAdd = recipesRepositoryDaoBean.addRecipeToFavorites(recipeNameParam);
+        Boolean recipeAdd = recipesRepositoryDaoBean.addRecipeToShoppingList(recipeNameParam);
 
         String path;
         if(recipeAdd) {
-            path = "/view-recipe?name=" + recipeNameParam + "&favorite=yes";
+            path = "/view-recipe?name=" + recipeNameParam + "&shoppingList=yes";
         } else {
             path = "/view-recipe?name=" + recipeNameParam;
         }

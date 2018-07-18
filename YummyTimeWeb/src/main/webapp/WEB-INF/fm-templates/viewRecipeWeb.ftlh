@@ -15,9 +15,12 @@
         </ul>
         <p>${recipe.description}</p>
 
-        <button>Add to shopping list!</button>
+        <form method="post" action="/to-shoppingList?name=${recipe.name}">
+            <button>Add to shopping list!</button>
+        </form>
+
         <form method="post" action="/to-favorite?name=${recipe.name}">
-        <button>Add to favorites!</button>
+            <button>Add to favorites!</button>
         </form>
     <#else>
         <span>Recipe not found!</span><br/><br/>
