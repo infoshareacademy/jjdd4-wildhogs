@@ -40,10 +40,7 @@ public class RecipesRepositoryDaoBean {
     }
 
     public List<BlockRecipe> getRecipesForProducts(List<String> products) {
-        List<BlockRecipe> recipes = dataBaseForNow.getRecipesList().stream()
-                .map(r -> new BlockRecipe(r.getName(), r.getPathToPicture()))
-                .limit(3).collect(Collectors.toList());
-        return recipes;
+        return changeRecipiesToBlocks(dataBaseForNow.getRecipesList());
     }
 
     public List<Ingredient> getShoppingList() {
@@ -51,18 +48,18 @@ public class RecipesRepositoryDaoBean {
     }
 
     public List<BlockRecipe> getRecipeinShoppingList() {
-        return dataBaseForNow.getRecipesList().stream()
-                .map(r -> new BlockRecipe(r.getName(), r.getPathToPicture()))
-                .limit(3).collect(Collectors.toList());
+        return changeRecipiesToBlocks(dataBaseForNow.getRecipesList());
     }
 
     public boolean addRecipeToFavorites(String name) {
-        // add to favorite
         return true;
     }
 
     public boolean addRecipeToShoppingList(String name) {
-        // add to shopping list
         return true;
+    }
+
+    private List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {
+        return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture())).collect(Collectors.toList());
     }
 }

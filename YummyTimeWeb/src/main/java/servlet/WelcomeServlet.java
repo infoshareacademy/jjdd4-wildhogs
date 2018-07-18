@@ -7,6 +7,9 @@ import dao.RecipesRepositoryDaoBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +24,8 @@ import java.util.Map;
 
 @WebServlet("/welcome")
 public class WelcomeServlet extends HttpServlet {
+
+    private static Logger logger = LoggerFactory.getLogger(ViewRecipeServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
@@ -53,6 +58,7 @@ public class WelcomeServlet extends HttpServlet {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
+            logger.warn("View recipe cannot be loaded template!");
         }
     }
 
