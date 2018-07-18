@@ -1,7 +1,6 @@
 package com.infoshareacademy.jjdd4.wildhogs.logic;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,7 +32,9 @@ public class Fridge {
 
 
     private double recipeMatchQuality(Recipe recipe, List<String> ingredients) {
-        Set<String> ingridientsInRecipe = recipe.getIngredientsList().stream().map(i -> i.getName()).collect(Collectors.toSet());
+        Set<String> ingridientsInRecipe = recipe.getIngredientsList().stream()
+                    .map(i -> i.getName())
+                    .collect(Collectors.toSet());
         double matchQuality = ingridientsInRecipe.stream().filter(recipeIngredient ->
                 ingredients.stream().anyMatch(recipeIngredient::contains)).count();
         matchQuality /= ingredients.size();

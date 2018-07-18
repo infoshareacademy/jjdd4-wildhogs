@@ -12,14 +12,23 @@ public class JSONProvider {
 
     private static Logger logger = LoggerFactory.getLogger(JSONProvider.class);
 
-    public static JSONObject read(Configuration configuration) {
+
+    private static Configuration configuration = new Configuration();
+
+    public static JSONObject read(String path) {
+
+        if (path == null) {
+            path = configuration.getJsonPath();
+
+        }
 
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = new JSONObject();
 
         logger.info("Looking for JSON path in config file");
         try {
-            jsonObject = (JSONObject) parser.parse(new FileReader(configuration.getJsonPath()));
+
+            jsonObject = (JSONObject) parser.parse(new FileReader(path));
             logger.info("JSON file was loaded");
 
         } catch (Exception e) {
