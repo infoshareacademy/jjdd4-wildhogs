@@ -8,6 +8,7 @@ import dao.RecipeDao;
 import dao.UploadJSONFileBean;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
 import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -57,7 +58,6 @@ public class DataUploadServlet extends HttpServlet {
             resp.getWriter().write("Empty action parameter.");
             return;
         }
-
         if (action.equals("findAll")) {
             findAll(req, resp);
         } else if (action.equals("delete")) {
@@ -67,14 +67,11 @@ public class DataUploadServlet extends HttpServlet {
         }
     }
 
-
-    private void uploadDatabase(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+    private void uploadDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         Map<String, Recipe> recipes = getMapOfMeals(req, resp);
 
         for (Recipe r : recipes.values()) {
-
             final Recipe recipe = new Recipe();
             recipe.setName(r.getName());
             recipe.setPathToPicture(r.getPathToPicture());
@@ -102,7 +99,6 @@ public class DataUploadServlet extends HttpServlet {
 
     private File getJason(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-
         Part filePart = null;
 
         try {
@@ -117,10 +113,8 @@ public class DataUploadServlet extends HttpServlet {
 
     private Map<String, Recipe> getMapOfMeals(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-
         Map<String, Recipe> mapOfMeals = new LinkedHashMap<>();
         JSONObject jsonObject = JSONProvider.read(getJason(req, resp).toPath().toString());
-
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
         if (recipesArray != null) {
             for (Object recipe : recipesArray) {
