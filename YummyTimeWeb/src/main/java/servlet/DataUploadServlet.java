@@ -75,9 +75,8 @@ public class DataUploadServlet extends HttpServlet {
 
 
         for (Recipe r : recipes.values()) {
-            List<Ingredient> ingredients = new ArrayList<>();
 
-            final Recipe recipe = new Recipe();
+            Recipe recipe = new Recipe();
 
             recipe.setName(r.getName());
             recipe.setPathToPicture(r.getPathToPicture());
@@ -88,13 +87,7 @@ public class DataUploadServlet extends HttpServlet {
 
 
             for (Ingredient i : recipe.getIngredientsList()) {
-
-                final Ingredient ingredient = new Ingredient();
-                ingredient.setName(i.getName());
-                ingredient.setAmount(i.getAmount());
-                ingredient.setUnit(i.getUnit());
-                ingredient.setRecipe(r);
-                ingredientDao.save(ingredient);
+                i.setRecipe(recipe);
             }
 
             recipeDao.save(recipe);

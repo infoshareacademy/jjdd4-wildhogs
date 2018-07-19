@@ -26,7 +26,7 @@ public class Ingredient {
     @NotNull
     private Unit unit;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
