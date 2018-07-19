@@ -34,10 +34,17 @@ public class Ingredient {
     public Ingredient() {
     }
 
+    public Ingredient(String name, double amount, Unit unit, Recipe recipe) {
+        this.name = name;
+        this.amount = amount;
+        this.unit = unit;
+        this.recipe=recipe;
+    }
     public Ingredient(String name, double amount, Unit unit) {
         this.name = name;
         this.amount = amount;
         this.unit = unit;
+
     }
 
     public Ingredient(Ingredient ingredient) {

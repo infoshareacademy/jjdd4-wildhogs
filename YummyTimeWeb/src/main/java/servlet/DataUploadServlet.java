@@ -1,5 +1,6 @@
 package servlet;
 
+import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.logic.JSONProvider;
 import com.infoshareacademy.jjdd4.wildhogs.logic.RecipesProviderFromJSON;
@@ -21,6 +22,7 @@ import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,13 +73,30 @@ public class DataUploadServlet extends HttpServlet {
 
         Map<String, Recipe> recipes = getMapOfMeals(req, resp);
 
+
         for (Recipe r : recipes.values()) {
+            List<Ingredient> ingredients = new ArrayList<>();
+
             final Recipe recipe = new Recipe();
+
             recipe.setName(r.getName());
             recipe.setPathToPicture(r.getPathToPicture());
             recipe.setCategory(r.getCategory());
             recipe.setDescription(r.getDescription());
             recipe.setIngredientsList(r.getIngredientsList());
+            recipe.setPathToPicture(r.getPathToPicture());
+
+
+            for (Ingredient i : recipe.getIngredientsList()) {
+
+                final Ingredient ingredient = new Ingredient();
+                ingredient.setName(i.getName());
+                ingredient.setAmount(i.getAmount());
+                ingredient.setUnit(i.getUnit());
+                ingredient.setRecipe(r);
+                ingredientDao.save(ingredient);
+            }
+
             recipeDao.save(recipe);
         }
         findAll(req, resp);
