@@ -1,58 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://java.sun.com/jsf/html">
+
+<link href="stylesheet" href="../../../css/schemat.css">
 <body bgcolor="white" text="black">
+
 <head>
     <meta charset="UTF-8">
     <title>YummyTime</title>
-
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- Custom styles for this template -->
-    <link href="css/min.css" rel="stylesheet">
 </head>
 <body>
-    <meta charset="UTF-8">
-    <div style="text-align: center;">
+<meta charset="UTF-8">
+<div style="text-align: center;">
 
-        <a href="/welcome"><img src="../../../Images/logo.png" height="204" width="784" alt="YummyTime" /></a>
+    <img src="../../../Images/logos/logo.png"></div>
+<div style="text-align: center;">
 
-<form name="doublecombo">
-    <h1><a title="Yummy Time" href="yummytime">
-    </a><a href="#">  </a><div align=
-"center"><a href="#">
-    </a></div></h1>
+    <link><a href="welcome"><option value="">Home</option></link>
+    <link><a href="search-recipe?category=breakfast"><option value="">Breakfast</option></link>
+        <a href="search-recipe?category=lunch"> <option value="/category/lunch">Lunch</option></a>
+        <a href="search-recipe?category=dinner"> <option value="/category/dinner">Dinner</option></a>
+        <a href="search-recipe?category=supper"><option value="/category/supper">Supper</option></a>
 
-    <p><select size="1">
-        <option value="/yummytime">Home</option> </select>
+        <link><a href="to-shoppingList"><option value="">ListRecipes</option></link>
 
-        <select name="example" size="1" onchange="redirect(this.options.selectedIndex)">
-                <option>Category</option>
+            <link><a href="view-recipe?OurTeam"><option value="">OurTeam</option></link>
 
-            <link><a href="category/breakfast"><option value="">Breakfast</option></link>
-            <a href="/category/lunch"> <option value="/category/lunch">Lunch</option></a>
-                <a href="/category/dinner"> <option value="/category/dinner">Dinner</option></a>
-                    <a href="/category/super"><option value="/category/supper">Supper</option></a>
-            </select>
-        <select name="example" size="1" onchange="redirect(this.options.selectedIndex)">
-            <option value="/yummytime">MyList</option>
-                <option value="/category/list_recipes">ListRecipes</option></select>
-        <select size="1">
-            <option value="/yummytime">OurTeam</option> </select>
-        <select size="1">
-            <option value="/yummytime">Contact</option> </select>
-    </p>
-    <p></p><div align="center">
-    <text>It's time for...! :) </text>
+                <link><a href="view-recipe?contact"><option value="">Contact</option></link>
 
-    </form>
+                    </link> </a><div>
+
+                    <text>It's time for...! :) </text>
+
+                    </div>
 </html>
 <div #include="oneRecipe.html"></div>
 <div #include="footer.html"></div></body>
 
 </body>
+
 
