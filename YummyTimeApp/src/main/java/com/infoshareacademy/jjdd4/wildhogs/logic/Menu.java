@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Menu {
 
@@ -16,6 +17,7 @@ public class Menu {
     private MealCreator mealCreator = new MealCreator();
     private ShoppingList shoppingList;
     private List<String> pickedRecipe = new ArrayList<>();
+    private List<Recipe> allRecipes = mealCreator.getMapOfMeals().entrySet().stream().map(r -> r.getValue()).collect(Collectors.toList());
 
     public void optionPicker() {
         Option option;
@@ -91,7 +93,7 @@ public class Menu {
                     pickedRecipe.add(viewRecipesByCategory.getNamePicked());
                 }
                 if (!pickedRecipe.isEmpty()) {
-                    shoppingList = new ShoppingList(mealCreator, pickedRecipe);
+                    shoppingList = new ShoppingList(allRecipes, pickedRecipe);
                 }
             } else {
                 System.out.println("You chose wrong value. Try again or go back");
