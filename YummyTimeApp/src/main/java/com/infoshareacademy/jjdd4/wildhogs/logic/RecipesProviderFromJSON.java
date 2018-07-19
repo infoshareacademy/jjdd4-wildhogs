@@ -37,7 +37,8 @@ public class RecipesProviderFromJSON {
                 Double amount = Double.valueOf(((JSONObject) ingredients).get("amount").toString());
                 Unit unit = Unit.valueOf(((JSONObject) ingredients).get("unit").toString().toUpperCase());
 
-                Ingredient ingredient = new Ingredient(ingredientName, amount, unit);
+
+                Ingredient ingredient = new Ingredient(ingredientName, amount, unit, recipe);
                 recipe.addIngredient(ingredient);
             }
         } catch (NumberFormatException e) {
