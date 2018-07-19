@@ -46,6 +46,7 @@ public class ViewRecipeServlet extends HttpServlet {
 
         if(recipe != null) {
             model.put("recipe", recipe);
+            recipesRepositoryDaoBean.addRecipeToStatistic(recipe.getName());
         }
 
         String favorite = req.getParameter("favorite");

@@ -59,6 +59,8 @@ public class RecipesRepositoryDaoBean {
         return true;
     }
 
+    public void addRecipeToStatistic(String name){}
+
     private List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {
         return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture())).collect(Collectors.toList());
     }
