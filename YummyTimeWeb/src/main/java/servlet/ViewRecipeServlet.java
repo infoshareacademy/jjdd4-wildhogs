@@ -5,6 +5,9 @@ import dao.TemplateProvider;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +20,8 @@ import java.util.Map;
 
 @WebServlet("/view-recipe")
 public class ViewRecipeServlet extends HttpServlet {
+
+    private static Logger logger = LoggerFactory.getLogger(ViewRecipeServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
@@ -43,10 +48,21 @@ public class ViewRecipeServlet extends HttpServlet {
             model.put("recipe", recipe);
         }
 
+        String favorite = req.getParameter("favorite");
+        if(favorite.equals("yes")) {
+            model.put("message", "Your recipe has been added to favorite!");
+        }
+
+        String shoppingList = req.getParameter("shoppingList");
+        if(shoppingList.equals("yes")) {
+            model.put("message", "Your recipe has been added to shopping list!");
+        }
+
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
+            logger.warn("View recipe cannot be loaded template!");
         }
     }
 }

@@ -57,6 +57,7 @@ public class Recipe {
     public String toString() {
         return "Recipe{" +
                 "name='" + name + '\'' +
+                "url='" + pathToPicture + '\'' +
                 ", category=" + category +
                 ", description='" + description + '\'' +
                 ", ingredientsList=" + ingredientsList +
