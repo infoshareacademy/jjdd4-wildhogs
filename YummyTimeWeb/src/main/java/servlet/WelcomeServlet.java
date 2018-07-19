@@ -25,7 +25,7 @@ import java.util.Map;
 @WebServlet("/welcome")
 public class WelcomeServlet extends HttpServlet {
 
-    private static Logger logger = LoggerFactory.getLogger(ViewRecipeServlet.class);
+    private static Logger logger = LoggerFactory.getLogger(WelcomeServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;

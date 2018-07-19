@@ -47,7 +47,7 @@ public class RecipesRepositoryDaoBean {
         return dataBaseForNow.getIngredientsList();
     }
 
-    public List<BlockRecipe> getRecipeinShoppingList() {
+    public List<BlockRecipe> getRecipeInShoppingList() {
         return changeRecipiesToBlocks(dataBaseForNow.getRecipesList());
     }
 

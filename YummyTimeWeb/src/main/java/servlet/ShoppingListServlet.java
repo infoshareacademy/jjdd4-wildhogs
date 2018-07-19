@@ -6,6 +6,8 @@ import dao.RecipesRepositoryDaoBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -21,6 +23,8 @@ import java.util.Map;
 @WebServlet("/shopping-list")
 public class ShoppingListServlet extends HttpServlet {
 
+    private static Logger logger = LoggerFactory.getLogger(ShoppingListServlet.class);
+
     @Inject
     private TemplateProvider templateProvider;
 
@@ -34,7 +38,7 @@ public class ShoppingListServlet extends HttpServlet {
         Map<String, Object> model = new HashMap<>();
 
         List<Ingredient> shoppingList = recipesRepositoryDaoBean.getShoppingList();
-        List<BlockRecipe> recipesInShoppingList = recipesRepositoryDaoBean.getRecipeinShoppingList();
+        List<BlockRecipe> recipesInShoppingList = recipesRepositoryDaoBean.getRecipeInShoppingList();
 
         if(shoppingList != null || !shoppingList.isEmpty()) {
             model.put("shoppingList", shoppingList);
@@ -45,6 +49,7 @@ public class ShoppingListServlet extends HttpServlet {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
+            logger.warn("View shopping list cannot be loaded template!");
         }
     }
 }
