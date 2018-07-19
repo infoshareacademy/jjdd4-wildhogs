@@ -30,7 +30,7 @@ public class WelcomeServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    RecipeDao recipeDao;
+    private RecipeDao recipeDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

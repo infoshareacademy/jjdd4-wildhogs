@@ -28,10 +28,10 @@ public class ViewRecipeServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    RecipeDao recipeDao;
+    private RecipeDao recipeDao;
 
     @Inject
-    RecipeChangeDao recipeChangeDao;
+    private RecipeChangeDao recipeChangeDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

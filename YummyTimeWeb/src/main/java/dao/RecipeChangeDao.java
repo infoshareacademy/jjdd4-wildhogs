@@ -12,7 +12,7 @@ import javax.persistence.Query;
 public class RecipeChangeDao {
 
     @Inject
-    RecipeDao recipeDao;
+    private RecipeDao recipeDao;
 
     @PersistenceContext
     private EntityManager entityManager;
