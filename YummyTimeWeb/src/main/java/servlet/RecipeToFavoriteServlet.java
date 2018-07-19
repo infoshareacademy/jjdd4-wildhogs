@@ -1,6 +1,6 @@
 package servlet;
 
-import dao.RecipesRepositoryDaoBean;
+import dao.RecipeChangeDao;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import java.io.IOException;
 public class RecipeToFavoriteServlet extends HttpServlet{
 
     @Inject
-    private RecipesRepositoryDaoBean recipesRepositoryDaoBean;
+    private RecipeChangeDao recipeChangeDao;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class RecipeToFavoriteServlet extends HttpServlet{
             return;
         }
 
-        Boolean recipeAdd = recipesRepositoryDaoBean.addRecipeToFavorites(recipeNameParam);
+        Boolean recipeAdd = recipeChangeDao.addRecipeToFavorites(recipeNameParam);
 
         String path;
         if(recipeAdd) {

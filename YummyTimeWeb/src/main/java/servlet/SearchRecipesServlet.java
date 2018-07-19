@@ -1,9 +1,8 @@
 package servlet;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
-import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import dao.BlockRecipe;
-import dao.RecipesRepositoryDaoBean;
+import dao.RecipeDao;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -28,7 +27,7 @@ public class SearchRecipesServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    private RecipesRepositoryDaoBean recipesRepositoryDaoBean;
+    private RecipeDao recipeDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -47,7 +46,7 @@ public class SearchRecipesServlet extends HttpServlet {
 
         if(parameterIsNotEmpty(categoryParam)) {
             try{
-                List<BlockRecipe> recipesList = recipesRepositoryDaoBean.getRecipesFromCategory(Category.valueOf(categoryParam.toUpperCase()));
+                List<BlockRecipe> recipesList = recipeDao.getRecipesFromCategory(Category.valueOf(categoryParam.toUpperCase()));
                 model.put("recipesList", recipesList);
                 model.put("parameter", categoryParam);
                 if(recipesList.isEmpty()) {
@@ -64,7 +63,7 @@ public class SearchRecipesServlet extends HttpServlet {
             String fridge = fridgeParam.replace("%2C", ",")
                     .replace("+", ",").replace(",*", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
-            List<BlockRecipe> recipesList = recipesRepositoryDaoBean.getRecipesForProducts(fridgeList);
+            List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
             model.put("recipesList", recipesList);
             model.put("parameter", fridgeParam);
         }
