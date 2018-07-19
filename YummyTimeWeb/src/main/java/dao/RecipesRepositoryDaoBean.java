@@ -40,13 +40,26 @@ public class RecipesRepositoryDaoBean {
     }
 
     public List<BlockRecipe> getRecipesForProducts(List<String> products) {
-        List<BlockRecipe> recipes = dataBaseForNow.getRecipesList().stream()
-                .map(r -> new BlockRecipe(r.getName(), r.getPathToPicture()))
-                .limit(3).collect(Collectors.toList());
-        return recipes;
+        return changeRecipiesToBlocks(dataBaseForNow.getRecipesList());
     }
 
     public List<Ingredient> getShoppingList() {
         return dataBaseForNow.getIngredientsList();
+    }
+
+    public List<BlockRecipe> getRecipeInShoppingList() {
+        return changeRecipiesToBlocks(dataBaseForNow.getRecipesList());
+    }
+
+    public boolean addRecipeToFavorites(String name) {
+        return true;
+    }
+
+    public boolean addRecipeToShoppingList(String name) {
+        return true;
+    }
+
+    private List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {
+        return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture())).collect(Collectors.toList());
     }
 }

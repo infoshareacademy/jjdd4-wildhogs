@@ -1,4 +1,5 @@
 <#include "*/common/header.html">
+<#import "macra/ListOfBlockRecipe.ftlh" as macro>
 
 <div>
     <h1>Your Shopping List:</h1>
@@ -10,6 +11,10 @@
         </ul>
     <#else>
         <span>Your shopping list is empty</span><br/><br/>
+    </#if>
+
+    <#if recipesInShoppingList??>
+        <@macro.listBlockRecipe list = recipesInShoppingList/>
     </#if>
 </div>
 

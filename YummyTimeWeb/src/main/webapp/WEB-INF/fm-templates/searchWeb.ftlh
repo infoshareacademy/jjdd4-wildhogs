@@ -1,16 +1,10 @@
 <#include "*/common/header.html">
+<#import "macra/ListOfBlockRecipe.ftlh" as macro>
 
 <div>
 <#if recipesList??>
 <h1>Result of your search by ${parameter}:</h1>
-    <#list recipesList as recipe>
-        <div>
-            <a href="view-recipe?name=${recipe.name}">
-                <img src="${recipe.pathToPicture}" alt="picture of Your recipe" height="200">
-                <h1>${recipe.name}</h1>
-            </a>
-        </div>
-    </#list>
+    <@macro.listBlockRecipe list = recipesList/>
 <#else>
     <span>${errorMessage}</span><br/><br/>
 </#if>
