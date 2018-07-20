@@ -10,14 +10,14 @@ public enum Unit {
     CLOVES("cloves"),
     CENTIMETERS("cm"),
     UNIT("unit"),
-    TEASPOON("ts") {
-
-    };
+    TEASPOON("ts");
 
     private String description;
+
     Unit(String desc) {
         description = desc;
     }
+
     public String getDescription() {
         return description;
     }

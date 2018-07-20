@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class Configuration extends Properties {
     private static Logger logger = LoggerFactory.getLogger(Configuration.class);
-    private static final String CONFIG_PATH = "YummyTimeApp/config.properties";
+    private static final String CONFIG_PATH = "YummyTimeApp/src/main/resources/config.properties";
     private final Properties properties;
 
     public Configuration(Properties properties) {
@@ -22,7 +22,6 @@ public class Configuration extends Properties {
             properties.load(new FileInputStream(CONFIG_PATH));
             logger.info("Loaded config file");
         } catch (IOException e) {
-
             System.err.println("Couldn't find config file!");
             logger.warn("Couldn't find config file!");
         }

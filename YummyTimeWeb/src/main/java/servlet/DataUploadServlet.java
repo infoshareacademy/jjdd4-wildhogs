@@ -85,7 +85,6 @@ public class DataUploadServlet extends HttpServlet {
             recipe.setIngredientsList(r.getIngredientsList());
             recipe.setPathToPicture(r.getPathToPicture());
 
-
             for (Ingredient i : recipe.getIngredientsList()) {
                 i.setRecipe(recipe);
             }

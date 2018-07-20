@@ -12,22 +12,22 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="likes")
+    @Column(name = "likes")
     @NotNull
     private int likes;
 
-    @Column(name="name")
+    @Column(name = "name")
     @NotNull
     private String name;
 
-    @Column(name="path_to_picture")
+    @Column(name = "path_to_picture")
     private String pathToPicture = "";
 
-    @Column(name="category")
+    @Column(name = "category")
     @NotNull
     private Category category;
 
-    @Column(name="description", length=20000)
+    @Column(name = "description", length = 20000)
     @NotNull
     private String description;
 
@@ -42,12 +42,8 @@ public class Recipe {
         this.category = category;
         this.description = description;
         ingredientsList = new ArrayList<>();
-        likes=0;
+        likes = 0;
     }
-
-//    public Recipe(void aVoid) {
-//        this.getDescription(); //FOR RecipesProviderFromJSONTest
-//    }
 
     public void addIngredient(Ingredient ingredient) {
         ingredientsList.add(ingredient);
@@ -61,7 +57,7 @@ public class Recipe {
                 ", category=" + category +
                 ", description='" + description + '\'' +
                 ", ingredientsList=" + ingredientsList +
-                ", likes= "+likes+
+                ", likes= " + likes +
                 '}';
     }
 
@@ -81,21 +77,36 @@ public class Recipe {
         return Objects.hash(name, category, description, ingredientsList);
     }
 
-
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Category getCategory() {
         return category;
     }
 
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public List<Ingredient> getIngredientsList() {
         return ingredientsList;
+    }
+
+    public void setIngredientsList(List<Ingredient> ingredientsList) {
+        this.ingredientsList = ingredientsList;
     }
 
     public String getPathToPicture() {
@@ -112,22 +123,6 @@ public class Recipe {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setIngredientsList(List<Ingredient> ingredientsList) {
-        this.ingredientsList = ingredientsList;
     }
 
     public int getLikes() {

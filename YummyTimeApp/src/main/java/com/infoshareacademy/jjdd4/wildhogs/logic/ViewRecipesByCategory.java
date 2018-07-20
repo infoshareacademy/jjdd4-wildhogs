@@ -2,7 +2,6 @@ package com.infoshareacademy.jjdd4.wildhogs.logic;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
-import com.infoshareacademy.jjdd4.wildhogs.logic.MealCreator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +44,7 @@ public class ViewRecipesByCategory {
                 logger.warn("Application ran out of recipes");
             } else {
                 System.out.println("\nYou picked " + category + " category. Here are all the recipes: \n");
-                logger.info("Showing all recipes from "+ category  + " category");
+                logger.info("Showing all recipes from " + category + " category");
             }
             System.out.println("0. Back");
             for (int i = 0; i < searchingByCategory.size(); i++) {
@@ -57,7 +56,7 @@ public class ViewRecipesByCategory {
 
     private void pickAMealByTheNumber() {
         System.out.print("\nPick a meal number: ");
-        String input="";
+        String input = "";
         Integer pick = 0;
         try {
             input = sc.nextLine();
