@@ -55,7 +55,7 @@ public class DataUploadServlet extends HttpServlet {
 
 
 
-        resp.sendRedirect("/welcome");
+        resp.sendRedirect("/uploaded");
 
 
 
@@ -101,12 +101,7 @@ public class DataUploadServlet extends HttpServlet {
             recipeDao.save(recipe);
 //TEMPORARY
         }
-        resp.getWriter().println("UPLOADED RECIPES");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
