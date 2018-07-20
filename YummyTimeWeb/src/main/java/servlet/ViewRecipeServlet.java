@@ -1,6 +1,7 @@
 package servlet;
 
-import dao.RecipesRepositoryDaoBean;
+import dao.RecipeChangeDao;
+import dao.RecipeDao;
 import dao.TemplateProvider;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import freemarker.template.Template;
@@ -27,7 +28,10 @@ public class ViewRecipeServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    private RecipesRepositoryDaoBean recipesRepositoryDaoBean;
+    private RecipeDao recipeDao;
+
+    @Inject
+    private RecipeChangeDao recipeChangeDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,19 +46,20 @@ public class ViewRecipeServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "viewRecipeWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        Recipe recipe = recipesRepositoryDaoBean.getRecipe(recipeNameParam);
+        Recipe recipe = recipeDao.getRecipeByName(recipeNameParam);
 
         if(recipe != null) {
             model.put("recipe", recipe);
+            recipeChangeDao.addRecipeToStatistic(recipe.getName());
         }
 
         String favorite = req.getParameter("favorite");
-        if(favorite.equals("yes")) {
+        if("yes".equals(favorite)){
             model.put("message", "Your recipe has been added to favorite!");
         }
 
         String shoppingList = req.getParameter("shoppingList");
-        if(shoppingList.equals("yes")) {
+        if("yes".equals(shoppingList)) {
             model.put("message", "Your recipe has been added to shopping list!");
         }
 

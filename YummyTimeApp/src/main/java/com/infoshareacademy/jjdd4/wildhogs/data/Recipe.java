@@ -31,7 +31,7 @@ public class Recipe {
     @NotNull
     private String description;
 
-    @OneToMany(mappedBy = "recipe", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "recipe", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Ingredient> ingredientsList;
 
     public Recipe() {

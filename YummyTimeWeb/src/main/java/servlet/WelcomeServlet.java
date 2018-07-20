@@ -1,9 +1,8 @@
 package servlet;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
-import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import dao.BlockRecipe;
-import dao.RecipesRepositoryDaoBean;
+import dao.RecipeDao;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -31,7 +30,7 @@ public class WelcomeServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    private RecipesRepositoryDaoBean recipesRepositoryDaoBean;
+    private RecipeDao recipeDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,12 +43,12 @@ public class WelcomeServlet extends HttpServlet {
 
         Category categoryByTime = categoryByHour(hour);
         model.put("defaultCategory", categoryByTime.toString());
-        List<BlockRecipe> recipesForDefaultCategory = recipesRepositoryDaoBean.getRecipesFromCategory(categoryByTime, 3);
+        List<BlockRecipe> recipesForDefaultCategory = recipeDao.getRecipesFromCategory(categoryByTime, 3);
         if(recipesForDefaultCategory != null && !recipesForDefaultCategory.isEmpty()) {
             model.put("recipesForDefaultCategory", recipesForDefaultCategory);
         }
 
-        List<BlockRecipe> favouriteList = recipesRepositoryDaoBean.getFavouriteList();
+        List<BlockRecipe> favouriteList = recipeDao.getFavouriteList();
         if(favouriteList != null && !favouriteList.isEmpty()) {
             model.put("favouriteList", favouriteList);
         }

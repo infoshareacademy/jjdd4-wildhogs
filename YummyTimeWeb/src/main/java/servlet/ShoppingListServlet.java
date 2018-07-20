@@ -2,7 +2,7 @@ package servlet;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import dao.BlockRecipe;
-import dao.RecipesRepositoryDaoBean;
+import dao.RecipeDao;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -29,7 +29,7 @@ public class ShoppingListServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    private RecipesRepositoryDaoBean recipesRepositoryDaoBean;
+    private RecipeDao recipeDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,10 +37,10 @@ public class ShoppingListServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "shoppingListWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        List<Ingredient> shoppingList = recipesRepositoryDaoBean.getShoppingList();
-        List<BlockRecipe> recipesInShoppingList = recipesRepositoryDaoBean.getRecipeInShoppingList();
+        List<Ingredient> shoppingList = recipeDao.getShoppingList();
+        List<BlockRecipe> recipesInShoppingList = recipeDao.getRecipeInShoppingList();
 
-        if(shoppingList != null || !shoppingList.isEmpty()) {
+        if(shoppingList != null) {
             model.put("shoppingList", shoppingList);
             model.put("recipesInShoppingList", recipesInShoppingList);
         }
