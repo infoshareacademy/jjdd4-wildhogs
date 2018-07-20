@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -48,8 +49,16 @@ public class DataUploadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         uploadDatabase(req, resp);
         deleteFile(getJason(req, resp));
+
+
+
+        resp.sendRedirect("/welcome");
+
+
+
     }
 
     @Override
@@ -90,8 +99,15 @@ public class DataUploadServlet extends HttpServlet {
             }
 
             recipeDao.save(recipe);
+//TEMPORARY
         }
-        findAll(req, resp);
+        resp.getWriter().println("UPLOADED RECIPES");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void deleteRecipe(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -99,6 +115,7 @@ public class DataUploadServlet extends HttpServlet {
 
         recipeDao.delete(id);
         findAll(req, resp);
+
     }
 
     private void findAll(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -145,5 +162,6 @@ public class DataUploadServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
