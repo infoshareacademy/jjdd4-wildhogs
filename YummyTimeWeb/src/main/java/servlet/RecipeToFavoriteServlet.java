@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/to-favorite")
-public class RecipeToFavoriteServlet extends HttpServlet{
+public class RecipeToFavoriteServlet extends HttpServlet {
 
     @Inject
     private RecipeChangeDao recipeChangeDao;
@@ -31,11 +31,10 @@ public class RecipeToFavoriteServlet extends HttpServlet{
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
-
         Boolean recipeAdd = recipeChangeDao.addRecipeToFavorites(recipeNameParam);
 
         String path;
-        if(recipeAdd) {
+        if (recipeAdd) {
             logger.info("Recipe added to favorites");
 
             path = "/view-recipe?name=" + recipeNameParam + "&favorite=yes";

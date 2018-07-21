@@ -59,14 +59,12 @@ public class ViewRecipeServlet extends HttpServlet {
         List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
 
 
-
         String recipeNameParam = req.getParameter("name");
 
         if (recipeNameParam == null || recipeNameParam.isEmpty()) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
-
         Template template = templateProvider.getTemplate(getServletContext(), "viewRecipeWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
@@ -92,16 +90,16 @@ public class ViewRecipeServlet extends HttpServlet {
 
                 if (list.contains(i)) {
                     for (int x = 0; x < list.size(); x++) {
-                        if (list.get(x).equals(i)){
-                            Long id=list.get(x).getId();
+                        if (list.get(x).equals(i)) {
+                            Long id = list.get(x).getId();
                             list.get(x).setAmount(list.get(x).getAmount() + ingredientDao.findById(id).getAmount());
-                    }}
+                        }
+                    }
                 } else
                     list.add(i);
             }
             model.put("message", "Your recipe has been added to shopping list!");
         }
-
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {

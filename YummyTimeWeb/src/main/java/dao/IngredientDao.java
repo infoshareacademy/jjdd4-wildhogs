@@ -34,7 +34,6 @@ public class IngredientDao {
 
     public List<Ingredient> findAll() {
         final Query query = entityManager.createQuery("SELECT s FROM Ingredient s");
-
         
         return query.getResultList();
     }

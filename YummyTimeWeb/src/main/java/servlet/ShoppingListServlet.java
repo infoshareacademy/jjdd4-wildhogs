@@ -43,12 +43,11 @@ public class ShoppingListServlet extends HttpServlet {
         List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
         List<BlockRecipe> recipesInShoppingList = recipeDao.getRecipeInShoppingList();
 
-        if(shoppingList != null) {
+        if (shoppingList != null) {
             model.put("shoppingList", shoppingList);
             model.put("recipesInShoppingList", recipesInShoppingList);
             model.put("recipeList", recipeList);
         }
-
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {

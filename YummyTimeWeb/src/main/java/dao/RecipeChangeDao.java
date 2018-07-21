@@ -17,11 +17,12 @@ public class RecipeChangeDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void addRecipeToStatistic(String name){}
+    public void addRecipeToStatistic(String name) {
+    }
 
     public boolean addRecipeToFavorites(String name) {
         Recipe recipe = recipeDao.getRecipeByName(name);
-        if(recipe != null){
+        if (recipe != null) {
             Query query = entityManager.createQuery("UPDATE Recipe r SET r.likes = r.likes + 1 WHERE r.name = :name");
             query.setParameter("name", name);
             query.executeUpdate();
