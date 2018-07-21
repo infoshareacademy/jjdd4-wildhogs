@@ -53,6 +53,12 @@ public class ViewRecipeServlet extends HttpServlet {
         }
         List<Ingredient> list = (List<Ingredient>) session.getAttribute("real-shopping-list");
 
+        if (session.getAttribute("recipe-list") == null) {
+            session.setAttribute("recipe-list", new ArrayList<>());
+        }
+        List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
+
+
 
         String recipeNameParam = req.getParameter("name");
 
@@ -81,6 +87,7 @@ public class ViewRecipeServlet extends HttpServlet {
 
 //sumuje ingredienty - dorobic pokazywanie recipe  i ile razy
             //*******************
+            recipeList.add(recipe.getName());
             for (Ingredient i : recipe.getIngredientsList()) {
 
                 if (list.contains(i)) {

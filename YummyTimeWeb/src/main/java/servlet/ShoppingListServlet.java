@@ -40,11 +40,13 @@ public class ShoppingListServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         List<Ingredient> shoppingList = (List<Ingredient>) session.getAttribute("real-shopping-list");
+        List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
         List<BlockRecipe> recipesInShoppingList = recipeDao.getRecipeInShoppingList();
 
         if(shoppingList != null) {
             model.put("shoppingList", shoppingList);
             model.put("recipesInShoppingList", recipesInShoppingList);
+            model.put("recipeList", recipeList);
         }
 
         try {

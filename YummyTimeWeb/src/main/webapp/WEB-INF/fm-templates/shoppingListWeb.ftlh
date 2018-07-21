@@ -3,6 +3,21 @@
 
 <div>
     <h1>Your Shopping List:</h1>
+
+
+    <h2>All recipes:</h2>
+
+
+<#if recipeList??>
+        <ul>
+            <#list recipeList as string>
+                <li>${string}</li>
+            </#list>
+        </ul>
+</#if>
+
+    <h2>What to buy:</h2>
+
     <#if shoppingList??>
         <ul>
             <#list shoppingList as ingredient>
