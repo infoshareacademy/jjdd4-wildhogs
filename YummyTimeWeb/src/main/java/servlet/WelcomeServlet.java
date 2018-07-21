@@ -35,11 +35,15 @@ public class WelcomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        logger.info("Reading template startWeb.ftlh");
         Template template = templateProvider.getTemplate(getServletContext(), "startWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
         LocalTime time = LocalTime.now();
         int hour = time.getHour();
+        logger.info("Local time was uploaded");
+
+        logger.info("Searching categories and meals by the time");
 
         Category categoryByTime = categoryByHour(hour);
         model.put("defaultCategory", categoryByTime.toString());
@@ -57,8 +61,7 @@ public class WelcomeServlet extends HttpServlet {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
-            logger.warn("View recipe cannot be loaded template!");
-        }
+            logger.error("Template processing on map didn't work");        }
     }
 
     private Category categoryByHour(int hour) {
