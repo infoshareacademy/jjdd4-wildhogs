@@ -35,12 +35,8 @@ public class ShoppingListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.info("Reading template shoppingListWeb.ftlh");
-
         Template template = templateProvider.getTemplate(getServletContext(), "shoppingListWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
-
-        logger.info("Getting data from session attributes");
 
         HttpSession session = req.getSession();
         List<Ingredient> shoppingList = (List<Ingredient>) session.getAttribute("real-shopping-list");
@@ -55,7 +51,7 @@ public class ShoppingListServlet extends HttpServlet {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
-            logger.error("Template processing on map didn't work");
+            logger.warn("View shopping list cannot be loaded template!");
         }
     }
 }

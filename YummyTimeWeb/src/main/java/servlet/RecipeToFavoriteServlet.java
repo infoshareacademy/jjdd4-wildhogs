@@ -27,7 +27,7 @@ public class RecipeToFavoriteServlet extends HttpServlet{
         String recipeNameParam = req.getParameter("name");
 
         if (recipeNameParam == null || recipeNameParam.isEmpty()) {
-            logger.warn("'name' parameter is invalid");
+            logger.info("'name' parameter is invalid");
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }

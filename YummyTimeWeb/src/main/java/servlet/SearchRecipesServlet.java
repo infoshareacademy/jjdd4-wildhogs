@@ -37,12 +37,10 @@ public class SearchRecipesServlet extends HttpServlet {
 
         if ( (parameterIsNotEmpty(categoryParam) && parameterIsNotEmpty(fridgeParam))
                 || (!parameterIsNotEmpty(categoryParam) && fridgeParam == null) ) {
-
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
 
-        logger.info("Reading template searchWeb.ftlh");
         Template template = templateProvider.getTemplate(getServletContext(), "searchWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
@@ -74,7 +72,7 @@ public class SearchRecipesServlet extends HttpServlet {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
-            logger.error("Template processing on map didn't work");
+            logger.warn("View search recipe cannot be loaded template!");
         }
     }
 
@@ -82,8 +80,6 @@ public class SearchRecipesServlet extends HttpServlet {
         if (parameter != null && !parameter.isEmpty()) {
             return true;
         }
-        logger.warn("Parameter is invalid = " + parameter);
-
         return false;
     }
 }

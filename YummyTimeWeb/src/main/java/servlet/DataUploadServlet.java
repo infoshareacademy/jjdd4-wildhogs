@@ -156,7 +156,7 @@ public class DataUploadServlet extends HttpServlet {
         logger.info("Loading map of meals from JSON");
 
         JSONObject jsonObject = JSONProvider.read(getJason(req, resp).toPath().toString());
-        if (jsonObject != null) {
+        if (jsonObject == null) {
             logger.warn("returning empty map  - getMapOfMeals method");
             return mapOfMeals;
         }

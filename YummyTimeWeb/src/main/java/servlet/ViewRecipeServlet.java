@@ -27,6 +27,7 @@ import java.util.Map;
 @WebServlet("/view-recipe")
 public class ViewRecipeServlet extends HttpServlet {
 
+    private static Logger logger = LoggerFactory.getLogger(ViewRecipeServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
@@ -40,7 +41,6 @@ public class ViewRecipeServlet extends HttpServlet {
     @Inject
     private IngredientDao ingredientDao;
 
-    private static Logger logger = LoggerFactory.getLogger(ViewRecipeServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,8 +49,6 @@ public class ViewRecipeServlet extends HttpServlet {
         HttpSession session = req.getSession();
 
         if (session.getAttribute("real-shopping-list") == null) {
-            logger.info("Created new shopping list");
-
             session.setAttribute("real-shopping-list", new ArrayList<>());
         }
         List<Ingredient> list = (List<Ingredient>) session.getAttribute("real-shopping-list");
@@ -59,35 +57,27 @@ public class ViewRecipeServlet extends HttpServlet {
         String recipeNameParam = req.getParameter("name");
 
         if (recipeNameParam == null || recipeNameParam.isEmpty()) {
-            logger.warn("Parameter 'name' was invalid.");
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
 
-        logger.info("Reading template viewRecipeWeb.ftlh");
         Template template = templateProvider.getTemplate(getServletContext(), "viewRecipeWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
         Recipe recipe = recipeDao.getRecipeByName(recipeNameParam);
 
         if (recipe != null) {
-            logger.info("Putting recipe to statistics");
-
             model.put("recipe", recipe);
             recipeChangeDao.addRecipeToStatistic(recipe.getName());
         }
 
         String favorite = req.getParameter("favorite");
         if ("yes".equals(favorite)) {
-            logger.info("Putting recipe to favorites");
-
             model.put("message", "Your recipe has been added to favorite!");
         }
 
         String shoppingList = req.getParameter("shoppingList");
         if ("yes".equals(shoppingList)) {
-            logger.info("Putting ingredients to shopping list");
-
 
 //sumuje ingredienty - dorobic pokazywanie recipe  i ile razy
             //*******************
@@ -109,7 +99,7 @@ public class ViewRecipeServlet extends HttpServlet {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
-            logger.error("Template processing on map didn't work");
+            logger.warn("View recipe cannot be loaded template!");
         }
     }
 }
