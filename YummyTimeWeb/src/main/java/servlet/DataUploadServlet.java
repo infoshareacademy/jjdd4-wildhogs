@@ -36,9 +36,6 @@ public class DataUploadServlet extends HttpServlet {
     private RecipeDao recipeDao;
 
     @Inject
-    private IngredientDao ingredientDao;
-
-    @Inject
     private UploadJSONFileBean uploadJSONFileBean;
 
     @Override
@@ -49,16 +46,9 @@ public class DataUploadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         uploadDatabase(req, resp);
         deleteFile(getJason(req, resp));
-
-
-
-        resp.sendRedirect("/uploaded");
-
-
-
+        resp.sendRedirect("/welcome");
     }
 
     @Override
@@ -82,11 +72,9 @@ public class DataUploadServlet extends HttpServlet {
 
         Map<String, Recipe> recipes = getMapOfMeals(req, resp);
 
-
         for (Recipe r : recipes.values()) {
 
             Recipe recipe = new Recipe();
-
             recipe.setName(r.getName());
             recipe.setPathToPicture(r.getPathToPicture());
             recipe.setCategory(r.getCategory());
@@ -97,17 +85,13 @@ public class DataUploadServlet extends HttpServlet {
             for (Ingredient i : recipe.getIngredientsList()) {
                 i.setRecipe(recipe);
             }
-
             recipeDao.save(recipe);
-//TEMPORARY
         }
-
-
     }
 
     private void deleteRecipe(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        final Long id = Long.parseLong(req.getParameter("id"));
 
+        final Long id = Long.parseLong(req.getParameter("id"));
         recipeDao.delete(id);
         findAll(req, resp);
 
