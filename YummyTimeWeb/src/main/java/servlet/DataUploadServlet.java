@@ -51,7 +51,7 @@ public class DataUploadServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("do post");
+        logger.info("do post met");
         uploadDatabase(req, resp);
         deleteFile(getJason(req, resp));
         resp.sendRedirect("/welcome");
@@ -98,6 +98,7 @@ public class DataUploadServlet extends HttpServlet {
                     i.setRecipe(recipe);
                 }
                 recipeDao.save(recipe);
+                logger.info("recipe saved to the database");
             }
     }
 
@@ -124,7 +125,7 @@ public class DataUploadServlet extends HttpServlet {
             for (Recipe p : result) {
                 resp.getWriter().write(p.toString() + "\n");
             }
-        }else {
+        } else {
             logger.warn("Something went wrong. Null was returned.");
 
         }
@@ -145,14 +146,20 @@ public class DataUploadServlet extends HttpServlet {
             logger.warn("Something went wrong. JSON was not loaded.");
             e.printStackTrace();
         }
-        return;
+        logger.info("returning null - getJason method");
+        return null;
     }
 
     private Map<String, Recipe> getMapOfMeals(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         Map<String, Recipe> mapOfMeals = new LinkedHashMap<>();
         logger.info("Loading map of meals from JSON");
+
         JSONObject jsonObject = JSONProvider.read(getJason(req, resp).toPath().toString());
+        if (jsonObject != null) {
+            logger.warn("returning empty map  - getMapOfMeals method");
+            return mapOfMeals;
+        }
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
         if (recipesArray != null) {
             for (Object recipe : recipesArray) {
