@@ -4,6 +4,7 @@
 <div>
     <h1>Your Shopping List:</h1>
 
+    <form method="get" action="/clear-list"><input type=submit value="Clear list" onClick="history.go()"></form>
 
     <h2>All recipes:</h2>
 

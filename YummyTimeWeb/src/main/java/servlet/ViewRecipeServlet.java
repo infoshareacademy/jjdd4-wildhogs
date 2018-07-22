@@ -83,8 +83,6 @@ public class ViewRecipeServlet extends HttpServlet {
         String shoppingList = req.getParameter("shoppingList");
         if ("yes".equals(shoppingList)) {
 
-//sumuje ingredienty - dorobic pokazywanie recipe  i ile razy
-            //*******************
             recipeList.add(recipe.getName());
             for (Ingredient i : recipe.getIngredientsList()) {
 
