@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -37,14 +38,16 @@ public class ShoppingListServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "shoppingListWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        List<Ingredient> shoppingList = recipeDao.getShoppingList();
+        HttpSession session = req.getSession();
+        List<Ingredient> shoppingList = (List<Ingredient>) session.getAttribute("real-shopping-list");
+        List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
         List<BlockRecipe> recipesInShoppingList = recipeDao.getRecipeInShoppingList();
 
-        if(shoppingList != null) {
+        if (shoppingList != null) {
             model.put("shoppingList", shoppingList);
             model.put("recipesInShoppingList", recipesInShoppingList);
+            model.put("recipeList", recipeList);
         }
-
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
