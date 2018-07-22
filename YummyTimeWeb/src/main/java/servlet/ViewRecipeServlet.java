@@ -50,11 +50,14 @@ public class ViewRecipeServlet extends HttpServlet {
 
         if (session.getAttribute("real-shopping-list") == null) {
             session.setAttribute("real-shopping-list", new ArrayList<>());
+            logger.info("Creating new 'shopping list' list");
         }
         List<Ingredient> list = (List<Ingredient>) session.getAttribute("real-shopping-list");
 
         if (session.getAttribute("recipe-list") == null) {
             session.setAttribute("recipe-list", new ArrayList<>());
+            logger.info("Creating new 'recipe names list' list");
+
         }
         List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
 
