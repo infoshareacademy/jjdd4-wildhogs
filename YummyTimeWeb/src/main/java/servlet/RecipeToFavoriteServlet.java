@@ -23,11 +23,11 @@ public class RecipeToFavoriteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.info("Reading 'name' parameter");
+        logger.info("Reading 'name' parameter.");
         String recipeNameParam = req.getParameter("name");
 
         if (recipeNameParam == null || recipeNameParam.isEmpty()) {
-            logger.info("'name' parameter is invalid");
+            logger.info("'name' parameter is invalid.");
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
@@ -35,7 +35,7 @@ public class RecipeToFavoriteServlet extends HttpServlet {
 
         String path;
         if (recipeAdd) {
-            logger.info("Recipe added to favorites");
+            logger.info("Recipe added to favorites.");
 
             path = "/view-recipe?name=" + recipeNameParam + "&favorite=yes";
         } else {

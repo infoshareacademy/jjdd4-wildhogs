@@ -47,7 +47,6 @@ public class DataUploadServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("do post met");
         uploadDatabase(req, resp);
         deleteFile(getJason(req, resp));
         resp.sendRedirect("/welcome");
@@ -55,7 +54,6 @@ public class DataUploadServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        logger.info("do get");
         final String action = req.getParameter("action");
         if (action == null || action.isEmpty()) {
             resp.getWriter().write("Empty action parameter.");
@@ -71,12 +69,12 @@ public class DataUploadServlet extends HttpServlet {
     }
 
     private void uploadDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        logger.info("Upload database");
+        logger.info("Uploading database.");
 
         Map<String, Recipe> recipes = getMapOfMeals(req, resp);
 
         if (recipes == null) {
-            logger.warn("getMapOfMeals method returned null");
+            logger.warn("getMapOfMeals method returned null.");
             return;
 
         } else
@@ -94,7 +92,7 @@ public class DataUploadServlet extends HttpServlet {
                     i.setRecipe(recipe);
                 }
                 recipeDao.save(recipe);
-                logger.info("recipe saved to the database");
+                logger.info("Recipe was saved to the database.");
             }
     }
 
@@ -102,11 +100,11 @@ public class DataUploadServlet extends HttpServlet {
 
 
         final Long id = Long.parseLong(req.getParameter("id"));
-        logger.info("Deleting data with id " + id);
+        logger.info("Deleting data with id " + id + ".");
 
         recipeDao.delete(id);
         if (recipeDao.findById(id) == null) {
-            logger.info("Data with id " + id + " was succesfully deleted");
+            logger.info("Data with id " + id + " was successfully deleted.");
         } else {
             logger.warn("Something went wrong. Data piece was not deleted.");
         }
@@ -122,7 +120,7 @@ public class DataUploadServlet extends HttpServlet {
                 resp.getWriter().write(p.toString() + "\n");
             }
         } else {
-            logger.warn("Something went wrong. Null was returned.");
+            logger.warn("Something went wrong and null was returned.");
 
         }
     }
@@ -142,18 +140,18 @@ public class DataUploadServlet extends HttpServlet {
             logger.warn("Something went wrong. JSON was not loaded.");
             e.printStackTrace();
         }
-        logger.info("returning null - getJason method");
+        logger.info("Returning null - getJason method.");
         return null;
     }
 
     private Map<String, Recipe> getMapOfMeals(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         Map<String, Recipe> mapOfMeals = new LinkedHashMap<>();
-        logger.info("Loading map of meals from JSON");
+        logger.info("Loading map of meals from JSON.");
 
         JSONObject jsonObject = JSONProvider.read(getJason(req, resp).toPath().toString());
         if (jsonObject == null) {
-            logger.warn("returning empty map  - getMapOfMeals method");
+            logger.warn("Returning empty map  - getMapOfMeals method.");
             return mapOfMeals;
         }
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
@@ -170,13 +168,13 @@ public class DataUploadServlet extends HttpServlet {
     }
 
     private void deleteFile(File file) {
-        logger.info("Deleting temporary file containing JSON");
+        logger.info("Deleting temporary file containing JSON.");
         try {
             Files.deleteIfExists(file.toPath());
-            logger.info("File was deleted");
+            logger.info("File was deleted.");
 
         } catch (IOException e) {
-            logger.warn("File was not deleted. Something went wrong.");
+            logger.warn("Something went wrong and file was not deleted.");
             e.printStackTrace();
         }
 
