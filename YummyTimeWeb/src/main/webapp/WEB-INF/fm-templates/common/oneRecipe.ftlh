@@ -1,13 +1,10 @@
 <<<<<<< Updated upstream
 <!-- Post Content -->
-
-
-<div #include="header.html"></div>
-
-<div style="text-align: center;">
-
 >>>>>>> Stashed changes
-<article>
+
+    <div #include="header.html"></div>
+
+    <div style="text-align: center;"><article>
     <div style="text-align: center;">
     <div class="container">
         <div class="row">
