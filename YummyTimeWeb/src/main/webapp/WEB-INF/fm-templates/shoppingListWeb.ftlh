@@ -1,5 +1,6 @@
 <#include "*/common/header.html">
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
+<div style="text-align: center;">
 
 <div>
     <h1>Your Shopping List:</h1>

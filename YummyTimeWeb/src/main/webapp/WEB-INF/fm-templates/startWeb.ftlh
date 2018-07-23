@@ -1,6 +1,7 @@
 <#include "*/common/header.html">
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
 <div>
+    <div style="text-align: center;">
 
     <#--zawsze tylko 3-->
     <#if recipesForDefaultCategory??>
