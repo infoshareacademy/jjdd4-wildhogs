@@ -4,6 +4,7 @@
 
 <#include "*common/header.html">
 =======
+<div style="text-align: center;">
 
 >>>>>>> Stashed changes
 <article>
