@@ -8,7 +8,6 @@ import java.util.Objects;
 @Table(name = "INGREDIENTS")
 public class Ingredient {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -38,8 +37,9 @@ public class Ingredient {
         this.name = name;
         this.amount = amount;
         this.unit = unit;
-        this.recipe=recipe;
+        this.recipe = recipe;
     }
+
     public Ingredient(String name, double amount, Unit unit) {
         this.name = name;
         this.amount = amount;

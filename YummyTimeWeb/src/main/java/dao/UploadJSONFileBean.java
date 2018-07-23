@@ -9,7 +9,8 @@ import java.util.Properties;
 public class UploadJSONFileBean {
 
     private final static String SETTINGS_FILE = "config.properties";
-    public String getUploadFilesPath() throws  IOException {
+
+    public String getUploadFilesPath() throws IOException {
 
         Properties settings = new Properties();
 
@@ -21,14 +22,14 @@ public class UploadJSONFileBean {
         return settings.getProperty("Upload.Path");
     }
 
-    public File uploadImageFile(Part filePart) throws  IOException {
+    public File uploadImageFile(Part filePart) throws IOException {
 
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 
-        if (fileName== null || fileName.isEmpty()){
+        if (fileName == null || fileName.isEmpty()) {
             throw new IOException("  no file uploaded ");
         }
-        File file = new File(getUploadFilesPath()+fileName);
+        File file = new File(getUploadFilesPath() + fileName);
         Files.deleteIfExists(file.toPath());
         InputStream fileContent = filePart.getInputStream();
         Files.copy(fileContent, file.toPath());

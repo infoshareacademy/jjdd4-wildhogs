@@ -3,6 +3,7 @@ package dao;
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -49,7 +50,7 @@ public class RecipeDao {
         try {
             Recipe recipe = (Recipe) query.getSingleResult();
             return recipe;
-        }catch (NoResultException nre) {
+        } catch (NoResultException nre) {
             return null;
         }
     }

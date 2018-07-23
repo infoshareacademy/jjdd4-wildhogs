@@ -1,6 +1,7 @@
 package dao;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,9 +36,6 @@ public class IngredientDao {
     public List<Ingredient> findAll() {
         final Query query = entityManager.createQuery("SELECT s FROM Ingredient s");
 
-        
         return query.getResultList();
     }
-    
-
 }

@@ -4,11 +4,12 @@ import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.logic.JSONProvider;
 import com.infoshareacademy.jjdd4.wildhogs.logic.RecipesProviderFromJSON;
-import dao.IngredientDao;
 import dao.RecipeDao;
 import dao.UploadJSONFileBean;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.servlet.ServletConfig;
@@ -22,7 +23,6 @@ import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,30 +31,29 @@ import java.util.Map;
 @MultipartConfig
 public class DataUploadServlet extends HttpServlet {
 
-    @Inject
-    private RecipeDao recipeDao;
+    private static Logger logger = LoggerFactory.getLogger(DataUploadServlet.class);
 
     @Inject
-    private IngredientDao ingredientDao;
+    private RecipeDao recipeDao;
 
     @Inject
     private UploadJSONFileBean uploadJSONFileBean;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
+        logger.info("initialization");
         super.init(config);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         uploadDatabase(req, resp);
         deleteFile(getJason(req, resp));
+        resp.sendRedirect("/welcome");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
         final String action = req.getParameter("action");
         if (action == null || action.isEmpty()) {
             resp.getWriter().write("Empty action parameter.");
@@ -70,63 +69,91 @@ public class DataUploadServlet extends HttpServlet {
     }
 
     private void uploadDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("Uploading database.");
 
         Map<String, Recipe> recipes = getMapOfMeals(req, resp);
 
+        if (recipes == null) {
+            logger.warn("getMapOfMeals method returned null.");
+            return;
 
-        for (Recipe r : recipes.values()) {
+        } else
+            for (Recipe r : recipes.values()) {
 
-            Recipe recipe = new Recipe();
+                Recipe recipe = new Recipe();
+                recipe.setName(r.getName());
+                recipe.setPathToPicture(r.getPathToPicture());
+                recipe.setCategory(r.getCategory());
+                recipe.setDescription(r.getDescription());
+                recipe.setIngredientsList(r.getIngredientsList());
+                recipe.setPathToPicture(r.getPathToPicture());
 
-            recipe.setName(r.getName());
-            recipe.setPathToPicture(r.getPathToPicture());
-            recipe.setCategory(r.getCategory());
-            recipe.setDescription(r.getDescription());
-            recipe.setIngredientsList(r.getIngredientsList());
-            recipe.setPathToPicture(r.getPathToPicture());
-
-
-            for (Ingredient i : recipe.getIngredientsList()) {
-                i.setRecipe(recipe);
+                for (Ingredient i : recipe.getIngredientsList()) {
+                    i.setRecipe(recipe);
+                }
+                recipeDao.save(recipe);
+                logger.info("Recipe was saved to the database.");
             }
-
-            recipeDao.save(recipe);
-        }
-        findAll(req, resp);
     }
 
     private void deleteRecipe(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+
         final Long id = Long.parseLong(req.getParameter("id"));
+        logger.info("Deleting data with id " + id + ".");
 
         recipeDao.delete(id);
-        findAll(req, resp);
+        if (recipeDao.findById(id) == null) {
+            logger.info("Data with id " + id + " was successfully deleted.");
+        } else {
+            logger.warn("Something went wrong. Data piece was not deleted.");
+        }
     }
 
     private void findAll(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("Loading all recipes.");
+
         final List<Recipe> result = recipeDao.findAll();
-        for (Recipe p : result) {
-            resp.getWriter().write(p.toString() + "\n");
+
+        if (result != null) {
+            for (Recipe p : result) {
+                resp.getWriter().write(p.toString() + "\n");
+            }
+        } else {
+            logger.warn("Something went wrong and null was returned.");
+
         }
     }
 
     private File getJason(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("Getting JSON data from file.");
 
         Part filePart = null;
 
         try {
             filePart = req.getPart("json");
+            File file = uploadJSONFileBean.uploadImageFile(filePart);
+            logger.warn("File with JSON data properly loaded.");
+
+            return file;
         } catch (ServletException e) {
+            logger.warn("Something went wrong. JSON was not loaded.");
             e.printStackTrace();
         }
-        File file = uploadJSONFileBean.uploadImageFile(filePart);
-
-        return file;
+        logger.info("Returning null - getJason method.");
+        return null;
     }
 
     private Map<String, Recipe> getMapOfMeals(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         Map<String, Recipe> mapOfMeals = new LinkedHashMap<>();
+        logger.info("Loading map of meals from JSON.");
+
         JSONObject jsonObject = JSONProvider.read(getJason(req, resp).toPath().toString());
+        if (jsonObject == null) {
+            logger.warn("Returning empty map  - getMapOfMeals method.");
+            return mapOfMeals;
+        }
         JSONArray recipesArray = (JSONArray) jsonObject.get("recipes");
         if (recipesArray != null) {
             for (Object recipe : recipesArray) {
@@ -141,10 +168,15 @@ public class DataUploadServlet extends HttpServlet {
     }
 
     private void deleteFile(File file) {
+        logger.info("Deleting temporary file containing JSON.");
         try {
             Files.deleteIfExists(file.toPath());
+            logger.info("File was deleted.");
+
         } catch (IOException e) {
+            logger.warn("Something went wrong and file was not deleted.");
             e.printStackTrace();
         }
+
     }
 }

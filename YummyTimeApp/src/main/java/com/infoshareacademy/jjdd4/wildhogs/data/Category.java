@@ -20,7 +20,7 @@ public enum Category {
     public static Category fromNumber(String categoryNumber) {
         return Arrays
                 .stream(values())
-                .filter(p->p.categoryNumber.equals(categoryNumber))
+                .filter(p -> p.categoryNumber.equals(categoryNumber))
                 .findFirst()
                 .orElse(Category.WRONG_VALUE);
     }
