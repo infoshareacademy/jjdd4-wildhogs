@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://java.sun.com/jsf/html">
 
-<link href="stylesheet" href="../../../css/schemat.css">
-<body bgcolor="white" text="black">
+<body background="../../../Images/header/header.jpg" style="width:100%">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</body>
 <head>
     <meta charset="UTF-8">
     <title>YummyTime</title>
 </head>
-<body>
-<meta charset="UTF-8">
 <div style="text-align: center;">
 
     <img src="../../../Images/logos/logo.png"></div>
 <div style="text-align: center;">
+        <ul>
+            <link><a href="welcome"><option value="">Home</option></link>
+            <link><a href="search-recipe?category=breakfast"><option value="">Breakfast</option></link>
+                <a href="search-recipe?category=lunch"> <option value="/category/lunch">Lunch</option></a>
+                <a href="search-recipe?category=dinner"> <option value="/category/dinner">Dinner</option></a>
+                <a href="search-recipe?category=supper"><option value="/category/supper">Supper</option></a>
 
-    <link><a href="welcome"><option value="">Home</option></link>
-    <link><a href="search-recipe?category=breakfast"><option value="">Breakfast</option></link>
-        <a href="search-recipe?category=lunch"> <option value="/category/lunch">Lunch</option></a>
-        <a href="search-recipe?category=dinner"> <option value="/category/dinner">Dinner</option></a>
-        <a href="search-recipe?category=supper"><option value="/category/supper">Supper</option></a>
+                <link><a href="to-shoppingList"><option value="">ListRecipes</option></link>
 
-        <link><a href="to-shoppingList"><option value="">ListRecipes</option></link>
+                    <link><a href="view-recipe?OurTeam"><option value="">OurTeam</option></link>
 
-            <link><a href="view-recipe?OurTeam"><option value="">OurTeam</option></link>
+                        <link><a href="view-recipe?contact"><option value="">Contact</option></link>
 
-                <link><a href="view-recipe?contact"><option value="">Contact</option></link>
+                            </link> </a><div>
 
-                    </link> </a><div>
+                            <text>It's time for...! :) </text>
 
-                    <text>It's time for...! :) </text>
+                        </div>
 
-                    </div>
-</html>
+
+</body>
+        </ul>
+    </nav>
+    <button class="nav-bar__search-btn" title="Szukaj"></button>
+    <button class="nav-bar__menu-btn" title="Menu"><span></span></button>
+</div>
+
 <div #include="oneRecipe.html"></div>
 <div #include="footer.html"></div></body>
 
-</body>
+
+
+
+
 
 
