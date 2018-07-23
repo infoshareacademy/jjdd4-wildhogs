@@ -2,8 +2,8 @@
 <!-- Post Content -->
 
 
-<#include "*common/header.html">
-=======
+<div #include="header.html"></div>
+
 <div style="text-align: center;">
 
 >>>>>>> Stashed changes
@@ -32,3 +32,5 @@
     </div>
     </div>
 </article>
+    <div #include="footer.html"></div></div>
+
