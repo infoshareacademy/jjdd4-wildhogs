@@ -17,7 +17,7 @@
 
         <form method="post" action="/to-shoppingList?name=${recipe.name}">
             <button>Add to shopping list!</button>
-        </form>
+        </form> <br><br>
 
         <form method="post" action="/to-favorite?name=${recipe.name}">
             <button>Add to favorites!</button>
