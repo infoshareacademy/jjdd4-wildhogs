@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-<!-- Post Content -->
->>>>>>> Stashed changes
 
     <div #include="header.html"></div>
 

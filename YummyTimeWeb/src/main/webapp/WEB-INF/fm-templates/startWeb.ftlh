@@ -11,10 +11,7 @@
         </div>
 </h1>
     </article>
-    </#list>
-=======
-        <@macro.listBlockRecipe list = recipesForDefaultCategory/>
->>>>>>> develop
+
     <#else>
         <span>There is nothing for ${defaultCategory} for now</span><br/><br/>
     </#if>
