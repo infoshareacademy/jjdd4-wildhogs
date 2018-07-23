@@ -1,33 +1,32 @@
-ul, ul li {
-    display: block;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+/*ul, ul li {*/
+    /*display: block;*/
+    /*list-style: none;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+/*}*/
 
-ul {
-    float: left;
-    background-color: #fff;
-    padding: 1px 0 1px 1px;
-    border: 1px solid #000;
-}
+/*ul {*/
+    /*float: left;*/
+    /*background-color: #fff;*/
+    /*padding: 1px 0 1px 1px;*/
+    /*border: 1px solid #000;*/
+/*}*/
 
-ul li {
-    float: left;
-}
+/*ul li {*/
+    /*float: left;*/
+/*}*/
 
-ul a:link, ul a:visited {
-    text-decoration: none;
-    display: block;
-    font-weight: bold;
-    background: #000 url("tlo.gif") repeat-x center;
-    color: #fff;
-    padding: 10px 20px;
-    border-right: 1px solid #fff;
-    border-right: 1px solid #fff;
-}
+/*ul a:link, ul a:visited {*/
+    /*text-decoration: none;*/
+    /*display: block;*/
+    /*font-weight: bold;*/
+    /*color: #fff;*/
+    /*padding: 10px 20px;*/
+    /*border-right: 1px solid #fff;*/
+    /*border-right: 1px solid #fff;*/
+/*}*/
 
-ul a:hover {
-    background-color: #800;
-    background-image: url("tlo2.gif");
-}
+/*ul a:hover {*/
+    /*background-color: #800;*/
+    /*background-image: url("tlo2.gif");*/
+/*}*/
