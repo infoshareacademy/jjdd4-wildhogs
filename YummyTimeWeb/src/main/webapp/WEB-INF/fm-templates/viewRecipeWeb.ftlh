@@ -1,6 +1,7 @@
 <#include "*/common/header.html">
 
-<div>
+<div><div style="text-align: center;">
+
     <#if message??>
         <span>${message}</span>
     </#if>
