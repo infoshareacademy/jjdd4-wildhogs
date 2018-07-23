@@ -2,14 +2,6 @@
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
 <div>
     <div style="text-align: center;">
-
-    <#--zawsze tylko 3-->
-    <#if recipesForDefaultCategory??>
-<<<<<<< HEAD
-    <#list recipesForDefaultCategory as recipe>
-
-
-
     <article><h1>
     <div>
             <a href="view-recipe?name=${recipe.name}">
