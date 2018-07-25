@@ -64,8 +64,14 @@ public class SearchRecipesServlet extends HttpServlet {
                     .replace("+", ",").replace(",*", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
             List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
-            model.put("recipesList", recipesList);
-            model.put("parameter", fridgeParam);
+
+            if(!recipesList.isEmpty()) {
+                model.put("recipesList", recipesList);
+                model.put("parameter", fridgeParam);
+            } else {
+                String errorMessage = "There is nothing for these ingredients.";
+                model.put("errorMessage", errorMessage);
+            }
         }
 
         try {

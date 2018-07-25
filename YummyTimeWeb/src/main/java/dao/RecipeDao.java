@@ -3,10 +3,12 @@ package dao;
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
+import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,17 +44,6 @@ public class RecipeDao {
         return query.getResultList();
     }
 
-//    public Recipe getRecipeByName(String name) {
-//        final Query query = entityManager.createQuery("SELECT s FROM Recipe s WHERE s.name = :name");
-//        query.setParameter("name", name);
-//        try {
-//            Recipe recipe = (Recipe) query.getSingleResult();
-//            return recipe;
-//        }catch (NoResultException nre) {
-//            return null;
-//        }
-//    }
-
     public List<BlockRecipe> getRecipesFromCategory(Category category, int limit) {
         final Query query = entityManager.createQuery("SELECT s FROM Recipe s WHERE s.category = :category");
         query.setParameter("category", category);
@@ -71,18 +62,11 @@ public class RecipeDao {
     }
 
     public List<BlockRecipe> getRecipesForProducts(List<String> fridgeList) {
-        return null;
+        return new ArrayList<>();
     }
 
-    public List<Ingredient> getShoppingList() {
-        return null;
-    }
-
-    public List<BlockRecipe> getRecipeInShoppingList() {
-        return null;
-    }
-
-    private List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {
-        return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture(), r.getId())).collect(Collectors.toList());
+    public List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {
+        return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture(), r.getId()))
+                .collect(Collectors.toList());
     }
 }

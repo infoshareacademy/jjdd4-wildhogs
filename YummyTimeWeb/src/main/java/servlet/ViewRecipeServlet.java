@@ -77,7 +77,7 @@ public class ViewRecipeServlet extends HttpServlet {
 
         if (recipe != null) {
             model.put("recipe", recipe);
-            recipeChangeDao.addRecipeToStatistic(recipe.getName());
+            recipeChangeDao.addRecipeToStatistic(recipeId);
         }
 
         String favorite = req.getParameter("favorite");

@@ -17,7 +17,7 @@ public class RecipeChangeDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void addRecipeToStatistic(String name) {
+    public void addRecipeToStatistic(Long recipeId) {
     }
 
     public boolean addRecipeToFavorites(Long recipeId) {
@@ -29,9 +29,5 @@ public class RecipeChangeDao {
             return true;
         }
         return false;
-    }
-
-    public boolean addRecipeToShoppingList(String name) {
-        return true;
     }
 }

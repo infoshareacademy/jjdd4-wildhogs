@@ -24,10 +24,10 @@ public class RecipeToFavoriteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String recipeIdParam = req.getParameter("id");
-        logger.info("Reading 'name' parameter.");
+        logger.info("Reading 'id' parameter.");
 
         if (recipeIdParam == null || recipeIdParam.isEmpty()) {
-            logger.info("'name' parameter is invalid.");
+            logger.info("'id' parameter is invalid.");
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }

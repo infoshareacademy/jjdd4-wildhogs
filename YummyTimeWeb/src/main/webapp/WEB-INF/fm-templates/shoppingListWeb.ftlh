@@ -29,6 +29,19 @@
         <span>Your shopping list is empty</span><br/><br/>
     </#if>
 
+<h1>moja lista</h1><br>
+    <h2>What to buy:</h2>
+
+    <#if shoppingListN??>
+        <ul>
+            <#list shoppingListN as ingredient>
+                <li>${ingredient.name} ${ingredient.amount} ${ingredient.unit.description}</li>
+            </#list>
+        </ul>
+    <#else>
+        <span>Your shopping list is empty</span><br/><br/>
+    </#if>
+
     <#if recipesInShoppingList??>
         <@macro.listBlockRecipe list = recipesInShoppingList/>
     </#if>

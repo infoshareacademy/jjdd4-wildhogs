@@ -1,11 +1,11 @@
 <#include "*/common/header.html">
-<#import "macra/ListOfBlockRecipe.ftlh" as macro>
+<#import "macra/ListOf3BlockRecipe.ftlh" as macro>
 <div style="text-align: center;">
 
     <#--zawsze tylko 3-->
     <#if recipesForDefaultCategory??>
         <h1>There is time for: ${defaultCategory}</h1>
-        <@macro.listBlockRecipe list = recipesForDefaultCategory/>
+        <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>
     <#else>
         <span>There is nothing for ${defaultCategory} for now</span><br/><br/>
     </#if>
@@ -20,7 +20,7 @@
 
     <#--zawsze tylko 3-->
     <#if favouriteList??>
-        <@macro.listBlockRecipe list = favouriteList/>
+        <@macro.listOf3BlockRecipe list = favouriteList/>
     <#else>
         <span>Your favourites list is empty</span><br/><br/>
     </#if>
