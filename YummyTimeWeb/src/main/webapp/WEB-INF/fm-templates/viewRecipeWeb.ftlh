@@ -15,11 +15,11 @@
         </ul>
         <p>${recipe.description}</p>
 
-        <form method="post" action="/to-shoppingList?name=${recipe.id}">
+        <form method="post" action="/to-shoppingList?id=${recipe.id}">
             <button>Add to shopping list!</button>
         </form> <br><br>
 
-        <form method="post" action="/to-favorite?name=${recipe.id}">
+        <form method="post" action="/to-favorite?id=${recipe.id}">
             <button>Add to favorites!</button>
         </form>
     <#else>

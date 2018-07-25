@@ -62,7 +62,7 @@ public class ViewRecipeServlet extends HttpServlet {
         List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
 
 
-        String recipeIdParam = req.getParameter("name");
+        String recipeIdParam = req.getParameter("id");
 
         if (recipeIdParam == null || recipeIdParam.isEmpty()) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
