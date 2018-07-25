@@ -3,6 +3,22 @@
 
 <div>
     <h1>Your Shopping List:</h1>
+
+    <form method="get" action="/clear-list"><input type=submit value="Clear list" onClick="history.go()"></form>
+
+    <h2>All recipes:</h2>
+
+
+<#if recipeList??>
+        <ul>
+            <#list recipeList as string>
+                <li>${string}</li>
+            </#list>
+        </ul>
+</#if>
+
+    <h2>What to buy:</h2>
+
     <#if shoppingList??>
         <ul>
             <#list shoppingList as ingredient>

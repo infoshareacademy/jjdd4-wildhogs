@@ -5,14 +5,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.FileReader;
 
 public class JSONProvider {
 
     private static Logger logger = LoggerFactory.getLogger(JSONProvider.class);
-
-
     private static Configuration configuration = new Configuration();
 
     public static JSONObject read(String path) {

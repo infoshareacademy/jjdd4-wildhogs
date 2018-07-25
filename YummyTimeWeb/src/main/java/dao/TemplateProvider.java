@@ -3,6 +3,7 @@ package dao;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.servlet.ServletContext;
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class TemplateProvider {
 
     public Template getTemplate(ServletContext servletContext, String templeName) throws IOException {
 
-        if(configuration ==null) {
+        if (configuration == null) {
             configuration = new Configuration(Configuration.VERSION_2_3_28);
 
             configuration.setDefaultEncoding("UTF-8");

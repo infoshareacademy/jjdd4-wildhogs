@@ -17,7 +17,8 @@ public class RecipeChangeDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void addRecipeToStatistic(String name){}
+    public void addRecipeToStatistic(String name) {
+    }
 
     public boolean addRecipeToFavorites(Long recipeId) {
         Recipe recipe = recipeDao.findById(recipeId);

@@ -44,15 +44,14 @@ public class WelcomeServlet extends HttpServlet {
         Category categoryByTime = categoryByHour(hour);
         model.put("defaultCategory", categoryByTime.toString());
         List<BlockRecipe> recipesForDefaultCategory = recipeDao.getRecipesFromCategory(categoryByTime, 3);
-        if(recipesForDefaultCategory != null && !recipesForDefaultCategory.isEmpty()) {
+        if (recipesForDefaultCategory != null && !recipesForDefaultCategory.isEmpty()) {
             model.put("recipesForDefaultCategory", recipesForDefaultCategory);
         }
 
         List<BlockRecipe> favouriteList = recipeDao.getFavouriteList();
-        if(favouriteList != null && !favouriteList.isEmpty()) {
+        if (favouriteList != null && !favouriteList.isEmpty()) {
             model.put("favouriteList", favouriteList);
         }
-
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
@@ -62,11 +61,11 @@ public class WelcomeServlet extends HttpServlet {
     }
 
     private Category categoryByHour(int hour) {
-        if(hour > 2 && hour < 10) {
+        if (hour > 2 && hour < 10) {
             return Category.BREAKFAST;
-        } else if(hour >= 10 && hour < 14) {
+        } else if (hour >= 10 && hour < 14) {
             return Category.LUNCH;
-        } else if(hour >= 14 && hour < 17) {
+        } else if (hour >= 14 && hour < 17) {
             return Category.DINNER;
         }
         return Category.SUPPER;

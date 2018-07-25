@@ -1,21 +1,24 @@
 package com.infoshareacademy.jjdd4.wildhogs.logic;
+
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
 import static java.util.stream.Collectors.toList;
 
 public class ShoppingList {
 
     private static Logger logger = LoggerFactory.getLogger(ShoppingList.class);
-    private final List<Ingredient> shoppingList;
     public final List<String> nameOfRecipes;
+    private final List<Ingredient> shoppingList;
 
     public ShoppingList(MealCreator mealCreator, List<String> nameOfRecipes) {
 
@@ -63,11 +66,11 @@ public class ShoppingList {
         }
     }
 
-    public void save(){
+    public void save() {
         Path path = Paths.get("ShoppingList.txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             writer.write(listToString());
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Shopping list can't saved!");
         }
     }
@@ -78,11 +81,11 @@ public class ShoppingList {
 
     private String listToString() {
         String result = "Picked recipes: " + nameOfRecipes + "\r\n\r\n";
-        for(Ingredient ingredient : shoppingList) {
+        for (Ingredient ingredient : shoppingList) {
             result += ingredient.getName() + " - "
                     + ingredient.getAmount() + " "
-                    +ingredient.getUnit().getDescription()
-                    +"\r\n";
+                    + ingredient.getUnit().getDescription()
+                    + "\r\n";
         }
         return result;
     }
