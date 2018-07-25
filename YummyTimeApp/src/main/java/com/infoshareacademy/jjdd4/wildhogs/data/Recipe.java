@@ -16,6 +16,10 @@ public class Recipe {
     @NotNull
     private int likes;
 
+    @Column(name = "times_clicked")
+    @NotNull
+    private int timesClicked;
+
     @Column(name = "name")
     @NotNull
     private String name;
@@ -43,6 +47,7 @@ public class Recipe {
         this.description = description;
         ingredientsList = new ArrayList<>();
         likes = 0;
+        timesClicked=0;
     }
 
     public void addIngredient(Ingredient ingredient) {
@@ -58,6 +63,7 @@ public class Recipe {
                 ", description='" + description + '\'' +
                 ", ingredientsList=" + ingredientsList +
                 ", likes= " + likes +
+                ", times clicked= " + timesClicked +
                 '}';
     }
 
@@ -131,5 +137,13 @@ public class Recipe {
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+
+    public int getTimesClicked() {
+        return timesClicked;
+    }
+
+    public void setTimesClicked(int timesClicked) {
+        this.timesClicked = timesClicked;
     }
 }
