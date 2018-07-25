@@ -17,7 +17,14 @@ public class RecipeChangeDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void addRecipeToStatistic(String name) {
+    public void incrementStatisticsPerView(String name) {
+
+        Recipe recipe = recipeDao.getRecipeByName(name);
+        if (recipe != null) {
+            Query query = entityManager.createQuery("UPDATE Recipe r SET r.timesClicked = r.timesClicked + 1 WHERE r.name = :name");
+            query.setParameter("name", name);
+            query.executeUpdate();
+        }
     }
 
     public boolean addRecipeToFavorites(String name) {

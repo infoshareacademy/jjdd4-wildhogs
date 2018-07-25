@@ -75,9 +75,10 @@ public class ViewRecipeServlet extends HttpServlet {
 
         if (recipe != null) {
             model.put("recipe", recipe);
-            recipeChangeDao.addRecipeToStatistic(recipe.getName());
+            recipeChangeDao.incrementStatisticsPerView(recipe.getName());
         }
 
+        recipe.setTimesClicked(recipe.getTimesClicked()+1);
         String favorite = req.getParameter("favorite");
         if ("yes".equals(favorite)) {
             model.put("message", "Your recipe has been added to favorite!");
