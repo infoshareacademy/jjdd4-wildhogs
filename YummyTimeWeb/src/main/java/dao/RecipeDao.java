@@ -5,7 +5,6 @@ import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
@@ -43,16 +42,16 @@ public class RecipeDao {
         return query.getResultList();
     }
 
-    public Recipe getRecipeByName(String name) {
-        final Query query = entityManager.createQuery("SELECT s FROM Recipe s WHERE s.name = :name");
-        query.setParameter("name", name);
-        try {
-            Recipe recipe = (Recipe) query.getSingleResult();
-            return recipe;
-        }catch (NoResultException nre) {
-            return null;
-        }
-    }
+//    public Recipe getRecipeByName(String name) {
+//        final Query query = entityManager.createQuery("SELECT s FROM Recipe s WHERE s.name = :name");
+//        query.setParameter("name", name);
+//        try {
+//            Recipe recipe = (Recipe) query.getSingleResult();
+//            return recipe;
+//        }catch (NoResultException nre) {
+//            return null;
+//        }
+//    }
 
     public List<BlockRecipe> getRecipesFromCategory(Category category, int limit) {
         final Query query = entityManager.createQuery("SELECT s FROM Recipe s WHERE s.category = :category");
@@ -84,6 +83,6 @@ public class RecipeDao {
     }
 
     private List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {
-        return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture())).collect(Collectors.toList());
+        return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture(), r.getId())).collect(Collectors.toList());
     }
 }

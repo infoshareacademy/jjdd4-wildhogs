@@ -36,17 +36,18 @@ public class ViewRecipeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String recipeNameParam = req.getParameter("name");
+        String recipeIdParam = req.getParameter("name");
 
-        if (recipeNameParam == null || recipeNameParam.isEmpty()) {
+        if (recipeIdParam == null || recipeIdParam.isEmpty()) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
+        Long recipeId =  Long.valueOf(recipeIdParam);
 
         Template template = templateProvider.getTemplate(getServletContext(), "viewRecipeWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        Recipe recipe = recipeDao.getRecipeByName(recipeNameParam);
+        Recipe recipe = recipeDao.findById(recipeId);
 
         if(recipe != null) {
             model.put("recipe", recipe);

@@ -19,11 +19,11 @@ public class RecipeChangeDao {
 
     public void addRecipeToStatistic(String name){}
 
-    public boolean addRecipeToFavorites(String name) {
-        Recipe recipe = recipeDao.getRecipeByName(name);
+    public boolean addRecipeToFavorites(Long recipeId) {
+        Recipe recipe = recipeDao.findById(recipeId);
         if(recipe != null){
-            Query query = entityManager.createQuery("UPDATE Recipe r SET r.likes = r.likes + 1 WHERE r.name = :name");
-            query.setParameter("name", name);
+            Query query = entityManager.createQuery("UPDATE Recipe r SET r.likes = r.likes + 1 WHERE r.id = :id");
+            query.setParameter("id", recipeId);
             query.executeUpdate();
             return true;
         }

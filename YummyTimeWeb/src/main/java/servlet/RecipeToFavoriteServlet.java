@@ -19,20 +19,21 @@ public class RecipeToFavoriteServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String recipeNameParam = req.getParameter("name");
+        String recipeIdParam = req.getParameter("id");
 
-        if (recipeNameParam == null || recipeNameParam.isEmpty()) {
+        if (recipeIdParam == null || recipeIdParam.isEmpty()) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
+        Long recipeId =  Long.valueOf(recipeIdParam);
 
-        Boolean recipeAdd = recipeChangeDao.addRecipeToFavorites(recipeNameParam);
+        Boolean recipeAdd = recipeChangeDao.addRecipeToFavorites(recipeId);
 
         String path;
         if(recipeAdd) {
-            path = "/view-recipe?name=" + recipeNameParam + "&favorite=yes";
+            path = "/view-recipe?id=" + recipeIdParam + "&favorite=yes";
         } else {
-            path = "/view-recipe?name=" + recipeNameParam;
+            path = "/view-recipe?id=" + recipeIdParam;
         }
         resp.sendRedirect(path);
     }

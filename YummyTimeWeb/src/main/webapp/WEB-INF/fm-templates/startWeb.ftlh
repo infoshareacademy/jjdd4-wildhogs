@@ -4,6 +4,7 @@
 
     <#--zawsze tylko 3-->
     <#if recipesForDefaultCategory??>
+        <h1>There is time for: ${defaultCategory}</h1>
         <@macro.listBlockRecipe list = recipesForDefaultCategory/>
     <#else>
         <span>There is nothing for ${defaultCategory} for now</span><br/><br/>
