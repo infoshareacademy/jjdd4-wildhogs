@@ -1,6 +1,7 @@
 <#include "*/common/header.html">
 
 <div style="text-align: center;">
+
     <#if message??>
         <span>${message}</span>
     </#if>
@@ -17,7 +18,7 @@
 
         <form method="post" action="/to-shoppingList?name=${recipe.name}">
             <button>Add to shopping list!</button>
-        </form> <br><br>
+        </form>
 
         <form method="post" action="/to-favorite?name=${recipe.name}">
             <button>Add to favorites!</button>

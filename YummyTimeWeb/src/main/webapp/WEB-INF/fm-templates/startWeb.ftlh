@@ -2,7 +2,7 @@
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
 <div style="text-align: center;">
 
-    <#--zawsze tylko 3-->
+<#--zawsze tylko 3-->
     <#if recipesForDefaultCategory??>
         <@macro.listBlockRecipe list = recipesForDefaultCategory/>
     <#else>
@@ -12,12 +12,12 @@
     <div>
         <h1>Your fridge contents:</h1>
         <form action="/search-recipe?fridge" method="get">
-        <textarea type="text" name="fridge" rows="1" cols="60"></textarea>
-        <button>Search</button>
+            <textarea type="text" name="fridge" rows="1" cols="60"></textarea>
+            <button>Search</button>
         </form>
     </div>
 
-    <#--zawsze tylko 3-->
+<#--zawsze tylko 3-->
     <#if favouriteList??>
         <@macro.listBlockRecipe list = favouriteList/>
     <#else>
