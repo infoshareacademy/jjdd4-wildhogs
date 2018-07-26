@@ -1,8 +1,6 @@
 <#include "*/common/header.html">
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
 
-
-
 <div style="text-align: center;" class="col-10">
 
     <div class="container">

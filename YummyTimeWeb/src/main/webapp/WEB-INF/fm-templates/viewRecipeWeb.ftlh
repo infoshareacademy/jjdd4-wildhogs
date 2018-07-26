@@ -1,4 +1,5 @@
 <#include "*/common/header.html">
+<div style="text-align: center;" class="col-10">
 
 <div style="text-align: center;">
     <#if message??>
@@ -26,5 +27,5 @@
         <span>Recipe not found!</span><br/><br/>
     </#if>
 </div>
-
+</div>
 <#include "*/common/footer.html">
