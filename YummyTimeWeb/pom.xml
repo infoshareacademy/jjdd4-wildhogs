@@ -63,13 +63,14 @@
     </dependencies>
 
     <build>
+        <finalName>YummyTimeWeb</finalName>
         <plugins>
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>1.2.1.Final</version>
                 <configuration>
-                    <name>YummyTimeWeb-1.0-SNAPSHOT.war</name>
+                    <name>YummyTimeWeb.war</name>
                 </configuration>
                 <executions>
                     <execution>
