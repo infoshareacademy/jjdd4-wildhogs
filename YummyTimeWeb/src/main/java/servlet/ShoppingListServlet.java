@@ -40,17 +40,12 @@ public class ShoppingListServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "shoppingListWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        HttpSession session = req.getSession();
-        List<Ingredient> shoppingList = (List<Ingredient>) session.getAttribute("real-shopping-list");
-        List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
         List<BlockRecipe> recipesInShoppingList = shoppingListOfUserDao.getRecipeInShoppingList();
-        List<Ingredient> shoppingListN = shoppingListOfUserDao.getIngridientsInShoppingListOfUser();
+        List<Ingredient> shoppingList = shoppingListOfUserDao.getIngridientsInShoppingListOfUser();
 
-        if (shoppingList != null) {
-            model.put("shoppingList", shoppingList);
+        if (recipesInShoppingList != null) {
             model.put("recipesInShoppingList", recipesInShoppingList);
-            model.put("shoppingListN", shoppingListN);
-            model.put("recipeList", recipeList);
+            model.put("shoppingList", shoppingList);
         }
         try {
             template.process(model, resp.getWriter());

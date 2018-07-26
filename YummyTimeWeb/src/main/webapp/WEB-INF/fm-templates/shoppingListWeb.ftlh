@@ -6,19 +6,7 @@
 
     <form method="get" action="/clear-list"><input type=submit value="Clear list" onClick="history.go()"></form>
 
-    <h2>All recipes:</h2>
-
-
-<#if recipeList??>
-        <ul>
-            <#list recipeList as string>
-                <li>${string}</li>
-            </#list>
-        </ul>
-</#if>
-
     <h2>What to buy:</h2>
-
     <#if shoppingList??>
         <ul>
             <#list shoppingList as ingredient>
@@ -29,20 +17,8 @@
         <span>Your shopping list is empty</span><br/><br/>
     </#if>
 
-<h1>moja lista</h1><br>
-    <h2>What to buy:</h2>
-
-    <#if shoppingListN??>
-        <ul>
-            <#list shoppingListN as ingredient>
-                <li>${ingredient.name} ${ingredient.amount} ${ingredient.unit.description}</li>
-            </#list>
-        </ul>
-    <#else>
-        <span>Your shopping list is empty</span><br/><br/>
-    </#if>
-
     <#if recipesInShoppingList??>
+        <h2>All recipes:</h2>
         <@macro.listBlockRecipe list = recipesInShoppingList/>
     </#if>
 </div>

@@ -45,23 +45,6 @@ public class ViewRecipeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-        HttpSession session = req.getSession();
-
-        if (session.getAttribute("real-shopping-list") == null) {
-            session.setAttribute("real-shopping-list", new ArrayList<>());
-            logger.info("Creating new 'shopping list' list");
-        }
-        List<Ingredient> list = (List<Ingredient>) session.getAttribute("real-shopping-list");
-
-        if (session.getAttribute("recipe-list") == null) {
-            session.setAttribute("recipe-list", new ArrayList<>());
-            logger.info("Creating new 'recipe names list' list");
-
-        }
-        List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
-
-
         String recipeIdParam = req.getParameter("id");
 
         if (recipeIdParam == null || recipeIdParam.isEmpty()) {
@@ -87,20 +70,6 @@ public class ViewRecipeServlet extends HttpServlet {
 
         String shoppingList = req.getParameter("shoppingList");
         if ("yes".equals(shoppingList)) {
-
-            recipeList.add(recipe.getName());
-            for (Ingredient i : recipe.getIngredientsList()) {
-
-                if (list.contains(i)) {
-                    for (int x = 0; x < list.size(); x++) {
-                        if (list.get(x).equals(i)) {
-                            Long id = list.get(x).getId();
-                            list.get(x).setAmount(list.get(x).getAmount() + ingredientDao.findById(id).getAmount());
-                        }
-                    }
-                } else
-                    list.add(i);
-            }
             model.put("message", "Your recipe has been added to shopping list!");
         }
 
