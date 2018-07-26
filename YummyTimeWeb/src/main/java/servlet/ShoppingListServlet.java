@@ -3,6 +3,7 @@ package servlet;
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import dao.BlockRecipe;
 import dao.RecipeDao;
+import dao.ShoppingListOfUserDao;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +32,7 @@ public class ShoppingListServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    private RecipeDao recipeDao;
+    private ShoppingListOfUserDao shoppingListOfUserDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,15 +40,12 @@ public class ShoppingListServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "shoppingListWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        HttpSession session = req.getSession();
-        List<Ingredient> shoppingList = (List<Ingredient>) session.getAttribute("real-shopping-list");
-        List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
-        List<BlockRecipe> recipesInShoppingList = recipeDao.getRecipeInShoppingList();
+        List<BlockRecipe> recipesInShoppingList = shoppingListOfUserDao.getRecipeInShoppingList();
+        List<Ingredient> shoppingList = shoppingListOfUserDao.getIngridientsInShoppingListOfUser();
 
-        if (shoppingList != null) {
-            model.put("shoppingList", shoppingList);
+        if (recipesInShoppingList != null) {
             model.put("recipesInShoppingList", recipesInShoppingList);
-            model.put("recipeList", recipeList);
+            model.put("shoppingList", shoppingList);
         }
         try {
             template.process(model, resp.getWriter());

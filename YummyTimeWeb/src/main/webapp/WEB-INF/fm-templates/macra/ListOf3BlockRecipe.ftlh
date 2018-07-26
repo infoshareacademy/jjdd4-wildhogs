@@ -1,4 +1,4 @@
-<#macro listBlockRecipe list>
+<#macro listOf3BlockRecipe list>
     <#list list as recipe>
         <div>
             <a href="view-recipe?id=${recipe.id}">
