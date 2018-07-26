@@ -60,8 +60,8 @@ public class SearchRecipesServlet extends HttpServlet {
         }
 
         if(fridgeParam != null) {
-            String fridge = fridgeParam.replace("%2C", ",")
-                    .replace("+", ",").replace(",*", ",");
+            String fridge = fridgeParam
+                    .replace(" ", ",").replace(",*", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
             List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
 
