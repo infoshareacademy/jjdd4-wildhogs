@@ -1,6 +1,7 @@
 package com.infoshareacademy.jjdd4.wildhogs.logic;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
+import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.data.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,29 @@ public class ShoppingList {
     private static Logger logger = LoggerFactory.getLogger(ShoppingList.class);
     public final List<String> nameOfRecipes;
     private final List<Ingredient> shoppingList;
+
+    public ShoppingList(List<Recipe> recipesInShoppingList) {
+
+        nameOfRecipes = new ArrayList<>();
+        List<Ingredient> allIngredients = new ArrayList<>();
+        allIngredients = recipesInShoppingList.stream().flatMap(r -> r.getIngredientsList().stream())
+                .collect(toList());
+
+        shoppingList = new ArrayList<>();
+
+        for (Ingredient ingredient : allIngredients) {
+            if (shoppingList.contains(ingredient)) {
+                Ingredient ingredientAlreadyInList = shoppingList.get(shoppingList.indexOf(ingredient));
+                if (!ingredientAlreadyInList.getUnit().equals(ingredient.getUnit())) {
+                    unifyUnit(ingredientAlreadyInList);
+                    unifyUnit(ingredient);
+                }
+                ingredientAlreadyInList.addToAmount(ingredient.getAmount());
+            } else {
+                shoppingList.add(new Ingredient(ingredient));
+            }
+        }
+    }
 
     public ShoppingList(MealCreator mealCreator, List<String> nameOfRecipes) {
 
@@ -88,5 +112,9 @@ public class ShoppingList {
                     + "\r\n";
         }
         return result;
+    }
+
+    public List<Ingredient> getShoppingList() {
+        return shoppingList;
     }
 }

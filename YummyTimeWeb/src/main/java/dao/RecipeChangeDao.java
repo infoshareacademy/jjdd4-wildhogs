@@ -17,21 +17,17 @@ public class RecipeChangeDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void addRecipeToStatistic(String name) {
+    public void addRecipeToStatistic(Long recipeId) {
     }
 
-    public boolean addRecipeToFavorites(String name) {
-        Recipe recipe = recipeDao.getRecipeByName(name);
-        if (recipe != null) {
-            Query query = entityManager.createQuery("UPDATE Recipe r SET r.likes = r.likes + 1 WHERE r.name = :name");
-            query.setParameter("name", name);
+    public boolean addRecipeToFavorites(Long recipeId) {
+        Recipe recipe = recipeDao.findById(recipeId);
+        if(recipe != null){
+            Query query = entityManager.createQuery("UPDATE Recipe r SET r.likes = r.likes + 1 WHERE r.id = :id");
+            query.setParameter("id", recipeId);
             query.executeUpdate();
             return true;
         }
         return false;
-    }
-
-    public boolean addRecipeToShoppingList(String name) {
-        return true;
     }
 }
