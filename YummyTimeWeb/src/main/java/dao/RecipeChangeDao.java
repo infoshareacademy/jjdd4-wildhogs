@@ -17,12 +17,19 @@ public class RecipeChangeDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void addRecipeToStatistic(Long recipeId) {
+    public void incrementStatisticsPerView(Long recipeId) {
+
+        Recipe recipe = recipeDao.findById(recipeId);
+        if (recipe != null) {
+            Query query = entityManager.createQuery("UPDATE Recipe r SET r.timesClicked = r.timesClicked + 1 WHERE r.id = :id");
+            query.setParameter("id", recipeId);
+            query.executeUpdate();
+        }
     }
 
     public boolean addRecipeToFavorites(Long recipeId) {
         Recipe recipe = recipeDao.findById(recipeId);
-        if(recipe != null){
+        if (recipe != null) {
             Query query = entityManager.createQuery("UPDATE Recipe r SET r.likes = r.likes + 1 WHERE r.id = :id");
             query.setParameter("id", recipeId);
             query.executeUpdate();
@@ -30,4 +37,5 @@ public class RecipeChangeDao {
         }
         return false;
     }
+
 }

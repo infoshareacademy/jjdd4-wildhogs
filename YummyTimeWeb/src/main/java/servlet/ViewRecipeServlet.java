@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.HEAD;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,7 +52,7 @@ public class ViewRecipeServlet extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
-        Long recipeId =  Long.valueOf(recipeIdParam);
+        Long recipeId = Long.valueOf(recipeIdParam);
 
         Template template = templateProvider.getTemplate(getServletContext(), "viewRecipeWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
@@ -60,7 +61,8 @@ public class ViewRecipeServlet extends HttpServlet {
 
         if (recipe != null) {
             model.put("recipe", recipe);
-            recipeChangeDao.addRecipeToStatistic(recipeId);
+            recipeChangeDao.incrementStatisticsPerView(recipe.getId());
+            recipe.setTimesClicked(recipe.getTimesClicked() + 1);
         }
 
         String favorite = req.getParameter("favorite");
