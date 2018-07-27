@@ -9,6 +9,9 @@ public class Fridge {
 
     public List<Long> showFilterRecipe(List<Recipe> listOfRecipes, List<String> fridgeList) {
 
+        if (listOfRecipes == null || fridgeList == null) {
+            return null;
+        }
         List<Long> idRecipesSortedByMatchQuality = listOfRecipes.stream().map(recipe ->
                 new RecipeMatchQuality(recipe, recipeMatchQuality(recipe, fridgeList), recipe.getId()))
                 .sorted((r1, r2) -> r1.matchQuality > r2.matchQuality ? -1 : 1)
