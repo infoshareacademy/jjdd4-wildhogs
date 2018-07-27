@@ -1,5 +1,6 @@
 <#include "*/common/header.html">
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
+<#import "macra/ListOfBlockShoppingList.ftlh" as macro2>
 
 <div>
     <h1>Your Shopping List:</h1>
@@ -19,7 +20,7 @@
 
     <#if recipesInShoppingList??>
         <h2>All recipes:</h2>
-        <@macro.listBlockRecipe list = recipesInShoppingList/>
+        <@macro2.listBlockRecipeSL list = recipesInShoppingList/>
     </#if>
 </div>
 
