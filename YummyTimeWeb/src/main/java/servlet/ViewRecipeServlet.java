@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.HEAD;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,40 +46,25 @@ public class ViewRecipeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String recipeIdParam = req.getParameter("id");
 
-        HttpSession session = req.getSession();
-
-        if (session.getAttribute("real-shopping-list") == null) {
-            session.setAttribute("real-shopping-list", new ArrayList<>());
-            logger.info("Creating new 'shopping list' list");
-        }
-        List<Ingredient> list = (List<Ingredient>) session.getAttribute("real-shopping-list");
-
-        if (session.getAttribute("recipe-list") == null) {
-            session.setAttribute("recipe-list", new ArrayList<>());
-            logger.info("Creating new 'recipe names list' list");
-
-        }
-        List<String> recipeList = (List<String>) session.getAttribute("recipe-list");
-
-
-        String recipeNameParam = req.getParameter("name");
-
-        if (recipeNameParam == null || recipeNameParam.isEmpty()) {
+        if (recipeIdParam == null || recipeIdParam.isEmpty()) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
+        Long recipeId = Long.valueOf(recipeIdParam);
+
         Template template = templateProvider.getTemplate(getServletContext(), "viewRecipeWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        Recipe recipe = recipeDao.getRecipeByName(recipeNameParam);
+        Recipe recipe = recipeDao.findById(recipeId);
 
         if (recipe != null) {
             model.put("recipe", recipe);
-            recipeChangeDao.incrementStatisticsPerView(recipe.getName());
+            recipeChangeDao.incrementStatisticsPerView(recipe.getId());
+            recipe.setTimesClicked(recipe.getTimesClicked() + 1);
         }
 
-        recipe.setTimesClicked(recipe.getTimesClicked()+1);
         String favorite = req.getParameter("favorite");
         if ("yes".equals(favorite)) {
             model.put("message", "Your recipe has been added to favorite!");
@@ -86,22 +72,9 @@ public class ViewRecipeServlet extends HttpServlet {
 
         String shoppingList = req.getParameter("shoppingList");
         if ("yes".equals(shoppingList)) {
-
-            recipeList.add(recipe.getName());
-            for (Ingredient i : recipe.getIngredientsList()) {
-
-                if (list.contains(i)) {
-                    for (int x = 0; x < list.size(); x++) {
-                        if (list.get(x).equals(i)) {
-                            Long id = list.get(x).getId();
-                            list.get(x).setAmount(list.get(x).getAmount() + ingredientDao.findById(id).getAmount());
-                        }
-                    }
-                } else
-                    list.add(i);
-            }
             model.put("message", "Your recipe has been added to shopping list!");
         }
+
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
