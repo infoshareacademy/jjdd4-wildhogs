@@ -7,8 +7,8 @@
     <data-source>
         <name>java:ds/yummyds</name>
         <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
-        <url>jdbc:mysql://0.0.0.0:6603/test?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Warsaw</url>
-        <!--<url>jdbc:mysql://db:3306/YummyTime?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Warsaw</url>-->
+        <!--<url>jdbc:mysql://0.0.0.0:6603/test?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Warsaw</url>-->
+        <url>jdbc:mysql://db:3306/YummyTime?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Warsaw</url>
         <user>root</user>
         <password>pass123</password>
     </data-source>
