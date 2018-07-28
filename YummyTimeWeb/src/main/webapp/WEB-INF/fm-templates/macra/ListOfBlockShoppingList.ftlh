@@ -2,9 +2,9 @@
     <div>
         <div class="row">
             <#list list as recipe>
-                <div class="card" style="width: 18rem;">
+                <div class="card col" style="width: 10rem;">
                     <a href="view-recipe?id=${recipe.id}">
-                        <img src="${recipe.pathToPicture}" alt="picture of Your recipe" height="200">
+                        <img class="card-img-top" src="${recipe.pathToPicture}" alt="picture of Your recipe">
                         <h1>${recipe.name}</h1>
                     </a>
                     <form method="post" action="/sub-shoppingList?id=${recipe.id}">

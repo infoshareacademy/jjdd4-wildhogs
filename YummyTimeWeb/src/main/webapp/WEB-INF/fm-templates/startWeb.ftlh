@@ -1,9 +1,9 @@
 <#include "*/common/header.html">
 <#import "macra/ListOf3BlockRecipe.ftlh" as macro>
-<div class="col-10" style="text-align: center;">
-    <h1> test ...</h1>
-    <div>
 
+<div class="col-10" style="text-align: center;">
+
+    <div>
     <#if recipesForDefaultCategory??>
         <h1>There is time for: ${defaultCategory}</h1>
         <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>

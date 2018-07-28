@@ -1,7 +1,7 @@
 <#include "*/common/header.html">
 <div style="text-align: center;" class="col-10">
 
-<div style="text-align: center;">
+<div class="col-10" style="text-align: center;">
     <#if message??>
         <div class="alert alert-success" role="alert">
             ${message}
