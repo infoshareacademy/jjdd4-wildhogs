@@ -15,7 +15,9 @@
             </#list>
         </ul>
     <#else>
-        <span>Your shopping list is empty</span><br/><br/>
+        <div class="alert alert-info" role="alert">
+            Your shopping list is empty
+        </div>
     </#if>
 
     <#if recipesInShoppingList??>

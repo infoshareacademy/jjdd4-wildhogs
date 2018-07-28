@@ -3,7 +3,9 @@
 
 <div style="text-align: center;">
     <#if message??>
-        <span>${message}</span>
+        <div class="alert alert-success" role="alert">
+            ${message}
+        </div>
     </#if>
     <#if recipe??>
         <h1>${recipe.name}</h1>
@@ -24,7 +26,9 @@
             <button>Add to favorites!</button>
         </form>
     <#else>
-        <span>Recipe not found!</span><br/><br/>
+        <div class="alert alert-danger" role="alert">
+            Recipe not found!
+        </div>
     </#if>
 </div>
 </div>

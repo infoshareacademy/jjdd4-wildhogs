@@ -15,7 +15,9 @@
             </form>
         </div>
     <#else>
-        <span>There are no recipes, please load JSON file!</span><br/><br/>
+        <div class="alert alert-danger" role="alert">
+            There are no recipes, please load JSON file!
+        </div>
     </#if>
     </div>
 
