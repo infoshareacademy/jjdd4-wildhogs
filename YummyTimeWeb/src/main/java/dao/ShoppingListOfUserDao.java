@@ -40,6 +40,12 @@ public class ShoppingListOfUserDao {
         return false;
     }
 
+    public void deleteRecipeFromShoppingList(Long recipeId){
+        if(recipesIsInShoppingList.contains(recipeId)){
+            recipesIsInShoppingList.remove(recipeId);
+        }
+    }
+
     private List<Recipe> getListOfRecipe() {
         return recipesIsInShoppingList.stream()
                 .map(recipeId -> recipeDao.findById(recipeId))
