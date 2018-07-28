@@ -23,11 +23,11 @@ public class DeleteRecipeFromShoppingListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.error("Reading 'id' parameter.");
+        logger.info("Reading 'id' parameter.");
         String recipeIdParam = req.getParameter("id");
 
         if (recipeIdParam == null || recipeIdParam.isEmpty()) {
-            logger.error("'id' parameter is invalid.");
+            logger.info("'id' parameter is invalid.");
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
