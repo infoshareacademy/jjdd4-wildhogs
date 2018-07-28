@@ -1,17 +1,19 @@
 <#include "*/common/header.html">
 <#import "macra/ListOf3BlockRecipe.ftlh" as macro>
 
-<div class="col-10" style="text-align: center;">
+<div class="col-8">
 
     <div>
     <#if recipesForDefaultCategory??>
-        <h1>There is time for: ${defaultCategory}</h1>
+        <h3>THERE IS TIME FOR ${defaultCategory}!</h3>
         <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>
-        <div>
-            <h1>Your fridge contents:</h1>
+        <div class="justify-content-center">
             <form action="/search-recipe?fridge" method="get">
-                <input type="text" name="fridge" rows="1" cols="60"/>
-                <button>Search</button>
+                <div class="form-group">
+                    <label>Put what you have got in your fridge, and we will find recipe for You</label>
+                    <input type="text" name="fridge" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-secondary">Search</button>
             </form>
         </div>
     <#else>
