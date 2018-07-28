@@ -3,12 +3,12 @@
 <#import "macra/ListOfBlockShoppingList.ftlh" as macro2>
 
 <div>
-    <h1>Your Shopping List:</h1>
 
-    <form method="get" action="/clear-list"><input type=submit value="Clear list" onClick="history.go()"></form>
-
-    <h2>What to buy:</h2>
     <#if shoppingList??>
+        <h1>Your Shopping List:</h1>
+
+        <h2>What to buy:</h2>
+
         <ul>
             <#list shoppingList as ingredient>
                 <li>${ingredient.name} ${ingredient.amount} ${ingredient.unit.description}</li>

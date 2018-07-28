@@ -43,7 +43,7 @@ public class ShoppingListServlet extends HttpServlet {
         List<BlockRecipe> recipesInShoppingList = shoppingListOfUserDao.getRecipeInShoppingList();
         List<Ingredient> shoppingList = shoppingListOfUserDao.getIngridientsInShoppingListOfUser();
 
-        if (recipesInShoppingList != null) {
+        if (recipesInShoppingList != null && !recipesInShoppingList.isEmpty()) {
             model.put("recipesInShoppingList", recipesInShoppingList);
             model.put("shoppingList", shoppingList);
         }

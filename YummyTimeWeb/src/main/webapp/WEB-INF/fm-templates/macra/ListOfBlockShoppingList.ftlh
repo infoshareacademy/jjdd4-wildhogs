@@ -6,7 +6,7 @@
                 <h1>${recipe.name}</h1>
             </a>
             <form method="post" action="/sub-shoppingList?id=${recipe.id}">
-                <input type="button" value="Delete">
+                <input type="submit" value="Delete">
             </form>
         </div>
     </#list>
