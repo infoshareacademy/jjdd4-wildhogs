@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @WebServlet("/upload-file")
 @MultipartConfig
@@ -71,9 +72,11 @@ public class DataUploadServlet extends HttpServlet {
         if (recipes == null) {
             logger.warn("getMapOfMeals method returned null.");
         } else {
-            for (Recipe r : recipes.values()) {
+            List<String>recipeNamesFromDatabase = recipeDao.findAll().stream().map(Recipe::getName).collect(Collectors.toList());
 
-                if (recipeDao.findAll().stream().anyMatch(x -> x.getName().equals(r.getName()))) {
+            for (Recipe r : recipes.values()) {
+                if (recipeNamesFromDatabase.contains(r.getName())) {
+
                     logger.warn("This recipe name already exists");
                     continue;
                 }
@@ -126,7 +129,7 @@ public class DataUploadServlet extends HttpServlet {
     private File getJason(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         logger.info("Getting JSON data from file.");
 
-        Part filePart = null;
+        Part filePart;
 
         try {
             filePart = req.getPart("json");
@@ -164,7 +167,6 @@ public class DataUploadServlet extends HttpServlet {
         }
         return mapOfMeals;
     }
-
     private void deleteFile(File file) {
         logger.info("Deleting temporary file containing JSON.");
         try {
