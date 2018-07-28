@@ -1,13 +1,14 @@
 <#include "*/common/header.html">
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
-
+<#import "macra/ListOfBlockShoppingList.ftlh" as macro2>
+<div style="text-align: center;" class="col-10">
 <div>
-    <h1>Your Shopping List:</h1>
 
-    <form method="get" action="/clear-list"><input type=submit value="Clear list" onClick="history.go()"></form>
-
-    <h2>What to buy:</h2>
     <#if shoppingList??>
+        <h1>Your Shopping List:</h1>
+
+        <h2>What to buy:</h2>
+
         <ul>
             <#list shoppingList as ingredient>
                 <li>${ingredient.name} ${ingredient.amount} ${ingredient.unit.description}</li>
@@ -19,8 +20,8 @@
 
     <#if recipesInShoppingList??>
         <h2>All recipes:</h2>
-        <@macro.listBlockRecipe list = recipesInShoppingList/>
+        <@macro2.listBlockRecipeSL list = recipesInShoppingList/>
     </#if>
 </div>
-
+</div>
 <#include "*/common/footer.html">

@@ -3,6 +3,7 @@ package dao;
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
+import com.infoshareacademy.jjdd4.wildhogs.logic.Fridge;
 import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -62,7 +63,16 @@ public class RecipeDao {
     }
 
     public List<BlockRecipe> getRecipesForProducts(List<String> fridgeList) {
-        return new ArrayList<>();
+        Fridge fridge = new Fridge();
+        List<Long> sortedRecipesId = fridge.showFilterRecipe(findAll(), fridgeList);
+        if (sortedRecipesId == null) {
+            return  new ArrayList<>();
+        }
+
+        List<Recipe> listOfRecipes = sortedRecipesId.stream()
+                   .map((Long r) -> findById(r))
+                   .collect(Collectors.toList());
+        return changeRecipiesToBlocks(listOfRecipes);
     }
 
     public List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {

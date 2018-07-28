@@ -39,6 +39,7 @@ public class DataUploadServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         logger.info("initialization");
         super.init(config);
+
     }
 
     @Override
@@ -75,6 +76,7 @@ public class DataUploadServlet extends HttpServlet {
 
             for (Recipe r : recipes.values()) {
                 if (recipeNamesFromDatabase.contains(r.getName())) {
+
                     logger.warn("This recipe name already exists");
                     continue;
                 }

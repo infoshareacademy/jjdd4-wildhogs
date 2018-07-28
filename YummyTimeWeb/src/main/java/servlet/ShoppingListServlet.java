@@ -43,9 +43,13 @@ public class ShoppingListServlet extends HttpServlet {
         List<BlockRecipe> recipesInShoppingList = shoppingListOfUserDao.getRecipeInShoppingList();
         List<Ingredient> shoppingList = shoppingListOfUserDao.getIngridientsInShoppingListOfUser();
 
-        if (recipesInShoppingList != null) {
+        if (recipesInShoppingList != null && !recipesInShoppingList.isEmpty()) {
+            logger.info("Recipes were saved to the shopping list.");
             model.put("recipesInShoppingList", recipesInShoppingList);
             model.put("shoppingList", shoppingList);
+        }
+        else {
+            logger.warn("Problem with saving recipes to the shopping list");
         }
         try {
             template.process(model, resp.getWriter());
