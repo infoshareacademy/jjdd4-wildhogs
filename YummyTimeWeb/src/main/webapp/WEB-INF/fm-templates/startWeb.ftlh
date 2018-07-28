@@ -4,29 +4,25 @@
     <h1> test ...</h1>
     <div>
 
-    <#--zawsze tylko 3-->
     <#if recipesForDefaultCategory??>
         <h1>There is time for: ${defaultCategory}</h1>
         <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>
+        <div>
+            <h1>Your fridge contents:</h1>
+            <form action="/search-recipe?fridge" method="get">
+                <input type="text" name="fridge" rows="1" cols="60"/>
+                <button>Search</button>
+            </form>
+        </div>
     <#else>
-        <span>There is nothing for ${defaultCategory} for now</span><br/><br/>
+        <span>There are no recipes, please load JSON file!</span><br/><br/>
     </#if>
     </div>
 
     <div>
-        <h1>Your fridge contents:</h1>
-        <form action="/search-recipe?fridge" method="get">
-        <input type="text" name="fridge" rows="1" cols="60"/>
-        <button>Search</button>
-        </form>
-    </div>
-    <div>
-    <#--zawsze tylko 3-->
-    <#if favouriteList??>
-        <@macro.listOf3BlockRecipe list = favouriteList/>
-    <#else>
-        <span>Your favourites list is empty</span><br/><br/>
-    </#if>
+        <#if favouriteList??>
+            <@macro.listOf3BlockRecipe list = favouriteList/>
+        </#if>
     </div>
 
 </div>
