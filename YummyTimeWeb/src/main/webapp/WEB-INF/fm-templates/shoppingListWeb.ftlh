@@ -1,7 +1,7 @@
 <#include "*/common/header.html">
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
 <#import "macra/ListOfBlockShoppingList.ftlh" as macro2>
-
+<div style="text-align: center;" class="col-10">
 <div>
 
     <#if shoppingList??>
@@ -23,5 +23,5 @@
         <@macro2.listBlockRecipeSL list = recipesInShoppingList/>
     </#if>
 </div>
-
+</div>
 <#include "*/common/footer.html">
