@@ -39,7 +39,6 @@ public class DataUploadServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         logger.info("initialization");
         super.init(config);
-
     }
 
     @Override
@@ -128,7 +127,7 @@ public class DataUploadServlet extends HttpServlet {
     private File getJason(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         logger.info("Getting JSON data from file.");
 
-        Part filePart = null;
+        Part filePart;
 
         try {
             filePart = req.getPart("json");
@@ -166,7 +165,6 @@ public class DataUploadServlet extends HttpServlet {
         }
         return mapOfMeals;
     }
-
     private void deleteFile(File file) {
         logger.info("Deleting temporary file containing JSON.");
         try {
