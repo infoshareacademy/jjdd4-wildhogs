@@ -8,16 +8,16 @@
     </#if>
     <#if recipe??>
         <h1 style="text-align: center;">${recipe.name}</h1>
-        <p>CATEGORY: ${recipe.category}</p>
+        <h5>CATEGORY: ${recipe.category}</h5>
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <img src="${recipe.pathToPicture}" style="margin: 20px auto" alt="picture of Your recipe" height="500">
+                    <img src="${recipe.pathToPicture}" style="margin: 0px auto 20px;" alt="picture of Your recipe" height="500">
                 </div>
                 <div class="col">
                     <ul class="list-group list-group-flush">
                     <#list recipe.ingredientsList as value>
-                        <li class="list-group-item">${value.name} -  ${value.amount} ${value.unit.description}</li>
+                        <li class="list-group-item">${value.name} - ${value.amount} ${value.unit.description}</li>
                     </#list>
                     </ul>
                     <div style="margin: 20px">
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <p>${recipe.description}</p>
+        <p class="text-justify">${recipe.description}</p>
 
     <#else>
         <div class="alert alert-danger" role="alert">

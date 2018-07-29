@@ -1,9 +1,8 @@
 <#macro listBlockRecipe list>
-<div class="d-flex justify-content-around">
     <div>
         <div class="row">
                 <#list list as recipe>
-                    <div class="col">
+                    <div class="col-md-4">
                         <div class="card" style="width: 25rem;">
                             <a href="view-recipe?id=${recipe.id}">
                                 <img class="card-img-top" src="${recipe.pathToPicture}" alt="picture of Your recipe">
@@ -20,5 +19,4 @@
                 </#list>
         </div>
     </div>
-</div>
 </#macro>
