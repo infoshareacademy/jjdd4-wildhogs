@@ -15,6 +15,7 @@ services:
     ports:
       - 4190:8080
       - 4191:9990
+      - 4200:8787
     depends_on:
       - db
     links:

@@ -10,7 +10,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Stateless
@@ -78,5 +80,15 @@ public class RecipeDao {
     public List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {
         return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture(), r.getId()))
                 .collect(Collectors.toList());
+    }
+
+    public void categoryStatistic() {
+        Map<String, Long> statisticCategory = new HashMap<>();
+        Query query = entityManager.createQuery("SELECT r.category, SUM(r.timesClicked) FROM Recipe r GROUP BY r.category");
+
+        for (Object result: query.getResultList()) {
+            Object[] actualResult = (Object[])result;
+            statisticCategory.put(actualResult[0].toString(), (Long)actualResult[1]);
+        }
     }
 }

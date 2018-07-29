@@ -38,6 +38,7 @@ public class StatisticsServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "statisticsWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
+        recipeDao.categoryStatistic();
 
         String favorite = req.getParameter("favorite");
         if ("yes".equals(favorite)) {
