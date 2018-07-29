@@ -8,7 +8,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @WebServlet("/search-recipe")
 public class SearchRecipesServlet extends HttpServlet {
@@ -60,9 +60,9 @@ public class SearchRecipesServlet extends HttpServlet {
         }
 
         if(fridgeParam != null) {
-            String fridge = fridgeParam
-                    .replace(" ", ",").replace(",*", ",");
+            String fridge = fridgeParam.replace(" ", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
+            fridgeList = fridgeList.stream().filter(f -> !f.equals("")).collect(Collectors.toList());
             List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
 
             if(!recipesList.isEmpty()) {
