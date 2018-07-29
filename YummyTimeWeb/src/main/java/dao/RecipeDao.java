@@ -95,8 +95,10 @@ public class RecipeDao {
 
         for (Object result: query.getResultList()) {
             Object[] actualResult = (Object[])result;
-            statisticsRecipe.add(new Statistic(actualResult[0].toString(), (Long)actualResult[1]));
+            statisticsRecipe.add(new Statistic(actualResult[0].toString(), Long.valueOf((Integer)actualResult[1])));
         }
+        statisticsRecipe = statisticsRecipe.stream().sorted((s1, s2) -> (int)(s1.getQuantity() - s2.getQuantity()))
+                .collect(Collectors.toList());
         return statisticsRecipe;
     }
 }

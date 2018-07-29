@@ -26,12 +26,12 @@
             data.addColumn('string', 'Topping');
             data.addColumn('number', 'Slices');
 
-            <#if recipeStatistic??>
+            <#if categoryStatistic??>
             data.addRows([
-                ['Breakfast', 3],
-                ['Lunch', 1],
-                ['Dinner', 2],
-                ['Supper', 1]
+                <#list categoryStatistic as categoryStatistic>
+                ['${categoryStatistic.name}', ${categoryStatistic.quantity}]
+                <#sep>,</#sep>
+                </#list>
             ]);
             </#if>
 
@@ -52,14 +52,15 @@
 
         function drawBasic() {
 
+            <#if recipeStatistic??>
             var data = google.visualization.arrayToDataTable([
                 ['Recipe', 'Visits number',],
-                ['recipe1', 2],
-                ['recipe2', 3],
-                ['recipe3', 1],
-                ['recipe4', 7],
-                ['recipe5', 2]
+                <#list recipeStatistic as recipeStatistic>
+                ['${recipeStatistic.name}', ${recipeStatistic.quantity}]
+                    <#sep>,</#sep>
+                </#list>
             ]);
+            </#if>
 
             var options = {
                 title: 'Popularity of recipe',
