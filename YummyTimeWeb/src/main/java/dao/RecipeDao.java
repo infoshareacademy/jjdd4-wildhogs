@@ -1,18 +1,14 @@
 package dao;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
-import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.logic.Fridge;
-import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Stateless
@@ -83,15 +79,15 @@ public class RecipeDao {
 
     public List<Statistic> categoryStatistics() {
 
-        List<Statistic> categoryStatisticsMap = new ArrayList<>();
+        List<Statistic> recipeStatistic = new ArrayList<>();
         Query query = entityManager.createQuery("SELECT r.category, SUM (r.timesClicked) FROM Recipe r GROUP BY r.category");
 
-        List<String> statistics = query.getResultList()
+        List<String> statistics = query.getResultList();
         for (Object result : query.getResultList()) {
             Object[] actualResult = (Object[]) result;
-            categoryStatisticsMap.add(new Statistic(actualResult[0].toString(), (Long) actualResult[1]));
+            recipeStatistic.add(new Statistic(actualResult[0].toString(), (Long) actualResult[1]));
         }
-        return categoryStatisticsMap;
+        return recipeStatistic;
     }
 
     public List<Statistic> statisticRecipe() {

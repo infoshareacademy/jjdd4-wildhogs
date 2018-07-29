@@ -25,12 +25,14 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Topping');
             data.addColumn('number', 'Slices');
+            <#if recipeStatistic??>
             data.addRows([
                 ['Breakfast', 3],
                 ['Lunch', 1],
                 ['Dinner', 2],
                 ['Supper', 1]
             ]);
+            </#if>
 
             // Set chart options
             var options = {'title':'Popularity of category',
