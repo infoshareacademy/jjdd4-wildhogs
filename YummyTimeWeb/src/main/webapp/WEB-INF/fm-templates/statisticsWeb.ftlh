@@ -42,14 +42,15 @@
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
 
+        data.addRows([
            <#if categoryStatistic??>
-            data.addRows([
+
                 <#list categoryStatistic as categoryStatistic>
                 ['${categoryStatistic.name}', ${categoryStatistic.quantity}]
                     <#sep>,</#sep>
                 </#list>
-            ]);
            </#if>
+        ]);
 
         // Set chart options
         var options = {'title':'Popularity of category',
@@ -77,7 +78,7 @@
            </#if>
 
         var options = {
-            title: 'Popularity of recipe',
+            title: 'Top 5 recipes popularity',
             chartArea: {width: '50%'},
             hAxis: {
                 title: 'Visits number',
