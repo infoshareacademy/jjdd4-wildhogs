@@ -31,7 +31,8 @@ public class GooglePlusServlet extends HttpServlet {
                         .scope("openid profile email " +
                                         "https://www.googleapis.com/auth/plus.login " +
                                 "https://www.googleapis.com/auth/plus.me")
-         .debug(System.out)
+                .debugStream(System.out)
+                .debug()
                 .build(); //Now build the call
 
         HttpSession sess = req.getSession();
