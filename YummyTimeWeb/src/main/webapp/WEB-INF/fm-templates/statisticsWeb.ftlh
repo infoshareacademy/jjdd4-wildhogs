@@ -92,8 +92,6 @@
     }
 </script>
 <div class = "HEADER">
-
-
     <div class="jumbotron jumbotron-fluid text-white" style="background: gray">
         <div class="container">
             <h1 class="name">YummyTime</h1>
@@ -131,7 +129,6 @@
         <div class="row">
             <div class="col">
             </div>
-
             <div class="col-8" style="text-align: center;">
                 <div id="chart_div1"></div>
                 <div id="chart_div2"></div>

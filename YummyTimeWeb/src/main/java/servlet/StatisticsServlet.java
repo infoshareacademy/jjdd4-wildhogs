@@ -36,7 +36,6 @@ public class StatisticsServlet extends HttpServlet {
         List<Statistic> categoryStatistic = recipeDao.categoryStatistics();
         List<Statistic> recipeStatistic = recipeDao.statisticRecipe();
 
-
         if (!categoryStatistic.isEmpty()) {
             model.put("categoryStatistic", categoryStatistic);
         }
