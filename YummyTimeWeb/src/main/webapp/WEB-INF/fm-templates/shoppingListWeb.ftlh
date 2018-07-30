@@ -1,7 +1,6 @@
 <#include "*/common/header.html">
-<#import "macra/ListOfBlockRecipe.ftlh" as macro>
 <#import "macra/ListOfBlockShoppingList.ftlh" as macro2>
-<div class="col-10">
+<div class="col-8">
 <div>
 
     <#if shoppingList??>

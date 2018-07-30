@@ -1,6 +1,6 @@
 <#include "*/common/header.html">
 
-<div class="col-10">
+<div class="col-8">
     <#if message??>
         <div class="alert alert-success" role="alert">
             ${message}
