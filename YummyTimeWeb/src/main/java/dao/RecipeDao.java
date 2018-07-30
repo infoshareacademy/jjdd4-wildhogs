@@ -98,7 +98,7 @@ public class RecipeDao {
             Object[] actualResult = (Object[]) result;
             statisticRecipe.add(new Statistic(actualResult[0].toString(), Long.valueOf((Integer) actualResult[1])));
         }
-        statisticRecipe = statisticRecipe.stream().sorted((s1, s2) -> (int)(s1.getQuantity() - s2.getQuantity()))
+        statisticRecipe = statisticRecipe.stream().sorted((s1, s2) -> (int)(s2.getQuantity() - s1.getQuantity())).limit(5)
                 .collect(Collectors.toList());
         return statisticRecipe;
     }
