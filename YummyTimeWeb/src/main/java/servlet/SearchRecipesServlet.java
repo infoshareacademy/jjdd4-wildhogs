@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @WebServlet("/search-recipe")
 public class SearchRecipesServlet extends HttpServlet {
@@ -60,9 +61,9 @@ public class SearchRecipesServlet extends HttpServlet {
         }
 
         if(fridgeParam != null) {
-            String fridge = fridgeParam.replace("%2C", ",")
-                    .replace("+", ",").replace(",*", ",");
+            String fridge = fridgeParam.replace(" ", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
+            fridgeList = fridgeList.stream().filter(f -> !f.equals("")).collect(Collectors.toList());
             List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
 
             if(!recipesList.isEmpty()) {

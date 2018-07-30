@@ -16,16 +16,12 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @WebServlet("/upload-file")
 @MultipartConfig
@@ -43,6 +39,7 @@ public class DataUploadServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         logger.info("initialization");
         super.init(config);
+
     }
 
     @Override
@@ -70,16 +67,19 @@ public class DataUploadServlet extends HttpServlet {
 
     private void uploadDatabase(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         logger.info("Uploading database.");
-
         Map<String, Recipe> recipes = getMapOfMeals(req, resp);
 
         if (recipes == null) {
             logger.warn("getMapOfMeals method returned null.");
-            return;
+        } else {
+            List<String>recipeNamesFromDatabase = recipeDao.findAll().stream().map(Recipe::getName).collect(Collectors.toList());
 
-        } else
             for (Recipe r : recipes.values()) {
+                if (recipeNamesFromDatabase.contains(r.getName())) {
 
+                    logger.warn("This recipe name already exists");
+                    continue;
+                }
                 Recipe recipe = new Recipe();
                 recipe.setName(r.getName());
                 recipe.setPathToPicture(r.getPathToPicture());
@@ -94,6 +94,7 @@ public class DataUploadServlet extends HttpServlet {
                 recipeDao.save(recipe);
                 logger.info("Recipe was saved to the database.");
             }
+        }
     }
 
     private void deleteRecipe(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -128,7 +129,7 @@ public class DataUploadServlet extends HttpServlet {
     private File getJason(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         logger.info("Getting JSON data from file.");
 
-        Part filePart = null;
+        Part filePart;
 
         try {
             filePart = req.getPart("json");
@@ -166,7 +167,6 @@ public class DataUploadServlet extends HttpServlet {
         }
         return mapOfMeals;
     }
-
     private void deleteFile(File file) {
         logger.info("Deleting temporary file containing JSON.");
         try {

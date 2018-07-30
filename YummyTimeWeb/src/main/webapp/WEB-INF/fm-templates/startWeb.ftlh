@@ -1,32 +1,32 @@
 <#include "*/common/header.html">
 <#import "macra/ListOf3BlockRecipe.ftlh" as macro>
-<div class="col-10" style="text-align: center;">
-    <h1> test ...</h1>
-    <div>
 
-    <#--zawsze tylko 3-->
+<div class="col-8">
+
+    <div>
     <#if recipesForDefaultCategory??>
-        <h1>There is time for: ${defaultCategory}</h1>
+        <h3>THERE IS TIME FOR ${defaultCategory}!</h3>
         <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>
+        <div class="justify-content-center">
+            <form action="/search-recipe?fridge" method="get">
+                <div class="form-group">
+                    <label>Put what you have got in your fridge, and we will find recipe for You</label>
+                    <input type="text" name="fridge" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </form>
+        </div>
     <#else>
-        <span>There is nothing for ${defaultCategory} for now</span><br/><br/>
+        <div class="alert alert-danger" role="alert">
+            There are no recipes, please load JSON file!
+        </div>
     </#if>
     </div>
 
     <div>
-        <h1>Your fridge contents:</h1>
-        <form action="/search-recipe?fridge" method="get">
-        <input type="text" name="fridge" rows="1" cols="60"/>
-        <button>Search</button>
-        </form>
-    </div>
-    <div>
-    <#--zawsze tylko 3-->
-    <#if favouriteList??>
-        <@macro.listOf3BlockRecipe list = favouriteList/>
-    <#else>
-        <span>Your favourites list is empty</span><br/><br/>
-    </#if>
+        <#if favouriteList??>
+            <@macro.listOf3BlockRecipe list = favouriteList/>
+        </#if>
     </div>
 
 </div>
