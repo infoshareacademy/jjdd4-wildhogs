@@ -3,13 +3,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <head>
     <meta charset="UTF-8">
-    <title>YummyTime</title>
+  <title>YummyTime</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"></head>
 
 <style>
     .card{
-        margin: 30px auto;
+        margin: 30px auto
     }
     .name{
         padding: 0px auto;
@@ -95,7 +95,7 @@
 <div class = "HEADER">
     <div class="jumbotron jumbotron-fluid text-white" style="background: darkorange">
         <div class="container">
-            <h1 class="name">YummyTime</h1>
+         <div style="text-align: center;"><h1 class="name">YummyTime</h1></div>
         </div>
         <nav class="nav justify-content-center">
             <li class="nav-item">
