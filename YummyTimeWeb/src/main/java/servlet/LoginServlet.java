@@ -14,7 +14,9 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost (HttpServletRequest req,
+                           HttpServletResponse resp)
+            throws ServletException, IOException {
 
         resp.setContentType("text/html");
 
@@ -28,14 +30,11 @@ public class LoginServlet extends HttpServlet {
 
             HttpSession session = req.getSession(true);
             session.setAttribute("userName", name);
-
+            req.getServletContext()
+                    .getRequestDispatcher("/welcome").forward(req, resp);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        resp.sendRedirect("/shopping-list");
-//        req.getServletContext()
-//                .getRequestDispatcher("/shopping-list").forward(req, resp);
     }
 }

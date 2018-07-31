@@ -1,10 +1,8 @@
 package dao;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
-import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import com.infoshareacademy.jjdd4.wildhogs.logic.Fridge;
-import com.infoshareacademy.jjdd4.wildhogs.logic.ShoppingList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -41,7 +39,6 @@ public class RecipeDao {
     public List<Recipe> findAll() {
         final Query query = entityManager.createQuery("SELECT s FROM Recipe s");
 
-
         return query.getResultList();
     }
 
@@ -66,17 +63,43 @@ public class RecipeDao {
         Fridge fridge = new Fridge();
         List<Long> sortedRecipesId = fridge.showFilterRecipe(findAll(), fridgeList);
         if (sortedRecipesId == null) {
-            return  new ArrayList<>();
+            return new ArrayList<>();
         }
 
         List<Recipe> listOfRecipes = sortedRecipesId.stream()
-                   .map((Long r) -> findById(r))
-                   .collect(Collectors.toList());
+                .map((Long r) -> findById(r))
+                .collect(Collectors.toList());
         return changeRecipiesToBlocks(listOfRecipes);
     }
 
     public List<BlockRecipe> changeRecipiesToBlocks(List<Recipe> recipes) {
         return recipes.stream().map(r -> new BlockRecipe(r.getName(), r.getPathToPicture(), r.getId()))
                 .collect(Collectors.toList());
+    }
+
+    public List<Statistic> categoryStatistics() {
+
+        List<Statistic> recipeStatistic = new ArrayList<>();
+        Query query = entityManager.createQuery("SELECT r.category, SUM (r.timesClicked) FROM Recipe r GROUP BY r.category");
+
+        List<String> statistics = query.getResultList();
+        for (Object result : query.getResultList()) {
+            Object[] actualResult = (Object[]) result;
+            recipeStatistic.add(new Statistic(actualResult[0].toString(), (Long) actualResult[1]));
+        }
+        return recipeStatistic;
+    }
+
+    public List<Statistic> statisticRecipe() {
+        List<Statistic> statisticRecipe = new ArrayList<>();
+        Query query = entityManager.createQuery("SELECT r.name, (r.timesClicked) FROM Recipe r");
+
+        for (Object result : query.getResultList()) {
+            Object[] actualResult = (Object[]) result;
+            statisticRecipe.add(new Statistic(actualResult[0].toString(), Long.valueOf((Integer) actualResult[1])));
+        }
+        statisticRecipe = statisticRecipe.stream().sorted((s1, s2) -> (int)(s2.getQuantity() - s1.getQuantity())).limit(5)
+                .collect(Collectors.toList());
+        return statisticRecipe;
     }
 }
