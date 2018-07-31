@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/login"})
-public class GooglePlusServlet extends HttpServlet {
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -28,11 +28,14 @@ public class GooglePlusServlet extends HttpServlet {
 
             HttpSession session = req.getSession(true);
             session.setAttribute("userName", name);
-            req.getServletContext()
-                    .getRequestDispatcher("/welcome-page.jsp").forward(req, resp);
+
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        resp.sendRedirect("/shopping-list");
+//        req.getServletContext()
+//                .getRequestDispatcher("/shopping-list").forward(req, resp);
     }
 }
