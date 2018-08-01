@@ -67,6 +67,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.11</version>
         </dependency>
+        <dependency>
+            <groupId>org.simplejavamail</groupId>
+            <artifactId>simple-java-mail</artifactId>
+            <version>5.0.3</version>
+        </dependency>
     </dependencies>
 
     <build>
