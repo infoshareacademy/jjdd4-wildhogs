@@ -1,8 +1,6 @@
 package servlet;
 
 import dao.TemplateProvider;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,11 +25,7 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-        HttpSession session = req.getSession(true);
 
-        session.setAttribute("logged", false);
-
-        resp.sendRedirect("/welcome");
 
     }
 }
