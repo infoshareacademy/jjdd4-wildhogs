@@ -1,4 +1,4 @@
-package bean;
+package dao;
 
 import com.sendgrid.*;
 import org.slf4j.LoggerFactory;

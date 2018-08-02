@@ -1,4 +1,4 @@
-package data;
+package dao;
 
 public class BlockRecipe {
 
