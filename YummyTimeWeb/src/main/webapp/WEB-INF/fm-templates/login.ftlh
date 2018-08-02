@@ -23,9 +23,9 @@
             });
         }
     </script>
-    <h2>Servlet OAuth example</h2>
-    <br>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+
+    <div style="text-align: center; margin-top: 20%" class="g-signin2" data-onsuccess="onSignIn"></div>
 
     <script>
         //google callback. This function will redirect to our login servlet

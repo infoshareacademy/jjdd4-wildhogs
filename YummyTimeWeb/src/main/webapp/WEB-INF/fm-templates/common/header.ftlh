@@ -50,9 +50,6 @@
     <div class="jumbotron jumbotron-fluid text-white" style="background: gray">
         <div></div>
 
-
-
-
         <div class="container">
             <h1 class="name">YummyTime</h1>
         </div>
@@ -87,24 +84,24 @@
                 <a href="/gmail-login" class="text-white">Login via Google</a>
             </li>
             <li>
-                <a id="logout" href="#"  class="text-white">Sign out</a>
+                <a id="logout" href="/logout-gmail" class="text-white">Sign out</a>
             </li>
 
         </nav>
-        <script>
-            // logout
-            $("#logout").on('click', function() {
-                var xhr = new XMLHttpRequest();
-                xhr.addEventListener("load", function (ev) {
-                    console.log("LOADED");
-                    window.location.reload();
-                });
-                xhr.open("GET", "https://mail.google.com/mail/u/0/?logout&hl=en");
-                xhr.send();
-            });
+    <#--<script>-->
+    <#--// logout-->
+    <#--$("#logout").on('click', function() {-->
+    <#--var xhr = new XMLHttpRequest();-->
+    <#--xhr.addEventListener("load", function (ev) {-->
+    <#--console.log("LOADED");-->
+    <#--window.location.reload();-->
+    <#--});-->
+    <#--xhr.open("GET", "https://mail.google.com/mail/u/0/?logout&hl=en");-->
+    <#--xhr.send();-->
+    <#--});-->
 
-            // then reload
-        </script>
+    <#--// then reload-->
+    <#--</script>-->
     </div>
 
     <div class="container-fluid">
