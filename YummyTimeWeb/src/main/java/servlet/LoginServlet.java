@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             List<String> emails  = usersDao.findAll().stream().map(User::getEmail).collect(Collectors.toList());
 
             if (!emails.contains(email)) {
-                usersDao.save(new User(idToken, name, email));
+                usersDao.save(new User(name, email));
             }
             resp.sendRedirect("/welcome");
 

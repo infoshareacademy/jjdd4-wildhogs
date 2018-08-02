@@ -1,7 +1,11 @@
 <#include "*/common/header.ftlh">
+<!--TODO RODO STUFF etc So we are cool and dandy - We are collecting your email and name information. Blame RODO
 
+-->
 <div>
+
     <div id="my-signin2"></div>
+
     <script>
         function onSuccess(googleUser) {
             console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
@@ -24,8 +28,7 @@
         }
     </script>
 
-
-    <div style="text-align: center; margin-top: 20%" class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div style="text-align: center; margin: 0" class="g-signin2" data-onsuccess="onSignIn"></div>
 
     <script>
         //google callback. This function will redirect to our login servlet

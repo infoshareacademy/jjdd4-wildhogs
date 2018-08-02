@@ -36,8 +36,6 @@ public class LogoutViewServlet extends HttpServlet {
             HttpSession session = req.getSession(true);
             session.setAttribute("logged", false);
 
-            resp.sendRedirect("/welcome");
-
 
         } catch (TemplateException e) {
             e.printStackTrace();

@@ -12,10 +12,6 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "id_token",length = 20000)
-    @NotNull
-    private String id_token;
-
     @Column(name = "name")
     @NotNull
     private String name;
@@ -26,8 +22,8 @@ public class User {
 
     public User() {
     }
-    public User(@NotNull String id_token, @NotNull String name, @NotNull String email) {
-        this.id_token = id_token;
+    public User(@NotNull String name, @NotNull String email) {
+
         this.name = name;
         this.email = email;
     }
@@ -38,7 +34,6 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", id_token='" + id_token + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 '}';
@@ -52,13 +47,6 @@ public class User {
         this.id = id;
     }
 
-    public String getId_token() {
-        return id_token;
-    }
-
-    public void setId_token(String id_token) {
-        this.id_token = id_token;
-    }
 
     public String getName() {
         return name;

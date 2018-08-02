@@ -40,9 +40,6 @@ public class UsersDao {
         return query.getResultList();
     }
 
-    public User findByIdToken(String token) {
-        return entityManager.find(User.class, token);
-    }
 
     public User findByEmail(String email) {
         return entityManager.find(User.class, email);
