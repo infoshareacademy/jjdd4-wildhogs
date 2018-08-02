@@ -1,4 +1,4 @@
-<#include "*/common/header.html">
+<#include "*/common/header.ftlh">
 <#import "macra/ListOfBlockRecipe.ftlh" as macro>
 
 
@@ -13,4 +13,4 @@
     </#if>
 </div>
 
-<#include "*/common/footer.html">
+<#include "*/common/footer.ftlh">
