@@ -1,6 +1,7 @@
 package servlet;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.infoshareacademy.jjdd4.wildhogs.data.Option;
 import com.infoshareacademy.jjdd4.wildhogs.data.User;
 import dao.UsersDao;
 import googleApi.IdTokenVerifierAndParser;
@@ -15,6 +16,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -40,7 +43,11 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("username", name);
             session.setAttribute("logged", true);
 
-            usersDao.save(new User(idToken, name, email));
+            List<String> emails  = usersDao.findAll().stream().map(User::getEmail).collect(Collectors.toList());
+
+            if (!emails.contains(email)) {
+                usersDao.save(new User(idToken, name, email));
+            }
             resp.sendRedirect("/welcome");
 
         } catch (Exception e) {
