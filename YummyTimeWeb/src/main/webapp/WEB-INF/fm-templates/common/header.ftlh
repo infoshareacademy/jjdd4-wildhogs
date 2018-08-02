@@ -15,6 +15,7 @@
     <meta name="google-signin-client_id"
           content="907007146976-gj3molj87dk4k7jntu3hslrdubmd1947.apps.googleusercontent.com">
 
+
 </head>
 
 <style>
@@ -47,8 +48,10 @@
 
 
     <div class="jumbotron jumbotron-fluid text-white" style="background: gray">
-        <div><a href="/gmail-login" style="text-decoration: none;color: black">Login with Gmail</a></div>
-        <img src="https://mail.google.com/mail/u/0/?logout&hl=en" />
+        <div></div>
+
+
+
 
         <div class="container">
             <h1 class="name">YummyTime</h1>
@@ -79,6 +82,12 @@
             </li>
             <li class="nav-item">
                 <a href="/Contact.html" class="text-white">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a href="/gmail-login" class="text-white">Login via Google</a>
+            </li>
+            <li>
+                <a href="/logout"  class="text-white">Sign out</a>
             </li>
 
         </nav>

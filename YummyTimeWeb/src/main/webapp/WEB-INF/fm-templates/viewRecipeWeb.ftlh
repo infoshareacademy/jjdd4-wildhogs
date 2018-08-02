@@ -1,4 +1,4 @@
-<#include "*/common/header.html">
+<#include "*/common/header.ftlh">
 
 <div class="col-8">
     <#if message??>
@@ -41,4 +41,4 @@
     </#if>
 </div>
 
-<#include "*/common/footer.html">
+<#include "*/common/footer.ftlh">

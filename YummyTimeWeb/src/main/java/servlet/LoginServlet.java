@@ -22,7 +22,6 @@ public class LoginServlet extends HttpServlet {
 
     @Inject
     UsersDao usersDao;
-//    docker run --detach --name=test-db --env="MYSQL_ROOT_PASSWORD=pass123"--env="TZ=Europe/Warsaw" --publish 6603:3306 mysql
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -41,16 +40,8 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("username", name);
             session.setAttribute("logged", true);
 
-//            List<User> users = (ArrayList) session.getAttribute("users-list");
-//            if (users.isEmpty()) {
-//                session.setAttribute("users-list", new ArrayList<>());
-//            }
-//            users.add(new User(idToken, name, email));
             usersDao.save(new User(idToken, name, email));
-
             resp.sendRedirect("/welcome");
-//            req.getServletContext()
-//                    .getRequestDispatcher().forward(req, resp);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

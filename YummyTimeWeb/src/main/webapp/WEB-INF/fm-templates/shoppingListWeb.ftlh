@@ -1,4 +1,4 @@
-<#include "*/common/header.html">
+<#include "*/common/header.ftlh">
 <#import "macra/ListOfBlockShoppingList.ftlh" as macro2>
 <div class="col-8">
 <div>
@@ -25,4 +25,4 @@
     </#if>
 </div>
 </div>
-<#include "*/common/footer.html">
+<#include "*/common/footer.ftlh">

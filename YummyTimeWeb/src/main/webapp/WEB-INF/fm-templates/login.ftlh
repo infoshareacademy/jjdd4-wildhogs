@@ -1,4 +1,4 @@
-<#include "*/common/header.html">
+<#include "*/common/header.ftlh">
 
 <div>
     <div id="my-signin2"></div>
@@ -54,4 +54,4 @@
     </script>
 
 </div>
-<#include "*/common/footer.html">
+<#include "*/common/footer.ftlh">

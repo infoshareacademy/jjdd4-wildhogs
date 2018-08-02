@@ -1,4 +1,4 @@
-<#include "*/common/header.html">
+<#include "*/common/header.ftlh">
 <#import "macra/ListOf3BlockRecipe.ftlh" as macro>
 
 <div class="col-8">
@@ -31,4 +31,4 @@
 
 </div>
 
-<#include "*/common/footer.html">
+<#include "*/common/footer.ftlh">

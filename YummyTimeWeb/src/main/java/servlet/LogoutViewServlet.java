@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
-import javax.jws.WebService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/gmail-login")
-public class LoginViewServlet extends HttpServlet {
+@WebServlet("/logout-gmail")
+public class LogoutViewServlet extends HttpServlet{
 
-    Logger logger = LoggerFactory.getLogger(LoginViewServlet.class);
+    Logger logger = LoggerFactory.getLogger(LogoutViewServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
@@ -27,7 +26,7 @@ public class LoginViewServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-        Template template = templateProvider.getTemplate(getServletContext(), "login.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "logout.ftlh");
 
         try {
             template.process(new Object(), resp.getWriter());
