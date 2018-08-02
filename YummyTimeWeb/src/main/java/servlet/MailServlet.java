@@ -22,14 +22,14 @@ public class MailServlet extends HttpServlet {
     ShoppingListOfUserDao shoppingListOfUserDao;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Your shopping list : \n\r");
+        sb.append("Your shopping list : \n\r\r\n");
 
         shoppingListOfUserDao.getIngridientsInShoppingListOfUser().stream()
                 .forEach(ingredient -> sb.append(ingredient.toString() + "\n\r"));
-        sb.append("\n\r Cheers!");
+        sb.append("\n\r\n\r Cheers!");
         String mailText = sb.toString();
 
         Email from = new Email("YummyTime@App.com");
@@ -54,5 +54,7 @@ public class MailServlet extends HttpServlet {
             logger.info("Send mail falid");
             throw ex;
         }
+
+        resp.sendRedirect("/shopping-list?send=yes");
     }
 }

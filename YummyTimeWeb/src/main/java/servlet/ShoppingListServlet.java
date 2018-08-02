@@ -51,6 +51,10 @@ public class ShoppingListServlet extends HttpServlet {
         else {
             logger.warn("Problem with saving recipes to the shopping list");
         }
+        String sendMail = req.getParameter("send");
+        if ("yes".equals(sendMail)) {
+            model.put("message", "Your Shopping List was send!");
+        }
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {

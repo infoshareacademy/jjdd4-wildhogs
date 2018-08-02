@@ -1,18 +1,30 @@
 <#include "*/common/header.html">
 <#import "macra/ListOfBlockShoppingList.ftlh" as macro2>
-<div class="col-8">
-<div>
 
+<div class="col-8">
+    <#if message??>
+        <div class="alert alert-success" role="alert">
+            ${message}
+        </div>
+    </#if>
     <#if shoppingList??>
         <h1 class="text-center">Your Shopping List:</h1>
+        <div class="row">
+            <div class="col">
+                <h2>What to buy:</h2>
 
-        <h2>What to buy:</h2>
-
-        <ul class="list-group list-group-flush">
-            <#list shoppingList as ingredient>
-                <li class="list-group-item">${ingredient.name} - ${ingredient.amount} ${ingredient.unit.description}</li>
-            </#list>
-        </ul>
+                <ul class="list-group list-group-flush">
+                    <#list shoppingList as ingredient>
+                        <li class="list-group-item">${ingredient.name} - ${ingredient.amount} ${ingredient.unit.description}</li>
+                    </#list>
+                </ul>
+            </div>
+            <div class="col">
+                <form method="post" action="/mail" style="margin: 100px">
+                    <button class="btn btn-secondary">Send list to Your Email!</button>
+                </form>
+            </div>
+        </div>
     <#else>
         <div class="alert alert-info" role="alert">
             Your shopping list is empty
@@ -24,5 +36,5 @@
         <@macro2.listBlockRecipeSL list = recipesInShoppingList/>
     </#if>
 </div>
-</div>
+
 <#include "*/common/footer.html">
