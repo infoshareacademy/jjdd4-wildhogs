@@ -93,7 +93,7 @@
     }
 </script>
 <div class = "HEADER">
-    <div class="jumbotron jumbotron-fluid text-white" style="background: gray">
+    <div class="jumbotron jumbotron-fluid text-white" style="background: darkorange">
         <div class="container">
             <h1 class="name">YummyTime</h1>
         </div>

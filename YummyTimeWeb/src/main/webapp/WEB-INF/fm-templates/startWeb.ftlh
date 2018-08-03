@@ -18,7 +18,7 @@
         </div>
     <#else>
         <div class="alert alert-danger" role="alert">
-            There are no recipes, please load JSON file! <a href="/">Here</a>
+            There are no recipes, please load JSON file! <a href="/upload">Here</a>
         </div>
     </#if>
     </div>
