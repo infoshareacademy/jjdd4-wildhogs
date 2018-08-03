@@ -78,12 +78,15 @@
             <li class="nav-item">
                 <a href="/Contact.html" class="text-white">Contact</a>
             </li>
-            <li class="nav-item">
-                <a href="/gmail-login" class="text-white">Login via Google</a>
-            </li>
-            <li>
-                <a id="logout" href="/logout-gmail" class="text-white">Sign out</a>
-            </li>
+            <#if logged??>
+                <li>
+                    <a id="logout" href="/logout-gmail" class="text-white">Sign out</a>
+                </li>
+            <#else >
+                <li class="nav-item">
+                    <a href="/gmail-login" class="text-white">Login</a>
+                </li>
+            </#if>
 
         </nav>
     <#--<script>-->

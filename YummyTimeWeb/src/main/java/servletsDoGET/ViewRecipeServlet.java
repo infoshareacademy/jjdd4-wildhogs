@@ -1,9 +1,6 @@
-package servlet;
+package servletsDoGET;
 
-import dao.IngredientDao;
-import dao.RecipeChangeDao;
-import dao.RecipeDao;
-import dao.TemplateProvider;
+import dao.*;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -34,8 +31,7 @@ public class ViewRecipeServlet extends HttpServlet {
     private RecipeChangeDao recipeChangeDao;
 
     @Inject
-    private IngredientDao ingredientDao;
-
+    SessionBean sessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,6 +53,10 @@ public class ViewRecipeServlet extends HttpServlet {
             model.put("recipe", recipe);
             recipeChangeDao.incrementStatisticsPerView(recipe.getId());
             recipe.setTimesClicked(recipe.getTimesClicked() + 1);
+        }
+
+        if(sessionBean.getLogged()){
+            model.put("logged", "yes");
         }
 
         String favorite = req.getParameter("favorite");

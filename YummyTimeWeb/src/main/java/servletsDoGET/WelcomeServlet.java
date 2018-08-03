@@ -1,8 +1,9 @@
-package servlet;
+package servletsDoGET;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import dao.BlockRecipe;
 import dao.RecipeDao;
+import dao.SessionBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -31,6 +32,9 @@ public class WelcomeServlet extends HttpServlet {
     @Inject
     private RecipeDao recipeDao;
 
+    @Inject
+    SessionBean sessionBean;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -51,6 +55,11 @@ public class WelcomeServlet extends HttpServlet {
         if (favouriteList != null && !favouriteList.isEmpty()) {
             model.put("favouriteList", favouriteList);
         }
+
+        if(sessionBean.getLogged()){
+            model.put("logged", "yes");
+        }
+
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {

@@ -2,7 +2,7 @@ package dao;
 
 import com.sendgrid.*;
 import org.slf4j.LoggerFactory;
-import servlet.SearchRecipesServlet;
+import servletsDoGET.SearchRecipesServlet;
 import javax.ejb.Stateless;
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package servlet;
+package servletsDoPOST;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
@@ -38,7 +38,6 @@ public class DataUploadServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         logger.info("initialization");
         super.init(config);
-
     }
 
     @Override

@@ -1,7 +1,8 @@
-package servlet;
+package servletsDoGET;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import dao.BlockRecipe;
+import dao.SessionBean;
 import dao.ShoppingListOfUserDao;
 import dao.TemplateProvider;
 import freemarker.template.Template;
@@ -30,6 +31,9 @@ public class ShoppingListServlet extends HttpServlet {
     @Inject
     private ShoppingListOfUserDao shoppingListOfUserDao;
 
+    @Inject
+    SessionBean sessionBean;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -51,6 +55,11 @@ public class ShoppingListServlet extends HttpServlet {
         if ("yes".equals(sendMail)) {
             model.put("message", "Your Shopping List was send!");
         }
+
+        if(sessionBean.getLogged()){
+            model.put("logged", "yes");
+        }
+
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {

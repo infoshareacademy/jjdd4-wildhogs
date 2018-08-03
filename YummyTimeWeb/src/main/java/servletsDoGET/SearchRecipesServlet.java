@@ -1,8 +1,9 @@
-package servlet;
+package servletsDoGET;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import dao.BlockRecipe;
 import dao.RecipeDao;
+import dao.SessionBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -28,6 +29,9 @@ public class SearchRecipesServlet extends HttpServlet {
 
     @Inject
     private RecipeDao recipeDao;
+
+    @Inject
+    SessionBean sessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -63,15 +67,21 @@ public class SearchRecipesServlet extends HttpServlet {
             String fridge = fridgeParam.replace(" ", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
             fridgeList = fridgeList.stream().filter(f -> !f.equals("")).collect(Collectors.toList());
-            List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
+            if(!fridgeList.isEmpty()) {
+                List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
 
-            if(!recipesList.isEmpty()) {
-                model.put("recipesList", recipesList);
-                model.put("parameter", fridgeParam);
-            } else {
-                String errorMessage = "There is nothing for these ingredients.";
-                model.put("errorMessage", errorMessage);
+                if (!recipesList.isEmpty()) {
+                    model.put("recipesList", recipesList);
+                    model.put("parameter", fridgeParam);
+                } else {
+                    String errorMessage = "There is nothing for these ingredients.";
+                    model.put("errorMessage", errorMessage);
+                }
             }
+        }
+
+        if(sessionBean.getLogged()){
+            model.put("logged", "yes");
         }
 
         try {

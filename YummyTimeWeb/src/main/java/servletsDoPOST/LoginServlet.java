@@ -1,8 +1,8 @@
-package servlet;
+package servletsDoPOST;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import com.infoshareacademy.jjdd4.wildhogs.data.Option;
 import com.infoshareacademy.jjdd4.wildhogs.data.User;
+import dao.SessionBean;
 import dao.UsersDao;
 import googleApi.IdTokenVerifierAndParser;
 
@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @WebServlet("/login")
@@ -25,6 +23,9 @@ public class LoginServlet extends HttpServlet {
 
     @Inject
     UsersDao usersDao;
+
+    @Inject
+    SessionBean sessionBean;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,9 +40,16 @@ public class LoginServlet extends HttpServlet {
             System.out.println("User name: " + name);
             System.out.println("User email: " + email);
 
-            HttpSession session = req.getSession(true);
-            session.setAttribute("username", name);
-            session.setAttribute("logged", true);
+            sessionBean.setEmail(email);
+            sessionBean.setLogged(true);
+            sessionBean.setUsername(name);
+//
+//            HttpSession session = req.getSession(true);
+//            session.setAttribute("username", name);
+//            session.setAttribute("logged", true);
+//            session.setAttribute("email", email);
+
+
 
             List<String> emails  = usersDao.findAll().stream().map(User::getEmail).collect(Collectors.toList());
 
