@@ -53,7 +53,7 @@ public class ShoppingListServlet extends HttpServlet {
         }
         String sendMail = req.getParameter("send");
         if ("yes".equals(sendMail)) {
-            model.put("message", "Your Shopping List was send!");
+            model.put("message", "Your Shopping List was sent");
         }
 
         if(sessionBean.getLogged()){
