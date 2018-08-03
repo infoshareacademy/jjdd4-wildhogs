@@ -43,6 +43,6 @@ public class MailToUsServlet extends HttpServlet {
 
         mailBean.sendEmail(mail);
 
-        resp.sendRedirect("/Contact.html");
+        resp.sendRedirect("/contact");
     }
 }
