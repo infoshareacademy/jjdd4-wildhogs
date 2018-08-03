@@ -63,14 +63,16 @@ public class SearchRecipesServlet extends HttpServlet {
             String fridge = fridgeParam.replace(" ", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
             fridgeList = fridgeList.stream().filter(f -> !f.equals("")).collect(Collectors.toList());
-            List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
+            if(!fridgeList.isEmpty()) {
+                List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
 
-            if(!recipesList.isEmpty()) {
-                model.put("recipesList", recipesList);
-                model.put("parameter", fridgeParam);
-            } else {
-                String errorMessage = "There is nothing for these ingredients.";
-                model.put("errorMessage", errorMessage);
+                if (!recipesList.isEmpty()) {
+                    model.put("recipesList", recipesList);
+                    model.put("parameter", fridgeParam);
+                } else {
+                    String errorMessage = "There is nothing for these ingredients.";
+                    model.put("errorMessage", errorMessage);
+                }
             }
         }
 
