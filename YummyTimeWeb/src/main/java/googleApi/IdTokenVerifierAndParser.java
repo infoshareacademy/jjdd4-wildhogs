@@ -10,12 +10,11 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
-
 public class IdTokenVerifierAndParser {
     private static final String GOOGLE_CLIENT_ID = "907007146976-gj3molj87dk4k7jntu3hslrdubmd1947.apps.googleusercontent.com";
     private static Logger logger = LoggerFactory.getLogger(IdTokenVerifierAndParser.class);
 
-    public static GoogleIdToken.Payload getPayload (String tokenString){
+    public static GoogleIdToken.Payload getPayload(String tokenString) {
 
         logger.debug("Started method that gets google id token");
         JacksonFactory jacksonFactory = new JacksonFactory();

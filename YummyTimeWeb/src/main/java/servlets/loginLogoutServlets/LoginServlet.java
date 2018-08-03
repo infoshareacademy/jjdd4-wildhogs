@@ -31,13 +31,13 @@ public class LoginServlet extends HttpServlet {
 
     private static Logger logger = LoggerFactory.getLogger(LoginServlet.class);
 
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setContentType("text/html");
 
         try {
+            logger.info("Reading information from GoogleIdToken.Payload");
             String idToken = req.getParameter("id_token");
             GoogleIdToken.Payload payLoad = IdTokenVerifierAndParser.getPayload(idToken);
             String name = (String) payLoad.get("name");
@@ -52,12 +52,13 @@ public class LoginServlet extends HttpServlet {
             List<String> emails = usersDao.findAll().stream().map(User::getEmail).collect(Collectors.toList());
 
             if (!emails.contains(email)) {
+                logger.info("saving user to the database");
                 usersDao.save(new User(name, email));
             }
             resp.sendRedirect("/welcome");
 
         } catch (Exception e) {
-            logger.warn("Exception while reading info from object returned by google token",e);
+            logger.warn("Problems with sending user credentials to the database", e);
         }
     }
 }
