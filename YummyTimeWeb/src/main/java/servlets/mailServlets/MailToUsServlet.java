@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/mail-to-us")
+
 public class MailToUsServlet extends HttpServlet {
     private static Logger logger = LoggerFactory.getLogger(MailToUsServlet.class);
 
