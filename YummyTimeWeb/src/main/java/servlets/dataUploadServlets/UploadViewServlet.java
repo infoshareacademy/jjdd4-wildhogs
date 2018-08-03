@@ -1,6 +1,6 @@
-package servletsDoGET;
+package servlets.dataUploadServlets;
 
-import dao.SessionBean;
+
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -14,35 +14,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-@WebServlet("/about")
-public class AboutUsServlet extends HttpServlet {
+@WebServlet("/upload")
+public class UploadViewServlet extends HttpServlet {
 
-    private static Logger logger = LoggerFactory.getLogger(ContactUsServlet.class);
+    Logger logger = LoggerFactory.getLogger(UploadViewServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
 
-    @Inject
-    SessionBean sessionBean;
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Template template = templateProvider.getTemplate(getServletContext(), "aboutUs.ftlh");
-        Map<String, Object> model = new HashMap<>();
 
-        if(sessionBean.getLogged()){
-            model.put("logged", "yes");
-        }
+        Template template = templateProvider.getTemplate(getServletContext(), "upload.ftlh");
 
         try {
-            template.process(model, resp.getWriter());
+            template.process(new Object(), resp.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
-            logger.warn("View about us cannot be loaded template!");
+            logger.warn("Can't load template");
         }
     }
 }

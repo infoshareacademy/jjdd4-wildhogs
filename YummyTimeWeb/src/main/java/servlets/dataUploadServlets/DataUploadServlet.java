@@ -1,4 +1,4 @@
-package servletsDoPOST;
+package servlets.dataUploadServlets;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;

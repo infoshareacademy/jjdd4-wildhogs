@@ -1,4 +1,4 @@
-package servletsDoGET;
+package servlets.loginLogoutServlets;
 
 import dao.SessionBean;
 import dao.TemplateProvider;
