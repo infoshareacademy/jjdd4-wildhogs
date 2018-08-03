@@ -54,8 +54,8 @@
 
         // Set chart options
         var options = {'title':'Popularity of category',
-            'width':800,
-            'height':800};
+            'width':500,
+            'height':500};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
@@ -131,7 +131,7 @@
             <div class="col">
             </div>
             <div class="col-8" style="text-align: center;">
-                <div id="chart_div1"></div>
+                <div id="chart_div1" style="margin: 0px 300px 0px;"></div>
                 <div id="chart_div2"></div>
             </div>
 <#include "*/common/footer.html">
