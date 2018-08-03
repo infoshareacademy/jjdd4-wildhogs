@@ -1,4 +1,4 @@
-<#include "*/common/header.html">
+<#include "*/common/header.ftlh">
 <#import "macra/ListOf3BlockRecipe.ftlh" as macro>
 
 <div class="col-8">
@@ -18,7 +18,7 @@
         </div>
     <#else>
         <div class="alert alert-danger" role="alert">
-            There are no recipes, please load JSON file!
+            There are no recipes, please load JSON file! <a href="/">Here</a>
         </div>
     </#if>
     </div>
@@ -31,4 +31,4 @@
 
 </div>
 
-<#include "*/common/footer.html">
+<#include "*/common/footer.ftlh">

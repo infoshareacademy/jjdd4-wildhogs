@@ -134,4 +134,4 @@
                 <div id="chart_div1" style="margin: 0px 300px 0px;"></div>
                 <div id="chart_div2"></div>
             </div>
-<#include "*/common/footer.html">
+<#include "*/common/footer.ftlh">
