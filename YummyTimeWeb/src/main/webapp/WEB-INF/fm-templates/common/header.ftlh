@@ -30,13 +30,21 @@
     .menu-button{
         border-radius: 50px;
         color: white;
+        font-weight: bold;
     }
     .menu-button:hover{
         color: darkorange;
+        font-weight: bold;
+
     }
+    .dropdown-item:hover{
+        font-weight: bold;
+    }
+
     .dropdown-item:hover{
         background-color: darkorange;
         color: white;
+        font-weight: bold;
 
     }
 

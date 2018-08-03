@@ -38,7 +38,7 @@
         </#if>
     <#else>
         <div class="alert alert-info" role="alert">
-            You need to by login, to use shopping list!
+            You need to login to use shopping list!
         </div>
     </#if>
 </div>
