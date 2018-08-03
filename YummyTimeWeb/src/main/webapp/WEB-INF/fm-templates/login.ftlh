@@ -1,7 +1,5 @@
 <#include "*/common/header.ftlh">
-<!--TODO RODO STUFF etc So we are cool and dandy - We are collecting your email and name information. Blame RODO
-
--->
+<!--TODO RODO STUFF etc So we are cool and dandy - We are collecting your email and name information. Blame RODO-->
 <div>
 
     <div id="my-signin2"></div>

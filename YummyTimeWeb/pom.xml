@@ -44,26 +44,6 @@
 
         <!-- OAuth -->
 
-        <!--<dependency>-->
-            <!--<groupId>com.github.scribejava</groupId>-->
-            <!--<artifactId>scribejava-apis</artifactId>-->
-            <!--<version>5.5.0</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>com.github.scribejava</groupId>-->
-            <!--<artifactId>scribejava-core</artifactId>-->
-            <!--<version>5.5.0</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>com.github.scribejava</groupId>-->
-            <!--<artifactId>scribejava</artifactId>-->
-            <!--<version>5.5.0</version>-->
-            <!--<type>pom</type>-->
-        <!--</dependency>-->
-
-
         <dependency>
             <groupId>org.scribe</groupId>
             <artifactId>scribe</artifactId>

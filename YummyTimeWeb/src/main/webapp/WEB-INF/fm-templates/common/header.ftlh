@@ -15,7 +15,6 @@
     <meta name="google-signin-client_id"
           content="907007146976-gj3molj87dk4k7jntu3hslrdubmd1947.apps.googleusercontent.com">
 
-
 </head>
 
 <style>
