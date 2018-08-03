@@ -73,10 +73,10 @@
                 <a href="/statistics" class="text-white">Statistic</a>
             </li>
             <li class="nav-item">
-                <a href="/About.html" class="text-white">Our Team</a>
+                <a href="/about" class="text-white">Our Team</a>
             </li>
             <li class="nav-item">
-                <a href="/Contact.html" class="text-white">Contact</a>
+                <a href="/contact" class="text-white">Contact</a>
             </li>
             <#if logged??>
                 <li>

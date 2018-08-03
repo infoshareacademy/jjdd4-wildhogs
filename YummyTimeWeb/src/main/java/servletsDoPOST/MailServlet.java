@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import com.sendgrid.*;
 import dao.MailBean;
+import dao.SessionBean;
 import dao.ShoppingListOfUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,25 +27,26 @@ public class MailServlet extends HttpServlet {
     @Inject
     private MailBean mailBean;
 
+    @Inject
+    SessionBean sessionBean;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession(true);
-        Boolean logged = (Boolean) session.getAttribute("logged");
-        String email = (String) session.getAttribute("email");
-
         StringBuilder sb = new StringBuilder();
-        sb.append("Your shopping list : \n\r\r\n");
+        sb.append("Your shopping list : \n\r");
+        sb.append("\n\r");
 
         shoppingListOfUserDao.getIngridientsInShoppingListOfUser().stream()
                 .forEach(ingredient -> sb.append(ingredient.toString() + "\n\r"));
-        sb.append("\n\r\n\r Cheers!");
+        sb.append("\n\r");
+        sb.append("Cheers!");
         String mailText = sb.toString();
 
         Email from = new Email("YummyTime@App.com");
         String subject = "Shopping List";
         logger.info("Send mail");
-        Email to = new Email(email);
+        Email to = new Email(sessionBean.getEmail());
         Content content = new Content("text/plain", mailText);
         Mail mail = new Mail(from, subject, to, content);
         mailBean.sendEmail(mail);
