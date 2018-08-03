@@ -71,6 +71,8 @@
         <div class="container">
             <a href="/welcome" style="text-decoration: none;color: white"><h1 class="name">YummyTime</h1></a>
         </div>
+        <br>
+        <br>
         <nav class="nav justify-content-center">
 
             <li class="nav-item">
