@@ -3,7 +3,6 @@ package servlets.shoppingListServlets;
 import dao.ShoppingListOfUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import servlets.recipeOperationsServlets.RecipeToFavoriteServlet;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -19,7 +18,7 @@ public class DeleteRecipeFromShoppingListServlet extends HttpServlet {
     @Inject
     private ShoppingListOfUserDao shoppingListOfUserDao;
 
-    private static Logger logger = LoggerFactory.getLogger(RecipeToFavoriteServlet.class);
+    private static Logger logger = LoggerFactory.getLogger(DeleteRecipeFromShoppingListServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,8 +33,10 @@ public class DeleteRecipeFromShoppingListServlet extends HttpServlet {
         }
         Long recipeId = Long.valueOf(recipeIdParam);
 
+        logger.info("Deleting recipe with id " + recipeId + " from Shopping List");
         shoppingListOfUserDao.deleteRecipeFromShoppingList(recipeId);
 
+        logger.info("Redirecting to /shopping-list");
         resp.sendRedirect("/shopping-list");
     }
 }

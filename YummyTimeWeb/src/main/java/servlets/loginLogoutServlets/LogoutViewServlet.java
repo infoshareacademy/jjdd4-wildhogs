@@ -6,6 +6,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,13 +18,13 @@ import java.io.IOException;
 @WebServlet("/logout-gmail")
 public class LogoutViewServlet extends HttpServlet {
 
-    Logger logger = LoggerFactory.getLogger(LogoutViewServlet.class);
+    private static Logger logger = LoggerFactory.getLogger(LogoutViewServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
 
     @Inject
-    SessionBean sessionBean;
+    private SessionBean sessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,7 +38,6 @@ public class LogoutViewServlet extends HttpServlet {
             sessionBean.setEmail("");
 
         } catch (TemplateException e) {
-            e.printStackTrace();
             logger.warn("Can't load template", e);
         }
     }
