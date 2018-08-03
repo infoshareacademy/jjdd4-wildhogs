@@ -9,6 +9,9 @@
 
     <class>com.infoshareacademy.jjdd4.wildhogs.data.Recipe</class>
     <class>com.infoshareacademy.jjdd4.wildhogs.data.Ingredient</class>
+    <class>com.infoshareacademy.jjdd4.wildhogs.data.User</class>
+
+
 
     <properties>
       <!-- Hibernate settings -->

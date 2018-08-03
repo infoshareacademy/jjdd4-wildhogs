@@ -1,11 +1,11 @@
-<#include "*/common/header.html">
+<#include "*/common/header.ftlh">
 <#import "macra/ListOf3BlockRecipe.ftlh" as macro>
 
 <div class="col-8">
 
     <div>
     <#if recipesForDefaultCategory??>
-        <h3>THERE IS TIME FOR ${defaultCategory}!</h3>
+        <h3 style="text-align: center">THERE IS TIME FOR ${defaultCategory}!</h3>
         <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>
         <div class="justify-content-center">
             <form action="/search-recipe?fridge" method="get">
@@ -18,7 +18,7 @@
         </div>
     <#else>
         <div class="alert alert-danger" role="alert">
-            There are no recipes, please load JSON file!
+            There are no recipes, please load JSON file! <a href="/">Here</a>
         </div>
     </#if>
     </div>
@@ -31,4 +31,4 @@
 
 </div>
 
-<#include "*/common/footer.html">
+<#include "*/common/footer.ftlh">
