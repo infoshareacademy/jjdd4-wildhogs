@@ -10,6 +10,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -70,7 +71,7 @@ public class DataUploadServlet extends HttpServlet {
         if (recipes == null) {
             logger.warn("getMapOfMeals method returned null.");
         } else {
-            List<String>recipeNamesFromDatabase = recipeDao.findAll().stream().map(Recipe::getName).collect(Collectors.toList());
+            List<String> recipeNamesFromDatabase = recipeDao.findAll().stream().map(Recipe::getName).collect(Collectors.toList());
 
             for (Recipe r : recipes.values()) {
                 if (recipeNamesFromDatabase.contains(r.getName())) {
@@ -165,6 +166,7 @@ public class DataUploadServlet extends HttpServlet {
         }
         return mapOfMeals;
     }
+
     private void deleteFile(File file) {
         logger.info("Deleting temporary file containing JSON.");
         try {
