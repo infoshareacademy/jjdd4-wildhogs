@@ -24,7 +24,7 @@ public class MailBean {
             System.out.println(response.getBody());
             System.out.println(response.getHeaders());
         } catch (IOException ex) {
-            logger.info("Send mail falid");
+            logger.info("Send mail failed", ex);
         }
     }
 }
