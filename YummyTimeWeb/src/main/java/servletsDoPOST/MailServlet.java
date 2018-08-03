@@ -1,4 +1,4 @@
-package servlet;
+package servletsDoPOST;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -13,6 +13,7 @@ import dao.MailBean;
 import dao.ShoppingListOfUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import servletsDoGET.SearchRecipesServlet;
 
 @WebServlet("/mail")
 public class MailServlet extends HttpServlet {

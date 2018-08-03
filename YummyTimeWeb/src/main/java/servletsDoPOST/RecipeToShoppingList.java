@@ -1,8 +1,9 @@
-package servlet;
+package servletsDoPOST;
 
 import dao.ShoppingListOfUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/sub-shoppingList")
-public class DeleteRecipeFromShoppingListServlet extends HttpServlet {
+@WebServlet("/to-shoppingList")
+public class RecipeToShoppingList extends HttpServlet {
 
     @Inject
     private ShoppingListOfUserDao shoppingListOfUserDao;
@@ -32,8 +33,15 @@ public class DeleteRecipeFromShoppingListServlet extends HttpServlet {
         }
         Long recipeId = Long.valueOf(recipeIdParam);
 
-        shoppingListOfUserDao.deleteRecipeFromShoppingList(recipeId);
+        Boolean recipeAdd = shoppingListOfUserDao.addRecipeToShoppingList(recipeId);
 
-        resp.sendRedirect("/shopping-list");
+        String path;
+        if (recipeAdd) {
+            logger.info("Recipe added to shopping list.");
+            path = "/view-recipe?id=" + recipeIdParam + "&shoppingList=yes";
+        } else {
+            path = "/view-recipe?id=" + recipeIdParam;
+        }
+        resp.sendRedirect(path);
     }
 }

@@ -1,4 +1,4 @@
-package servlet;
+package servletsDoGET;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import dao.BlockRecipe;

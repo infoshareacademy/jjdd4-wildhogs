@@ -29,7 +29,7 @@
     <div style="text-align: center; margin: 0" class="g-signin2" data-onsuccess="onSignIn"></div>
 
     <script>
-        //google callback. This function will redirect to our login servlet
+        //google callback. This function will redirect to our login servletsDoGET
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
             console.log('ID: ' + profile.getId());

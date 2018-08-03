@@ -1,4 +1,4 @@
-package servlet;
+package servletsDoGET;
 
 import dao.IngredientDao;
 import dao.RecipeChangeDao;

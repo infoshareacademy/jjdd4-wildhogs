@@ -1,7 +1,6 @@
-package servlet;
+package servletsDoPOST;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import com.infoshareacademy.jjdd4.wildhogs.data.Option;
 import com.infoshareacademy.jjdd4.wildhogs.data.User;
 import dao.UsersDao;
 import googleApi.IdTokenVerifierAndParser;
@@ -14,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @WebServlet("/login")
