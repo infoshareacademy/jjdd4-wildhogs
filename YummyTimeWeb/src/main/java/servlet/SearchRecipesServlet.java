@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -74,6 +75,13 @@ public class SearchRecipesServlet extends HttpServlet {
                     model.put("errorMessage", errorMessage);
                 }
             }
+        }
+
+        HttpSession session = req.getSession(true);
+        Boolean logged = (Boolean) session.getAttribute("logged");
+
+        if((logged != null) && logged) {
+            model.put("logged", "yes");
         }
 
         try {

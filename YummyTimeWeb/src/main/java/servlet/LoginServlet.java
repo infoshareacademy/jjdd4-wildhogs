@@ -42,6 +42,9 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = req.getSession(true);
             session.setAttribute("username", name);
             session.setAttribute("logged", true);
+            session.setAttribute("email", email);
+
+
 
             List<String> emails  = usersDao.findAll().stream().map(User::getEmail).collect(Collectors.toList());
 

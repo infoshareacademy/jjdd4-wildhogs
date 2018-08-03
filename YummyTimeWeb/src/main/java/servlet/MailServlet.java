@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import com.sendgrid.*;
 import dao.MailBean;
@@ -27,6 +28,10 @@ public class MailServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        HttpSession session = req.getSession(true);
+        Boolean logged = (Boolean) session.getAttribute("logged");
+        String email = (String) session.getAttribute("email");
+
         StringBuilder sb = new StringBuilder();
         sb.append("Your shopping list : \n\r\r\n");
 
@@ -38,7 +43,7 @@ public class MailServlet extends HttpServlet {
         Email from = new Email("YummyTime@App.com");
         String subject = "Shopping List";
         logger.info("Send mail");
-        Email to = new Email("nwe.nat@gmail.com");
+        Email to = new Email(email);
         Content content = new Content("text/plain", mailText);
         Mail mail = new Mail(from, subject, to, content);
         mailBean.sendEmail(mail);

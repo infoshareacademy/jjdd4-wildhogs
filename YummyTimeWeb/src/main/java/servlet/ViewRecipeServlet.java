@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,6 +58,12 @@ public class ViewRecipeServlet extends HttpServlet {
             model.put("recipe", recipe);
             recipeChangeDao.incrementStatisticsPerView(recipe.getId());
             recipe.setTimesClicked(recipe.getTimesClicked() + 1);
+        }
+        HttpSession session = req.getSession(true);
+        Boolean logged = (Boolean) session.getAttribute("logged");
+
+        if((logged != null) && logged) {
+            model.put("logged", "yes");
         }
 
         String favorite = req.getParameter("favorite");

@@ -35,6 +35,8 @@ public class LogoutViewServlet extends HttpServlet {
 
             HttpSession session = req.getSession(true);
             session.setAttribute("logged", false);
+            session.setAttribute("email", "");
+
 
 
         } catch (TemplateException e) {
