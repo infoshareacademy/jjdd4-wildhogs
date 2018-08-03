@@ -3,6 +3,7 @@ package servletsDoGET;
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import dao.BlockRecipe;
 import dao.RecipeDao;
+import dao.SessionBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -14,7 +15,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -29,6 +29,9 @@ public class SearchRecipesServlet extends HttpServlet {
 
     @Inject
     private RecipeDao recipeDao;
+
+    @Inject
+    SessionBean sessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -77,10 +80,7 @@ public class SearchRecipesServlet extends HttpServlet {
             }
         }
 
-        HttpSession session = req.getSession(true);
-        Boolean logged = (Boolean) session.getAttribute("logged");
-
-        if((logged != null) && logged) {
+        if(sessionBean.getLogged()){
             model.put("logged", "yes");
         }
 

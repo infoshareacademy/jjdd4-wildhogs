@@ -1,9 +1,6 @@
 package servletsDoGET;
 
-import dao.IngredientDao;
-import dao.RecipeChangeDao;
-import dao.RecipeDao;
-import dao.TemplateProvider;
+import dao.*;
 import com.infoshareacademy.jjdd4.wildhogs.data.Recipe;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -15,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +31,7 @@ public class ViewRecipeServlet extends HttpServlet {
     private RecipeChangeDao recipeChangeDao;
 
     @Inject
-    private IngredientDao ingredientDao;
+    SessionBean sessionBean;
 
 
     @Override
@@ -59,10 +55,8 @@ public class ViewRecipeServlet extends HttpServlet {
             recipeChangeDao.incrementStatisticsPerView(recipe.getId());
             recipe.setTimesClicked(recipe.getTimesClicked() + 1);
         }
-        HttpSession session = req.getSession(true);
-        Boolean logged = (Boolean) session.getAttribute("logged");
 
-        if((logged != null) && logged) {
+        if(sessionBean.getLogged()){
             model.put("logged", "yes");
         }
 

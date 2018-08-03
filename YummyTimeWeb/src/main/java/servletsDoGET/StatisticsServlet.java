@@ -27,6 +27,9 @@ public class StatisticsServlet extends HttpServlet {
     @Inject
     private RecipeDao recipeDao;
 
+    @Inject
+    SessionBean sessionBean;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -42,6 +45,10 @@ public class StatisticsServlet extends HttpServlet {
 
         if (!recipeStatistic.isEmpty()) {
             model.put("recipeStatistic", recipeStatistic);
+        }
+
+        if(sessionBean.getLogged()){
+            model.put("logged", "yes");
         }
 
         try {

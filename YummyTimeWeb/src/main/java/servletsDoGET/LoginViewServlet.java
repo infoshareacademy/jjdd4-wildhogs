@@ -25,7 +25,6 @@ public class LoginViewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         Template template = templateProvider.getTemplate(getServletContext(), "login.ftlh");
 
         try {
