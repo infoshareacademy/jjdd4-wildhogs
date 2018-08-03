@@ -3,6 +3,10 @@ package servlets.shoppingListServlets;
 import dao.ShoppingListOfUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+<<<<<<< HEAD:YummyTimeWeb/src/main/java/servlets/shoppingListServlets/DeleteRecipeFromShoppingListServlet.java
+=======
+import servlets.recipeOperationsServlets.RecipeToFavoriteServlet;
+>>>>>>> develop:YummyTimeWeb/src/main/java/servlets/shoppingListServlets/DeleteRecipeFromShoppingListServlet.java
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
