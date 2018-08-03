@@ -25,6 +25,7 @@
 
     <div>
         <#if favouriteList??>
+            <h3 style="text-align: center">TOP 3!</h3>
             <@macro.listOf3BlockRecipe list = favouriteList/>
         </#if>
     </div>

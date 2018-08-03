@@ -84,7 +84,7 @@
                 </li>
             <#else >
                 <li class="nav-item">
-                    <a href="/gmail-login" class="text-white">Login via Google</a>
+                    <a href="/gmail-login" class="text-white">Login</a>
                 </li>
             </#if>
 

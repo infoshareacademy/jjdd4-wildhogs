@@ -1,4 +1,4 @@
-package servlet;
+package servletsDoGET;
 
 
 import dao.TemplateProvider;
@@ -18,7 +18,7 @@ import java.io.IOException;
 @WebServlet("/upload")
 public class UploadViewServlet extends HttpServlet {
 
-    Logger logger = LoggerFactory.getLogger(LoginViewServlet.class);
+    Logger logger = LoggerFactory.getLogger(UploadViewServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;

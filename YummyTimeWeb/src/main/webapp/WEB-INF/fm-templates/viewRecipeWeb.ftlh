@@ -26,7 +26,7 @@
                         </form> <br><br>
 
                         <form method="post" action="/to-favorite?id=${recipe.id}">
-                            <button class="btn btn-secondary">Add to favorites!</button>
+                            <button class="btn btn-secondary">Like!</button>
                         </form>
                     </div>
                 </div>

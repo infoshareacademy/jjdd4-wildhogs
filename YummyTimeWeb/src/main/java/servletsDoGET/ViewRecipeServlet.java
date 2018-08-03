@@ -33,7 +33,6 @@ public class ViewRecipeServlet extends HttpServlet {
     @Inject
     SessionBean sessionBean;
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
