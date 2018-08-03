@@ -32,7 +32,7 @@ public class ShoppingListServlet extends HttpServlet {
     private ShoppingListOfUserDao shoppingListOfUserDao;
 
     @Inject
-    private SessionBean sessionBean;
+    SessionBean sessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,16 +53,18 @@ public class ShoppingListServlet extends HttpServlet {
         }
         String sendMail = req.getParameter("send");
         if ("yes".equals(sendMail)) {
-            model.put("message", "Your Shopping List was sent");
+            model.put("message", "Your Shopping List was send!");
         }
 
         if(sessionBean.getLogged()){
             model.put("logged", "yes");
         }
+
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
-            logger.warn("Can't load template",e);
+            e.printStackTrace();
+            logger.warn("View shopping list cannot be loaded template!");
         }
     }
 }

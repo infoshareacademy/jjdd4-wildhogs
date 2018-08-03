@@ -21,7 +21,7 @@ import java.util.Map;
 @WebServlet("/statistics")
 public class StatisticsServlet extends HttpServlet {
 
-    private static Logger logger = LoggerFactory.getLogger(Statistic.class);
+    private static Logger logger = LoggerFactory.getLogger(ViewRecipeServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
@@ -30,7 +30,7 @@ public class StatisticsServlet extends HttpServlet {
     private RecipeDao recipeDao;
 
     @Inject
-    private SessionBean sessionBean;
+    SessionBean sessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,14 +49,15 @@ public class StatisticsServlet extends HttpServlet {
             model.put("recipeStatistic", recipeStatistic);
         }
 
-        if (sessionBean.getLogged()) {
+        if(sessionBean.getLogged()){
             model.put("logged", "yes");
         }
 
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
-            logger.warn("Can't load template",e);
+            e.printStackTrace();
+            logger.warn("View statistics cannot be loaded template!");
         }
     }
 }

@@ -9,7 +9,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +31,7 @@ public class SearchRecipesServlet extends HttpServlet {
     private RecipeDao recipeDao;
 
     @Inject
-    private SessionBean sessionBean;
+    SessionBean sessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,8 +39,8 @@ public class SearchRecipesServlet extends HttpServlet {
         String categoryParam = req.getParameter("category");
         String fridgeParam = req.getParameter("fridge");
 
-        if ((parameterIsNotEmpty(categoryParam) && parameterIsNotEmpty(fridgeParam))
-                || (!parameterIsNotEmpty(categoryParam) && fridgeParam == null)) {
+        if ( (parameterIsNotEmpty(categoryParam) && parameterIsNotEmpty(fridgeParam))
+                || (!parameterIsNotEmpty(categoryParam) && fridgeParam == null) ) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
@@ -49,26 +48,26 @@ public class SearchRecipesServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "searchWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        if (parameterIsNotEmpty(categoryParam)) {
-            try {
+        if(parameterIsNotEmpty(categoryParam)) {
+            try{
                 List<BlockRecipe> recipesList = recipeDao.getRecipesFromCategory(Category.valueOf(categoryParam.toUpperCase()));
                 model.put("recipesList", recipesList);
                 model.put("parameter", categoryParam);
-                if (recipesList.isEmpty()) {
+                if(recipesList.isEmpty()) {
                     String errorMessage = "There is nothing in category " + categoryParam;
                     model.put("errorMessage", errorMessage);
                 }
-            } catch (IllegalArgumentException e) {
+            }catch (IllegalArgumentException e) {
                 String errorMessage = "There is no category " + categoryParam;
                 model.put("errorMessage", errorMessage);
             }
         }
 
-        if (fridgeParam != null) {
+        if(fridgeParam != null) {
             String fridge = fridgeParam.replace(" ", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
             fridgeList = fridgeList.stream().filter(f -> !f.equals("")).collect(Collectors.toList());
-            if (!fridgeList.isEmpty()) {
+            if(!fridgeList.isEmpty()) {
                 List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
 
                 if (!recipesList.isEmpty()) {
@@ -81,14 +80,15 @@ public class SearchRecipesServlet extends HttpServlet {
             }
         }
 
-        if (sessionBean.getLogged()) {
+        if(sessionBean.getLogged()){
             model.put("logged", "yes");
         }
 
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
-            logger.warn("Can't load template", e);
+            e.printStackTrace();
+            logger.warn("View search recipe cannot be loaded template!");
         }
     }
 

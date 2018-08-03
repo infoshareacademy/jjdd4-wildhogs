@@ -18,7 +18,7 @@ public class RecipeToShoppingList extends HttpServlet {
     @Inject
     private ShoppingListOfUserDao shoppingListOfUserDao;
 
-    private static Logger logger = LoggerFactory.getLogger(RecipeToShoppingList.class);
+    private static Logger logger = LoggerFactory.getLogger(RecipeToFavoriteServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,8 +42,6 @@ public class RecipeToShoppingList extends HttpServlet {
         } else {
             path = "/view-recipe?id=" + recipeIdParam;
         }
-        logger.info("Redirecting to " + path);
-
         resp.sendRedirect(path);
     }
 }

@@ -9,7 +9,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +33,7 @@ public class WelcomeServlet extends HttpServlet {
     private RecipeDao recipeDao;
 
     @Inject
-    private SessionBean sessionBean;
+    SessionBean sessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,14 +56,15 @@ public class WelcomeServlet extends HttpServlet {
             model.put("favouriteList", favouriteList);
         }
 
-        if (sessionBean.getLogged()) {
+        if(sessionBean.getLogged()){
             model.put("logged", "yes");
         }
 
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
-            logger.warn("Can't load template", e);
+            e.printStackTrace();
+            logger.warn("View recipe cannot be loaded template!");
         }
     }
 

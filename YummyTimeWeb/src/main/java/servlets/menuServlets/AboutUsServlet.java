@@ -20,7 +20,7 @@ import java.util.Map;
 @WebServlet("/about")
 public class AboutUsServlet extends HttpServlet {
 
-    private static Logger logger = LoggerFactory.getLogger(AboutUsServlet.class);
+    private static Logger logger = LoggerFactory.getLogger(ContactUsServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
@@ -41,7 +41,8 @@ public class AboutUsServlet extends HttpServlet {
         try {
             template.process(model, resp.getWriter());
         } catch (TemplateException e) {
-            logger.warn("Can't load template",e);
+            e.printStackTrace();
+            logger.warn("View about us cannot be loaded template!");
         }
     }
 }

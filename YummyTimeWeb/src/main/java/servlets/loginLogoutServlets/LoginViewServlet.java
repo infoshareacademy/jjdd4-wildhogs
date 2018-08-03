@@ -17,7 +17,7 @@ import java.io.IOException;
 @WebServlet("/gmail-login")
 public class LoginViewServlet extends HttpServlet {
 
-    private static Logger logger = LoggerFactory.getLogger(LoginViewServlet.class);
+    Logger logger = LoggerFactory.getLogger(LoginViewServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
@@ -30,7 +30,8 @@ public class LoginViewServlet extends HttpServlet {
         try {
             template.process(new Object(), resp.getWriter());
         } catch (TemplateException e) {
-            logger.warn("Can't load template", e);
+            e.printStackTrace();
+            logger.warn("Can't load template");
         }
     }
 }

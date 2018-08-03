@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 import com.sendgrid.*;
 import dao.MailBean;
 import dao.SessionBean;
@@ -19,21 +18,20 @@ import servlets.recipeOperationsServlets.SearchRecipesServlet;
 @WebServlet("/mail")
 public class MailServlet extends HttpServlet {
 
-    private static Logger logger = LoggerFactory.getLogger(MailServlet.class);
+    private static Logger logger = LoggerFactory.getLogger(SearchRecipesServlet.class);
 
     @Inject
-    private ShoppingListOfUserDao shoppingListOfUserDao;
+    ShoppingListOfUserDao shoppingListOfUserDao;
 
     @Inject
     private MailBean mailBean;
 
     @Inject
-    private SessionBean sessionBean;
+    SessionBean sessionBean;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.debug("Started doPost method");
         StringBuilder sb = new StringBuilder();
         sb.append("Your shopping list : \n\r");
         sb.append("\n\r");
@@ -52,7 +50,6 @@ public class MailServlet extends HttpServlet {
         Mail mail = new Mail(from, subject, to, content);
         mailBean.sendEmail(mail);
 
-        logger.debug("Starting redirect to /shopping-list?send=yes");
         resp.sendRedirect("/shopping-list?send=yes");
     }
 }
