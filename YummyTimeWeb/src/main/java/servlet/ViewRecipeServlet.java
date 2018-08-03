@@ -1,6 +1,5 @@
 package servlet;
 
-import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import dao.IngredientDao;
 import dao.RecipeChangeDao;
 import dao.RecipeDao;
@@ -10,19 +9,14 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.ws.rs.HEAD;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @WebServlet("/view-recipe")
