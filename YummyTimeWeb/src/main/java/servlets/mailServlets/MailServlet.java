@@ -1,4 +1,4 @@
-package servletsDoPOST;
+package servlets.mailServlets;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import com.sendgrid.*;
 import dao.MailBean;
@@ -14,7 +13,7 @@ import dao.SessionBean;
 import dao.ShoppingListOfUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import servletsDoGET.SearchRecipesServlet;
+import servlets.recipeOperationsServlets.SearchRecipesServlet;
 
 @WebServlet("/mail")
 public class MailServlet extends HttpServlet {

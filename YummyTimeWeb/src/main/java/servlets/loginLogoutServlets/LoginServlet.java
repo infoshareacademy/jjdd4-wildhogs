@@ -1,4 +1,4 @@
-package servletsDoPOST;
+package servlets.loginLogoutServlets;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.infoshareacademy.jjdd4.wildhogs.data.User;

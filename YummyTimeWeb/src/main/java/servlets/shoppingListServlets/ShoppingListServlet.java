@@ -1,4 +1,4 @@
-package servletsDoGET;
+package servlets.shoppingListServlets;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import dao.BlockRecipe;

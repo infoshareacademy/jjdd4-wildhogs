@@ -1,9 +1,9 @@
-package servletsDoPOST;
+package servlets.shoppingListServlets;
 
 import dao.ShoppingListOfUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import servletsDoPOST.RecipeToFavoriteServlet;
+import servlets.recipeOperationsServlets.RecipeToFavoriteServlet;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;

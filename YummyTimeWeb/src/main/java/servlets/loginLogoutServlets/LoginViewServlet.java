@@ -1,5 +1,4 @@
-package servletsDoGET;
-
+package servlets.loginLogoutServlets;
 
 import dao.TemplateProvider;
 import freemarker.template.Template;
@@ -15,10 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/upload")
-public class UploadViewServlet extends HttpServlet {
+@WebServlet("/gmail-login")
+public class LoginViewServlet extends HttpServlet {
 
-    Logger logger = LoggerFactory.getLogger(UploadViewServlet.class);
+    Logger logger = LoggerFactory.getLogger(LoginViewServlet.class);
 
     @Inject
     private TemplateProvider templateProvider;
@@ -26,8 +25,7 @@ public class UploadViewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-        Template template = templateProvider.getTemplate(getServletContext(), "upload.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "login.ftlh");
 
         try {
             template.process(new Object(), resp.getWriter());

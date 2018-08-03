@@ -1,10 +1,10 @@
-package servletsDoPOST;
+package servlets.mailServlets;
 
 import com.sendgrid.*;
 import dao.MailBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import servletsDoGET.SearchRecipesServlet;
+import servlets.recipeOperationsServlets.SearchRecipesServlet;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
