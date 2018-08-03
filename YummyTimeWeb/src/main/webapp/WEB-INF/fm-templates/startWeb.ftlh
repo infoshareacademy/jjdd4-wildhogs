@@ -5,7 +5,7 @@
 
     <div>
     <#if recipesForDefaultCategory??>
-        <h3>THERE IS TIME FOR ${defaultCategory}!</h3>
+        <h3 style="text-align: center">THERE IS TIME FOR ${defaultCategory}!</h3>
         <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>
         <div class="justify-content-center">
             <form action="/search-recipe?fridge" method="get">
