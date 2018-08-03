@@ -1,8 +1,4 @@
 package servlets.dataUploadServlets;
-<<<<<<< HEAD:YummyTimeWeb/src/main/java/servlets/dataUploadServlets/UploadViewServlet.java
-=======
-
->>>>>>> develop:YummyTimeWeb/src/main/java/servlets/dataUploadServlets/UploadViewServlet.java
 
 import dao.TemplateProvider;
 import freemarker.template.Template;
