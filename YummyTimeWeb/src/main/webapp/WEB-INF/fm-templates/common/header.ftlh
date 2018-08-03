@@ -49,7 +49,7 @@
         <div></div>
 
         <div class="container">
-            <h1 class="name">YummyTime</h1>
+            <a href="/welcome" style="text-decoration: none;color: white"><h1 class="name">YummyTime</h1></a>
         </div>
         <nav class="nav justify-content-center">
 
@@ -89,20 +89,7 @@
             </#if>
 
         </nav>
-    <#--<script>-->
-    <#--// logout-->
-    <#--$("#logout").on('click', function() {-->
-    <#--var xhr = new XMLHttpRequest();-->
-    <#--xhr.addEventListener("load", function (ev) {-->
-    <#--console.log("LOADED");-->
-    <#--window.location.reload();-->
-    <#--});-->
-    <#--xhr.open("GET", "https://mail.google.com/mail/u/0/?logout&hl=en");-->
-    <#--xhr.send();-->
-    <#--});-->
 
-    <#--// then reload-->
-    <#--</script>-->
     </div>
 
     <div class="container-fluid">
