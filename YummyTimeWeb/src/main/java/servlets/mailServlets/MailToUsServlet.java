@@ -16,7 +16,7 @@ import java.io.IOException;
 
 @WebServlet("/mailToUs")
 public class MailToUsServlet extends HttpServlet {
-    private static Logger logger = LoggerFactory.getLogger(MailToUsServlet.class);
+    private static Logger logger = LoggerFactory.getLogger(SearchRecipesServlet.class);
 
     @Inject
     private MailBean mailBean;
@@ -24,7 +24,6 @@ public class MailToUsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.debug("Started doPost method");
         StringBuilder sb = new StringBuilder();
         sb.append("New Message!!! \n\r");
         sb.append(req.getParameter("message") + "\n\r");
@@ -44,7 +43,6 @@ public class MailToUsServlet extends HttpServlet {
 
         mailBean.sendEmail(mail);
 
-        logger.debug("Redirecting to /contact");
         resp.sendRedirect("/contact");
     }
 }

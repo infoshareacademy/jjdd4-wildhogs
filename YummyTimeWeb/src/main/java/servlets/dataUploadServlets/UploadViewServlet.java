@@ -1,8 +1,5 @@
 package servlets.dataUploadServlets;
-<<<<<<< HEAD:YummyTimeWeb/src/main/java/servlets/dataUploadServlets/UploadViewServlet.java
-=======
 
->>>>>>> develop:YummyTimeWeb/src/main/java/servlets/dataUploadServlets/UploadViewServlet.java
 
 import dao.TemplateProvider;
 import freemarker.template.Template;
@@ -29,12 +26,14 @@ public class UploadViewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         Template template = templateProvider.getTemplate(getServletContext(), "upload.ftlh");
 
         try {
             template.process(new Object(), resp.getWriter());
         } catch (TemplateException e) {
-            logger.warn("Can't load template", e);
+            e.printStackTrace();
+            logger.warn("Can't load template");
         }
     }
 }

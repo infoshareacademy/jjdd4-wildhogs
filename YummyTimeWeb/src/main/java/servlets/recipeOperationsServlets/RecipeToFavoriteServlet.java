@@ -31,18 +31,17 @@ public class RecipeToFavoriteServlet extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
-        Long recipeId = Long.valueOf(recipeIdParam);
+        Long recipeId =  Long.valueOf(recipeIdParam);
 
         Boolean recipeAdd = recipeChangeDao.addRecipeToFavorites(recipeId);
 
         String path;
-        if (recipeAdd) {
+        if(recipeAdd) {
             path = "/view-recipe?id=" + recipeIdParam + "&favorite=yes";
             logger.info("Recipe added to favorites.");
         } else {
             path = "/view-recipe?id=" + recipeIdParam;
         }
-        logger.info("Redirecting to " + path);
         resp.sendRedirect(path);
     }
 }
