@@ -1,6 +1,6 @@
 package servlets.loginLogoutServlets;
 
-import dao.SessionBean;
+import dao.UserSessionBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -24,7 +24,7 @@ public class LogoutViewServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,8 +34,8 @@ public class LogoutViewServlet extends HttpServlet {
         try {
             template.process(new Object(), resp.getWriter());
 
-            sessionBean.setLogged(false);
-            sessionBean.setEmail("");
+            userSessionBean.setLogged(false);
+            userSessionBean.setEmail("");
 
         } catch (TemplateException e) {
             logger.warn("Can't load template", e);

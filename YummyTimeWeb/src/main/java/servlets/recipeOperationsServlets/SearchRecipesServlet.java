@@ -3,7 +3,7 @@ package servlets.recipeOperationsServlets;
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import dao.BlockRecipe;
 import dao.RecipeDao;
-import dao.SessionBean;
+import dao.UserSessionBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -32,7 +32,7 @@ public class SearchRecipesServlet extends HttpServlet {
     private RecipeDao recipeDao;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,7 +53,7 @@ public class SearchRecipesServlet extends HttpServlet {
             try {
                 List<BlockRecipe> recipesList = recipeDao.getRecipesFromCategory(Category.valueOf(categoryParam.toUpperCase()));
                 model.put("recipesList", recipesList);
-                model.put("parameter", categoryParam);
+                model.put("categoryParam", categoryParam);
                 if (recipesList.isEmpty()) {
                     String errorMessage = "There is nothing in category " + categoryParam;
                     model.put("errorMessage", errorMessage);
@@ -67,21 +67,23 @@ public class SearchRecipesServlet extends HttpServlet {
         if (fridgeParam != null) {
             String fridge = fridgeParam.replace(" ", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
-            fridgeList = fridgeList.stream().filter(f -> !f.equals("")).collect(Collectors.toList());
+            fridgeList = fridgeList.stream().filter(f -> !f.equals("")).filter(f -> f.length() > 2).collect(Collectors.toList());
+
             if (!fridgeList.isEmpty()) {
                 List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
 
                 if (!recipesList.isEmpty()) {
                     model.put("recipesList", recipesList);
-                    model.put("parameter", fridgeParam);
+                    model.put("fridgeParam", fridgeParam);
                 } else {
-                    String errorMessage = "There is nothing for these ingredients.";
-                    model.put("errorMessage", errorMessage);
+                    putErrorMessageFridge(fridgeParam, model);
                 }
+            } else {
+                putErrorMessageFridge(fridgeParam, model);
             }
         }
 
-        if (sessionBean.getLogged()) {
+        if (userSessionBean.getLogged()) {
             model.put("logged", "yes");
         }
 
@@ -90,6 +92,12 @@ public class SearchRecipesServlet extends HttpServlet {
         } catch (TemplateException e) {
             logger.warn("Can't load template", e);
         }
+    }
+
+    private void putErrorMessageFridge(String fridgeParam, Map<String, Object> model) {
+        String errorMessage = "There is nothing for these ingredients";
+        model.put("errorMessage", errorMessage);
+        model.put("fridgeParam", fridgeParam);
     }
 
     private boolean parameterIsNotEmpty(String parameter) {

@@ -1,9 +1,9 @@
 package dao;
 
-import javax.ejb.Singleton;
+import javax.ejb.Stateful;
 
-@Singleton
-public class SessionBean {
+@Stateful
+public class UserSessionBean {
 
     private Boolean logged = false;
     private String username;

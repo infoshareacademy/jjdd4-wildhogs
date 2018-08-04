@@ -2,7 +2,7 @@ package servlets.shoppingListServlets;
 
 import com.infoshareacademy.jjdd4.wildhogs.data.Ingredient;
 import dao.BlockRecipe;
-import dao.SessionBean;
+import dao.UserSessionBean;
 import dao.ShoppingListOfUserDao;
 import dao.TemplateProvider;
 import freemarker.template.Template;
@@ -32,7 +32,7 @@ public class ShoppingListServlet extends HttpServlet {
     private ShoppingListOfUserDao shoppingListOfUserDao;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -56,7 +56,7 @@ public class ShoppingListServlet extends HttpServlet {
             model.put("message", "Your Shopping List was sent");
         }
 
-        if(sessionBean.getLogged()){
+        if(userSessionBean.getLogged()){
             model.put("logged", "yes");
         }
         try {

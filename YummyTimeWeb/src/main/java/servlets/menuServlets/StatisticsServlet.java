@@ -5,7 +5,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import servlets.recipeOperationsServlets.ViewRecipeServlet;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -30,7 +29,7 @@ public class StatisticsServlet extends HttpServlet {
     private RecipeDao recipeDao;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,7 +48,7 @@ public class StatisticsServlet extends HttpServlet {
             model.put("recipeStatistic", recipeStatistic);
         }
 
-        if (sessionBean.getLogged()) {
+        if (userSessionBean.getLogged()) {
             model.put("logged", "yes");
         }
 
