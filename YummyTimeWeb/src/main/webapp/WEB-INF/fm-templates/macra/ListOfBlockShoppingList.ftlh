@@ -11,7 +11,7 @@
                             </div>
                         </a>
                         <form method="post" action="/sub-shoppingList?id=${recipe.id}">
-                            <input class="btn btn-secondary" type="submit" value="Delete">
+                            <input  class="btn btn-secondary" style="color: white;background-color: darkorange;width: 100%;" type="submit" value="Delete">
                         </form>
                     </div>
                 </div>
