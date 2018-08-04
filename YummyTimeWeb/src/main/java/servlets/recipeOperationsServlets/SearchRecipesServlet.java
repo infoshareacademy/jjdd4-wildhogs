@@ -67,7 +67,8 @@ public class SearchRecipesServlet extends HttpServlet {
         if (fridgeParam != null) {
             String fridge = fridgeParam.replace(" ", ",");
             List<String> fridgeList = Arrays.asList(fridge.split(","));
-            fridgeList = fridgeList.stream().filter(f -> !f.equals("")).collect(Collectors.toList());
+            fridgeList = fridgeList.stream().filter(f -> !f.equals("")).filter(f -> f.length() > 2).collect(Collectors.toList());
+
             if (!fridgeList.isEmpty()) {
                 List<BlockRecipe> recipesList = recipeDao.getRecipesForProducts(fridgeList);
 
@@ -75,10 +76,16 @@ public class SearchRecipesServlet extends HttpServlet {
                     model.put("recipesList", recipesList);
                     model.put("parameter", fridgeParam);
                 } else {
-                    String errorMessage = "There is nothing for these ingredients.";
+                    String errorMessage = "There is nothing for these ingredients: " + fridgeParam;
                     model.put("errorMessage", errorMessage);
+                    model.put("tryAgain", "");
                 }
+            }else {
+                String errorMessage = "There is nothing for these ingredients: " + fridgeParam;
+                model.put("errorMessage", errorMessage);
+                model.put("tryAgain", "");
             }
+
         }
 
         if (sessionBean.getLogged()) {
