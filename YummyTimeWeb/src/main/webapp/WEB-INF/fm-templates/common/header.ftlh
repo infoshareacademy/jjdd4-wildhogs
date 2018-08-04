@@ -68,7 +68,7 @@
 
 <div class="HEADER">
 
-    <div class="jumbotron jumbotron-fluid text-white" style="background:darkorange">
+    <div class="jumbotron jumbotron-fluid text-white" style="background:darkorange;border-radius: 0px 0px 20px 20px">
         <div></div>
 
         <div class="container">
