@@ -38,15 +38,17 @@ public class ShoppingListOfUserDao {
 
     public boolean addRecipeToShoppingList(Long recipeId) {
         Recipe recipe = recipeDao.findById(recipeId);
-        if (recipe != null) {
-            User user = getUser();
-            if (user != null) {
-                user.getShoppingList().add(new ShoppingListItem(recipe, user));
-                usersDao.update(user);
-                return true;
-            }
+        if (recipe == null) {
+            return false;
         }
-        return false;
+        User user = getUser();
+        if (user == null) {
+            return false;
+        }
+
+        user.getShoppingList().add(new ShoppingListItem(recipe, user));
+        usersDao.update(user);
+        return true;
     }
 
     public void deleteRecipeFromShoppingList(Long recipeId){
