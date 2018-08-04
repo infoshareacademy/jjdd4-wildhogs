@@ -22,7 +22,7 @@
                 </div>
                 <div class="col">
                     <form method="post" action="/mail" style="margin: 100px">
-                        <button class="btn btn-secondary">Send list to Your Email!</button>
+                        <button style="background-color:darkorange" class="btn btn-secondary">Send list on your e-mail</button>
                     </form>
                 </div>
             </div>
@@ -38,7 +38,7 @@
         </#if>
     <#else>
         <div class="alert alert-info" role="alert">
-            You need to by login, to use shopping list!
+            You need to login to use shopping list!
         </div>
     </#if>
 </div>

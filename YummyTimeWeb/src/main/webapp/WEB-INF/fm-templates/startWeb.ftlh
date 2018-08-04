@@ -5,12 +5,12 @@
 
     <div>
     <#if recipesForDefaultCategory??>
-        <h3 style="text-align: center">THERE IS TIME FOR ${defaultCategory}!</h3>
+        <h3 style="text-align: center">IT'S TIME FOR ${defaultCategory}!</h3>
         <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>
         <div class="justify-content-center">
             <form action="/search-recipe?fridge" method="get">
                 <div class="form-group">
-                    <label>Put what you have got in your fridge, and we will find recipe for You</label>
+                    <label>Type in what you have in your kitchen and we will find a recipe for you:</label>
                     <input type="text" name="fridge" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-secondary">Search</button>
@@ -18,7 +18,7 @@
         </div>
     <#else>
         <div class="alert alert-danger" role="alert">
-            There are no recipes, please load JSON file! <a href="/upload">Here</a>
+            There are no recipes, please load correct JSON file <a href="/upload">Here</a>
         </div>
     </#if>
     </div>

@@ -27,6 +27,26 @@
         margin: 0px 50px;
         text-align: center;
     }
+    .menu-button{
+        border-radius: 50px;
+        color: white;
+        font-weight: bold;
+    }
+    .menu-button:hover{
+        color: darkorange;
+        font-weight: bold;
+
+    }
+    .dropdown-item:hover{
+        font-weight: bold;
+    }
+
+    .dropdown-item:hover{
+        background-color: darkorange;
+        color: white;
+        font-weight: bold;
+
+    }
 
 </style>
 <body background=white">
@@ -49,15 +69,17 @@
         <div></div>
 
         <div class="container">
-            <h1 class="name">YummyTime</h1>
+            <a href="/welcome" style="text-decoration: none;color: white"><h1 class="name">YummyTime</h1></a>
         </div>
+        <br>
+        <br>
         <nav class="nav justify-content-center">
 
             <li class="nav-item">
-                <a href="welcome" class="text-white">Home</a>
+                <a class="menu-button" href="welcome" class="text-white">Home</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                <a class="menu-button" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Category</a>
                 <div class="dropdown-menu">
                     <a href="search-recipe?category=breakfast" class="dropdown-item">Breakfast</a>
@@ -67,42 +89,29 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="/shopping-list" class="text-white">Shopping List</a>
+                <a class="menu-button" href="/shopping-list" class="text-white">Shopping List</a>
             </li>
             <li class="nav-item">
-                <a href="/statistics" class="text-white">Statistic</a>
+                <a class="menu-button" href="/statistics" class="text-white">Statistic</a>
             </li>
             <li class="nav-item">
-                <a href="/about" class="text-white">Our Team</a>
+                <a class="menu-button" href="/about" class="text-white">Our Team</a>
             </li>
             <li class="nav-item">
-                <a href="/contact" class="text-white">Contact</a>
+                <a class="menu-button" href="/contact" class="text-white">Contact</a>
             </li>
             <#if logged??>
                 <li>
-                    <a id="logout" href="/logout-gmail" class="text-white">Sign out</a>
+                    <a class="menu-button" id="logout" href="/logout-gmail" class="text-white">Sign out</a>
                 </li>
             <#else >
                 <li class="nav-item">
-                    <a href="/gmail-login" class="text-white">Login</a>
+                    <a class="menu-button" href="/gmail-login" class="text-white">Login</a>
                 </li>
             </#if>
 
         </nav>
-    <#--<script>-->
-    <#--// logout-->
-    <#--$("#logout").on('click', function() {-->
-    <#--var xhr = new XMLHttpRequest();-->
-    <#--xhr.addEventListener("load", function (ev) {-->
-    <#--console.log("LOADED");-->
-    <#--window.location.reload();-->
-    <#--});-->
-    <#--xhr.open("GET", "https://mail.google.com/mail/u/0/?logout&hl=en");-->
-    <#--xhr.send();-->
-    <#--});-->
 
-    <#--// then reload-->
-    <#--</script>-->
     </div>
 
     <div class="container-fluid">
