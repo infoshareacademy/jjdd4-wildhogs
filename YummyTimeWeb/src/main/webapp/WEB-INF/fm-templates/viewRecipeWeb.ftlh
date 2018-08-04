@@ -22,11 +22,11 @@
                     </ul>
                     <div style="margin: 20px">
                         <form method="post" action="/to-shoppingList?id=${recipe.id}">
-                            <button class="btn btn-secondary">Add to shopping list!</button>
+                            <button style="background-color: darkorange" class="btn btn-secondary">Add to shopping list!</button>
                         </form> <br><br>
 
                         <form method="post" action="/to-favorite?id=${recipe.id}">
-                            <button class="btn btn-secondary">Like!</button>
+                            <button style="background-color: darkorange"  class="btn btn-secondary">Like!</button>
                         </form>
                     </div>
                 </div>
