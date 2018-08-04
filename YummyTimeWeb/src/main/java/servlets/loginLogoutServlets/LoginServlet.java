@@ -2,12 +2,11 @@ package servlets.loginLogoutServlets;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.infoshareacademy.jjdd4.wildhogs.data.User;
-import dao.SessionBean;
+import dao.UserSessionBean;
 import dao.UsersDao;
 import googleApi.IdTokenVerifierAndParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import servlets.dataUploadServlets.UploadViewServlet;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -27,7 +26,7 @@ public class LoginServlet extends HttpServlet {
     private UsersDao usersDao;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     private static Logger logger = LoggerFactory.getLogger(LoginServlet.class);
 
@@ -45,9 +44,9 @@ public class LoginServlet extends HttpServlet {
             System.out.println("User name: " + name);
             System.out.println("User email: " + email);
 
-            sessionBean.setEmail(email);
-            sessionBean.setLogged(true);
-            sessionBean.setUsername(name);
+            userSessionBean.setEmail(email);
+            userSessionBean.setLogged(true);
+            userSessionBean.setUsername(name);
 
             List<String> emails = usersDao.findAll().stream().map(User::getEmail).collect(Collectors.toList());
 

@@ -32,7 +32,7 @@ public class ViewRecipeServlet extends HttpServlet {
     private RecipeChangeDao recipeChangeDao;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -56,7 +56,7 @@ public class ViewRecipeServlet extends HttpServlet {
             recipe.setTimesClicked(recipe.getTimesClicked() + 1);
         }
 
-        if (sessionBean.getLogged()) {
+        if (userSessionBean.getLogged()) {
             model.put("logged", "yes");
         }
 

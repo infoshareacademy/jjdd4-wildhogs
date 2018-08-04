@@ -1,6 +1,6 @@
 package servlets.menuServlets;
 
-import dao.SessionBean;
+import dao.UserSessionBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -26,7 +26,7 @@ public class ContactUsServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,7 +34,7 @@ public class ContactUsServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "contactUs.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        if (sessionBean.getLogged()) {
+        if (userSessionBean.getLogged()) {
             model.put("logged", "yes");
         }
 

@@ -3,7 +3,7 @@ package dao;
 import javax.ejb.Stateful;
 
 @Stateful
-public class SessionBean {
+public class UserSessionBean {
 
     private Boolean logged = false;
     private String username;

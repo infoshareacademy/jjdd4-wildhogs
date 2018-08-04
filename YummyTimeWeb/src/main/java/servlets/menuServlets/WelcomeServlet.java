@@ -3,7 +3,7 @@ package servlets.menuServlets;
 import com.infoshareacademy.jjdd4.wildhogs.data.Category;
 import dao.BlockRecipe;
 import dao.RecipeDao;
-import dao.SessionBean;
+import dao.UserSessionBean;
 import dao.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -34,7 +34,7 @@ public class WelcomeServlet extends HttpServlet {
     private RecipeDao recipeDao;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,7 +57,7 @@ public class WelcomeServlet extends HttpServlet {
             model.put("favouriteList", favouriteList);
         }
 
-        if (sessionBean.getLogged()) {
+        if (userSessionBean.getLogged()) {
             model.put("logged", "yes");
         }
 

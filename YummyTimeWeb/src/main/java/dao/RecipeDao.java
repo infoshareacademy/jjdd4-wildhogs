@@ -65,10 +65,9 @@ public class RecipeDao {
         if (sortedRecipesId == null) {
             return new ArrayList<>();
         }
-
         List<Recipe> listOfRecipes = sortedRecipesId.stream()
-                .map((Long r) -> findById(r))
-                .collect(Collectors.toList());
+                 .map((Long r) -> findById(r))
+                 .collect(Collectors.toList());
         return changeRecipiesToBlocks(listOfRecipes);
     }
 

@@ -10,11 +10,10 @@ import java.io.IOException;
 
 import com.sendgrid.*;
 import dao.MailBean;
-import dao.SessionBean;
+import dao.UserSessionBean;
 import dao.ShoppingListOfUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import servlets.recipeOperationsServlets.SearchRecipesServlet;
 
 @WebServlet("/mail")
 public class MailServlet extends HttpServlet {
@@ -28,7 +27,7 @@ public class MailServlet extends HttpServlet {
     private MailBean mailBean;
 
     @Inject
-    private SessionBean sessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -47,7 +46,7 @@ public class MailServlet extends HttpServlet {
         Email from = new Email("YummyTime@App.com");
         String subject = "Shopping List";
         logger.info("Send mail");
-        Email to = new Email(sessionBean.getEmail());
+        Email to = new Email(userSessionBean.getEmail());
         Content content = new Content("text/plain", mailText);
         Mail mail = new Mail(from, subject, to, content);
         mailBean.sendEmail(mail);
