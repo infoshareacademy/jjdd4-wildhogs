@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -44,16 +42,16 @@ public class LoginServlet extends HttpServlet {
             System.out.println("User name: " + name);
             System.out.println("User email: " + email);
 
-            userSessionBean.setEmail(email);
-            userSessionBean.setLogged(true);
-            userSessionBean.setUsername(name);
-
-            List<String> emails = usersDao.findAll().stream().map(User::getEmail).collect(Collectors.toList());
-
-            if (!emails.contains(email)) {
+            User user = usersDao.findByEmail(email);
+            if (user == null) {
                 logger.info("saving user to the database");
-                usersDao.save(new User(name, email));
+                user = new User(name, email);
+                usersDao.save(user);
             }
+
+            userSessionBean.setLogged(true);
+            userSessionBean.setUserId(user.getId());
+
             resp.sendRedirect("/welcome");
 
         } catch (Exception e) {

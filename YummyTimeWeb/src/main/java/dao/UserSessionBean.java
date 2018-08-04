@@ -1,13 +1,13 @@
 package dao;
 
-import javax.ejb.Stateful;
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
 
-@Stateful
-public class UserSessionBean {
+@SessionScoped
+public class UserSessionBean implements Serializable {
 
     private Boolean logged = false;
-    private String username;
-    private String email;
+    private Long userId;
 
     public Boolean getLogged() {
         return logged;
@@ -17,19 +17,12 @@ public class UserSessionBean {
         this.logged = logged;
     }
 
-    public String getUsername() {
-        return username;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
