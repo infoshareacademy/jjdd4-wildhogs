@@ -53,7 +53,7 @@ public class SearchRecipesServlet extends HttpServlet {
             try {
                 List<BlockRecipe> recipesList = recipeDao.getRecipesFromCategory(Category.valueOf(categoryParam.toUpperCase()));
                 model.put("recipesList", recipesList);
-                model.put("parameter", categoryParam);
+                model.put("categoryParam", categoryParam);
                 if (recipesList.isEmpty()) {
                     String errorMessage = "There is nothing in category " + categoryParam;
                     model.put("errorMessage", errorMessage);
@@ -74,14 +74,13 @@ public class SearchRecipesServlet extends HttpServlet {
 
                 if (!recipesList.isEmpty()) {
                     model.put("recipesList", recipesList);
-                    model.put("parameter", fridgeParam);
+                    model.put("fridgeParam", fridgeParam);
                 } else {
                     putErrorMessageFridge(fridgeParam, model);
                 }
             } else {
                 putErrorMessageFridge(fridgeParam, model);
             }
-
         }
 
         if (userSessionBean.getLogged()) {
@@ -96,9 +95,9 @@ public class SearchRecipesServlet extends HttpServlet {
     }
 
     private void putErrorMessageFridge(String fridgeParam, Map<String, Object> model) {
-        String errorMessage = "There is nothing for these ingredients: " + fridgeParam;
+        String errorMessage = "There is nothing for these ingredients";
         model.put("errorMessage", errorMessage);
-        model.put("tryAgain", "");
+        model.put("fridgeParam", fridgeParam);
     }
 
     private boolean parameterIsNotEmpty(String parameter) {

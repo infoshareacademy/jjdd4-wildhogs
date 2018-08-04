@@ -47,6 +47,9 @@
         font-weight: bold;
 
     }
+    .search{
+        margin: 30px 0px 30px;
+    }
 
 </style>
 <body background=white">

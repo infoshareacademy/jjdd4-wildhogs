@@ -7,7 +7,7 @@
     <#if recipesForDefaultCategory??>
         <h3 style="text-align: center">IT'S TIME FOR ${defaultCategory}!</h3>
         <@macro.listOf3BlockRecipe list = recipesForDefaultCategory/>
-        <div class="justify-content-center">
+        <div class="justify-content-center search" style="text-align: center;">
             <form action="/search-recipe?fridge" method="get">
                 <div class="form-group">
                     <label>Type in what you have in your kitchen and we will find a recipe for you:</label>
