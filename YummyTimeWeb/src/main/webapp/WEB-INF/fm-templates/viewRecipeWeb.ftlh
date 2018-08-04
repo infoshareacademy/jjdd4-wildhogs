@@ -20,15 +20,17 @@
                         <li class="list-group-item">${value.name} - ${value.amount} ${value.unit.description}</li>
                     </#list>
                     </ul>
-                    <div style="margin: 20px">
-                        <form method="post" action="/to-shoppingList?id=${recipe.id}">
-                            <button class="btn btn-secondary">Add to shopping list!</button>
-                        </form> <br><br>
+                    <#if logged??>
+                        <div style="margin: 20px">
+                            <form method="post" action="/to-shoppingList?id=${recipe.id}">
+                                <button class="btn btn-secondary">Add to shopping list!</button>
+                            </form> <br><br>
 
-                        <form method="post" action="/to-favorite?id=${recipe.id}">
-                            <button class="btn btn-secondary">Like!</button>
-                        </form>
-                    </div>
+                            <form method="post" action="/to-favorite?id=${recipe.id}">
+                                <button class="btn btn-secondary">Like!</button>
+                            </form>
+                        </div>
+                    </#if>
                 </div>
             </div>
         </div>

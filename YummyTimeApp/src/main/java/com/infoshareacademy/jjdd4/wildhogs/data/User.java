@@ -2,6 +2,7 @@ package com.infoshareacademy.jjdd4.wildhogs.data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
@@ -19,6 +20,9 @@ public class User {
     @Column(name = "email")
     @NotNull
     private String email;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ShoppingListItem> shoppingList;
 
     public User() {
     }
@@ -62,5 +66,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<ShoppingListItem> getShoppingList() {
+        return shoppingList;
+    }
+
+    public void setShoppingList(List<ShoppingListItem> shoppingList) {
+        this.shoppingList = shoppingList;
     }
 }

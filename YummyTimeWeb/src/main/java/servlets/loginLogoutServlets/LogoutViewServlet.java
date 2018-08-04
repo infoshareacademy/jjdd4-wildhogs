@@ -35,7 +35,7 @@ public class LogoutViewServlet extends HttpServlet {
             template.process(new Object(), resp.getWriter());
 
             userSessionBean.setLogged(false);
-            userSessionBean.setEmail("");
+            userSessionBean.setUserId(-1l);
 
         } catch (TemplateException e) {
             logger.warn("Can't load template", e);

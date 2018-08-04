@@ -40,23 +40,22 @@ public class ShoppingListServlet extends HttpServlet {
         Template template = templateProvider.getTemplate(getServletContext(), "shoppingListWeb.ftlh");
         Map<String, Object> model = new HashMap<>();
 
-        List<BlockRecipe> recipesInShoppingList = shoppingListOfUserDao.getRecipeInShoppingList();
-        List<Ingredient> shoppingList = shoppingListOfUserDao.getIngridientsInShoppingListOfUser();
-
-        if (recipesInShoppingList != null && !recipesInShoppingList.isEmpty()) {
-            logger.info("Recipes were saved to the shopping list.");
-            model.put("recipesInShoppingList", recipesInShoppingList);
-            model.put("shoppingList", shoppingList);
-        }
-        else {
-            logger.warn("Problem with saving recipes to the shopping list");
-        }
-        String sendMail = req.getParameter("send");
-        if ("yes".equals(sendMail)) {
-            model.put("message", "Your Shopping List was sent");
-        }
-
         if(userSessionBean.getLogged()){
+            List<BlockRecipe> recipesInShoppingList = shoppingListOfUserDao.getRecipeInShoppingList();
+            List<Ingredient> shoppingList = shoppingListOfUserDao.getIngredientsInShoppingListOfUser();
+
+            if (recipesInShoppingList != null && !recipesInShoppingList.isEmpty()) {
+                logger.info("Recipes were saved to the shopping list.");
+                model.put("recipesInShoppingList", recipesInShoppingList);
+                model.put("shoppingList", shoppingList);
+            }
+            else {
+                logger.warn("Problem with saving recipes to the shopping list");
+            }
+            String sendMail = req.getParameter("send");
+            if ("yes".equals(sendMail)) {
+                model.put("message", "Your Shopping List was sent");
+            }
             model.put("logged", "yes");
         }
         try {

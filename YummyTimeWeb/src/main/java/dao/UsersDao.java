@@ -10,7 +10,6 @@ import java.util.List;
 @Stateless
 public class UsersDao {
 
-
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -40,8 +39,13 @@ public class UsersDao {
         return query.getResultList();
     }
 
-
     public User findByEmail(String email) {
-        return entityManager.find(User.class, email);
+        final TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class);
+        query.setParameter("email", email);
+        try {
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }
