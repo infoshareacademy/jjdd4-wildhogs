@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
                         </div>
-                        <button class="btn btn-default" type="submit" name="button">
+                        <button style="color: white;background-color: darkorange" class="btn btn-default" type="submit" name="button">
                             <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Submit
                         </button>
                     </form>

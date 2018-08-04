@@ -13,7 +13,7 @@
                     <label>Type in what you have in your kitchen and we will find a recipe for you:</label>
                     <input type="text" name="fridge" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-secondary">Search</button>
+                <button type="submit" class="btn btn-secondary" style="color: white;background-color: darkorange" >Search</button>
             </form>
         </div>
     <#else>

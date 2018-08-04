@@ -12,7 +12,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <img src="${recipe.pathToPicture}" style="margin: 0px auto 20px;" alt="picture of Your recipe" height="500">
+                    <img src="${recipe.pathToPicture}" style="margin: 0px auto 20px;" alt="picture of Your recipe"
+                         height="500">
                 </div>
                 <div class="col">
                     <ul class="list-group list-group-flush">
@@ -23,11 +24,16 @@
                     <#if logged??>
                         <div style="margin: 20px">
                             <form method="post" action="/to-shoppingList?id=${recipe.id}">
-                                <button class="btn btn-secondary">Add to shopping list!</button>
-                            </form> <br><br>
+                                <button style="color: white;background-color: darkorange" class="btn btn-secondary">Add
+                                    to shopping list!
+                                </button>
+                            </form>
+                            <br><br>
 
                             <form method="post" action="/to-favorite?id=${recipe.id}">
-                                <button class="btn btn-secondary">Like!</button>
+                                <button style="color: white;background-color: darkorange" class="btn btn-secondary">
+                                    Like!
+                                </button>
                             </form>
                         </div>
                     </#if>

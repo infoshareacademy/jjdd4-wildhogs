@@ -16,7 +16,7 @@
                     <label>Type in what you have in your kitchen and we will find a recipe for you:</label>
                     <input type="text" name="fridge" value="${fridgeParam}" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-secondary">Search</button>
+                <button style="color: white;background-color: darkorange" type="submit" class="btn btn-secondary">Search</button>
             </form>
         </div>
     </#if>

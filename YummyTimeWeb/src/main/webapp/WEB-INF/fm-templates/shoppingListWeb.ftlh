@@ -22,7 +22,7 @@
                 </div>
                 <div class="col">
                     <form method="post" action="/mail" style="margin: 100px">
-                        <button style="background-color:darkorange" class="btn btn-secondary">Send list on your e-mail</button>
+                        <button style="color: white;background-color: darkorange;" class="btn btn-secondary">Send list on your e-mail</button>
                     </form>
                 </div>
             </div>
