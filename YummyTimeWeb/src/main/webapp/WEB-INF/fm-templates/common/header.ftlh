@@ -68,7 +68,7 @@
     }
 
     .search {
-    
+
         margin: 30px 0px 30px;
     }
     .name-linkedin{
