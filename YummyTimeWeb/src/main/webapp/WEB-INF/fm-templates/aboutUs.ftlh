@@ -3,9 +3,9 @@
 <div class="col-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <section class="team">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col">
                     <div class="col-lg-12">
                         <h2 style="text-align: center" class="description">Find us on LinkedIn</h2>
                         <div class="row pt-md">
