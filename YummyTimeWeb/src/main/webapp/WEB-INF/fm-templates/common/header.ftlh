@@ -27,27 +27,42 @@
         margin: 0px 50px;
         text-align: center;
     }
-    .menu-button{
+
+    .menu-button {
         border-radius: 50px;
         color: white;
         font-weight: bold;
     }
-    .menu-button:hover{
+
+    .menu-button:hover {
         color: darkorange;
         font-weight: bold;
 
     }
-    .dropdown-item:hover{
+
+    .dropdown-item:hover {
         font-weight: bold;
     }
 
-    .dropdown-item:hover{
+    .dropdown-item{
+        color: darkorange;
+
+    }
+
+    .dropdown-item:hover {
         background-color: darkorange;
         color: white;
         font-weight: bold;
 
     }
-    .search{
+
+    #category:hover{
+        background-color: white;
+        color: darkorange;
+
+    }
+
+    .search {
         margin: 30px 0px 30px;
     }
 
@@ -82,7 +97,8 @@
                 <a class="menu-button" href="welcome" class="text-white">Home</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="menu-button" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                <a id="category" class="menu-button" href="" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   role="button" aria-haspopup="true"
                    aria-expanded="false">Category</a>
                 <div class="dropdown-menu">
                     <a href="search-recipe?category=breakfast" class="dropdown-item">Breakfast</a>
