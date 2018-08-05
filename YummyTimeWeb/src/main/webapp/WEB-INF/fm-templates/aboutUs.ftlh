@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                                 <div class="img-box">
-                                    <a href="">
+                                    <a href="https://www.linkedin.com/in/mateusz--majcher/">
                                         <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png"
                                              class="img-responsive">
                                     </a>
@@ -64,7 +64,7 @@
                                 <div class="name-linkedin">
                                     <h3>Mateusz Majcher</h3>
                                 <#--<p>"komentarz"</p>-->
-                                    <a href="#">
+                                    <a href="https://www.linkedin.com/in/mateusz--majcher/">
                                         <li class="bullet-linkedin"><i class="fa fa-linkedin"></i></li>
                                     </a>
                                 </div>
