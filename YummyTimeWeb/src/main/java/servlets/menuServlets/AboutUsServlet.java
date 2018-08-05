@@ -26,10 +26,12 @@ public class AboutUsServlet extends HttpServlet {
     private TemplateProvider templateProvider;
 
     @Inject
-    UserSessionBean userSessionBean;
+    private UserSessionBean userSessionBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html; charset=UTF-8");
+
 
         Template template = templateProvider.getTemplate(getServletContext(), "aboutUs.ftlh");
         Map<String, Object> model = new HashMap<>();

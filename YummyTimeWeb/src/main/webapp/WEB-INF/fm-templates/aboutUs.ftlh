@@ -7,39 +7,67 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="col-lg-12">
-                        <h6 class="description">OUR TEAM</h6>
+                        <h2 style="text-align: center" class="description">Find us on LinkedIn</h2>
                         <div class="row pt-md">
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                                 <div class="img-box">
-                                    <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png" class="img-responsive">
+                                    <a href="https://www.linkedin.com/in/natalia-dorozynska/">
+                                        <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png"
+                                             class="img-responsive">
+                                    </a>
                                 </div>
-                                <h1>Natalia Dorożyńska</h1>
-                                <p>"komentarz"</p>
-                                <a href="https://www.linkedin.com/in/natalia-dorozynska/"><li><i class="fa fa-linkedin"></i></li></a>
+                                <div class="name-linkedin">
+                                    <h3>Natalia Dorożyńska</h3>
+                                <#--<p>"komentarz"</p>-->
+                                    <a href="https://www.linkedin.com/in/natalia-dorozynska/">
+                                        <li class="bullet-linkedin"><i class="fa fa-linkedin"></i></li>
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                                 <div class="img-box">
-                                    <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png" class="img-responsive">
+                                    <a href="https://www.linkedin.com/in/katarzynajankowska/">
+                                        <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png"
+                                             class="img-responsive">
+                                    </a>
                                 </div>
-                                <h1>Katarzyna Jankowska</h1>
-                                <p>"komentarz"</p>
-                                <a href="https://www.linkedin.com/in/katarzyna-jankowska-6a7214169/"><li><i class="fa fa-linkedin"></i></li></a>
+                                <div class="name-linkedin">
+                                    <h3>Katarzyna Jankowska</h3>
+                                <#--<p>"komentarz"</p>-->
+                                    <a href="https://www.linkedin.com/in/katarzynajankowska/">
+                                        <li class="bullet-linkedin"><i class="fa fa-linkedin"></i></li>
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                                 <div class="img-box">
-                                    <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png" class="img-responsive">
+                                    <a href="https://www.linkedin.com/in/matmazur/">
+                                        <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png"
+                                             class="img-responsive">
+                                    </a>
                                 </div>
-                                <h1> Mateusz Mazur</h1>
-                                <p>"Just do it!"</p>
-                                <a href="https://www.linkedin.com/in/matmazur/"><li><i class="fa fa-linkedin"></i></li></a>
+                                <div class="name-linkedin">
+                                    <h3> Mateusz Mazur</h3>
+                                <#--<p>"Just do it!"</p>-->
+                                    <a href="https://www.linkedin.com/in/matmazur/">
+                                        <li class="bullet-linkedin"><i class="fa fa-linkedin"></i></li>
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                                 <div class="img-box">
-                                    <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png" class="img-responsive">
+                                    <a href="">
+                                        <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22235-pig-face-icon.png"
+                                             class="img-responsive">
+                                    </a>
                                 </div>
-                                <h1>Mateusz Majcher</h1>
-                                <p>"komentarz"</p>
-                                <a href="#"><li><i class="fa fa-linkedin"></i></li></a>
+                                <div class="name-linkedin">
+                                    <h3>Mateusz Majcher</h3>
+                                <#--<p>"komentarz"</p>-->
+                                    <a href="#">
+                                        <li class="bullet-linkedin"><i class="fa fa-linkedin"></i></li>
+                                    </a>
+                                </div>
                             </div>
                             </ul>
                         </div>
