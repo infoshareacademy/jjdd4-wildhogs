@@ -47,9 +47,23 @@
         font-weight: bold;
 
     }
+    .bullet-linkedin{
+        list-style-type: none;
+
+    }
     .search{
         margin: 30px 0px 30px;
     }
+    .name-linkedin{
+        text-align: center;
+    }
+
+    #logo{
+        background-color: darkorange;
+        border-radius: 0px 0px 20px 20px;
+    }
+
+
 
 </style>
 <body background=white">
@@ -68,11 +82,11 @@
 
 <div class="HEADER">
 
-    <div class="jumbotron jumbotron-fluid text-white" style="background:darkorange;border-radius: 0px 0px 20px 20px">
+    <div class="jumbotron jumbotron-fluid text-white" id="logo">
         <div></div>
 
         <div class="container">
-            <a href="/welcome" style="text-decoration: none;color: white"><h1 class="name">YummyTime</h1></a>
+            <a href="/welcome" style="text-decoration: none;color: white"><h1 class="name"}>YummyTime</h1></a>
         </div>
         <br>
         <br>
