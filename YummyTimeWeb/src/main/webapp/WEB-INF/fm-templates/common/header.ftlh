@@ -80,7 +80,10 @@
         border-radius: 0px 0px 20px 20px;
     }
 
-
+    .form-control-file{
+        width: 326px;
+        margin: 0px auto;
+    }
 
 </style>
 <body background=white">
